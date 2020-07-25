@@ -1,0 +1,41 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Seek Redemption!') == false">
+
+	<!-- Pickup -->	
+    <If Condition="Data.HasActiveQuest('Seek Redemption!') == false and Data.HasCompletedQuest('Seek Redemption!') == false">
+        <TakeQuest NpcName="Syral Bladeleaf" QuestId="489" QuestName="Seek Redemption!" />
+    </If>
+  
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Objective Completion -->
+	
+	
+	<If Condition="Data.HasActiveQuest('Seek Redemption!') == true and Data.AllQuestObjectivesAreComplete('Seek Redemption!') == false" >
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AddHotspot X="9937.84765625" Y="859.77508544922" Z="1319.9494628906" Range="20" />
+		<AddHotspot X="9930.23046875" Y="817.10101318359" Z="1318.1420898438" Range="20" />
+		<AddHotspot X="10005.686523438" Y="686.37103271484" Z="1321.8903808594" Range="20" />
+		<AddHotspot X="10092.296875" Y="510.64804077148" Z="1324.267578125" Range="20" />
+		<AddHotspot X="9711.037109375" Y="573.43902587891" Z="1308.4079589844" Range="20" />
+		<AddHotspot X="9722.072265625" Y="800.86511230469" Z="1295.8851318359" Range="20" />
+		<AddHotspot X="9753.5849609375" Y="804.04168701172" Z="1299.3443603516" Range="20" />
+		<SetEnableQuestNodes Value="true" />	
+		<While Condition="Data.AllQuestObjectivesAreComplete('Seek Redemption!') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('Seek Redemption!') == true">
+        <ReturnQuest NpcName="Zenn Foulhoof" QuestId="489" QuestName="Seek Redemption!" />
+    </If>	
+
+
+</ShadowProfile>

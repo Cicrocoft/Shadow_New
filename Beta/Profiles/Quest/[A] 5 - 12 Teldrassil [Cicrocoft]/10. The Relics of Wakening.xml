@@ -1,0 +1,60 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Relics of Wakening') == false">
+<Lua>HerbNodes[2741]=0</Lua> 
+<Lua>HerbNodes[2740]=0</Lua> 
+	<!-- Pickup -->	
+
+  
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorSlotsCount Value="0" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetRepairPercent Value="30" />
+	
+	<!-- Objective Completion -->
+	<If Condition="Data.HasActiveQuest('The Relics of Wakening') == true and Data.AllQuestObjectivesAreComplete('The Relics of Wakening') == false" >
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<SetEnableQuestNodes Value="true" />	
+		<ClearHotspots />
+		<!-- Hotspots -->
+		<AddHotspot X="9753.0556640625" Y="1584.7238769531" Z="1300.3161621094" Range="10" />
+		<While Condition="Data.QuestObjectiveIsComplete('The Relics of Wakening', 2) == false" >
+			<Wait Value="100" />
+		</While>
+		<ClearHotspots />
+		<!-- Hotspots -->		
+		<AddHotspot X="9778.767578125" Y="1551.7468261719" Z="1299.2653808594" Range="10" />
+		<While Condition="Data.QuestObjectiveIsComplete('The Relics of Wakening', 4) == false" >
+			<Wait Value="100" />
+		</While>	
+		<If Condition="Data.HasActiveQuest('The Sleeping Druid') == false and Data.HasCompletedQuest('The Sleeping Druid') == false">
+			<TakeQuest NpcName="Oben Rageclaw" QuestId="2541" QuestName="The Sleeping Druid" />
+		</If>
+		<ClearHotspots />
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<SetEnableQuestNodes Value="true" />		
+		<!-- Hotspots -->		
+		<AddHotspot X="9709.0517578125" Y="1543.7120361328" Z="1254.3735351563" Range="15" />
+		<While Condition="Data.QuestObjectiveIsComplete('The Relics of Wakening', 3) == false" >
+			<Wait Value="100" />
+		</While>
+		<ClearHotspots />
+		<!-- Hotspots -->		
+		<AddHotspot X="9884.767578125" Y="1487.9573974609" Z="1278.7734375" Range="20" />
+		<While Condition="Data.QuestObjectiveIsComplete('The Relics of Wakening', 1) == false" >
+			<Wait Value="100" />
+		</While>	
+		<SetEnableAutoHerb Value="false" />
+		<SetEnableQuestNodes Value="false" />			
+	</If>
+ 	
+	<If Condition="Data.HasActiveQuest('The Relics of Wakening') == true and Data.AllQuestObjectivesAreComplete('The Relics of Wakening') == true">
+        <ReturnQuest NpcName="Athridas Bearmantle" QuestId="483" QuestName="The Relics of Wakening" />
+    </If>  	
+ 	
+
+</ShadowProfile>

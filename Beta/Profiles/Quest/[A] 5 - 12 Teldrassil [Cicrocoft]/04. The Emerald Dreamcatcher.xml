@@ -1,0 +1,52 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Emerald Dreamcatcher') == false or Data.HasCompletedQuest('A Troubling Breeze') == false">
+
+	<!-- Pickup -->	
+    <If Condition="Data.HasActiveQuest('A Troubling Breeze') == false and Data.HasCompletedQuest('A Troubling Breeze') == false">
+        <TakeQuest NpcName="Athridas Bearmantle" QuestId="475" QuestName="A Troubling Breeze" />
+    </If>
+	<If Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == false and Data.HasCompletedQuest('The Emerald Dreamcatcher') == false">
+        <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="2438" QuestName="The Emerald Dreamcatcher" />
+    </If>   
+  
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Objective Completion -->
+	<If Condition="Data.HasActiveQuest('A Troubling Breeze') == true">
+		<ReturnQuest NpcName="Gaerolas Talvethren" QuestId="475" QuestName="A Troubling Breeze" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Gnarlpine Corruption') == false and Data.HasCompletedQuest('A Troubling Breeze') == true and Data.HasCompletedQuest('Gnarlpine Corruption') == false">
+		<TakeQuest NpcName="Gaerolas Talvethren" QuestId="476" QuestName="Gnarlpine Corruption" />
+	</If>
+	
+	
+	<If Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == true and Data.AllQuestObjectivesAreComplete('The Emerald Dreamcatcher') == false" >
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+			<AddHotspot X="9808.41796875" Y="353.208984375" Z="1308.4591064453" Range="20" />
+		<SetEnableQuestNodes Value="true" />	
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Emerald Dreamcatcher') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('Gnarlpine Corruption') == true">
+        <ReturnQuest NpcName="Athridas Bearmantle" QuestId="476" QuestName="Gnarlpine Corruption" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('The Relics of Wakening') == false and Data.HasCompletedQuest('The Relics of Wakening') == false and Data.HasCompletedQuest('Gnarlpine Corruption') == true">
+        <TakeQuest NpcName="Athridas Bearmantle" QuestId="483" QuestName="The Relics of Wakening" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == true and Data.AllQuestObjectivesAreComplete('The Emerald Dreamcatcher') == true">
+        <ReturnQuest NpcName="Tallonkai Swiftroot" QuestId="2438" QuestName="The Emerald Dreamcatcher" />
+    </If>  
+	<If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('Ferocitas the Dream Eater') == false">
+        <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="2459" QuestName="Ferocitas the Dream Eater" />
+    </If>   	
+
+</ShadowProfile>

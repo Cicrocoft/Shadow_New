@@ -1,0 +1,33 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Poor Old Blanchy') == false">
+
+	
+    <If Condition="Data.HasActiveQuest('Poor Old Blanchy') == false and Data.HasCompletedQuest('Poor Old Blanchy') == false">
+        <TakeQuest NpcName="Verna Furlbrow" QuestName="Poor Old Blanchy" />
+    </If>
+
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Farmer Saldean"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="William MacGregor"/>
+    <SetRepairPercent Value="35" />
+	
+	
+    <SetTargetingMode Mode="Gather Only" />
+	<SetHotspotTraverseMode Mode="Circular"/>
+    <ClearHotspots />
+    <SetEnableAutoHerb Value="true" />
+	<AddBlackspot X="-10180.844726563" Y="1098.3137207031" Z="36.416595458984" Range="50" />
+	<AddBlackspot X="-10129.947265625" Y="1138.4731445313" Z="37.30362701416" Range="50" />	
+	<AddBlackspot X="-10322.5" Y="1222.2145996094" Z="36.968849182129" Range="20" />
+	<AddHotspot X="-9851.5224609375" Y="1001.8734741211" Z="30.253280639648" Range="100" />
+	<AddHotspot X="-10203.028320313" Y="1051.2332763672" Z="36.423355102539" Range="10" />
+	<AddHotspot X="-10162.173828125" Y="1324.8088378906" Z="38.329292297363" Range="50" />
+    <SetEnableQuestNodes Value="true" />	
+    <While Condition="Data.AllQuestObjectivesAreComplete('Poor Old Blanchy') == false" >
+        <Wait Value="100" />
+    </While>
+
+    <ReturnQuest NpcName="Verna Furlbrow" QuestName="Poor Old Blanchy" />
+</ShadowProfile>

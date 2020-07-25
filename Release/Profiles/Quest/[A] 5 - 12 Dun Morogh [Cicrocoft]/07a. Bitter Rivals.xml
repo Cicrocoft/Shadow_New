@@ -1,0 +1,31 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Bitter Rivals') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Bitter Rivals') == false">
+        <TakeQuest NpcName="Marleth Barleybrew" QuestName="Bitter Rivals" />
+    </If>
+    <SetBaseSettings />
+
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Innkeeper Belm"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Grawn Thromwyn"/>
+    <SetRepairPercent Value="35" />
+	<SetEnableRestockItems Value="true"/>
+	
+    <ClearHotspots />
+	<AddDoNotSellItem ItemName="Tunder Ale" />
+	<SetEnableRestockItems Value="true" />
+	<AddRestockItem ItemName="Thunder Ale" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
+	<TakeQuest NpcName="Jarven Thunderbrew" QuestName="Distracting Jarven" />
+	<ClearRestockItems/>
+	<Lua> BotSleep(1485) return true </Lua>
+	<ReturnQuestToObject QuestName="Bitter Rivals" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
+	<TakeQuestFromObject QuestName="Return to Marleth" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
+
+	<ReturnQuest NpcName="Marleth Barleybrew" QuestName="Return to Marleth" />
+
+</ShadowProfile>
+

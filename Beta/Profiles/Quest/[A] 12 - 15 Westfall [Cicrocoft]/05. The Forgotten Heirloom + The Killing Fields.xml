@@ -1,0 +1,53 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Forgotten Heirloom') == false or Data.HasCompletedQuest('The Killing Fields') == false">
+
+	
+    <If Condition="Data.HasActiveQuest('The Forgotten Heirloom') == false and Data.HasCompletedQuest('The Forgotten Heirloom') == false">
+        <TakeQuest NpcName="Farmer Furlbrow" QuestName="The Forgotten Heirloom" />
+    </If>
+    <If Condition="Data.HasActiveQuest('The Killing Fields') == false and Data.HasCompletedQuest('The Killing Fields') == false">
+        <TakeQuest NpcName="Farmer Saldean" QuestName="The Killing Fields" />
+    </If>
+	
+	
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Farmer Saldean"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="William MacGregor"/>
+    <SetRepairPercent Value="35" />
+	
+	<If Condition="Data.HasActiveQuest('The Forgotten Heirloom') == true and Data.AllQuestObjectivesAreComplete('The Forgotten Heirloom') == false">	
+		<SetTargetingMode Mode="Gather Only" />
+		<SetHotspotTraverseMode Mode="Circular"/>
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AddHotspot X="-9846.7158203125" Y="1287.2344970703" Z="41.910499572754" Range="5" />
+		<SetEnableQuestNodes Value="true" />	
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Forgotten Heirloom') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	
+	 <If Condition="Data.HasActiveQuest('The Killing Fields') == true">
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<SetHotspotTraverseMode Mode="Straight"/>
+		<AddHotspot X="-9909.7021484375" Y="1219.9114990234" Z="42.282939910889" Range="100" />
+		<AddHotspot X="-10164.013671875" Y="1117.2076416016" Z="37.017280578613" Range="100" />
+		<AddHotspot X="-10218.544921875" Y="1444.0716552734" Z="40.551124572754" Range="100" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Harvest Watcher" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Killing Fields') == false" >
+			<Wait Value="100" />
+		</While>	
+	</If>	
+	
+	<If Condition="Data.HasActiveQuest('The Forgotten Heirloom') == true and Data.AllQuestObjectivesAreComplete('The Forgotten Heirloom') == true">
+		<ReturnQuest NpcName="Farmer Furlbrow" QuestName="The Forgotten Heirloom" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Killing Fields') == true and Data.AllQuestObjectivesAreComplete('The Killing Fields') == true">
+		<ReturnQuest NpcName="Farmer Saldean" QuestName="The Killing Fields" />
+	</If>
+</ShadowProfile>

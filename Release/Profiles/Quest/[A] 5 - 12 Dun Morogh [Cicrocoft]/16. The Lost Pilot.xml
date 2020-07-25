@@ -1,0 +1,45 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A Pilot\'s Revenge') == false">
+
+	<!-- Settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Morhan Coppertongue"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Morhan Coppertongue"/>
+    <SetRepairPercent Value="35" />
+
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('The Lost Pilot') == false">
+        <TakeQuest NpcName="Pilot Hammerfoot" QuestName="The Lost Pilot" />
+    </If>
+	<!-- Quest Completion -->
+    <ClearHotspots />
+    <If Condition="Data.HasActiveQuest('The Lost Pilot') == true">
+		<ReturnQuestToObject QuestName="The Lost Pilot" X="-5063.826171875" Y="-2122.1840820313" Z="404.26696777344" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == false and Data.HasCompletedQuest('The Lost Pilot') == true">
+		<TakeQuestFromObject QuestName="A Pilot\'s Revenge" X="-5063.826171875" Y="-2122.1840820313" Z="404.26696777344" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == true">	
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-5093.82421875" Y="-2082.7783203125" Z="417.57168579102" Range="100" />
+		<!-- Mob settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Mangeclaw" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('A Pilot\'s Revenge') == false" >
+			<Wait Value="100" />
+		</While>	
+	</If>	
+ 
+	<!-- TurnIn -->
+	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == true">
+		<ReturnQuest NpcName="Pilot Hammerfoot" QuestName="A Pilot\'s Revenge" />
+	</If>
+</ShadowProfile>
+

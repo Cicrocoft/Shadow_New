@@ -1,0 +1,99 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Thelsamar Blood Sausages') == false">
+
+    <SetBaseSettings />
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == false">
+        <TakeQuest NpcName="Vidra Hearthstove" QuestName="Thelsamar Blood Sausages" />
+    </If>
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Morhan Coppertongue"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Morhan Coppertongue"/>
+    <SetRepairPercent Value="35" />
+	<AddDoNotSellItem ItemName="Boar Intestines" />
+	<AddDoNotSellItem ItemName="Bear Meat" />
+	<AddDoNotSellItem ItemName="Spider Ichor" />
+	<!-- Objective Completion -->
+    <If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-5166.1147460938" Y="-2999.0122070313" Z="336.22650146484" Range="100" />
+		<AddHotspot X="-5043.125" Y="-3063.2873535156" Z="324.56503295898" Range="50" />
+		<AddHotspot X="-5021.8598632813" Y="-2933.5009765625" Z="338.54611206055" Range="50" />
+		<AddHotspot X="-5077.4375" Y="-2766.6884765625" Z="329.85446166992" Range="100" />
+		<AddHotspot X="-5286.205078125" Y="-2807.8447265625" Z="348.17370605469" Range="100" />
+		<AddHotspot X="-5470.15234375" Y="-2796.7248535156" Z="356.71133422852" Range="100" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Mountain Boar" />
+		<AddMonsterFilterName Value="Elder Black Bear" />
+		<AddMonsterFilterName Value="Forest Lurker" />
+		<!-- Completion condition -->
+		<While Condition="Data.QuestObjectiveIsComplete('Thelsamar Blood Sausages', 1) == false" >
+			<Wait Value="100" />
+		</While>	
+    </If>
+
+    <If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-5043.125" Y="-3063.2873535156" Z="324.56503295898" Range="50" />
+		<AddHotspot X="-5021.8598632813" Y="-2933.5009765625" Z="338.54611206055" Range="50" />
+		<AddHotspot X="-5077.4375" Y="-2766.6884765625" Z="329.85446166992" Range="100" />
+		<AddHotspot X="-5286.205078125" Y="-2807.8447265625" Z="348.17370605469" Range="100" />
+		<AddHotspot X="-5470.15234375" Y="-2796.7248535156" Z="356.71133422852" Range="100" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Mountain Boar" />
+		<AddMonsterFilterName Value="Elder Black Bear" />
+		<AddMonsterFilterName Value="Forest Lurker" />
+		<!-- Completion condition -->
+		<While Condition="Data.QuestObjectiveIsComplete('Thelsamar Blood Sausages', 2) == false" >
+			<Wait Value="100" />
+		</While>	
+    </If>
+
+    <If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-5043.125" Y="-3063.2873535156" Z="324.56503295898" Range="50" />
+		<AddHotspot X="-5021.8598632813" Y="-2933.5009765625" Z="338.54611206055" Range="50" />
+		<AddHotspot X="-5077.4375" Y="-2766.6884765625" Z="329.85446166992" Range="100" />
+		<AddHotspot X="-5286.205078125" Y="-2807.8447265625" Z="348.17370605469" Range="100" />
+		<AddHotspot X="-5470.15234375" Y="-2796.7248535156" Z="356.71133422852" Range="100" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Mountain Boar" />
+		<AddMonsterFilterName Value="Elder Black Bear" />
+		<AddMonsterFilterName Value="Forest Lurker" />
+		<!-- Completion condition -->
+		<While Condition="Data.QuestObjectiveIsComplete('Thelsamar Blood Sausages', 3) == false" >
+			<Wait Value="100" />
+		</While>	
+    </If>
+	<ClearMonsterFilter/>
+	<!-- TurnIn -->
+    <If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == true and Data.AllQuestObjectivesAreComplete('Thelsamar Blood Sausages') == true">
+        <ReturnQuest NpcName="Vidra Hearthstove" QuestName="Thelsamar Blood Sausages" />
+    </If>	
+
+</ShadowProfile>

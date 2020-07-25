@@ -1,0 +1,42 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Balance of Nature', 457) == true and Data.MyRace() == WoWRace.NightElf">
+	<SetBaseSettings />
+<!-- Pickup other quests for later -->
+
+ <!-- End -->
+<!-- NE Rogue -->
+    <If Condition="Data.HasActiveQuest('Encrypted Sigil') == false and Data.HasCompletedQuest('Encrypted Sigil') == false and Data.PlayerClass() == WoWClass.Rogue">
+        <TakeQuest NpcName="Ilthalaine" QuestName="Encrypted Sigil" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Encrypted Sigil') == true and Data.PlayerClass() == WoWClass.Rogue"> 
+		<ReturnQuest NpcName="Frahun Shadewhisper" QuestName="Encrypted Sigil" />
+	</If>
+<!-- NE Hunter -->	
+	<If Condition="Data.HasActiveQuest('Etched Sigil') == false and Data.HasCompletedQuest('Etched Sigil') == false and Data.PlayerClass() == WoWClass.Hunter">
+        <TakeQuest NpcName="Ilthalaine" QuestName="Etched Sigil" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Etched Sigil') == true and Data.PlayerClass() == WoWClass.Hunter"> 
+		<ReturnQuest NpcName="Ayanna Everstride" QuestName="Etched Sigil" />
+	</If>	
+<!-- NE Warrior -->
+	<If Condition="Data.HasActiveQuest('Simple Sigil') == false and Data.HasCompletedQuest('Simple Sigil') == false and Data.PlayerClass() == WoWClass.Warrior">
+        <TakeQuest NpcName="Ilthalaine" QuestName="Simple Sigil" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Simple Sigil') == true and Data.PlayerClass() == WoWClass.Warrior"> 
+		<ReturnQuest NpcName="Alyissia" QuestName="Simple Sigil" />
+	</If>	
+<!-- NE Priest -->	
+	<If Condition="Data.HasActiveQuest('Hallowed Sigil') == false and Data.HasCompletedQuest('Hallowed Sigil') == false and Data.PlayerClass() == WoWClass.Priest">
+        <TakeQuest NpcName="Ilthalaine" QuestName="Hallowed Sigil" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Hallowed Sigil') == true and Data.PlayerClass() == WoWClass.Priest"> 
+		<ReturnQuest NpcName="Shanda" QuestName="Hallowed Sigil" />
+	</If>	
+<!-- NE Druid -->	
+	<If Condition="Data.HasActiveQuest('Verdant Sigil') == false and Data.HasCompletedQuest('Verdant Sigil') == false and Data.PlayerClass() == WoWClass.Druid">
+        <TakeQuest NpcName="Ilthalaine" QuestName="Verdant Sigil" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Verdant Sigil') == true and Data.PlayerClass() == WoWClass.Druid"> 
+		<ReturnQuest NpcName="Mardant Strongoak" QuestName="Verdant Sigil" />
+	</If>		
+	
+</ShadowProfile>

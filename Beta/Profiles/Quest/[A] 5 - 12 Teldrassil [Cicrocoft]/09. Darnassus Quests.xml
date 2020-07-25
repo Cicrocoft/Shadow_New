@@ -1,0 +1,20 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Temple of the Moon') == false">
+	<!-- PickUp/TurnIn -->
+	<If Condition="Data.HasActiveQuest('Rellian Greenspyre') == true">
+        <ReturnQuest NpcName="Rellian Greenspyre" QuestId="922" QuestName="Rellian Greenspyre" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Tumors') == false and Data.HasCompletedQuest('Tumors') == false and Data.HasCompletedQuest('Rellian Greenspyre') == true">
+        <TakeQuest NpcName="Rellian Greenspyre" QuestId="923" QuestName="Tumors" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('The Temple of the Moon') == false and Data.HasCompletedQuest('The Temple of the Moon') == false">
+        <TakeQuest NpcName="Sister Aquinne" QuestId="2519" QuestName="The Temple of the Moon" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('The Temple of the Moon') == true">
+        <ReturnQuest NpcName="Priestess A\'moora" QuestId="2519" QuestName="The Temple of the Moon" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Tears of the Moon') == false and Data.HasCompletedQuest('Tears of the Moon') == false and Data.HasCompletedQuest('The Temple of the Moon') == true">
+        <TakeQuest NpcName="Priestess A\'moora" QuestId="2518" QuestName="Tears of the Moon" />
+    </If>		
+
+	
+</ShadowProfile>

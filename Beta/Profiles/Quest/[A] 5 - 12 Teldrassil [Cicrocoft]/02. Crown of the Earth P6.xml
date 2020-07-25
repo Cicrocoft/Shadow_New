@@ -1,0 +1,29 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Crown of the Earth', 929) == false">
+	<!-- Vendor Settings -->
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Keina"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Keina"/>
+    <SetRepairPercent Value="35" />
+
+    <If Condition="Data.HasActiveQuest('Crown of the Earth', 929) == false and Data.HasCompletedQuest('Crown of the Earth', 929) == false and Data.HasCompletedQuest('Crown of the Earth', 928) == true">
+        <TakeQuest NpcName="Corithras Moonrage" QuestId="929" QuestName="Crown of the Earth" />
+    </If>
+
+	<If Condition="Data.HasActiveQuest('Crown of the Earth', 929) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 929) == false">
+		<ClearHotspots />
+		<MoveTo X="9859.81640625" Y="591.23248291016" Z="1300.8079833984" />
+		<UseItem ItemName="Jade Phial" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Crown of the Earth', 929) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Crown of the Earth', 929) == true">
+		<ReturnQuest NpcName="Corithras Moonrage" QuestId="929" QuestName="Crown of the Earth" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Crown of the Earth', 933) == false and Data.HasCompletedQuest('Crown of the Earth', 933) == false and Data.HasCompletedQuest('Crown of the Earth', 929) == true">
+        <TakeQuest NpcName="Corithras Moonrage" QuestId="933" QuestName="Crown of the Earth" />
+    </If>		
+</ShadowProfile>

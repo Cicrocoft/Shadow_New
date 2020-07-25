@@ -1,0 +1,14 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Coldridge Valley Mail Delivery', 233) == false">
+    <If Condition="Data.HasActiveQuest('Coldridge Valley Mail Delivery', 233) == false">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Coldridge Valley Mail Delivery" QuestId="233" />
+    </If>
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Adlin Pridedrift"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rybrad Coldbank"/>
+    <SetRepairPercent Value="35" />
+    
+    <ReturnQuest NpcName="Talin Keeneye" QuestName="Coldridge Valley Mail Delivery" QuestId="233" />
+</ShadowProfile>

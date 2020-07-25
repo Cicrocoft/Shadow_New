@@ -1,0 +1,68 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Road to Darnassus') == false">
+
+    <SetBaseSettings />
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('The Road to Darnassus') == false and Data.HasCompletedQuest('The Road to Darnassus') == false">
+        <TakeQuest NpcName="Moon Priestess Amara" QuestId="487" QuestName="The Road to Darnassus" />
+    </If>	
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetRepairPercent Value="35" />
+
+	<!-- Objective Completion -->
+    <If Condition="Data.HasActiveQuest('The Road to Darnassus') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+		<AddBlackspot X="10058.048828125" Y="323.04086303711" Z="1324.8781738281" Range="15" />
+		<AddBlackspot X="9370.8828125" Y="1706.7620849609" Z="1308.5528564453" Range="20" />
+		<!-- Hotspots -->
+		<AddHotspot X="10035.345703125" Y="1445.5489501953" Z="1274.6890869141" Range="75" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Gnarlpine Ambusher" />
+		<!-- Completion condition -->
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Road to Darnassus') == false" >
+			<Wait Value="100" />
+		</While>
+    </If>
+	<If Condition="Data.HasActiveQuest('Crown of the Earth', 933) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 933) == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		<AddBlackspot X="9565.3193359375" Y="1291.4835205078" Z="1300.9554443359" Range="20" />
+		<AddBlackspot X="9370.8828125" Y="1706.7620849609" Z="1308.5528564453" Range="20" />
+		<!-- Hotspots -->
+		<MoveTo X="9551.951171875" Y="1656.1898193359" Z="1299.544921875" />
+		<UseItem ItemName="Tourmaline Phial" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Crown of the Earth', 933) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('The Glowing Fruit') == false and Data.HasCompletedQuest('The Glowing Fruit') == false">
+		<TakeQuestFromObject QuestName="The Glowing Fruit" X="9247.0458984375" Y="1647.5118408203" Z="1304.1596679688" />
+    </If>
+
+
+	<!-- TurnIn -->
+    <If Condition="Data.HasActiveQuest('The Glowing Fruit') == true">
+        <ReturnQuest NpcName="Denalan" QuestId="930" QuestName="The Glowing Fruit" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Crown of the Earth', 933) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 933) == true">
+        <ReturnQuest NpcName="Corithras Moonrage" QuestId="933" QuestName="Crown of the Earth" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Crown of the Earth', 7383) == false and Data.HasCompletedQuest('Crown of the Earth', 7383) == false">
+        <TakeQuest NpcName="Corithras Moonrage" QuestId="7383" QuestName="Crown of the Earth" />
+    </If>
+    <If Condition="Data.HasActiveQuest('The Road to Darnassus') == true and Data.AllQuestObjectivesAreComplete('The Road to Darnassus') == true">
+        <ReturnQuest NpcName="Moon Priestess Amara" QuestId="487" QuestName="The Road to Darnassus" />
+    </If>		
+
+</ShadowProfile>

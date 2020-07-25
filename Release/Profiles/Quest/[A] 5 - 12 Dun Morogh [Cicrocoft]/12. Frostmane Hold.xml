@@ -1,0 +1,61 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Frostmane Hold') == false or Data.HasCompletedQuest('The Reports') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Frostmane Hold') == false and Data.HasCompletedQuest('Frostmane Hold') == false">
+        <TakeQuest NpcName="Senir Whitebeard" QuestName="Frostmane Hold" />
+    </If>
+
+
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Keeg Gibn"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Burdrak Harglhelm"/>
+    <SetRepairPercent Value="35" />
+    <If Condition="Data.HasActiveQuest('Frostmane Hold') == true and Data.HasCompletedQuest('Frostmane Hold') == false">	
+		<ClearHotspots />
+			<AddBlackspot X="-5570.404296875" Y="512.13232421875" Z="381.84985351563" Range="45" />
+			<AddHotspot X="-5557.8999023438" Y="642.83795166016" Z="399.37362670898" Range="20" />
+			<AddHotspot X="-5553.318359375" Y="570.30773925781" Z="394.33544921875" Range="20" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Frostmane Headhunter" />	
+		<While Condition="Data.QuestObjectiveIsComplete('Frostmane Hold', 1) == false and Data.HasCompletedQuest('Frostmane Hold') == false" >
+			<Wait Value="100" />
+		</While>	
+		<If Condition="Data.HasActiveQuest('Frostmane Hold') == true and Data.QuestObjectiveIsComplete('Frostmane Hold', 2) == false and Data.HasCompletedQuest('Frostmane Hold') == false">
+			<ClearHotspots />
+				<AddBlackspot X="-5570.404296875" Y="512.13232421875" Z="381.84985351563" Range="45" />
+				<MoveTo X="-5590.2626953125" Y="658.24212646484" Z="394.52560424805" Range="3" />
+				<MoveTo NoNav="true" X="-5605.8286132813" Y="656.81518554688" Z="384.31747436523" Range="3" />
+				<AddHotspot X="-5584.5493164063" Y="679.65185546875" Z="385.05163574219" Range="5" />
+				<AddHotspot X="-5578.2392578125" Y="690.76293945313" Z="382.54428100586" Range="5" />		
+			<While Condition="Data.QuestObjectiveIsComplete('Frostmane Hold', 2) == false" >
+				<Wait Value="100" />
+			</While>
+				<SetResurrectionMode Mode="SpiritHealer" />
+		</If>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Innkeeper Belm"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Grawn Thromwyn"/>
+    <SetRepairPercent Value="35" />
+		<If Condition="Data.HasActiveQuest('Frostmane Hold') == true">
+			<ReturnQuest NpcName="Senir Whitebeard" QuestName="Frostmane Hold" />
+		</If>
+	</If>
+    <If Condition="Data.HasActiveQuest('The Reports') == false and Data.HasCompletedQuest('Frostmane Hold') == true">
+        <TakeQuest NpcName="Senir Whitebeard" QuestName="The Reports" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Operation Recombobulation') == false and Data.HasCompletedQuest('Operation Recombobulation') == false">
+        <TakeQuest NpcName="Razzle Sprysprocket" QuestName="Operation Recombobulation" />
+    </If>
+	<AddBlackspot X="-4824.603515625" Y="-1010.6760864258" Z="502.1728515625" Range="2" />
+    <If Condition="Data.HasActiveQuest('The Reports') == true">
+        <ReturnQuest NpcName="Senator Barin Redstone" QuestName="The Reports" />
+    </If>	
+    <SetBaseSettings />
+</ShadowProfile>

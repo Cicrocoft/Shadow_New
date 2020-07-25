@@ -1,0 +1,11 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Evershine') == false and Data.HasCompletedQuest('The Grizzled Den') == true">
+	<SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Evershine') == false">
+        <TakeQuest NpcName="Pilot Stonegear" QuestName="Evershine" />
+    </If>  
+    <If Condition="Data.HasActiveQuest('Frostmane Hold') == false">
+        <TakeQuest NpcName="Senir Whitebeard" QuestName="Frostmane Hold" />
+    </If>  
+ 
+    <ReturnQuest NpcName="Rejold Barleybrew" QuestName="Evershine" />
+</ShadowProfile>

@@ -1,0 +1,8 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Coldridge Valley Mail Delivery', 234) == false">
+	<SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Coldridge Valley Mail Delivery', 234) == false">
+        <TakeQuest NpcName="Talin Keeneye" QuestName="Coldridge Valley Mail Delivery" QuestId="234" />
+    </If>
+   
+    <ReturnQuest NpcName="Grelin Whitebeard" QuestName="Coldridge Valley Mail Delivery" QuestId="234" />
+</ShadowProfile>

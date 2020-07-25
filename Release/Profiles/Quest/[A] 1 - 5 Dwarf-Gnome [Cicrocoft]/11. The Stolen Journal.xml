@@ -1,0 +1,53 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Stolen Journal') == false or Data.HasCompletedQuest('Beginnings') == false">
+    <If Condition="Data.HasActiveQuest('Dwarven Outfitters') == false and Data.HasCompletedQuest('The Stolen Journal') == false">
+        <TakeQuest NpcName="Grelin Whitebeard" QuestName="The Stolen Journal" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Beginnings') == false and Data.HasCompletedQuest('Tainted Memorandum') == true and Data.HasCompletedQuest('Beginnings') == false and Data.PlayerClass() == WoWClass.Warlock and Data.MyRace() == WoWRace.Gnome">
+        <TakeQuest NpcName="Alamar Grimm" QuestName="Beginnings" />
+    </If>
+	
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Adlin Pridedrift"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rybrad Coldbank"/>
+    <SetRepairPercent Value="35" />
+	
+	
+	<If Condition="Data.HasActiveQuest('The Stolen Journal') == true">
+    <ClearHotspots />
+	<AddHotspot X="-6503.1323242188" Y="302.74041748047" Z="370.07135009766" Range="30" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Grik\'nir the Cold"/>
+	
+
+    <While Condition="Data.AllQuestObjectivesAreComplete('The Stolen Journal') == false" >
+        <Wait Value="100" />
+    </While>
+    </If>
+	
+	<If Condition="Data.HasActiveQuest('Beginnings') == true and Data.HasCompletedQuest('Tainted Memorandum') == true and Data.HasCompletedQuest('Beginnings') == false and Data.PlayerClass() == WoWClass.Warlock and Data.MyRace() == WoWRace.Gnome">
+		<ClearHotspots />
+		<AddHotspot X="-6486.220703125" Y="315.96685791016" Z="373.91909790039" Range="35" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Frostmane Novice"/>
+
+		<While Condition="Data.AllQuestObjectivesAreComplete('Beginnings') == false" >
+			<Wait Value="100" />
+		</While>	
+	</If>
+	
+	<If Condition="Data.AllQuestObjectivesAreComplete('The Stolen Journal') == true" >
+		<ReturnQuest NpcName="Grelin Whitebeard" QuestName="The Stolen Journal" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Senir\'s Observations') == false and Data.HasCompletedQuest('Senir\'s Observations') == false">
+        <TakeQuest NpcName="Grelin Whitebeard" QuestName="Senir\'s Observations" />
+    </If>	
+	<If Condition="Data.AllQuestObjectivesAreComplete('Beginnings') == true and Data.PlayerClass() == WoWClass.Warlock and Data.MyRace() == WoWRace.Gnome" >
+		<ReturnQuest NpcName="Alamar Grimm" QuestName="Beginnings" />
+	</If>	
+</ShadowProfile>

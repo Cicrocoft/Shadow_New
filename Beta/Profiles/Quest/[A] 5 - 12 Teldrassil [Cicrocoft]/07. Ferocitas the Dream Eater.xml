@@ -1,0 +1,49 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Ferocitas the Dream Eater') == false">
+
+    <SetBaseSettings />
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('Ferocitas the Dream Eater') == false" and Data.HasCompletedQuest('The Emerald Dreamcatcher') == true">
+        <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="2459" QuestName="Ferocitas the Dream Eater" />
+    </If>	
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetRepairPercent Value="35" />
+
+	<!-- Objective Completion -->
+    <If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+		<AddBlackspot X="10058.048828125" Y="323.04086303711" Z="1324.8781738281" Range="15" />
+		<!-- Hotspots -->
+		<AddHotspot X="10020.362304688" Y="288.21548461914" Z="1322.9482421875" Range="30" />
+		<AddHotspot X="10045.489257813" Y="234.84506225586" Z="1326.9310302734" Range="35" />
+		<AddHotspot X="9960.3388671875" Y="265.09750366211" Z="1326.0974121094" Range="20" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Gnarlpine Mystic" />
+		<AddMonsterFilterName Value="Ferocitas the Dream Eater" />
+		<!-- Completion condition -->
+		<While Condition="Data.AllQuestObjectivesAreComplete('Ferocitas the Dream Eater') == false" >
+			<If Condition="Data.ItemExistsByName('Gnarlpine Necklace')">
+				<UseItem ItemName="Gnarlpine Necklace" />
+			</If>
+			<Wait Value="100" />
+		</While>
+    </If>
+
+
+	<!-- TurnIn -->
+    <If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == true and Data.AllQuestObjectivesAreComplete('Ferocitas the Dream Eater') == true">
+        <ReturnQuest NpcName="Tallonkai Swiftroot" QuestId="2459" QuestName="Ferocitas the Dream Eater" />
+    </If>		
+
+</ShadowProfile>

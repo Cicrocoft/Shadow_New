@@ -1,0 +1,190 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Crown of the Earth', 7383) == false or Data.HasActiveQuest('The Enchanted Glade') == false or Data.HasCompletedQuest('The Shimmering Frond') == false or Data.HasCompletedQuest('Nessa Shadowsong') == false">
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetRepairPercent Value="30" />
+
+    <If Condition="Data.HasActiveQuest('Crown of the Earth', 7383) == false and Data.HasCompletedQuest('Crown of the Earth', 7383) == false and Data.HasCompletedQuest('Crown of the Earth', 929) == true">
+        <TakeQuest NpcName="Corithras Moonrage" QuestId="7383" QuestName="Crown of the Earth" />
+    </If>
+    <If Condition="Data.HasActiveQuest('The Enchanted Glade') == false and Data.HasCompletedQuest('The Enchanted Glade') == false">
+        <TakeQuest NpcName="Sentinel Arynia Cloudsbreak" QuestId="937" QuestName="The Enchanted Glade" />
+    </If>
+	
+	<If Condition="Data.HasActiveQuest('Crown of the Earth', 7383) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 7383) == false">
+		<ClearHotspots />
+		<MoveTo X="10672.815429688" Y="1856.8459472656" Z="1324.3133544922" />
+		<UseItem ItemName="Amethyst Phial" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Crown of the Earth', 7383) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+    <If Condition="Data.HasActiveQuest('The Shimmering Frond') == false and Data.HasCompletedQuest('The Shimmering Frond') == false">
+		<TakeQuestFromObject QuestName="The Shimmering Frond" X="10857.1015625" Y="2048.451171875" Z="1328.2927246094" />
+    </If>
+
+    <If Condition="Data.HasActiveQuest('The Enchanted Glade') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="10674.969726563" Y="2041.6000976563" Z="1326.2867431641" Range="20" />
+		<AddHotspot X="10646.087890625" Y="2022.8189697266" Z="1328.3355712891" Range="20" />
+		<AddHotspot X="10577.536132813" Y="2004.8103027344" Z="1326.4208984375" Range="20" />
+		<AddHotspot X="10550.677734375" Y="1995.8115234375" Z="1325.9548339844" Range="20" />
+		<AddHotspot X="10530.47265625" Y="1977.3114013672" Z="1327.8833007813" Range="20" />
+		<AddHotspot X="10502.059570313" Y="1958.6711425781" Z="1322.7073974609" Range="20" />
+		<AddHotspot X="10484.490234375" Y="1947.0812988281" Z="1319.6979980469" Range="20" />
+		<AddHotspot X="10428.740234375" Y="1915.5230712891" Z="1320.4233398438" Range="50" />
+		<AddHotspot X="10339.143554688" Y="1890.7409667969" Z="1323.3182373047" Range="50" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Bloodfeather Harpy" />
+		<AddMonsterFilterName Value="Bloodfeather Rogue" />
+		<AddMonsterFilterName Value="Bloodfeather Sorceress" />		
+		<!-- Completion condition -->
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Enchanted Glade') == false" >
+			<Wait Value="100" />
+		</While>
+    </If>
+    <If Condition="Data.HasActiveQuest('Tumors') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+		<AddBlackspot X="10831.055664063" Y="1602.5856933594" Z="1272.5325927734" Range="50" />
+		<AddBlackspot X="10918.97265625" Y="1537.1540527344" Z="1275.9332275391" Range="50" />
+		<!-- Hotspots -->
+		<AddHotspot X="10393.959960938" Y="1664.08984375" Z="1290.7376708984" Range="50" />
+		<AddHotspot X="10372.138671875" Y="1580.3165283203" Z="1293.4683837891" Range="20" />
+		<AddHotspot X="10510.223632813" Y="1569.0283203125" Z="1304.4676513672" Range="50" />
+		<AddHotspot X="10534.016601563" Y="1639.0017089844" Z="1283.1110839844" Range="100" />
+		<AddHotspot X="10592.508789063" Y="1618.2794189453" Z="1286.9604492188" Range="50" />
+		<AddHotspot X="10663.352539063" Y="1592.6109619141" Z="1288.5288085938" Range="20" />
+		<AddHotspot X="10722.211914063" Y="1613.4132080078" Z="1274.3452148438" Range="50" />
+
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Timberling Mire Beast" />
+		<AddMonsterFilterName Value="Timberling Trampler" />
+	
+		<!-- Completion condition -->
+		<While Condition="Data.AllQuestObjectivesAreComplete('Tumors') == false" >
+			<Wait Value="100" />
+		</While>
+    </If>	
+	
+    <If Condition="Data.HasActiveQuest('Tears of the Moon') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+		<AddBlackspot X="10831.055664063" Y="1602.5856933594" Z="1272.5325927734" Range="50" />
+		<AddBlackspot X="10918.97265625" Y="1537.1540527344" Z="1275.9332275391" Range="50" />
+		<!-- Hotspots -->
+		<AddHotspot X="10971.201171875" Y="1392.2899169922" Z="1319.1918945313" Range="100" />
+		<AddHotspot X="10989.297851563" Y="1483.8560791016" Z="1288.6539306641" Range="50" />
+		<AddHotspot X="10977.6875" Y="1698.3262939453" Z="1299.2586669922" Range="50" />
+		<AddHotspot X="10964.15234375" Y="1811.7593994141" Z="1326.6489257813" Range="50" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Lady Sathrah" />
+	
+	
+		<!-- Completion condition -->
+		<While Condition="Data.AllQuestObjectivesAreComplete('Tears of the Moon') == false" >
+			<Wait Value="100" />
+		</While>
+    </If>		
+
+
+
+<!-- Return -->
+	<If Condition="Data.HasActiveQuest('The Enchanted Glade') == true and Data.AllQuestObjectivesAreComplete('The Enchanted Glade') == true">
+		<ReturnQuest NpcName="Sentinel Arynia Cloudsbreak" QuestId="937" QuestName="The Enchanted Glade" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Teldrassil') == false and Data.HasCompletedQuest('The Enchanted Glade') == true and Data.HasCompletedQuest('Teldrassil') == false">
+        <TakeQuest NpcName="Sentinel Arynia Cloudsbreak" QuestId="940" QuestName="Teldrassil" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Crown of the Earth', 7383) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 7383) == true">
+		<ReturnQuest NpcName="Corithras Moonrage" QuestId="7383" QuestName="Crown of the Earth" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Crown of the Earth', 935) == false and Data.HasCompletedQuest('Crown of the Earth', 935) == false and Data.HasCompletedQuest('Crown of the Earth', 7383) == true">
+        <TakeQuest NpcName="Corithras Moonrage" QuestId="935" QuestName="Crown of the Earth" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('The Shimmering Frond') == true">
+		<ReturnQuest NpcName="Denalan" QuestId="931" QuestName="The Shimmering Frond" />
+	</If>		
+ <!--   <If Condition="Data.HasActiveQuest('The Sprouted Fronds') == false and Data.HasCompletedQuest('The Sprouted Fronds') == false and Data.HasCompletedQuest('The Shimmering Frond') == true">
+		<TakeQuestFromObject QuestName="The Sprouted Fronds" X="9505.353515625" Y="719.59582519531" Z="1256.1866455078" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('The Sprouted Fronds') == true">
+		<ReturnQuestToObject QuestName="The Sprouted Fronds" X="9505.353515625" Y="719.59582519531" Z="1256.1866455078" />
+    </If> -->		
+    <If Condition="Data.HasActiveQuest('Nessa Shadowsong') == false and Data.HasCompletedQuest('Nessa Shadowsong') == false">
+        <TakeQuest NpcName="Mydrannul" QuestId="6344" QuestName="Nessa Shadowsong" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('Tears of the Moon') == true and Data.AllQuestObjectivesAreComplete('Tears of the Moon') == true">
+		<ReturnQuest NpcName="Priestess A\'moora" QuestId="2518" QuestName="Tears of the Moon" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Sathrah\'s Sacrifice') == false and Data.HasCompletedQuest('Tears of the Moon') == true and Data.HasCompletedQuest('Sathrah\'s Sacrifice') == false">
+        <TakeQuest NpcName="Priestess A\'moora" QuestId="2520" QuestName="Sathrah\'s Sacrifice" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('Sathrah\'s Sacrifice') == true and Data.AllQuestObjectivesAreComplete('Sathrah\'s Sacrifice') == false">
+		<ClearHotspots />
+		<MoveTo X="9624.9970703125" Y="2522.9030761719" Z="1331.5793457031" />
+		<UseItem ItemName="Sathrah's Sacrifice" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Sathrah\'s Sacrifice') == true">
+		<ReturnQuest NpcName="Priestess A\'moora" QuestId="2520" QuestName="Sathrah\'s Sacrifice" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('Tumors') == true and Data.AllQuestObjectivesAreComplete('Tumors') == true">
+		<ReturnQuest NpcName="Rellian Greenspyre" QuestId="923" QuestName="Tumors" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Crown of the Earth', 935) == true or Data.HasActiveQuest('Teldrassil') == true">
+		<ReturnQuest NpcName="Archdruid Fandral Staghelm" QuestId="935" QuestName="Crown of the Earth" />
+		<ReturnQuest NpcName="Archdruid Fandral Staghelm" QuestName="Teldrassil" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Grove of the Ancients') == false and Data.HasCompletedQuest('Teldrassil') == true and Data.HasCompletedQuest('Grove of the Ancients') == false">
+        <TakeQuest NpcName="Archdruid Fandral Staghelm" QuestId="952" QuestName="Grove of the Ancients" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Nessa Shadowsong') == true">	
+		<If Condition="GetZoneText() == 'Darnassus'">
+			<MoveTo X="9945.103515625" Y="2610.1130371094" Z="1316.2829589844" />
+			<MoveTo NoNav="true" X="9946.99609375" Y="2622.9794921875" Z="1317.8334960938" />
+			<Lua> BotSleep(10000) return true </Lua>
+		</If>
+		<While Condition="GetZoneText() == 'Teldrassil'">
+			<ReturnQuest NpcName="Nessa Shadowsong" QuestId="6344" QuestName="Nessa Shadowsong" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('The Bounty of Teldrassil') == false and Data.HasCompletedQuest('Nessa Shadowsong') == true and Data.HasCompletedQuest('The Bounty of Teldrassil') == false">
+        <TakeQuest NpcName="Nessa Shadowsong" QuestId="6341" QuestName="The Bounty of Teldrassil" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('The Bounty of Teldrassil') == true">	
+		<ReturnQuest NpcName="Vesprystus" QuestId="6341" QuestName="The Bounty of Teldrassil" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Flight to Auberdine') == false and Data.HasCompletedQuest('The Bounty of Teldrassil') == true and Data.HasCompletedQuest('Flight to Auberdine') == false">
+        <TakeQuest NpcName="Vesprystus" QuestId="6342" QuestName="Flight to Auberdine" />
+    </If>		
+	<If Condition="GetZoneText() == 'Darkshore' and Data.HasActiveQuest('Flight to Auberdine') == true">
+		<ReturnQuest NpcName="Laird" QuestId="6342" QuestName="Flight to Auberdine" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Return to Nessa') == false and Data.HasCompletedQuest('Flight to Auberdine') == true and Data.HasCompletedQuest('Return to Nessa') == false and GetZoneText() == 'Darkshore'">
+        <TakeQuest NpcName="Laird" QuestId="6343" QuestName="Return to Nessa" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('Return to Nessa') == true and GetZoneText() == 'Teldrassil'">	
+		<ReturnQuest NpcName="Nessa Shadowsong" QuestName="Return to Nessa" />
+	</If>	
+</ShadowProfile>

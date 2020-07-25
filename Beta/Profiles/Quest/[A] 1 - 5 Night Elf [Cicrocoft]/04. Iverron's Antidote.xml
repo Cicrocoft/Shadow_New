@@ -1,0 +1,143 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Iverron\'s Antidote', 3522) == false or Data.HasCompletedQuest('Webwood Egg') == false">
+
+	<!-- Vendor Settiings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Keina"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Keina"/>
+    <SetRepairPercent Value="35" />
+
+    <If Condition="Data.HasActiveQuest('Webwood Venom') == false and Data.HasCompletedQuest('Webwood Venom') == false">
+        <TakeQuest NpcName="Gilshalan Windwalker" QuestId="916" QuestName="Webwood Venom" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('A Good Friend') == false and Data.HasCompletedQuest('A Good Friend') == false">
+        <TakeQuest NpcName="Dirania Silvershine" QuestId="4495" QuestName="A Good Friend" />
+    </If>
+	<If Condition="Data.HasActiveQuest('A Good Friend') == true">
+		<ReturnQuest NpcName="Iverron" QuestId="4495" QuestName="A Good Friend" />
+	</If>
+    <If Condition="Data.HasActiveQuest('A Friend in Need') == false and Data.HasCompletedQuest('A Friend in Need') == false and Data.HasCompletedQuest('A Good Friend') == true">
+        <TakeQuest NpcName="Iverron" QuestId="3519" QuestName="A Friend in Need" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('A Friend in Need') == true">
+		<ReturnQuest NpcName="Dirania Silvershine" QuestId="3519" QuestName="A Friend in Need" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Iverron\'s Antidote', 3521) == false and Data.HasCompletedQuest('Iverron\'s Antidote', 3521) == false">
+        <TakeQuest NpcName="Dirania Silvershine" QuestId="3521" QuestName="Iverron\'s Antidote" />
+    </If>	
+	
+	<If Condition="Data.HasActiveQuest('Iverron\'s Antidote', 3521) == true">
+		<SetTargetingMode Mode="Gather Only" />
+		<SetHotspotTraverseMode Mode="Circular"/>
+		<SetEnableAutoHerb Value="true" />
+		<ClearHotspots />
+		<SetEnableQuestNodes Value="true" />	
+		<AddHotspot X="10545.756835938" Y="873.58654785156" Z="1309.1411132813" Range="65" />
+
+		<While Condition="Data.QuestObjectiveIsComplete('Iverron\'s Antidote', 2, 3521) == false" >
+			<Wait Value="100" />
+		</While>
+
+		<SetTargetingMode Mode="Gather Only" />
+		<SetHotspotTraverseMode Mode="Straight"/>
+		<SetEnableAutoHerb Value="true" />
+		<ClearHotspots />
+		<SetEnableQuestNodes Value="true" />	
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Hyacinth Mushroom" />
+		<AddBlackspot X="10563.969726563" Y="881.57897949219" Z="1310.1713867188" Range="85" />
+		<AddHotspot X="10586.743164063" Y="971.20971679688" Z="1319.8327636719" Range="20" />
+		<AddHotspot X="10537.415039063" Y="1018.7387695313" Z="1321.1173095703" Range="20" />
+		<AddHotspot X="10535.618164063" Y="1067.7635498047" Z="1320.9144287109" Range="20" />
+		<AddHotspot X="10487.770507813" Y="1037.8369140625" Z="1327.6988525391" Range="20" />
+		<AddHotspot X="10356.44140625" Y="1023.2302856445" Z="1337.8151855469" Range="20" />
+		<AddHotspot X="10294.555664063" Y="975.84124755859" Z="1337.4907226563" Range="20" />
+		<AddHotspot X="10287.138671875" Y="891.6826171875" Z="1333.9802246094" Range="50" />
+		<AddHotspot X="10284.71875" Y="783.26605224609" Z="1338.1064453125" Range="20" />
+		<AddHotspot X="10318.306640625" Y="728.91088867188" Z="1331.3841552734" Range="20" />
+		<AddHotspot X="10353.4609375" Y="689.2509765625" Z="1326.9989013672" Range="20" />
+		<AddHotspot X="10373.77734375" Y="655.10815429688" Z="1328.0035400391" Range="20" />
+		<AddHotspot X="10443.158203125" Y="648.62823486328" Z="1325.6147460938" Range="20" />
+
+
+		<While Condition="Data.QuestObjectiveIsComplete('Iverron\'s Antidote', 1, 3521) == false" >
+			<Wait Value="100" />
+		</While>		
+
+		
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="false" />
+		<AddHotspot X="10722.55859375" Y="919.80035400391" Z="1328.8210449219" Range="50" />
+		<AddHotspot X="10789.912109375" Y="933.14862060547" Z="1336.4836425781" Range="20" />
+		<AddHotspot X="10837.690429688" Y="940.80456542969" Z="1336.5834960938" Range="20" />
+		<AddHotspot X="10859.780273438" Y="976.19750976563" Z="1336.4743652344" Range="20" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Webwood Spider" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Iverron\'s Antidote', 3, 3521) == false" >
+			<Wait Value="100" />
+		</While>			
+		
+	</If>
+	<If Condition="Data.HasActiveQuest('Webwood Venom') == true">
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="false" />
+		<AddHotspot X="10722.55859375" Y="919.80035400391" Z="1328.8210449219" Range="50" />
+		<AddHotspot X="10789.912109375" Y="933.14862060547" Z="1336.4836425781" Range="20" />
+		<AddHotspot X="10837.690429688" Y="940.80456542969" Z="1336.5834960938" Range="20" />
+		<AddHotspot X="10859.780273438" Y="976.19750976563" Z="1336.4743652344" Range="20" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Webwood Spider" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Webwood Venom') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<ClearHotspots />
+	<!-- Vendor Settiings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Keina"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Keina"/>
+    <SetRepairPercent Value="35" />
+	<SetEnableAutoHerb Value="false" />
+    <If Condition="Data.HasActiveQuest('Webwood Venom') == true and Data.AllQuestObjectivesAreComplete('Webwood Venom') == true">
+        <ReturnQuest NpcName="Gilshalan Windwalker" QuestId="916" QuestName="Webwood Venom" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Webwood Egg') == false and Data.HasCompletedQuest('Webwood Egg') == false and Data.HasCompletedQuest('Webwood Venom') == true">
+        <TakeQuest NpcName="Gilshalan Windwalker" QuestId="917" QuestName="Webwood Egg" />
+    </If>		
+    <If Condition="Data.HasActiveQuest('Iverron\'s Antidote', 3521) == true and Data.AllQuestObjectivesAreComplete('Iverron\'s Antidote', 3521) == true">
+        <ReturnQuest NpcName="Dirania Silvershine" QuestId="3521" QuestName="Iverron\'s Antidote" />
+    </If>		
+    <If Condition="Data.HasActiveQuest('Iverron\'s Antidote', 3522) == false and Data.HasCompletedQuest('Iverron\'s Antidote', 3522) == false and Data.HasCompletedQuest('Iverron\'s Antidote', 3521) == true">
+        <TakeQuest NpcName="Dirania Silvershine" QuestId="3522" QuestName="Iverron\'s Antidote" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('Iverron\'s Antidote', 3522) == true">
+		<ReturnQuest NpcName="Iverron" QuestId="3522" QuestName="Iverron\'s Antidote" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Webwood Egg') == true">
+		<SetTargetingMode Mode="Gather Only" />
+		<SetHotspotTraverseMode Mode="Straight"/>
+		<SetEnableAutoHerb Value="true" />
+		<ClearHotspots />
+		<SetEnableQuestNodes Value="true" />	
+		<ClearMonsterFilter/>
+		<AddHotspot X="10937.553710938" Y="924.31591796875" Z="1340.4597167969" Range="20" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Webwood Egg') == false" >
+			<Wait Value="100" />
+		</While>		
+	</If>
+	<!-- Future plan: Jump of cliff from hotspot above and CTM to <AddHotspot X="10901.72265625" Y="917.34027099609" Z="1324.2884521484" Range="100" />, if distance to hotspot above is less than 10y. Condition questobjective completed -->
+    <If Condition="Data.HasActiveQuest('Webwood Egg') == true and Data.AllQuestObjectivesAreComplete('Webwood Egg') == true">
+        <ReturnQuest NpcName="Gilshalan Windwalker" QuestId="917" QuestName="Webwood Egg" />
+    </If>	
+	
+</ShadowProfile>

@@ -1,0 +1,111 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Westfall Stew', 38) == false or Data.HasCompletedQuest('Goretusk Liver Pie') == false or Data.HasActiveQuest('Report to Gryan Stoutmantle') == true">
+
+    <If Condition="Data.HasActiveQuest('The Killing Fields') == false and Data.HasCompletedQuest('The Killing Fields') == false">
+        <TakeQuest NpcName="Farmer Saldean" QuestName="The Killing Fields" />
+    </If> 
+	<If Condition="Data.HasActiveQuest('Goretusk Liver Pie') == false and Data.HasCompletedQuest('Goretusk Liver Pie') == false">
+        <TakeQuest NpcName="Salma Saldean" QuestId="22" QuestName="Goretusk Liver Pie" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Westfall Stew', 36) == true">
+        <ReturnQuest NpcName="Salma Saldean" QuestId="36" QuestName="Westfall Stew" />
+    </If>    
+	<If Condition="Data.HasActiveQuest('Westfall Stew', 38) == false and Data.HasCompletedQuest('Westfall Stew', 38) == false and Data.HasCompletedQuest('Westfall Stew', 36) == true">
+        <TakeQuest NpcName="Salma Saldean" QuestId="38" QuestName="Westfall Stew" />
+    </If>
+
+
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Farmer Saldean"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="William MacGregor"/>
+    <SetRepairPercent Value="35" />
+	<AddDoNotSellItem ItemName="Okra" />
+	<AddDoNotSellItem ItemName="Stringy Vulture Meat" />
+	<AddDoNotSellItem ItemName="Murloc Eye" />	
+	<AddDoNotSellItem ItemName="Goretusk Snout" />
+	<AddDoNotSellItem ItemName="Goretusk Liver" />
+
+	
+ <If Condition="Data.HasActiveQuest('Westfall Stew', 38) == true">
+    <ClearHotspots />
+    <SetTargetingMode Mode="Around Points" />
+	<SetHotspotTraverseMode Mode="Circular"/>
+	<AddBlackspot X="-10180.844726563" Y="1098.3137207031" Z="36.416595458984" Range="50" />
+	<AddBlackspot X="-10129.947265625" Y="1138.4731445313" Z="37.30362701416" Range="50" />	
+	<AddHotspot X="-10001.944335938" Y="945.1650390625" Z="35.387699127197" Range="50" />
+	<AddHotspot X="-10096.758789063" Y="919.45477294922" Z="35.652225494385" Range="50" />
+	<AddHotspot X="-10235.641601563" Y="904.23077392578" Z="38.871341705322" Range="50" />
+	<AddHotspot X="-10354.276367188" Y="864.84686279297" Z="42.362003326416" Range="50" />
+	<AddHotspot X="-10228.80859375" Y="1038.3752441406" Z="36.272922515869" Range="50" />
+	<AddHotspot X="-9877.513671875" Y="1018.4202270508" Z="32.758708953857" Range="50" />
+	<AddHotspot X="-9994.341796875" Y="1130.5098876953" Z="43.972408294678" Range="50" />	
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Young Goretusk" />
+    <AddMonsterFilterName Value="Rusty Harvest Golem" />
+    <AddMonsterFilterName Value="Harvest Golem" />	
+	<AddMonsterFilterName Value="Young Fleshripper" />	
+	<AddMonsterFilterName Value="Murloc Raider" />	
+    <While Condition="Data.QuestObjectiveIsComplete('Westfall Stew', 4, 38) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearHotspots />
+    <SetTargetingMode Mode="Around Points" />
+	<SetHotspotTraverseMode Mode="Straight"/>
+	<AddBlackspot X="-10180.844726563" Y="1098.3137207031" Z="36.416595458984" Range="50" />
+	<AddBlackspot X="-10129.947265625" Y="1138.4731445313" Z="37.30362701416" Range="50" />	
+	<AddHotspot X="-10001.944335938" Y="945.1650390625" Z="35.387699127197" Range="75" />
+	<AddHotspot X="-10096.758789063" Y="919.45477294922" Z="35.652225494385" Range="75" />
+	<AddHotspot X="-10235.641601563" Y="904.23077392578" Z="38.871341705322" Range="75" />
+	<AddHotspot X="-10354.276367188" Y="864.84686279297" Z="42.362003326416" Range="75" />
+	<AddHotspot X="-10336.181640625" Y="1043.1334228516" Z="40.705066680908" Range="50" />
+	<AddHotspot X="-10410.288085938" Y="1065.3289794922" Z="47.462501525879" Range="20" />
+	<AddHotspot X="-10454.776367188" Y="1142.8686523438" Z="41.097923278809" Range="50" />
+	
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Young Goretusk" />
+    <AddMonsterFilterName Value="Goretusk" />	
+	<AddMonsterFilterName Value="Young Fleshripper" />	
+	<AddMonsterFilterName Value="Murloc Raider" />	 
+	<While Condition="Data.QuestObjectiveIsComplete('Westfall Stew', 1, 38) == false" >
+        <Wait Value="100" />
+    </While>	
+    <While Condition="Data.QuestObjectiveIsComplete('Westfall Stew', 3, 38) == false" >
+        <Wait Value="100" />
+    </While>
+    <While Condition="Data.QuestObjectiveIsComplete('Goretusk Liver Pie', 1) == false" >
+        <Wait Value="100" />
+    </While>	
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+	<AddMonsterFilterName Value="Murloc Raider" />	
+	<AddMonsterFilterName Value="Murloc Coastrunner" />		
+    <ClearHotspots />
+	<AddBlackspot X="-10180.844726563" Y="1098.3137207031" Z="36.416595458984" Range="50" />
+	<AddBlackspot X="-10129.947265625" Y="1138.4731445313" Z="37.30362701416" Range="50" />	
+	<AddBlackspot X="-9663.03125" Y="1162.8146972656" Z="6.3953385353088" Range="20" />
+	<AddBlackspot X="-9603.345703125" Y="1070.8927001953" Z="1.9329200983047" Range="20" />
+	<AddBlackspot X="-9583.34375" Y="1067.1040039063" Z="1.9511988162994" Range="20" />
+	<AddHotspot X="-9623.8779296875" Y="1041.3463134766" Z="6.9428968429565" Range="20" />
+	<AddHotspot X="-9656.6474609375" Y="1069.8193359375" Z="11.494543075562" Range="20" />
+	<AddHotspot X="-9659.623046875" Y="1115.0343017578" Z="7.6715350151062" Range="20" />
+	<AddHotspot X="-9623.658203125" Y="1153.0700683594" Z="4.9408526420593" Range="20" />
+	<AddHotspot X="-9629.806640625" Y="1201.7086181641" Z="6.3477263450623" Range="20" />
+    <While Condition="Data.QuestObjectiveIsComplete('Westfall Stew', 2, 38) == false" >
+        <Wait Value="100" />
+    </While>	
+</If>
+
+	<If Condition="Data.HasActiveQuest('Westfall Stew', 38) == true and Data.AllQuestObjectivesAreComplete('Westfall Stew', 38) == true">
+        <ReturnQuest NpcName="Salma Saldean" QuestId="38" QuestName="Westfall Stew" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Goretusk Liver Pie') == true and Data.AllQuestObjectivesAreComplete('Goretusk Liver Pie') == true">
+        <ReturnQuest NpcName="Salma Saldean" QuestId="22" QuestName="Goretusk Liver Pie" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('Report to Gryan Stoutmantle') == true">
+        <ReturnQuest NpcName="Gryan Stoutmantle" QuestId="109" QuestName="Report to Gryan Stoutmantle" />
+    </If>	
+</ShadowProfile>

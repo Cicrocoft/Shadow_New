@@ -1,0 +1,52 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Rat Catching') == false">
+
+   <!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('Rat Catching') == false">
+        <TakeQuest NpcName="Mountaineer Kadrell" QuestId="416" QuestName="Rat Catching" />
+    </If>
+	<!-- Settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Morhan Coppertongue"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Morhan Coppertongue"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Quest Completion -->
+    <If Condition="Data.HasActiveQuest('Rat Catching') == true">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		<AddBlackspot X="-5042.5131835938" Y="-2686.2045898438" Z="319.17504882813" Range="35" />
+		<AddBlackspot X="-5285.537109375" Y="-2706.9565429688" Z="342.89785766602" Range="30" />
+		<!-- Hotspots -->
+		<AddHotspot X="-5303.7670898438" Y="-2770.9631347656" Z="351.61053466797" Range="30" />
+		<AddHotspot X="-5259.0034179688" Y="-2759.6958007813" Z="350.85223388672" Range="20" />
+		<AddHotspot X="-5241.9350585938" Y="-2714.8596191406" Z="345.625" Range="20" />
+		<AddHotspot X="-5097.8330078125" Y="-2695.2175292969" Z="338.93515014648" Range="20" />
+		<AddHotspot X="-4998.5961914063" Y="-2679.9611816406" Z="324.95126342773" Range="20" />
+		<AddHotspot X="-4981.8999023438" Y="-2655.3940429688" Z="328.60870361328" Range="20" />
+		<AddHotspot X="-5015.9340820313" Y="-2621.4643554688" Z="328.25595092773" Range="25" />
+		<AddHotspot X="-5057.4462890625" Y="-2647.3688964844" Z="330.50689697266" Range="10" />
+		<AddHotspot X="-5131.0512695313" Y="-2667.7719726563" Z="337.73071289063" Range="25" />
+		<AddHotspot X="-5134.9892578125" Y="-2718.0969238281" Z="341.29025268555" Range="30" />
+		<!-- Mob settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<SetHotspotTraverseMode Mode="Circular"/>
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Tunnel Rat Scout" />
+		<AddMonsterFilterName Value="Tunnel Rat Vermin" />
+		<AddMonsterFilterName Value="Tunnel Rat Forager" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Rat Catching', 416) == false" >
+			<Wait Value="100" />
+		</While>	
+    </If>
+  
+	<!-- TurnIn -->
+  	
+    <If Condition="Data.HasActiveQuest('Rat Catching') == true and Data.AllQuestObjectivesAreComplete('Rat Catching', 416) == true">
+        <ReturnQuest NpcName="Mountaineer Kadrell" QuestId="416" QuestName="Rat Catching" />
+    </If>
+
+</ShadowProfile>

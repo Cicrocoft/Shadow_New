@@ -1,0 +1,51 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Balance of Nature', 457) == false">
+    <If Condition="Data.HasActiveQuest('The Balance of Nature', 456) == false and Data.HasCompletedQuest('The Balance of Nature', 456) == false">
+        <TakeQuest NpcName="Ilthalaine" QuestId="456" QuestName="The Balance of Nature" />
+    </If>
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Keina"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Keina"/>
+    <SetRepairPercent Value="35" />
+
+	<If Condition="Data.HasActiveQuest('The Balance of Nature', 456) == true">
+		<ClearHotspots />
+		<AddHotspot X="10398.73828125" Y="655.52307128906" Z="1326.884765625" Range="50" />
+		<AddHotspot X="10299.670898438" Y="900.26306152344" Z="1332.7315673828" Range="50" />
+		<AddHotspot X="10353.45703125" Y="973.88995361328" Z="1331.1735839844" Range="50" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Young Nightsaber"/>
+		<AddMonsterFilterName Value="Young Thistle Boar"/>
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Balance of Nature', 456) == false" >
+			<Wait Value="100" />
+		</While>
+		
+		<ReturnQuest NpcName="Ilthalaine" QuestId="456" QuestName="The Balance of Nature" />
+	</If>
+
+		
+
+	<If Condition="Data.HasActiveQuest('The Balance of Nature', 457) == false">
+        <TakeQuest NpcName="Ilthalaine" QuestId="457" QuestName="The Balance of Nature" />
+    </If>	
+	
+	<If Condition="Data.HasActiveQuest('The Balance of Nature', 457) == true">
+		<ClearHotspots />
+		<AddHotspot X="10594.7734375" Y="931.50323486328" Z="1316.7270507813" Range="50" />
+		<AddHotspot X="10652.5703125" Y="730.19940185547" Z="1324.2895507813" Range="100" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Mangy Nightsaber"/>
+		<AddMonsterFilterName Value="Thistle Boar"/>
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Balance of Nature', 457) == false" >
+			<Wait Value="100" />
+		</While>
+		<ReturnQuest NpcName="Ilthalaine" QuestId="457" QuestName="The Balance of Nature" />
+	</If>
+	
+</ShadowProfile>

@@ -1,0 +1,48 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Crown of the Earth', 928) == false">
+	<!-- Vendor Settings -->
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Keina"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Keina"/>
+    <SetRepairPercent Value="35" />
+
+    <If Condition="Data.HasActiveQuest('Tenaron\'s Summons') == false and Data.HasCompletedQuest('Tenaron\'s Summons') == false">
+        <TakeQuest NpcName="Gilshalan Windwalker" QuestId="920" QuestName="Tenaron\'s Summons" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Tenaron\'s Summons') == true">
+		<ReturnQuest NpcName="Tenaron Stormgrip" QuestId="920" QuestName="Tenaron\'s Summons" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Crown of the Earth', 921) == false and Data.HasCompletedQuest('Crown of the Earth', 921) == false and Data.HasCompletedQuest('Tenaron\'s Summons') == true">
+        <TakeQuest NpcName="Tenaron Stormgrip" QuestId="921" QuestName="Crown of the Earth" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Crown of the Earth', 921) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 921) == false">
+		<ClearHotspots />
+		<MoveTo X="10706.436523438" Y="762.38861083984" Z="1321.3536376953" />
+		<UseItem ItemName="Crystal Phial" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Crown of the Earth', 921) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Crown of the Earth', 921) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 921) == true">
+        <ReturnQuest NpcName="Tenaron Stormgrip" QuestId="921" QuestName="Crown of the Earth" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Crown of the Earth', 928) == false and Data.HasCompletedQuest('Crown of the Earth', 928) == false and Data.HasCompletedQuest('Crown of the Earth', 921) == true">
+        <TakeQuest NpcName="Tenaron Stormgrip" QuestId="928" QuestName="Crown of the Earth" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Dolanaar Delivery') == false and Data.HasCompletedQuest('Dolanaar Delivery') == false">
+        <TakeQuest NpcName="Porthannius" QuestId="2159" QuestName="Dolanaar Delivery" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Zenn\'s Bidding') == false and Data.HasCompletedQuest('Zenn\'s Bidding') == false">
+        <TakeQuest NpcName="Zenn Foulhoof" QuestId="488" QuestName="Zenn\'s Bidding" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('Dolanaar Delivery') == true">
+		<ReturnQuest NpcName="Innkeeper Keldamyr" QuestId="2159" QuestName="Dolanaar Delivery" />
+	</If>
+	<While Condition="Data.HasActiveQuest('Crown of the Earth', 928) == true">
+		<ReturnQuest NpcName="Corithras Moonrage" QuestId="928" QuestName="Crown of the Earth" />
+	</While>	
+    <If Condition="Data.HasActiveQuest('Crown of the Earth', 929) == false and Data.HasCompletedQuest('Crown of the Earth', 929) == false and Data.HasCompletedQuest('Crown of the Earth', 928) == true">
+        <TakeQuest NpcName="Corithras Moonrage" QuestId="929" QuestName="Crown of the Earth" />
+    </If>		
+</ShadowProfile>

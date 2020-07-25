@@ -1,0 +1,71 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Dwarven Outfitters') == true">
+	<SetBaseSettings />
+<!-- Pickup other quests for later -->
+    <If Condition="Data.HasActiveQuest('Coldridge Valley Mail Delivery') == false and Data.HasCompletedQuest('Coldridge Valley Mail Delivery') == false">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Coldridge Valley Mail Delivery" />
+    </If>
+    <If Condition="Data.HasActiveQuest('A New Threat') == false and Data.HasCompletedQuest('A New Threat') == false">
+        <TakeQuest NpcName="Balir Frosthammer" QuestName="A New Threat" />
+    </If>
+ <!-- End -->
+<!-- Gnome Rogue -->
+    <If Condition="Data.HasActiveQuest('Encrypted Memorandum') == false and Data.HasCompletedQuest('Encrypted Memorandum') == false and Data.PlayerClass() == WoWClass.Rogue and Data.MyRace() == WoWRace.Gnome">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Encrypted Memorandum" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Encrypted Memorandum') == true and Data.PlayerClass() == WoWClass.Rogue and Data.MyRace() == WoWRace.Gnome"> 
+		<ReturnQuest NpcName="Solm Hargrin" QuestName="Encrypted Memorandum" />
+	</If>
+<!-- Dwarf Rogue -->	
+    <If Condition="Data.HasActiveQuest('Encrypted Rune') == false and Data.HasCompletedQuest('Encrypted Rune') == false and Data.PlayerClass() == WoWClass.Rogue and Data.MyRace() == WoWRace.Dwarf">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Encrypted Rune" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Encrypted Rune') == true and Data.PlayerClass() == WoWClass.Rogue and Data.MyRace() == WoWRace.Dwarf"> 
+		<ReturnQuest NpcName="Solm Hargrin" QuestName="Encrypted Rune" />
+	</If>	
+<!-- Dwarf Hunter -->	
+	<If Condition="Data.HasActiveQuest('Etched Rune') == false and Data.HasCompletedQuest('Etched Rune') == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Etched Rune" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Etched Rune') == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf"> 
+		<ReturnQuest NpcName="Thorgas Grimson" QuestName="Etched Rune" />
+	</If>	
+<!-- Gnome Mage -->	
+	<If Condition="Data.HasActiveQuest('Glyphic Memorandum') == false and Data.HasCompletedQuest('Glyphic Memorandum') == false and Data.PlayerClass() == WoWClass.Mage and Data.MyRace() == WoWRace.Gnome">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Glyphic Memorandum" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Glyphic Memorandum') == true and Data.PlayerClass() == WoWClass.Mage and Data.MyRace() == WoWRace.Gnome"> 
+		<ReturnQuest NpcName="Marryk Nurribit" QuestName="Glyphic Memorandum" />
+	</If>		
+<!-- Gnome Warrior -->
+	<If Condition="Data.HasActiveQuest('Simple Memorandum') == false and Data.HasCompletedQuest('Simple Memorandum') == false and Data.PlayerClass() == WoWClass.Warrior and Data.MyRace() == WoWRace.Gnome">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Simple Memorandum" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Simple Memorandum') == true and Data.PlayerClass() == WoWClass.Warrior and Data.MyRace() == WoWRace.Gnome"> 
+		<ReturnQuest NpcName="Thran Khorman" QuestName="Simple Memorandum" />
+	</If>	
+<!-- Dwarf Warrior -->	
+	<If Condition="Data.HasActiveQuest('Simple Rune') == false and Data.HasCompletedQuest('Simple Rune') == false and Data.PlayerClass() == WoWClass.Warrior and Data.MyRace() == WoWRace.Dwarf">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Simple Rune" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Simple Rune') == true and Data.PlayerClass() == WoWClass.Warrior and Data.MyRace() == WoWRace.Dwarf"> 
+		<ReturnQuest NpcName="Thran Khorman" QuestName="Simple Rune" />
+	</If>	
+<!-- Gnome Warlock -->
+	<If Condition="Data.HasActiveQuest('Tainted Memorandum') == false and Data.HasCompletedQuest('Tainted Memorandum') == false and Data.PlayerClass() == WoWClass.Warlock and Data.MyRace() == WoWRace.Gnome">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Tainted Memorandum" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Tainted Memorandum') == true and Data.PlayerClass() == WoWClass.Warlock and Data.MyRace() == WoWRace.Gnome"> 
+		<ReturnQuest NpcName="Alamar Grimm" QuestName="Tainted Memorandum" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('Beginnings') == false and Data.HasCompletedQuest('Tainted Memorandum') == true and Data.HasCompletedQuest('Beginnings') == false and Data.PlayerClass() == WoWClass.Warlock and Data.MyRace() == WoWRace.Gnome">
+        <TakeQuest NpcName="Alamar Grimm" QuestName="Beginnings" />
+    </If>
+<!-- Dwarf Priest -->	
+	<If Condition="Data.HasActiveQuest('Hallowed Rune') == false and Data.HasCompletedQuest('Hallowed Rune') == false and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Dwarf">
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Hallowed Rune" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Hallowed Rune') == true and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Dwarf"> 
+		<ReturnQuest NpcName="Branstock Khalder" QuestName="Hallowed Rune" />
+	</If>	
+	
+</ShadowProfile>

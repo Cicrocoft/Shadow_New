@@ -1,0 +1,22 @@
+<ShadowProfile Condition="UnitLevel('player') <= 12 and Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
+	<SetBaseSettings />
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 224) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 224) == false">
+        <TakeQuest NpcName="Mountaineer Cobbleflint" QuestId="224" QuestName="In Defense of the King\'s Lands" />
+    </If>   
+    <If Condition="Data.HasActiveQuest('The Trogg Threat', 267) == false and Data.HasCompletedQuest('The Trogg Threat', 267) == false">
+        <TakeQuest NpcName="Captain Rugelfuss" QuestId="267" QuestName="The Trogg Threat" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == false and Data.HasCompletedQuest('Thelsamar Blood Sausages') == false">
+        <TakeQuest NpcName="Vidra Hearthstove" QuestId="418" QuestName="Thelsamar Blood Sausages" />
+    </If>
+	    <If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false">
+        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Rat Catching') == false and Data.HasCompletedQuest('Rat Catching') == false">
+        <TakeQuest NpcName="Mountaineer Kadrell" QuestId="416" QuestName="Rat Catching" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Mountaineer Stormpike\'s Task') == false and Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
+        <TakeQuest NpcName="Mountaineer Kadrell" QuestId="1339" QuestName="Mountaineer Stormpike\'s Task" />
+    </If>		
+</ShadowProfile>

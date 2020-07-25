@@ -1,0 +1,45 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Crocolisk Hunting') == false">
+
+   <!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('Crocolisk Hunting') == false">
+        <TakeQuest NpcName="Marek Ironheart" QuestId="385" QuestName="Crocolisk Hunting" />
+    </If>
+	<!-- Settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Morhan Coppertongue"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Morhan Coppertongue"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Quest Completion -->
+    <If Condition="Data.HasActiveQuest('Crocolisk Hunting') == true">
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-5443.8041992188" Y="-3724.3269042969" Z="301.82864379883" Range="20" />
+		<AddHotspot X="-5364.4409179688" Y="-3733.5134277344" Z="301.03210449219" Range="20" />
+		<AddHotspot X="-5320.7412109375" Y="-3714.5480957031" Z="300.97351074219" Range="20" />
+		<AddHotspot X="-5286.2294921875" Y="-3690.0205078125" Z="300.54458618164" Range="20" />
+		<AddHotspot X="-5243.6401367188" Y="-3658.6181640625" Z="300.17028808594" Range="20" />
+		<AddHotspot X="-5193.744140625" Y="-3491.1782226563" Z="300.13461303711" Range="100" />
+		<!-- Mob settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<SetHotspotTraverseMode Mode="Straight"/>
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Loch Crocolisk" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Crocolisk Hunting') == false" >
+			<Wait Value="100" />
+		</While>	
+    </If>
+  
+	<!-- TurnIn -->
+  	
+    <If Condition="Data.HasActiveQuest('Crocolisk Hunting') == true and Data.AllQuestObjectivesAreComplete('Crocolisk Hunting') == true">
+        <ReturnQuest NpcName="Marek Ironheart" QuestId="385" QuestName="Crocolisk Hunting" />
+    </If>
+
+</ShadowProfile>

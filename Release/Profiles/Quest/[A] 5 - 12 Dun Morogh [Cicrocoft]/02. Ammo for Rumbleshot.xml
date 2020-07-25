@@ -1,0 +1,30 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Ammo for Rumbleshot') == false">
+ <Lua>HerbNodes[148499] = 0</Lua>
+	<SetBaseSettings />
+     <If Condition="Data.HasActiveQuest('Ammo for Rumbleshot') == false">
+        <TakeQuest NpcName="Loslor Rudge" QuestName="Ammo for Rumbleshot" />
+    </If>
+	<If Condition="Data.HasActiveQuest('The Grizzled Den') == false and Data.HasCompletedQuest('The Grizzled Den') == false">
+        <TakeQuest NpcName="Pilot Stonegear" QuestName="The Grizzled Den" />
+    </If>   
+	<If Condition="Data.HasActiveQuest('Stocking Jetsteam') == false and Data.HasCompletedQuest('Stocking Jetsteam') == false">
+        <TakeQuest NpcName="Pilot Bellowfiz" QuestName="Stocking Jetsteam" />
+    </If>  
+ 
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Innkeeper Belm"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Grawn Thromwyn"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Gather Only" />
+    <ClearHotspots />
+    <SetEnableAutoHerb Value="true" />
+		<AddHotspot X="-5744.6538085938" Y="-372.66412353516" Z="365.7294921875" Range="20" />
+    <SetEnableQuestNodes Value="true" />	
+    <While Condition="Data.AllQuestObjectivesAreComplete('Ammo for Rumbleshot') == false" >
+        <Wait Value="100" />
+    </While>
+	<MoveTo X="-5984.3442382813" Y="-373.46221923828" Z="415.65682983398" Range="20" />
+    <ReturnQuest NpcName="Hegnar Rumbleshot" QuestName="Ammo for Rumbleshot" />
+</ShadowProfile>

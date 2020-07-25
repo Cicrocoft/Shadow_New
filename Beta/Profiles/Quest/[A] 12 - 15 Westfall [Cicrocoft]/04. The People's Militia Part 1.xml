@@ -1,0 +1,85 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The People\'s Militia', 12) == false or Data.HasCompletedQuest('The People\'s Militia', 13) == false or Data.HasActiveQuest('The People\'s Militia', 14) == true">
+	
+	<If Condition="Data.HasActiveQuest('Red Leather Bandanas') == false and Data.HasCompletedQuest('Red Leather Bandanas') == false">
+		<TakeQuest NpcName="Scout Galiaan" QuestId="153" QuestName="Red Leather Bandanas" />
+	</If>
+    <If Condition="Data.HasActiveQuest('The People\'s Militia', 12) == false and Data.HasCompletedQuest('The People\'s Militia', 12) == false">
+        <TakeQuest NpcName="Gryan Stoutmantle" QuestId="12" QuestName="The People\'s Militia" />
+    </If> 
+	
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="William MacGregor"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="William MacGregor"/>
+    <SetRepairPercent Value="35" />
+
+
+ <If Condition="Data.HasActiveQuest('The People\'s Militia', 12) == true">
+    <ClearHotspots />
+    <SetTargetingMode Mode="Around Points" />
+	<SetHotspotTraverseMode Mode="Circular"/>
+	<AddBlackspot X="-10180.844726563" Y="1098.3137207031" Z="36.416595458984" Range="50" />
+	<AddBlackspot X="-10129.947265625" Y="1138.4731445313" Z="37.30362701416" Range="50" />	
+	<AddBlackspot X="-10259.009765625" Y="1461.3356933594" Z="40.353145599365" Range="45" />
+	<AddBlackspot X="-10206.958984375" Y="1435.9289550781" Z="40.463642120361" Range="50" />	
+	<AddBlackspot X="-10311.4453125" Y="1400.7014160156" Z="41.324180603027" Range="10" />
+	<AddBlackspot X="-10355.37890625" Y="1564.9722900391" Z="41.683959960938" Range="5" />
+	<AddBlackspot X="-10349.19140625" Y="1568.1567382813" Z="41.316551208496" Range="5" />
+	<AddBlackspot X="-10396.0625" Y="1543.2562255859" Z="42.20435333252" Range="5" />
+	<AddBlackspot X="-10394.716796875" Y="1533.8317871094" Z="41.881038665771" Range="5" />
+	<AddBlackspot X="-10390.430664063" Y="1524.2423095703" Z="41.25496673584" Range="5" />
+	<AddBlackspot X="-10381.875" Y="1515.2727050781" Z="41.102966308594" Range="5" />
+	<AddBlackspot X="-10373.57421875" Y="1509.7369384766" Z="41.959064483643" Range="5" />
+	<AddBlackspot X="-10369.641601563" Y="1501.2435302734" Z="41.967216491699" Range="5" />
+	<AddBlackspot X="-10488.0859375" Y="1329.1137695313" Z="42.568321228027" Range="20" />
+	<AddHotspot X="-10492.471679688" Y="1234.8933105469" Z="69.833251953125" Range="20" />
+	<AddHotspot X="-10496.473632813" Y="1266.5200195313" Z="64.914520263672" Range="20" />
+	<AddHotspot X="-10294.123046875" Y="1343.8216552734" Z="41.155334472656" Range="20" />
+	<AddHotspot X="-10268.350585938" Y="1384.9152832031" Z="39.784770965576" Range="20" />
+	<AddHotspot X="-10353.81640625" Y="1541.1097412109" Z="44.857799530029" Range="20" />
+	<AddHotspot X="-10351.896484375" Y="1591.9716796875" Z="40.403247833252" Range="20" />
+	<AddHotspot X="-10635.271484375" Y="1381.1917724609" Z="41.506381988525" Range="20" />	
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Defias Trapper" />
+    <AddMonsterFilterName Value="Defias Smuggler" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('The People\'s Militia', 12) == false" >
+        <Wait Value="100" />
+    </While>
+
+	<If Condition="Data.HasActiveQuest('The People\'s Militia', 12) == true">
+        <ReturnQuest NpcName="Gryan Stoutmantle" QuestId="12" QuestName="The People\'s Militia" />
+    </If>	
+</If>	
+    <If Condition="Data.HasActiveQuest('The People\'s Militia', 13) == false and Data.HasCompletedQuest('The People\'s Militia', 12) == true">
+        <TakeQuest NpcName="Gryan Stoutmantle" QuestId="13" QuestName="The People\'s Militia" />
+    </If> 
+
+	
+ <If Condition="Data.HasActiveQuest('The People\'s Militia', 13) == true">
+    <ClearHotspots />
+    <SetTargetingMode Mode="Around Points" />
+	<SetHotspotTraverseMode Mode="Circular"/>
+	<AddBlackspot X="-10746.150390625" Y="1665.8051757813" Z="45.174777984619" Range="100" />
+	<AddHotspot X="-10729.946289063" Y="1624.1419677734" Z="43.805248260498" Range="20" />
+	<AddHotspot X="-10717.572265625" Y="1687.3758544922" Z="44.967449188232" Range="20" />
+	<AddHotspot X="-10699.088867188" Y="1722.7385253906" Z="42.278091430664" Range="50" />
+	<AddHotspot X="-10708.263671875" Y="1872.2374267578" Z="34.387504577637" Range="50" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Defias Pillager" />
+    <AddMonsterFilterName Value="Defias Looter" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('The People\'s Militia', 13) == false" >
+        <Wait Value="100" />
+    </While>
+
+	<If Condition="Data.HasActiveQuest('Report to Gryan Stoutmantle') == true">
+        <ReturnQuest NpcName="Gryan Stoutmantle" QuestId="13" QuestName="The People\'s Militia" />
+    </If>	
+</If>
+    <If Condition="Data.HasActiveQuest('The People\'s Militia', 14) == false and Data.HasCompletedQuest('The People\'s Militia', 13) == true">
+        <TakeQuest NpcName="Gryan Stoutmantle" QuestId="14" QuestName="The People\'s Militia" />
+    </If> 	
+</ShadowProfile>

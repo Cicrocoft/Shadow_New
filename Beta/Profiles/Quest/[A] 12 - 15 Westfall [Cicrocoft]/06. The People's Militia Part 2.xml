@@ -1,0 +1,42 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The People\'s Militia', 13) == false or Data.HasActiveQuest('The People\'s Militia', 14) == true">
+	
+	<If Condition="Data.HasActiveQuest('Red Leather Bandanas') == false and Data.HasCompletedQuest('Red Leather Bandanas') == false">
+		<TakeQuest NpcName="Scout Galiaan" QuestId="153" QuestName="Red Leather Bandanas" />
+	</If>
+ 
+	
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="William MacGregor"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="William MacGregor"/>
+    <SetRepairPercent Value="35" />
+
+
+ <If Condition="Data.HasActiveQuest('The People\'s Militia', 13) == true">
+    <ClearHotspots />
+    <SetTargetingMode Mode="Around Points" />
+	<SetHotspotTraverseMode Mode="Circular"/>
+	<AddBlackspot X="-10141.974609375" Y="1655.9544677734" Z="38.103595733643" Range="20" />
+	<AddBlackspot X="-10746.150390625" Y="1665.8051757813" Z="45.174777984619" Range="15" />
+	<AddHotspot X="-10729.946289063" Y="1624.1419677734" Z="43.805248260498" Range="20" />
+	<AddHotspot X="-10717.572265625" Y="1687.3758544922" Z="44.967449188232" Range="20" />
+	<AddHotspot X="-10699.088867188" Y="1722.7385253906" Z="42.278091430664" Range="50" />
+	<AddHotspot X="-10708.263671875" Y="1872.2374267578" Z="34.387504577637" Range="50" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Defias Pillager" />
+    <AddMonsterFilterName Value="Defias Looter" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('The People\'s Militia', 13) == false" >
+        <Wait Value="100" />
+    </While>
+
+	<If Condition="Data.HasActiveQuest('Report to Gryan Stoutmantle') == true">
+        <ReturnQuest NpcName="Gryan Stoutmantle" QuestId="13" QuestName="The People\'s Militia" />
+    </If>	
+</If>
+    <If Condition="Data.HasActiveQuest('The People\'s Militia', 14) == false and Data.HasCompletedQuest('The People\'s Militia', 13) == true">
+        <TakeQuest NpcName="Gryan Stoutmantle" QuestId="14" QuestName="The People\'s Militia" />
+    </If> 	
+</ShadowProfile>

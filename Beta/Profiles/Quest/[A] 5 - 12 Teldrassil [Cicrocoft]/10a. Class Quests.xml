@@ -1,0 +1,18 @@
+<ShadowProfile Condition="UnitLevel('player') &gt;= 10">
+
+<!-- Rogue -->
+<If Condition="Data.HasCompletedQuest('Destiny Calls') == false and Data.PlayerClass() == WoWClass.Rogue">
+    <If Condition="Data.HasActiveQuest('The Apple Falls') == false and Data.HasCompletedQuest('The Apple Falls') == false">
+        <TakeQuest NpcName="Jannok Breezesong" QuestName="The Apple Falls" />
+    </If>
+    <If Condition="Data.HasActiveQuest('The Apple Falls') == true"> 
+		<ReturnQuest NpcName="Syurna" QuestName="The Apple Falls" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Destiny Calls') == false and Data.HasCompletedQuest('The Apple Falls') == true and Data.HasCompletedQuest('Destiny Calls') == false">
+        <TakeQuest NpcName="Syurna" QuestName="Destiny Calls" />
+    </If>
+</If>
+	
+
+	
+</ShadowProfile>

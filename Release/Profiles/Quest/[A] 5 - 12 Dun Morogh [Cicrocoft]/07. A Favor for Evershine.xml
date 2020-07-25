@@ -1,0 +1,49 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A Favor for Evershine') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('A Favor for Evershine') == false">
+        <TakeQuest NpcName="Rejold Barleybrew" QuestName="A Favor for Evershine" />
+    </If>
+
+
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Keeg Gibn"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Burdrak Harglhelm"/>
+    <SetRepairPercent Value="35" />
+    <ClearHotspots />
+		<AddHotspot X="-5615.369140625" Y="337.10000610352" Z="388.22503662109" Range="100" />
+		<AddHotspot X="-5441.5522460938" Y="458.7287902832" Z="383.72210693359" Range="100" />
+		<AddHotspot X="-5266.4458007813" Y="331.88858032227" Z="396.65130615234" Range="100" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Ice Claw Bear" />
+    <AddMonsterFilterName Value="Elder Crag Boar" />
+    <AddMonsterFilterName Value="Snow Leopard" />	
+	
+    <While Condition="Data.QuestObjectiveIsComplete('A Favor for Evershine', 2) == false" >
+        <Wait Value="100" />
+    </While>	
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Ice Claw Bear" />
+    <AddMonsterFilterName Value="Snow Leopard" />	
+	
+    <While Condition="Data.QuestObjectiveIsComplete('A Favor for Evershine', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Snow Leopard" />	
+	
+    <While Condition="Data.QuestObjectiveIsComplete('A Favor for Evershine', 3) == false" >
+        <Wait Value="100" />
+    </While>
+
+    <If Condition="Data.HasActiveQuest('A Favor for Evershine') == true">
+        <ReturnQuest NpcName="Rejold Barleybrew" QuestName="A Favor for Evershine" />
+    </If>
+</ShadowProfile>

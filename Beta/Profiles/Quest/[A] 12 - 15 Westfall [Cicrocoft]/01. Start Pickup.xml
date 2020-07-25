@@ -1,0 +1,16 @@
+<ShadowProfile Condition="UnitLevel('player') &gt;= 12 and Data.HasCompletedQuest('Report to Gryan Stoutmantle') == false">
+	<SetBaseSettings />
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('Westfall Stew', 36) == false and Data.HasCompletedQuest('Westfall Stew', 36) == false">
+        <TakeQuest NpcName="Verna Furlbrow" QusetId="36" QuestName="Westfall Stew" />
+    </If>   
+    <If Condition="Data.HasActiveQuest('Poor Old Blanchy') == false and Data.HasCompletedQuest('Poor Old Blanchy') == false">
+        <TakeQuest NpcName="Verna Furlbrow" QuestName="Poor Old Blanchy" />
+    </If>
+	<If Condition="Data.HasActiveQuest('The Forgotten Heirloom') == false and Data.HasCompletedQuest('The Forgotten Heirloom') == false">
+        <TakeQuest NpcName="Farmer Furlbrow" QuestName="The Forgotten Heirloom" />
+    </If>
+	    <If Condition="Data.HasActiveQuest('Report to Gryan Stoutmantle') == false and Data.HasCompletedQuest('Report to Gryan Stoutmantle') == false">
+        <TakeQuest NpcName="Farmer Furlbrow" QuestName="Report to Gryan Stoutmantle" />
+    </If>	
+</ShadowProfile>

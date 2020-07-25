@@ -1,0 +1,8 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Senir\'s Observations') == false">
+	<SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Senir\'s Observations') == false">
+        <TakeQuest NpcName="Grelin Whitebeard" QuestName="Senir\'s Observations" />
+    </If>
+    
+    <ReturnQuest NpcName="Mountaineer Thalos" QuestName="Senir\'s Observations" />
+</ShadowProfile>

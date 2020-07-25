@@ -1,0 +1,41 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Operation Recombobulation') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Operation Recombobulation') == false">
+        <TakeQuest NpcName="Razzle Sprysprocket" QuestName="Operation Recombobulation" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Desperate Prayer', 5637) == false and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Dwarf">
+        <TakeQuest NpcName="Maxan Anvol" QuestId="5637" QuestName="Desperate Prayer" />
+    </If> 
+	<SetBaseSettings />
+
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Innkeeper Belm"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Grawn Thromwyn"/>
+    <SetRepairPercent Value="35" />
+	<SetEnableRestockItems Value="true"/>
+	
+    <ClearHotspots />
+	<AddBlackspot X="-5252.5561523438" Y="120.30146026611" Z="394.05987548828" Range="50" />
+	<AddBlackspot X="-5076.9467773438" Y="464.98577880859" Z="406.48379516602" Range="75" />
+	<AddBlackspot X="-5310.2514648438" Y="599.23620605469" Z="390.54211425781" Range="30" />
+	<AddHotspot X="-5181.4775390625" Y="574.09545898438" Z="400.63781738281" Range="50" />
+	<AddHotspot X="-5259.025390625" Y="501.20901489258" Z="386.45193481445" Range="50" />
+	<AddHotspot X="-5303.0004882813" Y="565.37420654297" Z="385.20419311523" Range="50" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Leper Gnome" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('Operation Recombobulation') == false" >
+        <Wait Value="100" />
+    </While>	
+	
+    <If Condition="Data.HasActiveQuest('Operation Recombobulation') == true">
+        <ReturnQuest NpcName="Razzle Sprysprocket" QuestName="Operation Recombobulation" />
+    </If>
+	
+
+</ShadowProfile>

@@ -1,0 +1,48 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Zenn\'s Bidding') == false">
+
+    <SetBaseSettings />
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('Zenn\'s Bidding') == false and Data.HasCompletedQuest('Zenn\'s Bidding') == false">
+        <TakeQuest NpcName="Zenn Foulhoof" QuestId="488" QuestName="Zenn\'s Bidding" />
+    </If>	
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetRepairPercent Value="35" />
+
+	<!-- Objective Completion -->
+    <If Condition="Data.HasActiveQuest('Zenn\'s Bidding') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="9792.7275390625" Y="641.30004882813" Z="1297.9627685547" Range="50" />
+		<AddHotspot X="9782.998046875" Y="808.13586425781" Z="1300.5006103516" Range="50" />
+		<AddHotspot X="9972.62109375" Y="707.24542236328" Z="1318.947265625" Range="50" />
+		<AddHotspot X="9922.248046875" Y="858.53460693359" Z="1315.5484619141" Range="50" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Nightsaber" />
+		<AddMonsterFilterName Value="Strigid Owl" />
+		<AddMonsterFilterName Value="Webwood Lurker" />
+		<!-- Completion condition -->
+		<While Condition="Data.AllQuestObjectivesAreComplete('Zenn\'s Bidding') == false" >
+			<Wait Value="100" />
+		</While>
+    </If>
+
+
+	<!-- TurnIn -->
+    <If Condition="Data.HasActiveQuest('Zenn\'s Bidding') == true and Data.AllQuestObjectivesAreComplete('Zenn\'s Bidding') == true">
+        <ReturnQuest NpcName="Zenn Foulhoof" QuestId="488" QuestName="Zenn\'s Bidding" />
+    </If>		
+
+</ShadowProfile>

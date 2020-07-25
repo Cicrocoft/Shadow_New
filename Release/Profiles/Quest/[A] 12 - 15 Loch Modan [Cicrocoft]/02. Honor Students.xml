@@ -1,0 +1,35 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Return to Brock') == false">
+	<SetBaseSettings />
+	<!-- Initial Pickup -->
+	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false">
+        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
+    </If>
+	<!-- TurnIn Part 1 + Pickup Part 2 -->
+    <If Condition="Data.HasActiveQuest('Honor Students') == true">
+        <ReturnQuest NpcName="Thorgrum Borrelson" QuestName="Honor Students" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Ride to Ironforge') == false and Data.HasCompletedQuest('Ride to Ironforge') == false">
+        <TakeQuest NpcName="Thorgrum Borrelson" QuestName="Ride to Ironforge" />
+    </If>	
+	<!-- TurnIn Part 2 + Pickup Part 3 -->
+    <If Condition="Data.HasActiveQuest('Ride to Ironforge') == true">
+        <ReturnQuest NpcName="Golnir Bouldertoe" QuestName="Ride to Ironforge" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Gryth Thurden') == false and Data.HasCompletedQuest('Gryth Thurden') == false">
+        <TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Find Bingles') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
+        <TakeQuest NpcName="Gnoarn" QuestName="Find Bingles" />
+	</If>	
+	<!-- TurnIn Part 3 + Pickup Part 4 -->
+    <If Condition="Data.HasActiveQuest('Gryth Thurden') == true">
+        <ReturnQuest NpcName="Gryth Thurden" QuestName="Gryth Thurden" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Return to Brock') == false and Data.HasCompletedQuest('Return to Brock') == false">
+        <TakeQuest NpcName="Gryth Thurden" QuestName="Return to Brock" />
+    </If>	
+	<!-- Final Turnin -->
+    <If Condition="Data.HasActiveQuest('Return to Brock') == true">
+        <ReturnQuest NpcName="Brock Stoneseeker" QuestName="Return to Brock" />
+	</If>	
+</ShadowProfile>

@@ -1,0 +1,47 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Woodland Protector', 459) == false">
+    <If Condition="Data.HasActiveQuest('The Woodland Protector', 458) == false and Data.HasCompletedQuest('The Woodland Protector', 458) == false">
+        <TakeQuest NpcName="Melithar Staghelm" QuestId="458" QuestName="The Woodland Protector" />
+    </If>
+    <If Condition="Data.HasActiveQuest('A Good Friend') == false and Data.HasCompletedQuest('A Good Friend') == false">
+        <TakeQuest NpcName="Dirania Silvershine" QuestId="4495" QuestName="A Good Friend" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Webwood Venom') == false and Data.HasCompletedQuest('Webwood Venom') == false">
+        <TakeQuest NpcName="Gilshalan Windwalker" QuestId="916" QuestName="Webwood Venom" />
+    </If>
+	
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Keina"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Keina"/>
+    <SetRepairPercent Value="35" />
+	<If Condition="Data.HasActiveQuest('The Woodland Protector', 458) == true">
+		<ReturnQuest NpcName="Tarindrella" QuestId="458" QuestName="The Woodland Protector" />
+	</If>
+    <If Condition="Data.HasActiveQuest('The Woodland Protector', 459) == false and Data.HasCompletedQuest('The Woodland Protector', 459) == false and Data.HasCompletedQuest('The Woodland Protector', 458) == true">
+        <TakeQuest NpcName="Tarindrella" QuestId="459" QuestName="The Woodland Protector" />
+    </If>	
+
+
+
+	<If Condition="Data.HasActiveQuest('The Woodland Protector', 459) == true">
+		<ClearHotspots />
+		<AddHotspot X="10278.118164063" Y="964.06555175781" Z="1339.4847412109" Range="50" />
+		<AddHotspot X="10341.587890625" Y="1026.2507324219" Z="1337.9581298828" Range="50" />
+
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Grell"/>
+		<AddMonsterFilterName Value="Grellkin"/>
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Woodland Protector', 459) == false" >
+			<Wait Value="100" />
+		</While>
+		<While Condition="Data.HasActiveQuest('The Woodland Protector', 459) == true and Data.AllQuestObjectivesAreComplete('The Woodland Protector', 459) == true">
+			<ReturnQuest NpcName="Tarindrella" QuestId="459" QuestName="The Woodland Protector" />
+		</While>
+	</If>
+
+		
+	
+</ShadowProfile>

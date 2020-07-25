@@ -1,0 +1,8 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Return to Bellowfiz') == false">
+	<SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Return to Bellowfiz') == false">
+        <TakeQuest NpcName="Rejold Barleybrew" QuestName="Return to Bellowfiz" />
+    </If>   
+ 
+    <ReturnQuest NpcName="Pilot Bellowfiz" QuestName="Return to Bellowfiz" />
+</ShadowProfile>
