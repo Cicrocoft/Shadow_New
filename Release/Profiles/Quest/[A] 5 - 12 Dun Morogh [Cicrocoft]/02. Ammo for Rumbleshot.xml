@@ -21,7 +21,7 @@
     <ClearHotspots />
     <SetEnableAutoHerb Value="true" />
 		<AddHotspot X="-5744.6538085938" Y="-372.66412353516" Z="365.7294921875" Range="20" />
-    <SetEnableQuestNodes Value="true" />	
+    <AllowQuestNode NodeName="Ammo Crate" />
     <While Condition="Data.AllQuestObjectivesAreComplete('Ammo for Rumbleshot') == false" >
         <Wait Value="100" />
     </While>

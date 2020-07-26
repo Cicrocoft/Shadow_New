@@ -1,5 +1,5 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('The Troll Cave') == false">
-<Lua>HerbNodes[148499] = 0</Lua>
+
     <SetBaseSettings />
     <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('A Refugee\'s Quandary') == false">
         <TakeQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />
@@ -28,7 +28,7 @@
     <ClearHotspots />	
     <SetTargetingMode Mode="Gather Only" />
     <SetEnableAutoHerb Value="true" />
-	<AddBlackspot X="-6514.3051757813" Y="689.67767333984" Z="387.27429199219" Range="5" />
+	<AddBlackspot X="-6511.28515625" Y="686.92022705078" Z="387.27383422852" Range="5" />
 	<AddHotspot X="-6497.4931640625" Y="680.60815429688" Z="387.13925170898" Range="10" />
     <AllowQuestNode NodeName="Felix\'s Chest" />
     <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 2) == false" >

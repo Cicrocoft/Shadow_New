@@ -10,5 +10,5 @@
     <SetRepairNpc NpcName="Rybrad Coldbank"/>
     <SetRepairPercent Value="35" />
     
-    <ReturnQuest NpcName="Talin Keeneye" QuestName="Coldridge Valley Mail Delivery" QuestId="233" />
+    <ReturnQuest NpcName="Talin Keeneye" QuestId="233" QuestName="Coldridge Valley Mail Delivery"  />
 </ShadowProfile>
