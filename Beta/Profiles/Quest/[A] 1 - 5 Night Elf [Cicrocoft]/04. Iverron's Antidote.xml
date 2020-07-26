@@ -33,7 +33,7 @@
 		<SetHotspotTraverseMode Mode="Circular"/>
 		<SetEnableAutoHerb Value="true" />
 		<ClearHotspots />
-		<SetEnableQuestNodes Value="true" />	
+		<AllowQuestNode NodeName="Moonpetal Lily" />	
 		<AddHotspot X="10545.756835938" Y="873.58654785156" Z="1309.1411132813" Range="65" />
 
 		<While Condition="Data.QuestObjectiveIsComplete('Iverron\'s Antidote', 2, 3521) == false" >
@@ -44,10 +44,7 @@
 		<SetHotspotTraverseMode Mode="Straight"/>
 		<SetEnableAutoHerb Value="true" />
 		<ClearHotspots />
-		<SetEnableQuestNodes Value="true" />	
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Hyacinth Mushroom" />
+		<AllowQuestNode NodeName="Hyacinth Mushroom" />	
 		<AddBlackspot X="10563.969726563" Y="881.57897949219" Z="1310.1713867188" Range="85" />
 		<AddHotspot X="10586.743164063" Y="971.20971679688" Z="1319.8327636719" Range="20" />
 		<AddHotspot X="10537.415039063" Y="1018.7387695313" Z="1321.1173095703" Range="20" />
