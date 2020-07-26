@@ -1,0 +1,46 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Skirmish at Echo Ridge') == false and Data.HasCompletedQuest('Investigate Echo Ridge') == true">
+	<!-- Vendor Settings -->
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Godric Rothgar"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Godric Rothgar"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- TakeQuest -->
+    <If Condition="Data.HasActiveQuest('Skirmish at Echo Ridge') == false and Data.HasCompletedQuest('Skirmish at Echo Ridge') == false and Data.HasCompletedQuest('Investigate Echo Ridge') == true">
+        <TakeQuest NpcName="Marshal McBride" QuestId="21" QuestName="Skirmish at Echo Ridge" />
+    </If>	
+ 
+ 	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('Skirmish at Echo Ridge') == true">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-8656.99609375" Y="-126.73690795898" Z="90.403602600098" Range="20" />
+		<AddHotspot X="-8638.947265625" Y="-139.09844970703" Z="86.772583007813" Range="20" />
+		<AddHotspot X="-8617.79296875" Y="-144.78527832031" Z="87.255256652832" Range="20" />
+		<AddHotspot X="-8599.1201171875" Y="-168.5929107666" Z="86.699882507324" Range="20" />
+		<AddHotspot X="-8575.451171875" Y="-152.40968322754" Z="89.825523376465" Range="20" />
+		<AddHotspot X="-8551.140625" Y="-155.79985046387" Z="87.636650085449" Range="20" />
+		<AddHotspot X="-8540.47265625" Y="-174.60604858398" Z="84.856948852539" Range="20" />
+		<AddHotspot X="-8533.50390625" Y="-196.92774963379" Z="83.65357208252" Range="20" />
+		<AddHotspot X="-8546.298828125" Y="-206.96585083008" Z="84.913261413574" Range="20" />
+		<AddHotspot X="-8562.0537109375" Y="-212.55293273926" Z="84.8427734375" Range="20" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Kobold Laborer"/>		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Skirmish at Echo Ridge') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('Skirmish at Echo Ridge') == true">
+        <ReturnQuest NpcName="Marshal McBride" QuestId="21" QuestName="Skirmish at Echo Ridge" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Report to Goldshire') == false and Data.HasCompletedQuest('Report to Goldshire') == false and Data.HasCompletedQuest('Skirmish at Echo Ridge') == true">
+        <TakeQuest NpcName="Marshal McBride" QuestId="54" QuestName="Report to Goldshire" />
+    </If>	
+
+</ShadowProfile>

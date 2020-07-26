@@ -1,0 +1,39 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Investigate Echo Ridge', 15) == false">
+	<!-- Vendor Settings -->
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Godric Rothgar"/>
+    <SetVendorSlotsCount Value="0" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Godric Rothgar"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- TakeQuest -->
+    <If Condition="Data.HasActiveQuest('Investigate Echo Ridge', 15) == false and Data.HasCompletedQuest('Investigate Echo Ridge', 15) == false">
+        <TakeQuest NpcName="Marshal McBride" QuestId="15" QuestName="Investigate Echo Ridge" />
+    </If>
+ 
+ 	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('Investigate Echo Ridge', 15) == true">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-8786.724609375" Y="-247.32051086426" Z="82.666236877441" Range="50" />
+		<AddHotspot X="-8758.591796875" Y="-173.03575134277" Z="84.717399597168" Range="50" />
+		<AddHotspot X="-8712.31640625" Y="-94.922592163086" Z="88.778755187988" Range="50" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Kobold Worker"/>		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Investigate Echo Ridge') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('Investigate Echo Ridge', 15) == true">
+        <ReturnQuest NpcName="Marshal McBride" QuestId="15" QuestName="Investigate Echo Ridge" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Skirmish at Echo Ridge') == false and Data.HasCompletedQuest('Skirmish at Echo Ridge') == false and Data.HasCompletedQuest('Investigate Echo Ridge') == true">
+        <TakeQuest NpcName="Marshal McBride" QuestId="21" QuestName="Skirmish at Echo Ridge" />
+    </If>	
+
+</ShadowProfile>

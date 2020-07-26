@@ -1,0 +1,41 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Brotherhood of Thieves') == false">
+	<!-- Vendor Settings -->
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Godric Rothgar"/>
+    <SetVendorSlotsCount Value="0" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Godric Rothgar"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- TakeQuest -->
+    <If Condition="Data.HasActiveQuest('Brotherhood of Thieves') == false and Data.HasCompletedQuest('Brotherhood of Thieves') == false">
+        <TakeQuest NpcName="Deputy Willem" QuestId="18" QuestName="Brotherhood of Thieves" />
+    </If>
+ 
+ 	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('Brotherhood of Thieves') == true">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-9067.5537109375" Y="-334.86968994141" Z="73.45263671875" Range="100" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Defias Tug"/>		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Brotherhood of Thieves') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('Brotherhood of Thieves') == true">
+       <ReturnQuest NpcName="Deputy Willem" QuestId="18" QuestName="Brotherhood of Thieves" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Bounty on Garrick Padfoot') == false and Data.HasCompletedQuest('Bounty on Garrick Padfoot') == false and Data.HasCompletedQuest('Brotherhood of Thieves') == true">
+        <TakeQuest NpcName="Deputy Willem" QuestId="6" QuestName="Bounty on Garrick Padfoot" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Deputy Willem') == false and Data.HasCompletedQuest('Deputy Willem') == false and Data.HasCompletedQuest('Brotherhood of Thieves') == true">
+        <TakeQuest NpcName="Deputy Willem" QuestId="3903" QuestName="Milly Osworth" />
+    </If>	
+
+
+</ShadowProfile>

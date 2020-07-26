@@ -1,0 +1,66 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Kobold Camp Cleanup') == false or Data.HasCompletedQuest('Kobold Camp Cleanup') == false">
+	<!-- Vendor Settings -->
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Godric Rothgar"/>
+    <SetVendorSlotsCount Value="0" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Godric Rothgar"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('A Threat Within') == false and Data.HasCompletedQuest('A Threat Within') == false">
+        <TakeQuest NpcName="Deputy Willem" QuestId="783" QuestName="A Threat Within" />
+    </If>
+    <If Condition="Data.HasActiveQuest('A Threat Within') == true">
+        <ReturnQuest NpcName="Deputy Willem" QuestId="783" QuestName="A Threat Within" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Kobold Camp Cleanup') == false and Data.HasCompletedQuest('Kobold Camp Cleanup') == false">
+        <TakeQuest NpcName="Marshal McBride" QuestId="7" QuestName="Kobold Camp Cleanup" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Wolves Across the Border') == false and Data.HasCompletedQuest('Wolves Across the Border') == false">
+        <TakeQuest NpcName="Eagan Peltskinner" QuestId="33" QuestName="Wolves Across the Border" />
+    </If>		
+
+	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('Wolves Across the Border') == true">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-8941.78515625" Y="-60.481937408447" Z="90.428871154785" Range="50" />
+		<AddHotspot X="-8884.216796875" Y="-69.240333557129" Z="84.452301025391" Range="50" />
+		<AddHotspot X="-8834.0966796875" Y="-72.384346008301" Z="85.835350036621" Range="50" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Timber Wolf"/>
+		<AddMonsterFilterName Value="Young Wolf"/>		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Wolves Across the Border') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Wolves Across the Border') == true">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-8759.345703125" Y="-160.69638061523" Z="83.539039611816" Range="100" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Kobold Vermin"/>
+		<While Condition="Data.AllQuestObjectivesAreComplete('Kobold Camp Cleanup') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>		
+
+    <If Condition="Data.HasActiveQuest('Wolves Across the Border') == true">
+        <ReturnQuest NpcName="Eagan Peltskinner" QuestId="33" QuestName="Wolves Across the Border" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Kobold Camp Cleanup') == true">
+        <ReturnQuest NpcName="Marshal McBride" QuestId="7" QuestName="Kobold Camp Cleanup" />
+    </If>	
+	
+	
+</ShadowProfile>

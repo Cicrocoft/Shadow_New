@@ -1,0 +1,50 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Grape Manifest') == false and Data.HasCompletedQuest('Brotherhood of Thieves') == true">
+	<!-- Vendor Settings -->
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Godric Rothgar"/>
+    <SetVendorSlotsCount Value="0" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Godric Rothgar"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- TakeQuest -->
+    <If Condition="Data.HasActiveQuest('Deputy Willem') == false and Data.HasCompletedQuest('Deputy Willem') == false and Data.HasCompletedQuest('Brotherhood of Thieves') == true">
+        <TakeQuest NpcName="Deputy Willem" QuestId="3903" QuestName="Milly Osworth" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Deputy Willem') == true">
+        <ReturnQuest NpcName="Milly Osworth" QuestId="3903" QuestName="Milly Osworth" />
+    </If> 
+    <If Condition="Data.HasActiveQuest('Milly\'s Harvest') == false and Data.HasCompletedQuest('Milly\'s Harvest') == false and Data.HasCompletedQuest('Milly Osworth') == true">
+        <TakeQuest NpcName="Milly Osworth" QuestId="3904" QuestName="Milly\'s Harvest" />
+    </If>	
+	
+ 	<!-- QuestObjective -->
+    <If Condition="Data.HasActiveQuest('Milly\'s Harvest') == true">
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Milly\'s Harvest" />				
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-9067.5537109375" Y="-334.86968994141" Z="73.45263671875" Range="100" />
+	
+		<While Condition="Data.AllQuestObjectivesAreComplete('Milly\'s Harvest') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+
+
+
+    <If Condition="Data.HasActiveQuest('Milly\'s Harvest') == true and Data.AllQuestObjectivesAreComplete('Milly\'s Harvest') == true">
+       <ReturnQuest NpcName="Milly Osworth" QuestId="3904" QuestName="Milly\'s Harvest" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Grape Manifest') == false and Data.HasCompletedQuest('Grape Manifest') == false and Data.HasCompletedQuest('Milly\'s Harvest') == true">
+        <TakeQuest NpcName="Milly Osworth" QuestId="3905" QuestName="Grape Manifest" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Grape Manifest') == true">
+       <ReturnQuest NpcName="Brother Neals" QuestId="3905" QuestName="Grape Manifest" />
+    </If>	
+
+</ShadowProfile>
