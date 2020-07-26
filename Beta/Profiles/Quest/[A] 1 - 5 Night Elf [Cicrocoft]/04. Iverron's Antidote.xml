@@ -125,14 +125,17 @@
 		<SetHotspotTraverseMode Mode="Straight"/>
 		<SetEnableAutoHerb Value="true" />
 		<ClearHotspots />
-		<SetEnableQuestNodes Value="true" />	
+		<AllowQuestNode NodeName="Webwood Eggs" />		
 		<ClearMonsterFilter/>
 		<AddHotspot X="10937.553710938" Y="924.31591796875" Z="1340.4597167969" Range="20" />
 		<While Condition="Data.AllQuestObjectivesAreComplete('Webwood Egg') == false" >
 			<Wait Value="100" />
 		</While>		
 	</If>
+	<If Condition="Nav.RangeFromMeXYZ(10937.553710938, 924.31591796875, 1340.4597167969) &lt; 10 and Data.AllQuestObjectivesAreComplete('Webwood Egg') == true"
 	<!-- Future plan: Jump of cliff from hotspot above and CTM to <AddHotspot X="10901.72265625" Y="917.34027099609" Z="1324.2884521484" Range="100" />, if distance to hotspot above is less than 10y. Condition questobjective completed -->
+		<MoveTo NoNav="true" X="10901.72265625" Y="917.34027099609" Z="1324.2884521484" />
+	</If>
     <If Condition="Data.HasActiveQuest('Webwood Egg') == true and Data.AllQuestObjectivesAreComplete('Webwood Egg') == true">
         <ReturnQuest NpcName="Gilshalan Windwalker" QuestId="917" QuestName="Webwood Egg" />
     </If>	
