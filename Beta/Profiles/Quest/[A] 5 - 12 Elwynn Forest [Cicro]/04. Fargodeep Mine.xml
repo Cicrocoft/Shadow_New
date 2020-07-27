@@ -1,0 +1,105 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Gold Dust Exchange') == false">
+	<SetBaseSettings />
+	<!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('Kobold Candles') == false and Data.HasCompletedQuest('Kobold Candles') == false">
+		<TakeQuest NpcName="William Pestle" QuestId="60" QuestName="Kobold Candles" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Fargodeep Mine') == false and Data.HasCompletedQuest('The Fargodeep Mine') == false">
+		<TakeQuest NpcName="Marshal Dughan" QuestId="62" QuestName="The Fargodeep Mine" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Gold Dust Exchange') == false and Data.HasCompletedQuest('Gold Dust Exchange') == false">	
+		<TakeQuest NpcName="Remy Two Times" QuestId="47" QuestName="Gold Dust Exchange" />	
+	</If>	
+	<If Condition="Data.HasActiveQuest('Goldtooth') == false and Data.HasCompletedQuest('Goldtooth') == false and Data.HasCompletedQuest('Back to Billy') == true">
+		<TakeQuest NpcName="Billy Maclure" QuestId="87" QuestName="Goldtooth" />
+	</If>	
+	
+	<!-- Quset Completion -->
+	<If Condition="Data.HasActiveQuest('The Fargodeep Mine') == true and Data.HasCompletedQuest('The Fargodeep Mine') == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-9835.30078125" Y="124.97505950928" Z="5.3637766838074" Range="50" />
+		<AddHotspot X="-9845.8583984375" Y="131.37634277344" Z="5.1578798294067" Range="50" />
+		<AddHotspot X="-9852.9375" Y="142.09831237793" Z="7.3434591293335" Range="50" />
+		<AddHotspot X="-9853.1396484375" Y="157.69770812988" Z="6.2154293060303" Range="50" />			
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Fargodeep Mine') == false" >
+				<Wait Value="100" />
+		</While>	
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Goldtooth') == true and Data.AllQuestObjectivesAreComplete('Goldtooth') == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-9760.51953125" Y="88.466682434082" Z="12.357810020447" Range="20" />
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Goldtooth" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Goldtooth') == false" >
+				<Wait Value="100" />
+		</While>				
+	</If>
+	
+	<If Condition="Data.HasActiveQuest('Kobold Candles') == true and Data.HasCompletedQuest('Kobold Candles') == false and Data.HasActiveQuest('Gold Dust Exchange') == true and Data.HasCompletedQuest('Gold Dust Exchange') == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-9826.2763671875" Y="201.09503173828" Z="14.342972755432" Range="20" />
+		<AddHotspot X="-9824.0888671875" Y="180.56094360352" Z="11.441152572632" Range="20" />
+		<AddHotspot X="-9831.12890625" Y="167.61682128906" Z="6.2816557884216" Range="20" />
+		<AddHotspot X="-9844.2333984375" Y="159.44566345215" Z="4.9002017974854" Range="20" />
+		<AddHotspot X="-9853.2001953125" Y="142.86698913574" Z="7.4762907028198" Range="20" />
+		<AddHotspot X="-9842.48046875" Y="128.39663696289" Z="5.0177273750305" Range="20" />
+		<AddHotspot X="-9825.021484375" Y="121.33969116211" Z="4.1088700294495" Range="20" />
+		<AddHotspot X="-9805.62109375" Y="117.62884521484" Z="4.9581441879272" Range="20" />
+		<AddHotspot X="-9784.2783203125" Y="112.15491485596" Z="4.8001098632813" Range="20" />
+		<AddHotspot X="-9772.1796875" Y="98.588134765625" Z="6.4159440994263" Range="20" />
+		<AddHotspot X="-9757.2685546875" Y="89.506484985352" Z="12.75744342804" Range="20" />
+		<AddHotspot X="-9747.73046875" Y="103.45976257324" Z="13.101276397705" Range="20" />
+		<AddHotspot X="-9752.8251953125" Y="120.07659912109" Z="15.847554206848" Range="20" />
+		<AddHotspot X="-9750.421875" Y="139.94541931152" Z="19.659013748169" Range="20" />
+		<AddHotspot X="-9760.115234375" Y="152.03608703613" Z="23.31782913208" Range="20" />
+		<AddHotspot X="-9777.5869140625" Y="153.83717346191" Z="25.422239303589" Range="20" />
+		<AddHotspot X="-9794.7802734375" Y="151.21130371094" Z="24.368061065674" Range="20" />
+		<AddHotspot X="-9800.150390625" Y="171.51396179199" Z="23.52367401123" Range="20" />
+		<AddHotspot X="-9816.03125" Y="184.50662231445" Z="22.765350341797" Range="20" />
+		<AddHotspot X="-9842.0068359375" Y="184.05342102051" Z="22.315334320068" Range="20" />
+		<AddHotspot X="-9860.1044921875" Y="217.28010559082" Z="14.009432792664" Range="50" />	
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Kobold Tunneler" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Kobold Candles') == false" >
+				<Wait Value="100" />
+		</While>	
+		<While Condition="Data.AllQuestObjectivesAreComplete('Gold Dust Exchange') == false" >
+				<Wait Value="100" />
+		</While>			
+	</If>
+	
+	<!-- ReturnQuest -->
+	<If Condition="Data.HasActiveQuest('Gold Dust Exchange') == true and Data.AllQuestObjectivesAreComplete('Gold Dust Exchange') == true">
+		<SetResurrectionMode Mode="SpiritHealer" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Goldtooth') == true and Data.AllQuestObjectivesAreComplete('Goldtooth') == true">	
+		<ReturnQuest NpcName="Auntie Bernice Stonefield" QuestId="87" QuestName="Goldtooth" />
+		<SetResurrectionMode Mode="Corpse" />
+	</If>		
+    <If Condition="Data.HasActiveQuest('Kobold Candles') == true and Data.AllQuestObjectivesAreComplete('Kobold Candles') == true">	
+		<ReturnQuest NpcName="William Pestle" QuestId="60" QuestName="Kobold Candles" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Shipment to Stormwind') == false and Data.HasCompletedQuest('Shipment to Stormwind') == false and Data.HasCompletedQuest('Kobold Candles') == true">
+		<TakeQuest NpcName="William Pestle" QuestId="61" QuestName="Shipment to Stormwind" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('The Fargodeep Mine') == true and Data.AllQuestObjectivesAreComplete('The Fargodeep Mine') == true">
+		<ReturnQuest NpcName="Marshal Dughan" QuestId="62" QuestName="The Fargodeep Mine" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Gold Dust Exchange') == true and Data.AllQuestObjectivesAreComplete('Gold Dust Exchange') == true">	
+		<ReturnQuest NpcName="Remy Two Times" QuestId="47" QuestName="Gold Dust Exchange" />
+	</If>
+</ShadowProfile>

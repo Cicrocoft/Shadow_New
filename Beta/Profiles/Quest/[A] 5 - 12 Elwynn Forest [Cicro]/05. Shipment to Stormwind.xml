@@ -1,0 +1,19 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Shipment to Stormwind') == false and Data.HasCompletedQuest('Kobold Candles') == true">
+	<!-- Vendor Settings -->
+	<SetBaseSettings />	
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Andrew Krighton"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Andrew Krighton"/>
+    <SetRepairPercent Value="35" />
+	<AddDoNotSellItem ItemName="Chunk of Boar Meat" />
+	<If Condition="Data.HasActiveQuest('Shipment to Stormwind') == false and Data.HasCompletedQuest('Shipment to Stormwind') == false and Data.HasCompletedQuest('Kobold Candles') == true">
+		<TakeQuest NpcName="William Pestle" QuestId="61" QuestName="Shipment to Stormwind" />
+	</If>	
+
+	<If Condition="Data.HasActiveQuest('Shipment to Stormwind') == true">
+		<ReturnQuest NpcName="Morgan Pestle" QuestId="61" QuestName="Shipment to Stormwind" />
+	</If>	
+
+</ShadowProfile>
