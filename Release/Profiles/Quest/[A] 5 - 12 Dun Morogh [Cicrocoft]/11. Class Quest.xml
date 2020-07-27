@@ -39,7 +39,7 @@
 		<While Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6064) == false">
 			<MoveTo X="-5553.53125" Y="-723.28295898438" Z="409.59033203125" />
 			<UseItemOnNpc NpcId="1126" ItemId="15911" />
-			<Lua> BotSleep(10000) return true </Lua>
+			<BotSleep Value="10000"/>
 		</While>	
 		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf"> 
 			<ReturnQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
@@ -56,7 +56,7 @@
 		<SetEnablePreemptiveMonsterAttack Value="false" />
 		<SetEnableProfileIgnoreCombat Value="true" />
 		<UseItemOnNpc NpcId="1201" ItemId="15913" />
-		<Lua> BotSleep(10000) return true </Lua>
+		<BotSleep Value="10000"/>
 		<SetEnableProfileIgnoreCombat Value="false" />
 	</If>	
     <If Condition="Data.HasActiveQuest('Taming the Beast', 6084) == true and Data.MyRace() == WoWClass.Hunter"> 
@@ -75,7 +75,7 @@
 		<SetEnablePreemptiveMonsterAttack Value="false" />
 		<SetEnableProfileIgnoreCombat Value="true" />
 		<UseItemOnNpc NpcId="1196" ItemId="15908" />
-		<Lua> BotSleep(10000) return true </Lua>
+		<BotSleep Value="10000"/>
 		<SetEnableProfileIgnoreCombat Value="false" />
 	</If>	
     <If Condition="Data.HasActiveQuest('Taming the Beast', 6085) == true and Data.MyRace() == WoWClass.Hunter"> 

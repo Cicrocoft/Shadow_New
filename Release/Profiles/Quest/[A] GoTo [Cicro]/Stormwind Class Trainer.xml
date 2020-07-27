@@ -1,0 +1,29 @@
+<ShadowProfile Condition="UnitLevel('player') &gt;= 1">
+	<SetBaseSettings />
+<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<MoveTo X="-9014.5087890625" Y="874.66821289063" Z="148.61747741699" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<MoveTo X="-8752.1865234375" Y="379.25872802734" Z="101.0562286377" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<MoveTo X="-8687.748046875" Y="323.71850585938" Z="109.43848419189" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Druid">
+	<MoveTo X="-8774.2001953125" Y="1097.5131835938" Z="92.543365478516" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<MoveTo X="-8518.640625" Y="860.21081542969" Z="109.84116363525" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<MoveTo X="-8576.064453125" Y="880.10467529297" Z="106.51934814453" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<MoveTo X="-8417.3037109375" Y="551.60229492188" Z="95.449142456055" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<MoveTo X="-8971.7451171875" Y="1028.8646240234" Z="101.40395355225" />
+</If>
+
+	
+</ShadowProfile>

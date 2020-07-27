@@ -10,6 +10,24 @@
     <SetRepairNpc NpcName="Keina"/>
     <SetRepairPercent Value="35" />
 
+	<!-- Restock Teldrassil 1-5 -->
+	<SetEnableRestockItems Value="true"/>
+	<!-- Food -->
+
+	<!-- Water -->
+
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Keina" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Keina" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Keina" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->	
+
 	<If Condition="Data.HasActiveQuest('The Balance of Nature', 456) == true">
 		<ClearHotspots />
 		<AddHotspot X="10398.73828125" Y="655.52307128906" Z="1326.884765625" Range="50" />

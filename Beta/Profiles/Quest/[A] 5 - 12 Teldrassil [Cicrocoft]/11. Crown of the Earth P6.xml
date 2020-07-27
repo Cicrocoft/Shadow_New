@@ -8,6 +8,35 @@
     <SetRepairNpc NpcName="Brannol Eaglemoon"/>
     <SetRepairPercent Value="30" />
 
+	<!-- Restock Teldrassil 5-12 -->
+	<SetEnableRestockItems Value="true"/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Keldamyr" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Keldamyr" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Keldamyr" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Aldia " UnderAmount="400" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jeena Featherbow" UnderAmount="400" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jeena Featherbow" UnderAmount="400" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->
+
+
     <If Condition="Data.HasActiveQuest('Crown of the Earth', 7383) == false and Data.HasCompletedQuest('Crown of the Earth', 7383) == false and Data.HasCompletedQuest('Crown of the Earth', 929) == true">
         <TakeQuest NpcName="Corithras Moonrage" QuestId="7383" QuestName="Crown of the Earth" />
     </If>

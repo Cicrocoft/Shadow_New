@@ -9,6 +9,24 @@
     <SetRepairNpc NpcName="Keina"/>
     <SetRepairPercent Value="35" />
 
+	<!-- Restock Teldrassil 1-5 -->
+	<SetEnableRestockItems Value="true"/>
+	<!-- Food -->
+
+	<!-- Water -->
+
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Keina" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Keina" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Keina" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->	
+
     <If Condition="Data.HasActiveQuest('Webwood Venom') == false and Data.HasCompletedQuest('Webwood Venom') == false">
         <TakeQuest NpcName="Gilshalan Windwalker" QuestId="916" QuestName="Webwood Venom" />
     </If>	
