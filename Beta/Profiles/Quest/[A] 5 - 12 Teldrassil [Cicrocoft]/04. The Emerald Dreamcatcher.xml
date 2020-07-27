@@ -30,8 +30,8 @@
 		<SetTargetingMode Mode="Gather Only" />
 		<ClearHotspots />
 		<SetEnableAutoHerb Value="true" />
-			<AddHotspot X="9808.41796875" Y="353.208984375" Z="1308.4591064453" Range="20" />
-		<SetEnableQuestNodes Value="true" />	
+		<AddHotspot X="9808.41796875" Y="353.208984375" Z="1308.4591064453" Range="20" />
+		<AllowQuestNode NodeName="Tallonkai\'s Dresser" />	
 		<While Condition="Data.AllQuestObjectivesAreComplete('The Emerald Dreamcatcher') == false" >
 			<Wait Value="100" />
 		</While>

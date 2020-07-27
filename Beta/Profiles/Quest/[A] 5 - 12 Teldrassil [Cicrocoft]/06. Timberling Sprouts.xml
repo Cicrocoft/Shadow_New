@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Timberling Seeds') == false or Data.HasCompletedQuest('Timberling Sprouts') == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('Rellian Greenspyre') == false">
 
 	<!-- Pickup -->	
     <If Condition="Data.HasActiveQuest('Denalan\'s Earth') == false and Data.HasCompletedQuest('Denalan\'s Earth') == false">
@@ -81,7 +81,7 @@
     <If Condition="Data.HasActiveQuest('Timberling Seeds') == true and Data.AllQuestObjectivesAreComplete('Timberling Seeds') == true">
         <ReturnQuest NpcName="Denalan" QuestId="918" QuestName="Timberling Seeds" />
 	</If>
-	    <If Condition="Data.HasActiveQuest('Rellian Greenspyre') == false and Data.HasCompletedQuest('Rellian Greenspyre') and Data.HasCompletedQuest('Timberling Seeds') == true">
+	<If Condition="Data.HasActiveQuest('Rellian Greenspyre') == false and Data.HasCompletedQuest('Rellian Greenspyre') == false and Data.HasCompletedQuest('Timberling Seeds') == true">
         <TakeQuest NpcName="Denalan" QuestId="922" QuestName="Rellian Greenspyre" />
     </If> 
 </ShadowProfile>
