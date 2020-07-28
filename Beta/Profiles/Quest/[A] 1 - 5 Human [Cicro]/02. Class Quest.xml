@@ -6,7 +6,7 @@
     </If>
  <!-- End -->
 <!-- Human Rogue -->
-    <If Condition="Data.HasActiveQuest('Encrypted Letter', 3102) == false and Data.HasCompletedQuest('Encrypted Memorandum') == false and Data.PlayerClass() == WoWClass.Rogue and Data.MyRace() == WoWRace.Human">
+    <If Condition="Data.HasActiveQuest('Encrypted Letter', 3102) == false and Data.HasCompletedQuest('Encrypted Letter', 3102) == false and Data.PlayerClass() == WoWClass.Rogue and Data.MyRace() == WoWRace.Human">
         <TakeQuest NpcName="Marshal McBride" QuestId="3102" QuestName="Encrypted Letter" />
     </If>
     <If Condition="Data.HasActiveQuest('Encrypted Letter', 3102) == true and Data.PlayerClass() == WoWClass.Rogue and Data.MyRace() == WoWRace.Human"> 

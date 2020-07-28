@@ -12,7 +12,7 @@
         <TakeQuest NpcName="Deputy Willem" QuestId="783" QuestName="A Threat Within" />
     </If>
     <If Condition="Data.HasActiveQuest('A Threat Within') == true">
-        <ReturnQuest NpcName="Deputy Willem" QuestId="783" QuestName="A Threat Within" />
+        <ReturnQuest NpcName="Marshal McBride" QuestId="783" QuestName="A Threat Within" />
     </If>
     <If Condition="Data.HasActiveQuest('Kobold Camp Cleanup') == false and Data.HasCompletedQuest('Kobold Camp Cleanup') == false">
         <TakeQuest NpcName="Marshal McBride" QuestId="7" QuestName="Kobold Camp Cleanup" />
