@@ -1,0 +1,6 @@
+<ShadowProfile Condition="UnitLevel('player') &gt;= 12 and Data.HasCompletedQuest('Washed Ashore', 3524) == false">
+	<SetBaseSettings />
+	<!-- Pickup --><If Condition="Data.HasActiveQuest('Tools of the Highborne') == false and Data.HasCompletedQuest('Tools of the Highborne') == false">
+	<TakeQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="3524" QuestName="Washed Ashore" />	<TakeQuest NpcName="Gubber Blump" QuestId="1141" QuestName="The Family and the Fishing Pole" />	<TakeQuest NpcName="Wizbang Cranktoggle" QuestId="983" QuestName="Buzzbox 827" />	<TakeQuest NpcName="Cerellean Whiteclaw" QuestId="963" QuestName="For Love Eternal" />	<TakeQuest NpcName="Barithras Moonshade" QuestId="947" QuestName="Cave Mushrooms" />	<TakeQuest NpcName="Sentinel Glynda Nal'Shea" QuestId="4811" QuestName="The Red Crystal" />	<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />	<TakeQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" />	<TakeQuest NpcName="Thundris Windweaver" QuestId="954" QuestName="Bashal\'Aran" />	<TakeQuest NpcName="Thundris Windweaver" QuestId="958" QuestName="Tools of the Highborne" /></If>
+
+</ShadowProfile>

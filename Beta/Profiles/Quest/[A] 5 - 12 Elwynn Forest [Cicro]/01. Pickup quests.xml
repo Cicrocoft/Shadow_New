@@ -1,21 +1,14 @@
-<ShadowProfile Condition="UnitLevel('player') &gt;= 5 and Data.HasCompletedQuest('Kobold Candles') == false">
-	<!-- Settings -->
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Andrew Krighton"/>
-    <SetVendorSlotsCount Value="1" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Andrew Krighton"/>
-    <SetRepairPercent Value="35" />
-	<!-- Pickup -->
-	<If Condition="Data.HasActiveQuest('Kobold Candles') == false and Data.HasCompletedQuest('Kobold Candles') == false">
-		<TakeQuest NpcName="William Pestle" QuestId="60" QuestName="Kobold Candles" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('The Fargodeep Mine') == false and Data.HasCompletedQuest('The Fargodeep Mine') == false">
-		<TakeQuest NpcName="Marshal Dughan" QuestId="62" QuestName="The Fargodeep Mine" />
-	</If>
-    <If Condition="Data.HasActiveQuest('Gold Dust Exchange') == false and Data.HasCompletedQuest('Gold Dust Exchange') == false">	
-		<TakeQuest NpcName="Remy Two Times" QuestId="47" QuestName="Gold Dust Exchange" />	
-	</If>	
-
+<ShadowProfile Condition="UnitLevel('player') &gt;= 5 and Data.HasCompletedQuest('Kobold Candles') == false">
+	<SetBaseSettings />
+	<!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('Kobold Candles') == false and Data.HasCompletedQuest('Kobold Candles') == false">
+		<TakeQuest NpcName="William Pestle" QuestId="60" QuestName="Kobold Candles" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Fargodeep Mine') == false and Data.HasCompletedQuest('The Fargodeep Mine') == false">
+		<TakeQuest NpcName="Marshal Dughan" QuestId="62" QuestName="The Fargodeep Mine" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Gold Dust Exchange') == false and Data.HasCompletedQuest('Gold Dust Exchange') == false">	
+		<TakeQuest NpcName="Remy Two Times" QuestId="47" QuestName="Gold Dust Exchange" />	
+	</If>	
+
 </ShadowProfile>

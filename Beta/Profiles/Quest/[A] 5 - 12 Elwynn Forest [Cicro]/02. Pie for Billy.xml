@@ -1,62 +1,61 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Back to Billy') == false">
-	<!-- Vendor Settings -->
-	<SetBaseSettings />	
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Andrew Krighton"/>
-    <SetVendorSlotsCount Value="1" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Andrew Krighton"/>
-    <SetRepairPercent Value="35" />
-	<AddDoNotSellItem ItemName="Chunk of Boar Meat" />
-	
-	<!-- Pickup -->
-	<If Condition="Data.HasActiveQuest('Lost Necklace') == false and Data.HasCompletedQuest('Lost Necklace') == false">
-		<TakeQuest NpcName="Auntie Bernice Stonefield" QuestId="85" QuestName="Lost Necklace" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('Princess Must Die!') == false and Data.HasCompletedQuest('Princess Must Die!') == false">
-		<TakeQuest NpcName="Ma Stonefield" QuestId="88" QuestName="Princess Must Die!" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Lost Necklace') == true">
-		<ReturnQuest NpcName="Billy Maclure" QuestId="85" QuestName="Lost Necklace" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('Pie for Billy') == false and Data.HasCompletedQuest('Pie for Billy') == false and Data.HasCompletedQuest('Lost Necklace') == true">
-		<TakeQuest NpcName="Billy Maclure" QuestId="86" QuestName="Pie for Billy" />
-	</If>	
-	<!-- Quset Completion -->
-	<If Condition="Data.HasActiveQuest('Pie for Billy') == true and Data.HasCompletedQuest('Pie for Billy') == false">
-		<ClearHotspots />
-		<SetTargetingMode Mode="Around Points" />
-		<!-- Blackspots -->
-			
-		<!-- Hotspots -->
-		<AddHotspot X="-9714.8759765625" Y="142.64231872559" Z="49.139514923096" Range="50" />
-		<AddHotspot X="-9656.1328125" Y="142.0265045166" Z="46.470169067383" Range="50" />
-		<AddHotspot X="-9568.5732421875" Y="123.26902770996" Z="59.501770019531" Range="50" />
-		<AddHotspot X="-9725.3134765625" Y="226.08795166016" Z="49.365245819092" Range="50" />
-		<AddHotspot X="-9802.76171875" Y="364.05389404297" Z="38.912075042725" Range="50" />
-		<AddHotspot X="-9879.6767578125" Y="396.48370361328" Z="35.160911560059" Range="50" />
-		<AddHotspot X="-9946.216796875" Y="391.52954101563" Z="34.950336456299" Range="50" />		
-		<!-- Monster Filter -->
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Stonetusk Boar" />	
-		<While Condition="Data.AllQuestObjectivesAreComplete('Pie for Billy') == false" >
-			<Wait Value="100" />
-		</While>	
-	</If>
-
-	
-	<!-- ReturnQuest -->
-    <If Condition="Data.HasActiveQuest('Pie for Billy') == true and Data.AllQuestObjectivesAreComplete('Pie for Billy') == true">	
-		<ReturnQuest NpcName="Auntie Bernice Stonefield" QuestId="86" QuestName="Pie for Billy" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('Back to Billy') == false and Data.HasCompletedQuest('Back to Billy') == false and Data.HasCompletedQuest('Pie for Billy') == true">
-		<TakeQuest NpcName="Auntie Bernice Stonefield" QuestId="84" QuestName="Back to Billy" />
-	</If>		
-    <If Condition="Data.HasActiveQuest('Back to Billy') == true and Data.AllQuestObjectivesAreComplete('Back to Billy') == true">	
-		<ReturnQuest NpcName="Billy Maclure" QuestId="84" QuestName="Back to Billy" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Goldtooth') == false and Data.HasCompletedQuest('Goldtooth') == false and Data.HasCompletedQuest('Back to Billy') == true">
-		<TakeQuest NpcName="Billy Maclure" QuestId="87" QuestName="Goldtooth" />
-	</If>	
+<ShadowProfile Condition="Data.HasCompletedQuest('Back to Billy') == false">
+	<!-- Vendor Settings -->
+	<SetBaseSettings />	
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Andrew Krighton"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Andrew Krighton"/>
+    <SetRepairPercent Value="35" />
+	<AddDoNotSellItem ItemName="Chunk of Boar Meat" />
+	
+	<!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('Lost Necklace') == false and Data.HasCompletedQuest('Lost Necklace') == false">
+		<TakeQuest NpcName="Auntie Bernice Stonefield" QuestId="85" QuestName="Lost Necklace" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Princess Must Die!') == false and Data.HasCompletedQuest('Princess Must Die!') == false">
+		<TakeQuest NpcName="Ma Stonefield" QuestId="88" QuestName="Princess Must Die!" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Lost Necklace') == true">
+		<ReturnQuest NpcName="Billy Maclure" QuestId="85" QuestName="Lost Necklace" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Pie for Billy') == false and Data.HasCompletedQuest('Pie for Billy') == false and Data.HasCompletedQuest('Lost Necklace') == true">
+		<TakeQuest NpcName="Billy Maclure" QuestId="86" QuestName="Pie for Billy" />
+	</If>	
+	<!-- Quset Completion -->
+	<If Condition="Data.HasActiveQuest('Pie for Billy') == true and Data.HasCompletedQuest('Pie for Billy') == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-9714.8759765625" Y="142.64231872559" Z="49.139514923096" Range="50" />
+		<AddHotspot X="-9656.1328125" Y="142.0265045166" Z="46.470169067383" Range="50" />
+		<AddHotspot X="-9568.5732421875" Y="123.26902770996" Z="59.501770019531" Range="50" />
+		<AddHotspot X="-9725.3134765625" Y="226.08795166016" Z="49.365245819092" Range="50" />
+		<AddHotspot X="-9802.76171875" Y="364.05389404297" Z="38.912075042725" Range="50" />
+		<AddHotspot X="-9879.6767578125" Y="396.48370361328" Z="35.160911560059" Range="50" />
+		<AddHotspot X="-9946.216796875" Y="391.52954101563" Z="34.950336456299" Range="50" />		
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Stonetusk Boar" />	
+		<While Condition="Data.AllQuestObjectivesAreComplete('Pie for Billy') == false" >
+			<Wait Value="100" />
+		</While>	
+	</If>
+
+	
+	<!-- ReturnQuest -->
+    <If Condition="Data.HasActiveQuest('Pie for Billy') == true and Data.AllQuestObjectivesAreComplete('Pie for Billy') == true">	
+		<ReturnQuest NpcName="Auntie Bernice Stonefield" QuestId="86" QuestName="Pie for Billy" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Back to Billy') == false and Data.HasCompletedQuest('Back to Billy') == false and Data.HasCompletedQuest('Pie for Billy') == true">
+		<TakeQuest NpcName="Auntie Bernice Stonefield" QuestId="84" QuestName="Back to Billy" />
+	</If>		
+    <If Condition="Data.HasActiveQuest('Back to Billy') == true and Data.AllQuestObjectivesAreComplete('Back to Billy') == true">	
+		<ReturnQuest NpcName="Billy Maclure" QuestId="84" QuestName="Back to Billy" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Goldtooth') == false and Data.HasCompletedQuest('Goldtooth') == false and Data.HasCompletedQuest('Back to Billy') == true">
+		<TakeQuest NpcName="Billy Maclure" QuestId="87" QuestName="Goldtooth" />
+	</If>	
 </ShadowProfile>

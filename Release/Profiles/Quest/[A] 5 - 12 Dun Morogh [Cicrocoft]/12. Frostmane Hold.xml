@@ -43,7 +43,7 @@
     <SetEnableRepairing Value="true"/>
     <SetRepairNpc NpcName="Grawn Thromwyn"/>
     <SetRepairPercent Value="35" />
-		<If Condition="Data.HasActiveQuest('Frostmane Hold') == true">
+		<If Condition="Data.HasActiveQuest('Frostmane Hold') == true">			<SetResurrectionMode Mode="SpiritHealer" />
 			<ReturnQuest NpcName="Senir Whitebeard" QuestName="Frostmane Hold" />
 		</If>
 	</If>

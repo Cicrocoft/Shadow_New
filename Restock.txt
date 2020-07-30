@@ -1,3 +1,34 @@
+<!-- Restock Darkshore 12+ -->
+<SetEnableRestockItems Value="true"/>
+<ClearRestockItems/>
+<!-- Food -->
+<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+	<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+	<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+</If>
+<!-- Water -->
+<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+	<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+	<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+	<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+</If>
+<!-- Bullets/Arrows -->
+<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+    <AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+</If>
+<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+    <AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+</If>
+<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+    <AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+</If>
+<!-- End Restock -->
+
+
+
 <!-- Restock Teldrassil 5-12 -->
 <SetEnableRestockItems Value="true"/>
 <ClearRestockItems/>
@@ -17,7 +48,7 @@
 </If>
 <!-- Bullets/Arrows -->
 <If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
-    <AddRestockItem ItemName="Rough Arrow" NpcName="Jeena Featherbow" UnderAmount="100" BuyAmount="1200"/>
+    <AddRestockItem ItemName="Light Shot" NpcName="Jeena Featherbow" UnderAmount="100" BuyAmount="1200"/>
 </If>
 <If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
     <AddRestockItem ItemName="Rough Arrow" NpcName="Jeena Featherbow" UnderAmount="100" BuyAmount="1200"/>
@@ -37,7 +68,7 @@
 
 <!-- Bullets/Arrows -->
 <If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
-    <AddRestockItem ItemName="Rough Arrow" NpcName="Keina" UnderAmount="100" BuyAmount="1200"/>
+    <AddRestockItem ItemName="Light Shot" NpcName="Keina" UnderAmount="100" BuyAmount="1200"/>
 </If>
 <If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
     <AddRestockItem ItemName="Rough Arrow" NpcName="Keina" UnderAmount="100" BuyAmount="1200"/>

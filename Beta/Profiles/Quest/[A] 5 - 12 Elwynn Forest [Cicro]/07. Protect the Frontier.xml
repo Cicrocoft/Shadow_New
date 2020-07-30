@@ -1,48 +1,41 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Protect the Frontier') == false">
-	<!-- Settings -->
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Rallic Finn"/>
-    <SetVendorSlotsCount Value="1" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Rallic Finn"/>
-    <SetRepairPercent Value="35" />
-	<!-- Pickup -->
-	<If Condition="Data.HasActiveQuest('Protect the Frontier') == false and Data.HasCompletedQuest('Protect the Frontier') == false">
-		<TakeQuest NpcName="Guard Thomas" QuestId="52" QuestName="Protect the Frontier" />
-	</If>	
-
-	<!-- Quset Completion -->
-	<If Condition="Data.HasActiveQuest('Protect the Frontier') == true and Data.HasCompletedQuest('Protect the Frontier') == false">
-		<ClearHotspots />
-		<!-- Blackspots -->
-		<AddBlackspot X="-9533.103515625" Y="-242.87438964844" Z="58.667331695557" Range="20" />
-		<!-- Hotspots -->
-		<AddHotspot X="-9692.2666015625" Y="-1121.07421875" Z="40.231937408447" Range="50" />
-		<AddHotspot X="-9713.6318359375" Y="-1295.0198974609" Z="52.186328887939" Range="50" />
-		<AddHotspot X="-9617.359375" Y="-1426.4984130859" Z="57.254154205322" Range="50" />
-		<AddHotspot X="-9578.2578125" Y="-1501.9803466797" Z="62.147998809814" Range="50" />
-		<AddHotspot X="-9440.68359375" Y="-1481.6151123047" Z="61.057006835938" Range="50" />
-		<AddHotspot X="-9367.1162109375" Y="-1415.3714599609" Z="63.833023071289" Range="50" />
-		<AddHotspot X="-9331.5615234375" Y="-1349.8916015625" Z="64.609992980957" Range="50" />
-		<AddHotspot X="-9328.3125" Y="-1266.6418457031" Z="65.470123291016" Range="50" />
-		<AddHotspot X="-9379.5302734375" Y="-1190.4566650391" Z="62.374103546143" Range="50" />
-		<AddHotspot X="-9520.6162109375" Y="-1060.6213378906" Z="49.098346710205" Range="50" />
-
-		<!-- Monster Filter -->
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Prowler" />
-		<AddMonsterFilterName Value="Young Forest Bear" />		
-		<While Condition="Data.AllQuestObjectivesAreComplete('Protect the Frontier') == false" >
-				<Wait Value="100" />
-		</While>			
-	</If>
-	
-
-	
-	<!-- ReturnQuest -->
-    <If Condition="Data.HasActiveQuest('Protect the Frontier') == true and Data.AllQuestObjectivesAreComplete('Protect the Frontier') == true">	
-		<ReturnQuest NpcName="Guard Thomas" QuestId="52" QuestName="Protect the Frontier" />
-	</If>	
+<ShadowProfile Condition="Data.HasCompletedQuest('Protect the Frontier') == false">
+	<SetBaseSettings />
+	<!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('Protect the Frontier') == false and Data.HasCompletedQuest('Protect the Frontier') == false">
+		<TakeQuest NpcName="Guard Thomas" QuestId="52" QuestName="Protect the Frontier" />
+	</If>	
+
+	<!-- Quset Completion -->
+	<If Condition="Data.HasActiveQuest('Protect the Frontier') == true and Data.HasCompletedQuest('Protect the Frontier') == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		<AddBlackspot X="-9533.103515625" Y="-242.87438964844" Z="58.667331695557" Range="20" />
+		<!-- Hotspots -->
+		<AddHotspot X="-9692.2666015625" Y="-1121.07421875" Z="40.231937408447" Range="50" />
+		<AddHotspot X="-9713.6318359375" Y="-1295.0198974609" Z="52.186328887939" Range="50" />
+		<AddHotspot X="-9617.359375" Y="-1426.4984130859" Z="57.254154205322" Range="50" />
+		<AddHotspot X="-9578.2578125" Y="-1501.9803466797" Z="62.147998809814" Range="50" />
+		<AddHotspot X="-9440.68359375" Y="-1481.6151123047" Z="61.057006835938" Range="50" />
+		<AddHotspot X="-9367.1162109375" Y="-1415.3714599609" Z="63.833023071289" Range="50" />
+		<AddHotspot X="-9331.5615234375" Y="-1349.8916015625" Z="64.609992980957" Range="50" />
+		<AddHotspot X="-9328.3125" Y="-1266.6418457031" Z="65.470123291016" Range="50" />
+		<AddHotspot X="-9379.5302734375" Y="-1190.4566650391" Z="62.374103546143" Range="50" />
+		<AddHotspot X="-9520.6162109375" Y="-1060.6213378906" Z="49.098346710205" Range="50" />
+
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Prowler" />
+		<AddMonsterFilterName Value="Young Forest Bear" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Protect the Frontier') == false" >
+				<Wait Value="100" />
+		</While>			
+	</If>
+	
+
+	
+	<!-- ReturnQuest -->
+    <If Condition="Data.HasActiveQuest('Protect the Frontier') == true and Data.AllQuestObjectivesAreComplete('Protect the Frontier') == true">	
+		<ReturnQuest NpcName="Guard Thomas" QuestId="52" QuestName="Protect the Frontier" />
+	</If>	
 </ShadowProfile>

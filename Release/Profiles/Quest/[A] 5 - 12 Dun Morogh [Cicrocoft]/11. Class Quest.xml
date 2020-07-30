@@ -1,7 +1,7 @@
 <ShadowProfile Condition="UnitLevel('player') <= 10">
 
 
-<!-- Rogue -->
+<!-- Rogue --><!-- Mesh issue and doo many deaths 
 <While Condition="Data.HasCompletedQuest('Onin\'s Report') == false and Data.PlayerClass() == WoWClass.Rogue">
     <If Condition="Data.HasActiveQuest('Road to Salvation') == false and Data.HasCompletedQuest('Road to Salvation') == false and Data.PlayerClass() == WoWClass.Rogue">
         <TakeQuest NpcName="Hogral Bakkan" QuestName="Road to Salvation" />
@@ -29,7 +29,7 @@
 		<ReturnQuest NpcName="Hulfdan Blackbeard" QuestName="Onin\'s Report" />
 	</If>	
     <ClearBlackspots />	
-</While>
+</While> -->
 <!-- Dwarf Hunter -->
 	<If Condition="Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
 		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == false and Data.HasCompletedQuest('Taming the Beast', 6064) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">

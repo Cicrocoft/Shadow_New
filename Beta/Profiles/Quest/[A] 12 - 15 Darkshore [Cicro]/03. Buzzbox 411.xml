@@ -1,0 +1,103 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Buzzbox 411') == false or Data.HasCompletedQuest('Washed Ashore', 4681) == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+
+	<!-- Pickup -->	
+	<If Condition="Data.HasActiveQuest('Buzzbox 411') == false and Data.HasCompletedQuest('Buzzbox 827') == true">
+		<TakeQuestFromObject QuestName="Buzzbox 411" X="6312.8549804688" Y="540.16149902344" Z="13.60666179657" />
+	</If> 
+    <If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 3524) == true">
+        <TakeQuest  NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" />
+    </If>  
+  
+	<!-- Objective Completion -->
+	
+	<If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 4681) == false" >
+		<MoveTo X="6303.3608398438" Y="863.56494140625" Z="-6.5635361671448" />	
+		<MoveTo X="6307.7143554688" Y="858.86077880859" Z="-12.862330436707" />
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AddHotspot X="6308.7416992188" Y="858.64398193359" Z="-13.014876365662" Range="25" />
+		<AllowQuestNode NodeName="Skeletal Sea Turtle" />	
+		<While Condition="Data.AllQuestObjectivesAreComplete('Washed Ashore', 4681) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	
+	    <If Condition="Data.HasActiveQuest('Buzzbox 411') == true and Data.AllQuestObjectivesAreComplete('Buzzbox 411') == false">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="6320.0229492188" Y="910.560546875" Z="-1.89697265625" Range="50" />
+		<AddHotspot X="6382.09765625" Y="900.55529785156" Z="-1.89697265625" Range="50" />
+		<AddHotspot X="6601.0810546875" Y="722.04107666016" Z="-1.7186691761017" Range="100" />
+		<AddHotspot X="6690.1752929688" Y="632.22802734375" Z="-1.6879705190659" Range="100" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Darkshore Thresher" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Buzzbox 411') == false" >
+			<Wait Value="100" />
+		</While>
+    </If>
+	
+	
+	<!-- TurnIn -->
+	
+    <If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 4681) == true">
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" />
+    </If>	
+
+    <If Condition="Data.HasActiveQuest('Buzzbox 411') == true">
+		<ClearHotspots />	
+		<AddBlackspot X="6954.3193359375" Y="194.94247436523" Z="0.21656090021133" Range="35" />
+		<ReturnQuestToObject QuestName="Buzzbox 411" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Buzzbox 323') == false and Data.HasCompletedQuest('Buzzbox 411') == true">
+		<ClearHotspots />	
+		<AddBlackspot X="6954.3193359375" Y="194.94247436523" Z="0.21656090021133" Range="35" />
+		<TakeQuestFromObject QuestName="Buzzbox 323" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" />
+	</If> 	
+	
+</ShadowProfile>
