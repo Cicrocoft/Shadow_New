@@ -1,59 +1,59 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('The Public Servant') == false or Data.HasCompletedQuest('Those Blasted Troggs!') == false">
-
-    <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('The Public Servant') == false and Data.HasCompletedQuest('The Public Servant') == false">
-        <TakeQuest NpcName="Senator Mehr Stonehallow" QuestName="The Public Servant" />
-    </If>
-    <If Condition="Data.HasActiveQuest('Those Blasted Troggs!') == false and Data.HasCompletedQuest('Those Blasted Troggs!') == false">
-        <TakeQuest NpcName="Foreman Stonebrow" QuestName="Those Blasted Troggs!" />
-    </If>
-
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Kazan Mogosh"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Frast Dokner"/>
-    <SetRepairPercent Value="35" />
-	
-
-    <If Condition="Data.HasActiveQuest('Those Blasted Troggs!') == true">
-		<ClearHotspots />
-		<AddBlackspot X="-5833.9057617188" Y="-1589.0899658203" Z="358.81271362305" Range="30" />
-		<AddHotspot X="-5812.3334960938" Y="-1524.7952880859" Z="358.75921630859" Range="45" />
-		<AddHotspot X="-5787.8012695313" Y="-1597.8778076172" Z="358.80111694336" Range="25" />
-		<AddHotspot X="-5793.232421875" Y="-1652.6916503906" Z="358.83599853516" Range="50" />
-		<SetTargetingMode Mode="Around Points" />
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Rockjaw Skullthumper" />
-		<While Condition="Data.QuestObjectiveIsComplete('Those Blasted Troggs!', 1) == false" >
-			<Wait Value="100" />
-		</While>	
-    </If>
-	
-	
-    <If Condition="Data.HasActiveQuest('The Public Servant') == true">	
-		<ClearHotspots />
-		<AddBlackspot X="-5833.9057617188" Y="-1589.0899658203" Z="358.81271362305" Range="20" />
-		<AddHotspot X="-5740.2739257813" Y="-1679.3549804688" Z="360.93328857422" Range="20" />
-		<AddHotspot X="-5685.7602539063" Y="-1693.2850341797" Z="360.79611206055" Range="35" />
-		<AddHotspot X="-5612.6962890625" Y="-1677.4715576172" Z="351.3844909668" Range="25" />
-		<AddHotspot X="-5641.91796875" Y="-1686.8648681641" Z="360.93923950195" Range="35" />	
-		<SetTargetingMode Mode="Around Points" />
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Rockjaw Bonesnapper" />
-		<AddMonsterFilterName Value="Rockjaw Skullthumper" />
-		<While Condition="Data.QuestObjectiveIsComplete('The Public Servant', 1) == false" >
-			<Wait Value="100" />
-		</While>	
-	</If>
-	<ClearMonsterFilter/>
-    <If Condition="Data.HasActiveQuest('The Public Servant') == true">
-        <ReturnQuest NpcName="Senator Mehr Stonehallow" QuestName="The Public Servant" />
-    </If>	
-    <If Condition="Data.HasActiveQuest('Those Blasted Troggs!') == true">
-        <ReturnQuest NpcName="Foreman Stonebrow" QuestName="Those Blasted Troggs!" />
-	</If>
+<ShadowProfile Condition="Data.HasCompletedQuest('The Public Servant') == false or Data.HasCompletedQuest('Those Blasted Troggs!') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('The Public Servant') == false and Data.HasCompletedQuest('The Public Servant') == false">
+        <TakeQuest NpcName="Senator Mehr Stonehallow" QuestName="The Public Servant" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Those Blasted Troggs!') == false and Data.HasCompletedQuest('Those Blasted Troggs!') == false">
+        <TakeQuest NpcName="Foreman Stonebrow" QuestName="Those Blasted Troggs!" />
+    </If>
+
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Kazan Mogosh"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Frast Dokner"/>
+    <SetRepairPercent Value="35" />
+	
+
+    <If Condition="Data.HasActiveQuest('Those Blasted Troggs!') == true">
+		<ClearHotspots />
+		<AddBlackspot X="-5833.9057617188" Y="-1589.0899658203" Z="358.81271362305" Range="30" />
+		<AddHotspot X="-5812.3334960938" Y="-1524.7952880859" Z="358.75921630859" Range="45" />
+		<AddHotspot X="-5787.8012695313" Y="-1597.8778076172" Z="358.80111694336" Range="25" />
+		<AddHotspot X="-5793.232421875" Y="-1652.6916503906" Z="358.83599853516" Range="50" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Rockjaw Skullthumper" />
+		<While Condition="Data.QuestObjectiveIsComplete('Those Blasted Troggs!', 1) == false" >
+			<Wait Value="100" />
+		</While>	
+    </If>
+	
+	
+    <If Condition="Data.HasActiveQuest('The Public Servant') == true">	
+		<ClearHotspots />
+		<AddBlackspot X="-5833.9057617188" Y="-1589.0899658203" Z="358.81271362305" Range="20" />
+		<AddHotspot X="-5740.2739257813" Y="-1679.3549804688" Z="360.93328857422" Range="20" />
+		<AddHotspot X="-5685.7602539063" Y="-1693.2850341797" Z="360.79611206055" Range="35" />
+		<AddHotspot X="-5612.6962890625" Y="-1677.4715576172" Z="351.3844909668" Range="25" />
+		<AddHotspot X="-5641.91796875" Y="-1686.8648681641" Z="360.93923950195" Range="35" />	
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Rockjaw Bonesnapper" />
+		<AddMonsterFilterName Value="Rockjaw Skullthumper" />
+		<While Condition="Data.QuestObjectiveIsComplete('The Public Servant', 1) == false" >
+			<Wait Value="100" />
+		</While>	
+	</If>
+	<ClearMonsterFilter/>
+    <If Condition="Data.HasActiveQuest('The Public Servant') == true">
+        <ReturnQuest NpcName="Senator Mehr Stonehallow" QuestName="The Public Servant" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Those Blasted Troggs!') == true">
+        <ReturnQuest NpcName="Foreman Stonebrow" QuestName="Those Blasted Troggs!" />
+	</If>
 </ShadowProfile>

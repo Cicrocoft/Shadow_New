@@ -1,31 +1,31 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Garments of the Light') == false and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Dwarf">
-<!-- Settings -->
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Innkeeper Belm"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Grawn Thromwyn"/>
-    <SetRepairPercent Value="35" />
-
-<!-- Pickup Quest -->
-    <If Condition="Data.HasActiveQuest('Garments of the Light') == false">
-        <TakeQuest NpcName="Maxan Anvol" QuestName="Garments of the Light" />
-    </If>
-	
-<!-- Quest Completion -->
-	<If Condition="Data.HasActiveQuest('Garments of the Light') == true">	
-
-		<MoveTo X="-5665.9775390625" Y="-456.51123046875" Z="394.68743896484" />
-		<Wait Value="3000" />
-		<Lua>TargetUnit(Data.GetClosestNpcById(12427))</Lua>
-		<Lua>CastSpellByName('Lesser Heal(Rank 2)')</Lua>
-		<Wait Value="3000" />
-		<Lua>CastSpellByName('Power Word: Fortitude')</Lua>
-		</ShadowProfile>
-	</If>
-	
-<!-- TurnIn Quest -->
-    <If Condition="Data.HasActiveQuest('Garments of the Light') == true">
-        <ReturnQuest NpcName="Maxan Anvol" QuestName="Garments of the Light" />
+<ShadowProfile Condition="Data.HasCompletedQuest('Garments of the Light') == false and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Dwarf">
+<!-- Settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Innkeeper Belm"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Grawn Thromwyn"/>
+    <SetRepairPercent Value="35" />
+
+<!-- Pickup Quest -->
+    <If Condition="Data.HasActiveQuest('Garments of the Light') == false">
+        <TakeQuest NpcName="Maxan Anvol" QuestName="Garments of the Light" />
+    </If>
+	
+<!-- Quest Completion -->
+	<If Condition="Data.HasActiveQuest('Garments of the Light') == true">	
+
+		<MoveTo X="-5665.9775390625" Y="-456.51123046875" Z="394.68743896484" />
+		<Wait Value="3000" />
+		<Lua>TargetUnit(Data.GetClosestNpcById(12427))</Lua>
+		<Lua>CastSpellByName('Lesser Heal(Rank 2)')</Lua>
+		<Wait Value="3000" />
+		<Lua>CastSpellByName('Power Word: Fortitude')</Lua>
+		</ShadowProfile>
+	</If>
+	
+<!-- TurnIn Quest -->
+    <If Condition="Data.HasActiveQuest('Garments of the Light') == true">
+        <ReturnQuest NpcName="Maxan Anvol" QuestName="Garments of the Light" />
     </If>

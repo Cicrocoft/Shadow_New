@@ -1,73 +1,73 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('The Troll Cave') == false">
-
-    <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('A Refugee\'s Quandary') == false">
-        <TakeQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />
-    </If>
-    <If Condition="Data.HasActiveQuest('The Troll Cave') == false and Data.HasCompletedQuest('The Troll Cave') == false">
-        <TakeQuest NpcName="Grelin Whitebeard" QuestName="The Troll Cave" />
-    </If>	
-    <SetBaseSettings />
-
-    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == true">
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Adlin Pridedrift"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Rybrad Coldbank"/>
-    <SetRepairPercent Value="35" />
-    <SetTargetingMode Mode="Gather Only" />
-    <ClearHotspots />
-    <SetEnableAutoHerb Value="true" />
-	<AddHotspot X="-6374.056640625" Y="773.17364501953" Z="386.21313476563" Range="20" />
-    <AllowQuestNode NodeName="Felix\'s Box" />	
-    <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 1) == false" >
-        <Wait Value="100" />
-    </While>
- 
-    <ClearHotspots />	
-    <SetTargetingMode Mode="Gather Only" />
-    <SetEnableAutoHerb Value="true" />
-	<AddBlackspot X="-6511.28515625" Y="686.92022705078" Z="387.27383422852" Range="5" />
-	<AddHotspot X="-6497.4931640625" Y="680.60815429688" Z="387.13925170898" Range="10" />
-    <AllowQuestNode NodeName="Felix\'s Chest" />
-    <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 2) == false" >
-        <Wait Value="100" />
-    </While>
-
-    <SetTargetingMode Mode="Gather Only" />
-    <ClearHotspots />	
-    <SetEnableAutoHerb Value="true" />
-	<AddHotspot X="-6477.9897460938" Y="507.86172485352" Z="385.86993408203" Range="20" />
-    <AllowQuestNode NodeName="Felix\'s Bucket of Bolts" />
-    <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 3) == false" >
-        <Wait Value="100" />
-    </While>
-	</If>
-	<If Condition="Data.HasActiveQuest('The Troll Cave') == true">
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Adlin Pridedrift"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Rybrad Coldbank"/>
-    <SetRepairPercent Value="35" />
-
-    <ClearHotspots />
-	<AddHotspot X="-6374.056640625" Y="773.17364501953" Z="386.21313476563" Range="50" />
-	<AddHotspot X="-6497.4931640625" Y="680.60815429688" Z="387.13925170898" Range="50" />
-	<AddHotspot X="-6477.9897460938" Y="507.86172485352" Z="385.86993408203" Range="50" />
-    <SetTargetingMode Mode="Around Points" />
-    <ClearMonsterFilter/>
-    <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Frostmane Troll Whelp" />
-    <While Condition="Data.AllQuestObjectivesAreComplete('The Troll Cave') == false" >
-        <Wait Value="100" />
-    </While>	
-	</If>
-    <If Condition="Data.HasActiveQuest('The Troll Cave') == true">
-        <ReturnQuest NpcName="Grelin Whitebeard" QuestName="The Troll Cave" />
-    </If>
-	
-
+<ShadowProfile Condition="Data.HasCompletedQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('The Troll Cave') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('A Refugee\'s Quandary') == false">
+        <TakeQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />
+    </If>
+    <If Condition="Data.HasActiveQuest('The Troll Cave') == false and Data.HasCompletedQuest('The Troll Cave') == false">
+        <TakeQuest NpcName="Grelin Whitebeard" QuestName="The Troll Cave" />
+    </If>	
+    <SetBaseSettings />
+
+    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == true">
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Adlin Pridedrift"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rybrad Coldbank"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Gather Only" />
+    <ClearHotspots />
+    <SetEnableAutoHerb Value="true" />
+	<AddHotspot X="-6374.056640625" Y="773.17364501953" Z="386.21313476563" Range="20" />
+    <AllowQuestNode NodeName="Felix\'s Box" />	
+    <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 1) == false" >
+        <Wait Value="100" />
+    </While>
+ 
+    <ClearHotspots />	
+    <SetTargetingMode Mode="Gather Only" />
+    <SetEnableAutoHerb Value="true" />
+	<AddBlackspot X="-6511.28515625" Y="686.92022705078" Z="387.27383422852" Range="5" />
+	<AddHotspot X="-6497.4931640625" Y="680.60815429688" Z="387.13925170898" Range="10" />
+    <AllowQuestNode NodeName="Felix\'s Chest" />
+    <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 2) == false" >
+        <Wait Value="100" />
+    </While>
+
+    <SetTargetingMode Mode="Gather Only" />
+    <ClearHotspots />	
+    <SetEnableAutoHerb Value="true" />
+	<AddHotspot X="-6477.9897460938" Y="507.86172485352" Z="385.86993408203" Range="20" />
+    <AllowQuestNode NodeName="Felix\'s Bucket of Bolts" />
+    <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 3) == false" >
+        <Wait Value="100" />
+    </While>
+	</If>
+	<If Condition="Data.HasActiveQuest('The Troll Cave') == true">
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Adlin Pridedrift"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rybrad Coldbank"/>
+    <SetRepairPercent Value="35" />
+
+    <ClearHotspots />
+	<AddHotspot X="-6374.056640625" Y="773.17364501953" Z="386.21313476563" Range="50" />
+	<AddHotspot X="-6497.4931640625" Y="680.60815429688" Z="387.13925170898" Range="50" />
+	<AddHotspot X="-6477.9897460938" Y="507.86172485352" Z="385.86993408203" Range="50" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Frostmane Troll Whelp" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('The Troll Cave') == false" >
+        <Wait Value="100" />
+    </While>	
+	</If>
+    <If Condition="Data.HasActiveQuest('The Troll Cave') == true">
+        <ReturnQuest NpcName="Grelin Whitebeard" QuestName="The Troll Cave" />
+    </If>
+	
+
 </ShadowProfile>

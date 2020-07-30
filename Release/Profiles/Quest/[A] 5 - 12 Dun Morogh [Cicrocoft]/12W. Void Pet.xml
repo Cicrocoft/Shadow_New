@@ -1,48 +1,48 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('The Binding') == false and Data.PlayerClass() == WoWClass.Warlock">
-	<SetBaseSettings />
-	<SetEnableVendoring Value="false"/>
-	<SetEnableRepairing Value="false"/>
-    <If Condition="Data.HasActiveQuest('The Slaughtered Lamb') == false and Data.HasCompletedQuest('The Slaughtered Lamb') == false and GetZoneText() == 'City of Ironforge'">
-        <TakeQuest NpcName="Lago Blackwrench" QuestName="The Slaughtered Lamb" />
-		<MoveTo X="-4838.1220703125" Y="-1313.7030029297" Z="501.86978149414" />
-    </If>   
- <If Condition="GetZoneText() == 'Stormwind City' or GetZoneText() == 'Elwynn Forest'">
-	 <If Condition="Data.HasActiveQuest('The Slaughtered Lamb') == true">
-		<ReturnQuest NpcName="Gakin the Darkbinder" QuestName="The Slaughtered Lamb" />
-	</If>
-    <If Condition="Data.HasActiveQuest('Surena Caledon') == false and Data.HasCompletedQuest('Surena Caledon') == false">
-        <TakeQuest NpcName="Gakin the Darkbinder" QuestName="Surena Caledon" />
-    </If>   
-
-	<If Condition="Data.HasActiveQuest('Surena Caledon') == true">
-		<ClearHotspots />
-		<SetTargetingMode Mode="Around Points" />
-		<AddHotspot X="-9804.029296875" Y="-928.24304199219" Z="39.857261657715" Range="30" />
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Surena Caledon" />
-		<AddMonsterFilterName Value="Erlan Drudgemoor" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('Surena Caledon') == false" >
-			<Wait Value="100" />
-		</While>
-	</If>
-    <If Condition="Data.HasActiveQuest('Surena Caledon') == true and Data.AllQuestObjectivesAreComplete('Surena Caledon') == true">
-        <ReturnQuest NpcName="Gakin the Darkbinder" QuestName="Surena Caledon" />
-    </If> 
-	
-    <If Condition="Data.HasActiveQuest('The Binding', 1689) == false and Data.HasCompletedQuest('The Binding', 1689) == false">
-        <TakeQuest NpcName="Gakin the Darkbinder" QuestId="1689" QuestName="The Binding" />
-    </If> 	
-	<If Condition="Data.HasActiveQuest('The Binding', 1689) == true and Data.AllQuestObjectivesAreComplete('The Binding', 1689) == false">
-		<ClearHotspots />
-		<MoveTo X="-8972.3779296875" Y="1043.9611816406" Z="52.862495422363" />
-		<UseItem ItemName="Bloodstone Choker" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('The Binding', 1689) == false" >
-			<Wait Value="100" />
-		</While>
-	</If>
-    <If Condition="Data.HasActiveQuest('The Binding', 1689) == true and Data.AllQuestObjectivesAreComplete('The Binding', 1689) == true">
-        <ReturnQuest NpcName="Gakin the Darkbinder" QuestId="1689" QuestName="The Binding" />
-    </If> 	
-</If>
+<ShadowProfile Condition="Data.HasCompletedQuest('The Binding') == false and Data.PlayerClass() == WoWClass.Warlock">
+	<SetBaseSettings />
+	<SetEnableVendoring Value="false"/>
+	<SetEnableRepairing Value="false"/>
+    <If Condition="Data.HasActiveQuest('The Slaughtered Lamb') == false and Data.HasCompletedQuest('The Slaughtered Lamb') == false and GetZoneText() == 'City of Ironforge'">
+        <TakeQuest NpcName="Lago Blackwrench" QuestName="The Slaughtered Lamb" />
+		<MoveTo X="-4838.1220703125" Y="-1313.7030029297" Z="501.86978149414" />
+    </If>   
+ <If Condition="GetZoneText() == 'Stormwind City' or GetZoneText() == 'Elwynn Forest'">
+	 <If Condition="Data.HasActiveQuest('The Slaughtered Lamb') == true">
+		<ReturnQuest NpcName="Gakin the Darkbinder" QuestName="The Slaughtered Lamb" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Surena Caledon') == false and Data.HasCompletedQuest('Surena Caledon') == false">
+        <TakeQuest NpcName="Gakin the Darkbinder" QuestName="Surena Caledon" />
+    </If>   
+
+	<If Condition="Data.HasActiveQuest('Surena Caledon') == true">
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<AddHotspot X="-9804.029296875" Y="-928.24304199219" Z="39.857261657715" Range="30" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Surena Caledon" />
+		<AddMonsterFilterName Value="Erlan Drudgemoor" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Surena Caledon') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('Surena Caledon') == true and Data.AllQuestObjectivesAreComplete('Surena Caledon') == true">
+        <ReturnQuest NpcName="Gakin the Darkbinder" QuestName="Surena Caledon" />
+    </If> 
+	
+    <If Condition="Data.HasActiveQuest('The Binding', 1689) == false and Data.HasCompletedQuest('The Binding', 1689) == false">
+        <TakeQuest NpcName="Gakin the Darkbinder" QuestId="1689" QuestName="The Binding" />
+    </If> 	
+	<If Condition="Data.HasActiveQuest('The Binding', 1689) == true and Data.AllQuestObjectivesAreComplete('The Binding', 1689) == false">
+		<ClearHotspots />
+		<MoveTo X="-8972.3779296875" Y="1043.9611816406" Z="52.862495422363" />
+		<UseItem ItemName="Bloodstone Choker" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Binding', 1689) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('The Binding', 1689) == true and Data.AllQuestObjectivesAreComplete('The Binding', 1689) == true">
+        <ReturnQuest NpcName="Gakin the Darkbinder" QuestId="1689" QuestName="The Binding" />
+    </If> 	
+</If>
 </ShadowProfile>

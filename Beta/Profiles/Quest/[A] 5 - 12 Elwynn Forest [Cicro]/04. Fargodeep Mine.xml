@@ -1,5 +1,12 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Gold Dust Exchange') == false">
+	<!-- Settings -->
 	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Andrew Krighton"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Andrew Krighton"/>
+    <SetRepairPercent Value="35" />
 	<!-- Pickup -->
 	<If Condition="Data.HasActiveQuest('Kobold Candles') == false and Data.HasCompletedQuest('Kobold Candles') == false">
 		<TakeQuest NpcName="William Pestle" QuestId="60" QuestName="Kobold Candles" />

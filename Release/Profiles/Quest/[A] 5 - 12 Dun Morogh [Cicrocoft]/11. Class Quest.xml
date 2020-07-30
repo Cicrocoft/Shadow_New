@@ -1,93 +1,93 @@
-<ShadowProfile Condition="UnitLevel('player') <= 10">
-
-
-<!-- Rogue -->
-<While Condition="Data.HasCompletedQuest('Onin\'s Report') == false and Data.PlayerClass() == WoWClass.Rogue">
-    <If Condition="Data.HasActiveQuest('Road to Salvation') == false and Data.HasCompletedQuest('Road to Salvation') == false and Data.PlayerClass() == WoWClass.Rogue">
-        <TakeQuest NpcName="Hogral Bakkan" QuestName="Road to Salvation" />
-    </If>
-    <If Condition="Data.HasActiveQuest('Road to Salvation') == true and Data.PlayerClass() == WoWClass.Rogue"> 
-		<ReturnQuest NpcName="Hulfdan Blackbeard" QuestName="Road to Salvation" />
-	</If>
-    <If Condition="Data.HasActiveQuest('Simple Subterfugin\'') == false and Data.HasCompletedQuest('Road to Salvation') == true and Data.HasCompletedQuest('Simple Subterfugin\'') == false and Data.PlayerClass() == WoWClass.Rogue">
-        <TakeQuest NpcName="Hulfdan Blackbeard" QuestName="Simple Subterfugin\'" />
-    </If>
-		<AddBlackspot X="-5310.4038085938" Y="599.49761962891" Z="390.54418945313" Range="25" />
-		<AddBlackspot X="-5301.5126953125" Y="555.41180419922" Z="385.73434448242" Range="15" />
-		<AddBlackspot X="-5287.439453125" Y="468.14706420898" Z="385.40087890625" Range="50" />
-		<AddBlackspot X="-5191.4614257813" Y="518.47015380859" Z="387.78726196289" Range="50" />
-		<AddBlackspot X="-5088.7573242188" Y="463.23968505859" Z="405.21572875977" Range="100" />
-		<AddBlackspot X="-5359.369140625" Y="544.70391845703" Z="386.85223388672" Range="30" />
-		<AddBlackspot X="-5570.404296875" Y="512.13232421875" Z="381.84985351563" Range="70" />		
-    <If Condition="Data.HasActiveQuest('Simple Subterfugin\'') == true and Data.PlayerClass() == WoWClass.Rogue"> 
-		<ReturnQuest NpcName="Onin MacHammar" QuestName="Simple Subterfugin\'" />
-	</If>
-    <If Condition="Data.HasActiveQuest('Onin\'s Report') == false and Data.HasCompletedQuest('Simple Subterfugin\'') == true and Data.PlayerClass() == WoWClass.Rogue">
-        <TakeQuest NpcName="Onin MacHammar" QuestName="Onin\'s Report" />
-    </If>	
-    <If Condition="Data.HasActiveQuest('Onin\'s Report') == true and Data.PlayerClass() == WoWClass.Rogue"> 
-		<ReturnQuest NpcName="Hulfdan Blackbeard" QuestName="Onin\'s Report" />
-	</If>	
-    <ClearBlackspots />	
-</While>
-<!-- Dwarf Hunter -->
-	<If Condition="Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == false and Data.HasCompletedQuest('Taming the Beast', 6064) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-			<TakeQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
-		</If>
-		
-		<While Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6064) == false">
-			<MoveTo X="-5553.53125" Y="-723.28295898438" Z="409.59033203125" />
-			<UseItemOnNpc NpcId="1126" ItemId="15911" />
-			<BotSleep Value="10000"/>
-		</While>	
-		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf"> 
-			<ReturnQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
-		</If>
-		<Lua>PetDismiss()</Lua>
-	
-
-	<If Condition="Data.HasActiveQuest('Taming the Beast', 6084) == false and Data.HasCompletedQuest('Taming the Beast', 6084) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-        <TakeQuest NpcName="Grif Wildheart" QuestId="6084" QuestName="Taming the Beast" />
-    </If>
-	
-	<If Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6084) == false">
-		<MoveTo X="-5761.8627929688" Y="-582.92413330078" Z="397.94772338867" />
-		<SetEnablePreemptiveMonsterAttack Value="false" />
-		<SetEnableProfileIgnoreCombat Value="true" />
-		<UseItemOnNpc NpcId="1201" ItemId="15913" />
-		<BotSleep Value="10000"/>
-		<SetEnableProfileIgnoreCombat Value="false" />
-	</If>	
-    <If Condition="Data.HasActiveQuest('Taming the Beast', 6084) == true and Data.MyRace() == WoWClass.Hunter"> 
-		<ReturnQuest NpcName="Grif Wildheart" QuestId="6084" QuestName="Taming the Beast" />
-	</If>
-	<Lua>PetDismiss()</Lua>	
-	
-	
-	<If Condition="Data.HasActiveQuest('Taming the Beast', 6085) == false and Data.HasCompletedQuest('Taming the Beast', 6085) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-        <TakeQuest NpcName="Grif Wildheart" QuestId="6085" QuestName="Taming the Beast" />
-    </If>
-	
-	<If Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6085) == false">
-		<MoveTo X="-5800.9291992188" Y="-646.87725830078" Z="397.41033935547" />
-		<MoveTo X="-5816.5141601563" Y="-680.48217773438" Z="397.82537841797" />
-		<SetEnablePreemptiveMonsterAttack Value="false" />
-		<SetEnableProfileIgnoreCombat Value="true" />
-		<UseItemOnNpc NpcId="1196" ItemId="15908" />
-		<BotSleep Value="10000"/>
-		<SetEnableProfileIgnoreCombat Value="false" />
-	</If>	
-    <If Condition="Data.HasActiveQuest('Taming the Beast', 6085) == true and Data.MyRace() == WoWClass.Hunter"> 
-		<ReturnQuest NpcName="Grif Wildheart" QuestId="6085" QuestName="Taming the Beast" />
-	</If>
-	<Lua>PetDismiss()</Lua>		
-	</If>
-	
-	<If Condition="Data.HasActiveQuest('Training the Beast', 6086) == false and Data.HasCompletedQuest('Taming the Beast', 6086) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-        <TakeQuest NpcName="Grif Wildheart" QuestId="6086" QuestName="Training the Beast" />
-    </If>	
-    <If Condition="Data.HasActiveQuest('Training the Beast', 6086) == true and Data.MyRace() == WoWClass.Hunter"> 
-		<ReturnQuest NpcName="Belia Thundergranite" QuestId="6086" QuestName="Training the Beast" />
-	</If>	
+<ShadowProfile Condition="UnitLevel('player') <= 10">
+
+
+<!-- Rogue -->
+<While Condition="Data.HasCompletedQuest('Onin\'s Report') == false and Data.PlayerClass() == WoWClass.Rogue">
+    <If Condition="Data.HasActiveQuest('Road to Salvation') == false and Data.HasCompletedQuest('Road to Salvation') == false and Data.PlayerClass() == WoWClass.Rogue">
+        <TakeQuest NpcName="Hogral Bakkan" QuestName="Road to Salvation" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Road to Salvation') == true and Data.PlayerClass() == WoWClass.Rogue"> 
+		<ReturnQuest NpcName="Hulfdan Blackbeard" QuestName="Road to Salvation" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Simple Subterfugin\'') == false and Data.HasCompletedQuest('Road to Salvation') == true and Data.HasCompletedQuest('Simple Subterfugin\'') == false and Data.PlayerClass() == WoWClass.Rogue">
+        <TakeQuest NpcName="Hulfdan Blackbeard" QuestName="Simple Subterfugin\'" />
+    </If>
+		<AddBlackspot X="-5310.4038085938" Y="599.49761962891" Z="390.54418945313" Range="25" />
+		<AddBlackspot X="-5301.5126953125" Y="555.41180419922" Z="385.73434448242" Range="15" />
+		<AddBlackspot X="-5287.439453125" Y="468.14706420898" Z="385.40087890625" Range="50" />
+		<AddBlackspot X="-5191.4614257813" Y="518.47015380859" Z="387.78726196289" Range="50" />
+		<AddBlackspot X="-5088.7573242188" Y="463.23968505859" Z="405.21572875977" Range="100" />
+		<AddBlackspot X="-5359.369140625" Y="544.70391845703" Z="386.85223388672" Range="30" />
+		<AddBlackspot X="-5570.404296875" Y="512.13232421875" Z="381.84985351563" Range="70" />		
+    <If Condition="Data.HasActiveQuest('Simple Subterfugin\'') == true and Data.PlayerClass() == WoWClass.Rogue"> 
+		<ReturnQuest NpcName="Onin MacHammar" QuestName="Simple Subterfugin\'" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Onin\'s Report') == false and Data.HasCompletedQuest('Simple Subterfugin\'') == true and Data.PlayerClass() == WoWClass.Rogue">
+        <TakeQuest NpcName="Onin MacHammar" QuestName="Onin\'s Report" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Onin\'s Report') == true and Data.PlayerClass() == WoWClass.Rogue"> 
+		<ReturnQuest NpcName="Hulfdan Blackbeard" QuestName="Onin\'s Report" />
+	</If>	
+    <ClearBlackspots />	
+</While>
+<!-- Dwarf Hunter -->
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == false and Data.HasCompletedQuest('Taming the Beast', 6064) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+			<TakeQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
+		</If>
+		
+		<While Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6064) == false">
+			<MoveTo X="-5553.53125" Y="-723.28295898438" Z="409.59033203125" />
+			<UseItemOnNpc NpcId="1126" ItemId="15911" />
+			<Lua> BotSleep(10000) return true </Lua>
+		</While>	
+		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf"> 
+			<ReturnQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
+		</If>
+		<Lua>PetDismiss()</Lua>
+	
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6084) == false and Data.HasCompletedQuest('Taming the Beast', 6084) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+        <TakeQuest NpcName="Grif Wildheart" QuestId="6084" QuestName="Taming the Beast" />
+    </If>
+	
+	<If Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6084) == false">
+		<MoveTo X="-5761.8627929688" Y="-582.92413330078" Z="397.94772338867" />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<SetEnableProfileIgnoreCombat Value="true" />
+		<UseItemOnNpc NpcId="1201" ItemId="15913" />
+		<Lua> BotSleep(10000) return true </Lua>
+		<SetEnableProfileIgnoreCombat Value="false" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Taming the Beast', 6084) == true and Data.MyRace() == WoWClass.Hunter"> 
+		<ReturnQuest NpcName="Grif Wildheart" QuestId="6084" QuestName="Taming the Beast" />
+	</If>
+	<Lua>PetDismiss()</Lua>	
+	
+	
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6085) == false and Data.HasCompletedQuest('Taming the Beast', 6085) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+        <TakeQuest NpcName="Grif Wildheart" QuestId="6085" QuestName="Taming the Beast" />
+    </If>
+	
+	<If Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6085) == false">
+		<MoveTo X="-5800.9291992188" Y="-646.87725830078" Z="397.41033935547" />
+		<MoveTo X="-5816.5141601563" Y="-680.48217773438" Z="397.82537841797" />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<SetEnableProfileIgnoreCombat Value="true" />
+		<UseItemOnNpc NpcId="1196" ItemId="15908" />
+		<Lua> BotSleep(10000) return true </Lua>
+		<SetEnableProfileIgnoreCombat Value="false" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Taming the Beast', 6085) == true and Data.MyRace() == WoWClass.Hunter"> 
+		<ReturnQuest NpcName="Grif Wildheart" QuestId="6085" QuestName="Taming the Beast" />
+	</If>
+	<Lua>PetDismiss()</Lua>		
+	</If>
+	
+	<If Condition="Data.HasActiveQuest('Training the Beast', 6086) == false and Data.HasCompletedQuest('Taming the Beast', 6086) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+        <TakeQuest NpcName="Grif Wildheart" QuestId="6086" QuestName="Training the Beast" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Training the Beast', 6086) == true and Data.MyRace() == WoWClass.Hunter"> 
+		<ReturnQuest NpcName="Belia Thundergranite" QuestId="6086" QuestName="Training the Beast" />
+	</If>	
 </ShadowProfile>

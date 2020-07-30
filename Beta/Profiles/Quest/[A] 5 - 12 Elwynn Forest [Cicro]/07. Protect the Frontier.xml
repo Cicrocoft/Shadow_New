@@ -1,5 +1,12 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Protect the Frontier') == false">
+	<!-- Settings -->
 	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Rallic Finn"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rallic Finn"/>
+    <SetRepairPercent Value="35" />
 	<!-- Pickup -->
 	<If Condition="Data.HasActiveQuest('Protect the Frontier') == false and Data.HasCompletedQuest('Protect the Frontier') == false">
 		<TakeQuest NpcName="Guard Thomas" QuestId="52" QuestName="Protect the Frontier" />

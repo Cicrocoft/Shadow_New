@@ -1,98 +1,98 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Stocking Jetsteam') == false or Data.HasCompletedQuest('The Grizzled Den') == false">
-
-    <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Stocking Jetsteam') == false and Data.HasCompletedQuest('Stocking Jetsteam') == false">
-        <TakeQuest NpcName="Pilot Bellowfiz" QuestName="Stocking Jetsteam" />
-    </If>
-    <If Condition="Data.HasActiveQuest('The Grizzled Den') == false and Data.HasCompletedQuest('The Grizzled Den') == false">
-        <TakeQuest NpcName="Pilot Stonegear" QuestName="The Grizzled Den" />
-    </If>
-
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Innkeeper Belm"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Grawn Thromwyn"/>
-    <SetRepairPercent Value="35" />
-	<AddDoNotSellItem ItemName="Chunk of Boar Meat" />
-	<AddDoNotSellItem ItemName="Crag Boar Rib" />
-    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == true">
-    <ClearHotspots />
-		<AddHotspot X="-6038.267578125" Y="-356.29528808594" Z="420.56726074219" Range="50" />
-		<AddHotspot X="-5971.7006835938" Y="-470.47201538086" Z="406.10687255859" Range="50" />
-		<AddHotspot X="-5918.7998046875" Y="-593.66925048828" Z="402.59924316406" Range="50" />
-		<AddHotspot X="-5768.4663085938" Y="-583.54888916016" Z="397.37307739258" Range="50" />
-		<AddHotspot X="-5676.5" Y="-601.40051269531" Z="402.41702270508" Range="50" />
-		<AddHotspot X="-5563.826171875" Y="-676.30426025391" Z="410.71905517578" Range="50" />
-		<AddHotspot X="-5525.6220703125" Y="-576.89685058594" Z="404.7438659668" Range="50" />
-		<AddHotspot X="-5516.1967773438" Y="-433.44186401367" Z="405.64373779297" Range="50" />
-		<AddHotspot X="-5593.3256835938" Y="-364.22573852539" Z="404.96536254883" Range="50" />
-		<AddHotspot X="-5717.5244140625" Y="-373.41534423828" Z="366.47473144531" Range="50" />
-		<AddHotspot X="-5743.8916015625" Y="-291.25534057617" Z="358.75765991211" Range="50" />
-		<AddHotspot X="-5841.9663085938" Y="-277.08435058594" Z="359.46661376953" Range="60" />
-    <SetTargetingMode Mode="Around Points" />
-    <ClearMonsterFilter/>
-    <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Crag Boar" />
-    <AddMonsterFilterName Value="Young Black Bear" />
-    <AddMonsterFilterName Value="Large Crag Boar" />	
-    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 1) == false" >
-        <Wait Value="100" />
-    </While>	
-    </If>
-    <If Condition="Data.HasActiveQuest('Stocking Jetsteam') == true">	
-    <ClearHotspots />
-		<AddHotspot X="-6038.267578125" Y="-356.29528808594" Z="420.56726074219" Range="50" />
-		<AddHotspot X="-5971.7006835938" Y="-470.47201538086" Z="406.10687255859" Range="50" />
-		<AddHotspot X="-5918.7998046875" Y="-593.66925048828" Z="402.59924316406" Range="50" />
-		<AddHotspot X="-5768.4663085938" Y="-583.54888916016" Z="397.37307739258" Range="50" />
-		<AddHotspot X="-5676.5" Y="-601.40051269531" Z="402.41702270508" Range="50" />
-		<AddHotspot X="-5563.826171875" Y="-676.30426025391" Z="410.71905517578" Range="50" />
-		<AddHotspot X="-5525.6220703125" Y="-576.89685058594" Z="404.7438659668" Range="50" />
-		<AddHotspot X="-5516.1967773438" Y="-433.44186401367" Z="405.64373779297" Range="50" />
-		<AddHotspot X="-5593.3256835938" Y="-364.22573852539" Z="404.96536254883" Range="50" />
-		<AddHotspot X="-5717.5244140625" Y="-373.41534423828" Z="366.47473144531" Range="50" />
-		<AddHotspot X="-5743.8916015625" Y="-291.25534057617" Z="358.75765991211" Range="50" />
-		<AddHotspot X="-5841.9663085938" Y="-277.08435058594" Z="359.46661376953" Range="60" />
-    <SetTargetingMode Mode="Around Points" />
-    <ClearMonsterFilter/>
-    <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Crag Boar" />
-    <AddMonsterFilterName Value="Large Crag Boar" />	
-    <While Condition="Data.QuestObjectiveIsComplete('Stocking Jetsteam', 1) == false" >
-        <Wait Value="100" />
-    </While>	
-    <ClearMonsterFilter/>
-    <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Young Black Bear" />
-    <AddMonsterFilterName Value="Large Crag Boar" />
-    <AddMonsterFilterName Value="Crag Boar" />	
-    <While Condition="Data.QuestObjectiveIsComplete('Stocking Jetsteam', 2) == false" >
-        <Wait Value="100" />
-    </While>
-	</If>	
-    <If Condition="Data.HasActiveQuest('The Grizzled Den') == true">
-    <ClearHotspots />
-		<AddHotspot X="-5677.447265625" Y="-279.3708190918" Z="368.16943359375" Range="100" />
-    <SetTargetingMode Mode="Around Points" />
-    <ClearMonsterFilter/>
-    <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Young Wendigo" />
-    <AddMonsterFilterName Value="Wendigo" />	
-
-    <While Condition="Data.QuestObjectiveIsComplete('The Grizzled Den', 1) == false" >
-        <Wait Value="100" />
-    </While>	
-    </If>	
-
-    <If Condition="Data.HasActiveQuest('The Grizzled Den') == true">
-        <ReturnQuest NpcName="Pilot Stonegear" QuestName="The Grizzled Den" />
-    </If>	
-    <If Condition="Data.HasActiveQuest('Stocking Jetsteam') == true">
-        <ReturnQuest NpcName="Pilot Bellowfiz" QuestName="Stocking Jetsteam" />
-    </If>
-	    <If Condition="Data.HasActiveQuest('Evershine') == false and Data.HasCompletedQuest('Evershine') == false and Data.HasCompletedQuest('The Grizzled Den') == true and Data.HasCompletedQuest('Stocking Jetsteam') == true">
-        <TakeQuest NpcName="Pilot Bellowfiz" QuestName="Evershine" />
-    </If>
+<ShadowProfile Condition="Data.HasCompletedQuest('Stocking Jetsteam') == false or Data.HasCompletedQuest('The Grizzled Den') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Stocking Jetsteam') == false and Data.HasCompletedQuest('Stocking Jetsteam') == false">
+        <TakeQuest NpcName="Pilot Bellowfiz" QuestName="Stocking Jetsteam" />
+    </If>
+    <If Condition="Data.HasActiveQuest('The Grizzled Den') == false and Data.HasCompletedQuest('The Grizzled Den') == false">
+        <TakeQuest NpcName="Pilot Stonegear" QuestName="The Grizzled Den" />
+    </If>
+
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Innkeeper Belm"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Grawn Thromwyn"/>
+    <SetRepairPercent Value="35" />
+	<AddDoNotSellItem ItemName="Chunk of Boar Meat" />
+	<AddDoNotSellItem ItemName="Crag Boar Rib" />
+    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == true">
+    <ClearHotspots />
+		<AddHotspot X="-6038.267578125" Y="-356.29528808594" Z="420.56726074219" Range="50" />
+		<AddHotspot X="-5971.7006835938" Y="-470.47201538086" Z="406.10687255859" Range="50" />
+		<AddHotspot X="-5918.7998046875" Y="-593.66925048828" Z="402.59924316406" Range="50" />
+		<AddHotspot X="-5768.4663085938" Y="-583.54888916016" Z="397.37307739258" Range="50" />
+		<AddHotspot X="-5676.5" Y="-601.40051269531" Z="402.41702270508" Range="50" />
+		<AddHotspot X="-5563.826171875" Y="-676.30426025391" Z="410.71905517578" Range="50" />
+		<AddHotspot X="-5525.6220703125" Y="-576.89685058594" Z="404.7438659668" Range="50" />
+		<AddHotspot X="-5516.1967773438" Y="-433.44186401367" Z="405.64373779297" Range="50" />
+		<AddHotspot X="-5593.3256835938" Y="-364.22573852539" Z="404.96536254883" Range="50" />
+		<AddHotspot X="-5717.5244140625" Y="-373.41534423828" Z="366.47473144531" Range="50" />
+		<AddHotspot X="-5743.8916015625" Y="-291.25534057617" Z="358.75765991211" Range="50" />
+		<AddHotspot X="-5841.9663085938" Y="-277.08435058594" Z="359.46661376953" Range="60" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Crag Boar" />
+    <AddMonsterFilterName Value="Young Black Bear" />
+    <AddMonsterFilterName Value="Large Crag Boar" />	
+    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 1) == false" >
+        <Wait Value="100" />
+    </While>	
+    </If>
+    <If Condition="Data.HasActiveQuest('Stocking Jetsteam') == true">	
+    <ClearHotspots />
+		<AddHotspot X="-6038.267578125" Y="-356.29528808594" Z="420.56726074219" Range="50" />
+		<AddHotspot X="-5971.7006835938" Y="-470.47201538086" Z="406.10687255859" Range="50" />
+		<AddHotspot X="-5918.7998046875" Y="-593.66925048828" Z="402.59924316406" Range="50" />
+		<AddHotspot X="-5768.4663085938" Y="-583.54888916016" Z="397.37307739258" Range="50" />
+		<AddHotspot X="-5676.5" Y="-601.40051269531" Z="402.41702270508" Range="50" />
+		<AddHotspot X="-5563.826171875" Y="-676.30426025391" Z="410.71905517578" Range="50" />
+		<AddHotspot X="-5525.6220703125" Y="-576.89685058594" Z="404.7438659668" Range="50" />
+		<AddHotspot X="-5516.1967773438" Y="-433.44186401367" Z="405.64373779297" Range="50" />
+		<AddHotspot X="-5593.3256835938" Y="-364.22573852539" Z="404.96536254883" Range="50" />
+		<AddHotspot X="-5717.5244140625" Y="-373.41534423828" Z="366.47473144531" Range="50" />
+		<AddHotspot X="-5743.8916015625" Y="-291.25534057617" Z="358.75765991211" Range="50" />
+		<AddHotspot X="-5841.9663085938" Y="-277.08435058594" Z="359.46661376953" Range="60" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Crag Boar" />
+    <AddMonsterFilterName Value="Large Crag Boar" />	
+    <While Condition="Data.QuestObjectiveIsComplete('Stocking Jetsteam', 1) == false" >
+        <Wait Value="100" />
+    </While>	
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Young Black Bear" />
+    <AddMonsterFilterName Value="Large Crag Boar" />
+    <AddMonsterFilterName Value="Crag Boar" />	
+    <While Condition="Data.QuestObjectiveIsComplete('Stocking Jetsteam', 2) == false" >
+        <Wait Value="100" />
+    </While>
+	</If>	
+    <If Condition="Data.HasActiveQuest('The Grizzled Den') == true">
+    <ClearHotspots />
+		<AddHotspot X="-5677.447265625" Y="-279.3708190918" Z="368.16943359375" Range="100" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Young Wendigo" />
+    <AddMonsterFilterName Value="Wendigo" />	
+
+    <While Condition="Data.QuestObjectiveIsComplete('The Grizzled Den', 1) == false" >
+        <Wait Value="100" />
+    </While>	
+    </If>	
+
+    <If Condition="Data.HasActiveQuest('The Grizzled Den') == true">
+        <ReturnQuest NpcName="Pilot Stonegear" QuestName="The Grizzled Den" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Stocking Jetsteam') == true">
+        <ReturnQuest NpcName="Pilot Bellowfiz" QuestName="Stocking Jetsteam" />
+    </If>
+	    <If Condition="Data.HasActiveQuest('Evershine') == false and Data.HasCompletedQuest('Evershine') == false and Data.HasCompletedQuest('The Grizzled Den') == true and Data.HasCompletedQuest('Stocking Jetsteam') == true">
+        <TakeQuest NpcName="Pilot Bellowfiz" QuestName="Evershine" />
+    </If>
 </ShadowProfile>

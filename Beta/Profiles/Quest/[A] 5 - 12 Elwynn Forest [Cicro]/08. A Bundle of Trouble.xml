@@ -1,0 +1,43 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A Bundle of Trouble') == false">
+	<!-- Settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Rallic Finn"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rallic Finn"/>
+    <SetRepairPercent Value="35" />
+	<!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('A Bundle of Trouble') == false and Data.HasCompletedQuest('A Bundle of Trouble') == false">
+		<TakeQuest NpcName="Supervisor Raelen" QuestId="5545" QuestName="A Bundle of Trouble" />
+	</If>	
+
+	<!-- Quset Completion -->
+	<If Condition="Data.HasActiveQuest('A Bundle of Trouble') == true and Data.HasCompletedQuest('A Bundle of Trouble') == false">
+		<ClearHotspots />
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Bundle of Wood" />		
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-9392.0703125" Y="-1282.8515625" Z="54.728000640869" Range="50" />
+		<AddHotspot X="-9340.462890625" Y="-1342.2540283203" Z="63.758373260498" Range="50" />
+		<AddHotspot X="-9286.8818359375" Y="-1308.91015625" Z="71.32884979248" Range="50" />
+		<AddHotspot X="-9244.5947265625" Y="-1256.7393798828" Z="74.700553894043" Range="50" />
+		<AddHotspot X="-9170.0205078125" Y="-1261.6839599609" Z="75.940803527832" Range="50" />
+		<AddHotspot X="-9128.9794921875" Y="-1256.5013427734" Z="74.971069335938" Range="50" />
+		<AddHotspot X="-9358.0341796875" Y="-1155.7777099609" Z="65.604316711426" Range="50" />
+
+		<While Condition="Data.AllQuestObjectivesAreComplete('A Bundle of Trouble') == false" >
+				<Wait Value="100" />
+		</While>			
+	</If>
+	
+
+	
+	<!-- ReturnQuest -->
+    <If Condition="Data.HasActiveQuest('A Bundle of Trouble') == true and Data.AllQuestObjectivesAreComplete('A Bundle of Trouble') == true">	
+		<ReturnQuest NpcName="Supervisor Raelen" QuestId="5545" QuestName="A Bundle of Trouble" />
+	</If>	
+</ShadowProfile>

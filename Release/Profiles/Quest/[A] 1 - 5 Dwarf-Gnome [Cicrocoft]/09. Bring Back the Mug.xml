@@ -1,10 +1,10 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Bring Back the Mug') == false">
-	<SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Scalding Mornbrew Delivery') == false">
-        <TakeQuest NpcName="Durnan Furcutter" QuestName="Bring Back the Mug" />
-    </If>
-    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('Bring Back the Mug') == false">
-        <TakeQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />
-    </If>    
-    <ReturnQuest NpcName="Nori Pridedrift" QuestName="Bring Back the Mug" />
+<ShadowProfile Condition="Data.HasCompletedQuest('Bring Back the Mug') == false">
+	<SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Scalding Mornbrew Delivery') == false">
+        <TakeQuest NpcName="Durnan Furcutter" QuestName="Bring Back the Mug" />
+    </If>
+    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('Bring Back the Mug') == false">
+        <TakeQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />
+    </If>    
+    <ReturnQuest NpcName="Nori Pridedrift" QuestName="Bring Back the Mug" />
 </ShadowProfile>

@@ -1,27 +1,27 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('The Boar Hunter') == false">
-    <If Condition="Data.HasActiveQuest('The Boar Hunter') == false">
-        <TakeQuest NpcName="Talin Keeneye" QuestName="The Boar Hunter" />
-    </If>
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Adlin Pridedrift"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Rybrad Coldbank"/>
-    <SetRepairPercent Value="35" />
-
-    <ClearHotspots />
-	<AddHotspot X="-6222.2885742188" Y="746.37719726563" Z="387.53070068359" Range="50" />
-	<AddHotspot X="-6169.2690429688" Y="717.28155517578" Z="386.36477661133" Range="50" />
-	<AddHotspot X="-6135.6489257813" Y="629.54412841797" Z="389.67260742188" Range="50" />
-    <SetTargetingMode Mode="Around Points" />
-    <ClearMonsterFilter/>
-    <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Small Crag Boar"/>
-
-    <While Condition="Data.AllQuestObjectivesAreComplete('The Boar Hunter') == false" >
-        <Wait Value="100" />
-    </While>
-    
-    <ReturnQuest NpcName="Talin Keeneye" QuestId="183" />
+<ShadowProfile Condition="Data.HasCompletedQuest('The Boar Hunter') == false">
+    <If Condition="Data.HasActiveQuest('The Boar Hunter') == false">
+        <TakeQuest NpcName="Talin Keeneye" QuestName="The Boar Hunter" />
+    </If>
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Adlin Pridedrift"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rybrad Coldbank"/>
+    <SetRepairPercent Value="35" />
+
+    <ClearHotspots />
+	<AddHotspot X="-6222.2885742188" Y="746.37719726563" Z="387.53070068359" Range="50" />
+	<AddHotspot X="-6169.2690429688" Y="717.28155517578" Z="386.36477661133" Range="50" />
+	<AddHotspot X="-6135.6489257813" Y="629.54412841797" Z="389.67260742188" Range="50" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Small Crag Boar"/>
+
+    <While Condition="Data.AllQuestObjectivesAreComplete('The Boar Hunter') == false" >
+        <Wait Value="100" />
+    </While>
+    
+    <ReturnQuest NpcName="Talin Keeneye" QuestId="183" />
 </ShadowProfile>

@@ -55,4 +55,17 @@
 "SwitchOnLevel":10,
 "Extension":".shdw",
 "ProfileName":"Elwynn Forest 9-10",
-"SubDir":"[A] Grind Cicro"}]
+"SubDir":"[A] Grind Cicro"},{"Enabled":true,
+"ModeDir":"Quest",
+"Extension":".xml",
+"ProfileName":"06. The Jasperlode Mine",
+"SubDir":"[A] 5 - 12 Elwynn Forest [Cicro]"},{"Enabled":true,
+"ModeDir":"Grind",
+"SwitchOnLevel":11,
+"Extension":".shdw",
+"ProfileName":"Elwynn Forest 9-10",
+"SubDir":"[A] Grind Cicro"},{"Enabled":true,
+"ModeDir":"Quest",
+"Extension":".xml",
+"ProfileName":"07. Protect the Frontier",
+"SubDir":"[A] 5 - 12 Elwynn Forest [Cicro]"}]

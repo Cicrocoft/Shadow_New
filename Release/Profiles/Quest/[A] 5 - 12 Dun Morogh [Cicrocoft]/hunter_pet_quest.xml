@@ -1,13 +1,13 @@
-<ShadowProfile Condition="UnitLevel('player') &gt;= 5">
-    <SetBaseSettings />
-<If Condition="Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Mage or Data.PlayerClass() == WoWClass.Priest" >
-	<MoveTo X="-10524.725585938" Y="1066.8425292969" Z="54.321571350098" />
-</If>
-
-<!-- <If Condition="IsEquippedItemType('Dagger') == false">
-    <AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="5" BuyAmount="200"/>
-</If> -->
-	
-</ShadowProfile>
-
-
+<ShadowProfile Condition="UnitLevel('player') &gt;= 5">
+    <SetBaseSettings />
+<If Condition="Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Mage or Data.PlayerClass() == WoWClass.Priest" >
+	<MoveTo X="-10524.725585938" Y="1066.8425292969" Z="54.321571350098" />
+</If>
+
+<!-- <If Condition="IsEquippedItemType('Dagger') == false">
+    <AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="5" BuyAmount="200"/>
+</If> -->
+	
+</ShadowProfile>
+
+

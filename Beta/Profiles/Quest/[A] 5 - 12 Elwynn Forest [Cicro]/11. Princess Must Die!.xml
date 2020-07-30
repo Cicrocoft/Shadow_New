@@ -1,0 +1,38 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Princess Must Die!') == false">
+	<!-- Settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Rallic Finn"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rallic Finn"/>
+    <SetRepairPercent Value="35" />
+	<!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('Princess Must Die!') == false and Data.HasCompletedQuest('Princess Must Die!') == false">
+		<TakeQuest NpcName="Ma Stonefield" QuestId="88" QuestName="Princess Must Die!" />
+	</If>	
+
+	<!-- Quset Completion -->
+	<If Condition="Data.HasActiveQuest('Princess Must Die!') == true and Data.HasCompletedQuest('Princess Must Die!') == false">
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />		
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-9770.935546875" Y="-876.55261230469" Z="39.494663238525" Range="50" />
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Princess" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Princess Must Die!') == false" >
+				<Wait Value="100" />
+		</While>			
+	</If>
+	
+
+	
+	<!-- ReturnQuest -->
+    <If Condition="Data.HasActiveQuest('Princess Must Die!') == true and Data.AllQuestObjectivesAreComplete('Princess Must Die!') == true">	
+		<ReturnQuest NpcName="Ma Stonefield" QuestId="88" QuestName="Princess Must Die!" />
+	</If>	
+</ShadowProfile>

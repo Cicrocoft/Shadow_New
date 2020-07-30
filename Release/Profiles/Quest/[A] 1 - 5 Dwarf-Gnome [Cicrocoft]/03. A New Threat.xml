@@ -1,28 +1,28 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('A New Threat') == false">
-    <If Condition="Data.HasActiveQuest('A New Threat') == false">
-        <TakeQuest NpcName="Balir Frosthammer" QuestName="A New Threat" />
-    </If>
-
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Adlin Pridedrift"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Rybrad Coldbank"/>
-    <SetRepairPercent Value="35" />
-
-	<AddHotspot X="-6370.0541992188" Y="287.82659912109" Z="384.73440551758" Range="150" />
-    <SetTargetingMode Mode="Around Points" />
-    <ClearMonsterFilter/>
-    <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Rockjaw Trogg"/>
-	<AddMonsterFilterName Value="Burly Rockjaw Trogg"/>
-    <While Condition="Data.QuestObjectiveIsComplete('A New Threat', 1) == false" >
-        <Wait Value="100" />
-    </While>
-    <ClearMonsterFilter/> 
-	<AddMonsterFilterName Value="Burly Rockjaw Trogg"/>	
-    <While Condition="Data.QuestObjectiveIsComplete('A New Threat', 2) == false" >
-        <Wait Value="100" />
-    </While>	
-    <ReturnQuest NpcName="Balir Frosthammer" QuestName="A New Threat" />
+<ShadowProfile Condition="Data.HasCompletedQuest('A New Threat') == false">
+    <If Condition="Data.HasActiveQuest('A New Threat') == false">
+        <TakeQuest NpcName="Balir Frosthammer" QuestName="A New Threat" />
+    </If>
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Adlin Pridedrift"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rybrad Coldbank"/>
+    <SetRepairPercent Value="35" />
+
+	<AddHotspot X="-6370.0541992188" Y="287.82659912109" Z="384.73440551758" Range="150" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rockjaw Trogg"/>
+	<AddMonsterFilterName Value="Burly Rockjaw Trogg"/>
+    <While Condition="Data.QuestObjectiveIsComplete('A New Threat', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/> 
+	<AddMonsterFilterName Value="Burly Rockjaw Trogg"/>	
+    <While Condition="Data.QuestObjectiveIsComplete('A New Threat', 2) == false" >
+        <Wait Value="100" />
+    </While>	
+    <ReturnQuest NpcName="Balir Frosthammer" QuestName="A New Threat" />
 </ShadowProfile>

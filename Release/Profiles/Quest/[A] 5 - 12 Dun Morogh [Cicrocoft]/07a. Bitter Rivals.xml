@@ -1,40 +1,40 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Bitter Rivals') == false">
-
-    <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Bitter Rivals') == false">
-        <TakeQuest NpcName="Marleth Barleybrew" QuestName="Bitter Rivals" />
-    </If>
-    <SetBaseSettings />
-
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Innkeeper Belm"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Grawn Thromwyn"/>
-    <SetRepairPercent Value="35" />
-	<SetEnableRestockItems Value="true"/>
-	
-    <ClearHotspots />
-	<AddDoNotSellItem ItemName="Tunder Ale" />
-	<SetEnableRestockItems Value="true" />
-	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true and Data.GetItemCountByName('Thunder Ale') == 0">
-		<AddRestockItem ItemName="Thunder Ale" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
-	</If>
-	<Lua> BotSleep(1485) return true </Lua>
-	<If Condition="Data.GetItemCountByName('Thunder Ale') == 1 and Data.HasActiveQuest('Bitter Rivals') == true and Data.HasCompletedQuest('Distracting Jarven') == false">
-		<ClearRestockItems/>
-		<TakeQuest NpcName="Jarven Thunderbrew" QuestName="Distracting Jarven" />
-		<Lua> BotSleep(1485) return true </Lua>
-	</If>
-	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true">	
-		<ReturnQuestToObject QuestName="Bitter Rivals" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Return to Marleth') == false and Data.HasCompletedQuest('Return to Marleth') == false and Data.HasCompletedQuest('Bitter Rivals') == true">
-		<TakeQuestFromObject QuestName="Return to Marleth" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Return to Marleth') == false">
-		<ReturnQuest NpcName="Marleth Barleybrew" QuestName="Return to Marleth" />
-	</If>
-</ShadowProfile>
-
+<ShadowProfile Condition="Data.HasCompletedQuest('Bitter Rivals') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Bitter Rivals') == false">
+        <TakeQuest NpcName="Marleth Barleybrew" QuestName="Bitter Rivals" />
+    </If>
+    <SetBaseSettings />
+
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Innkeeper Belm"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Grawn Thromwyn"/>
+    <SetRepairPercent Value="35" />
+	<SetEnableRestockItems Value="true"/>
+	
+    <ClearHotspots />
+	<AddDoNotSellItem ItemName="Tunder Ale" />
+	<SetEnableRestockItems Value="true" />
+	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true and Data.GetItemCountByName('Thunder Ale') == 0">
+		<AddRestockItem ItemName="Thunder Ale" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
+	</If>
+	<Lua> BotSleep(1485) return true </Lua>
+	<If Condition="Data.GetItemCountByName('Thunder Ale') == 1 and Data.HasActiveQuest('Bitter Rivals') == true and Data.HasCompletedQuest('Distracting Jarven') == false">
+		<ClearRestockItems/>
+		<TakeQuest NpcName="Jarven Thunderbrew" QuestName="Distracting Jarven" />
+		<Lua> BotSleep(1485) return true </Lua>
+	</If>
+	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true">	
+		<ReturnQuestToObject QuestName="Bitter Rivals" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Return to Marleth') == false and Data.HasCompletedQuest('Return to Marleth') == false and Data.HasCompletedQuest('Bitter Rivals') == true">
+		<TakeQuestFromObject QuestName="Return to Marleth" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Return to Marleth') == false">
+		<ReturnQuest NpcName="Marleth Barleybrew" QuestName="Return to Marleth" />
+	</If>
+</ShadowProfile>
+

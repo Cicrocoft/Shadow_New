@@ -1,21 +1,21 @@
-<ShadowProfile Condition="Data.HasCompletedQuest(nil, 420) == false or Data.HasCompletedQuest('Supplies to Tannok') == false">
-	<SetBaseSettings />
-    <If Condition="Data.HasActiveQuest(nil, 420) == false and Data.HasCompletedQuest(nil, 420) == false">
-        <TakeQuest NpcName="Mountaineer Thalos" QuestId="420" />
-    </If>
-    <If Condition="Data.HasActiveQuest('Supplies to Tannok') == false and Data.HasCompletedQuest('Supplies to Tannok') == false">
-        <TakeQuest NpcName="Hands Springsprocket" QuestId="2160" QuestName="Supplies to Tannok" />
-    </If>
-    <If Condition="Data.HasActiveQuest(nil, 420) == true">
-		<MoveTo X="-6011.390625" Y="-269.11077880859" Z="416.69055175781" Range="20" />
-		<MoveTo X="-5994.1171875" Y="-354.64645385742" Z="417.85726928711" Range="20" />
-		<MoveTo X="-5900.8217773438" Y="-475.84036254883" Z="411.31988525391" Range="20" />
-		<MoveTo X="-5777.1640625" Y="-504.50903320313" Z="401.31484985352" Range="20" />	
-	</If>
-	<If Condition="Data.HasActiveQuest('Senir\'s Observations', 420) == true">
-		<ReturnQuest NpcName="Senir Whitebeard" QuestId="420" QuestName="'Senir\'s Observations'" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Supplies to Tannok', 2160) == true">
-		<ReturnQuest NpcName="Tannok Frosthammer" QuestId="2160" QuestName="Supplies to Tannok" />
-	</If>	
+<ShadowProfile Condition="Data.HasCompletedQuest(nil, 420) == false or Data.HasCompletedQuest('Supplies to Tannok') == false">
+	<SetBaseSettings />
+    <If Condition="Data.HasActiveQuest(nil, 420) == false and Data.HasCompletedQuest(nil, 420) == false">
+        <TakeQuest NpcName="Mountaineer Thalos" QuestId="420" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Supplies to Tannok') == false and Data.HasCompletedQuest('Supplies to Tannok') == false">
+        <TakeQuest NpcName="Hands Springsprocket" QuestId="2160" QuestName="Supplies to Tannok" />
+    </If>
+    <If Condition="Data.HasActiveQuest(nil, 420) == true">
+		<MoveTo X="-6011.390625" Y="-269.11077880859" Z="416.69055175781" Range="20" />
+		<MoveTo X="-5994.1171875" Y="-354.64645385742" Z="417.85726928711" Range="20" />
+		<MoveTo X="-5900.8217773438" Y="-475.84036254883" Z="411.31988525391" Range="20" />
+		<MoveTo X="-5777.1640625" Y="-504.50903320313" Z="401.31484985352" Range="20" />	
+	</If>
+	<If Condition="Data.HasActiveQuest('Senir\'s Observations', 420) == true">
+		<ReturnQuest NpcName="Senir Whitebeard" QuestId="420" QuestName="'Senir\'s Observations'" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Supplies to Tannok', 2160) == true">
+		<ReturnQuest NpcName="Tannok Frosthammer" QuestId="2160" QuestName="Supplies to Tannok" />
+	</If>	
 </ShadowProfile>

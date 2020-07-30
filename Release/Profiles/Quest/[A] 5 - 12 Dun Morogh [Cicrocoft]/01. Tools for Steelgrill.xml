@@ -1,11 +1,11 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Tools for Steelgrill') == false">
-	<SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == false and Data.HasCompletedQuest('Beer Basted Boar Ribs') == false">
-        <TakeQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
-    </If>   
-    <If Condition="Data.HasActiveQuest('Tools for Steelgrill') == false">
-        <TakeQuest NpcName="Tharek Blackstone" QuestName="Tools for Steelgrill" />
-    </If>
- 
-    <ReturnQuest NpcName="Beldin Steelgrill" QuestName="Tools for Steelgrill" />
+<ShadowProfile Condition="Data.HasCompletedQuest('Tools for Steelgrill') == false">
+	<SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == false and Data.HasCompletedQuest('Beer Basted Boar Ribs') == false">
+        <TakeQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
+    </If>   
+    <If Condition="Data.HasActiveQuest('Tools for Steelgrill') == false">
+        <TakeQuest NpcName="Tharek Blackstone" QuestName="Tools for Steelgrill" />
+    </If>
+ 
+    <ReturnQuest NpcName="Beldin Steelgrill" QuestName="Tools for Steelgrill" />
 </ShadowProfile>

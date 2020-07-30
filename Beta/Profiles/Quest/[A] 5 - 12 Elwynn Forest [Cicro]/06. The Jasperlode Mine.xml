@@ -1,5 +1,12 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('The Jasperlode Mine') == false">
+	<!-- Settings -->
 	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Andrew Krighton"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Andrew Krighton"/>
+    <SetRepairPercent Value="35" />
 	<!-- Pickup -->
 	<If Condition="Data.HasActiveQuest('The Jasperlode Mine') == false and Data.HasCompletedQuest('The Jasperlode Mine') == false">
 		<TakeQuest NpcName="Marshal Dughan" QuestId="76" QuestName="The Jasperlode Mine" />

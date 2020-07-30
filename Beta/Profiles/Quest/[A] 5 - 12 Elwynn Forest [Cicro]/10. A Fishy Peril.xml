@@ -1,0 +1,66 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Cloth and Leather Armor') == false">
+	<!-- Settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Rallic Finn"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rallic Finn"/>
+    <SetRepairPercent Value="35" />
+	<!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('A Fishy Peril') == false and Data.HasCompletedQuest('A Fishy Peril') == false">
+		<TakeQuest NpcName="Remy Two Times" QuestId="40" QuestName="A Fishy Peril" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('A Fishy Peril') == true">	
+		<ReturnQuest NpcName="Marshal Dughan" QuestId="40" QuestName="A Fishy Peril" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Further Concerns') == false and Data.HasCompletedQuest('Further Concerns') == false">
+		<TakeQuest NpcName="Marshal Dughan" QuestId="35" QuestName="Further Concerns" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Further Concerns') == true">	
+		<ReturnQuest NpcName="Guard Thomas" QuestId="35" QuestName="Further Concerns" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('Find the Lost Guards') == false and Data.HasCompletedQuest('Find the Lost Guards') == false">
+		<TakeQuest NpcName="Guard Thomas" QuestId="37" QuestName="Find the Lost Guards" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Find the Lost Guards') == true">
+		<ReturnQuestToObject QuestName="Find the Lost Guards" X="-9335.755859375" Y="-987.349609375" Z="67.073783874512" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Discover Rolf\'s Fate') == false and Data.HasCompletedQuest('Find the Lost Guards') == true and Data.HasCompletedQuest('Discover Rolf\'s Fate') == false">
+		<TakeQuestFromObject QuestName="Discover Rolf\'s Fate" X="-9335.755859375" Y="-987.349609375" Z="67.073783874512" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Discover Rolf\'s Fate') == true">
+		<AddBlackspot X="-9207.5830078125" Y="-1212.1552734375" Z="67.866485595703" Range="15" />
+		<AddBlackspot X="-9233.341796875" Y="-1190.9364013672" Z="66.136375427246" Range="15" />
+		<AddBlackspot X="-9264.4443359375" Y="-1166.2659912109" Z="67.74169921875" Range="15" />	
+		<MoveTo X="-9326.8486328125" Y="-1125.0975341797" Z="69.571586608887" Range="50" />
+		<MoveTo X="-9327.255859375" Y="-1215.2237548828" Z="69.788177490234" Range="50" />
+		<MoveTo X="-9235.1298828125" Y="-1277.36328125" Z="75.956573486328" Range="50" />
+		<ReturnQuestToObject QuestName="Discover Rolf\'s Fate" X="-9224.0625" Y="-1235.1824951172" Z="73.708595275879" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Report to Thomas') == false and Data.HasCompletedQuest('Report to Thomas') == false">
+		<TakeQuestFromObject QuestName="Report to Thomas" X="-9224.0625" Y="-1235.1824951172" Z="73.708595275879" />
+	</If>		
+    <If Condition="Data.HasActiveQuest('Report to Thomas') == true">	
+		<AddBlackspot X="-9207.5830078125" Y="-1212.1552734375" Z="67.866485595703" Range="15" />
+		<AddBlackspot X="-9233.341796875" Y="-1190.9364013672" Z="66.136375427246" Range="15" />
+		<AddBlackspot X="-9264.4443359375" Y="-1166.2659912109" Z="67.74169921875" Range="15" />	
+		<ReturnQuest NpcName="Guard Thomas" QuestId="71" QuestName="Report to Thomas" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Deliver Thomas\' Report') == false and Data.HasCompletedQuest('Deliver Thomas\' Report') == false">
+		<TakeQuest NpcName="Guard Thomas" QuestId="39" QuestName="Deliver Thomas\' Report" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Deliver Thomas\' Report') == true">	
+		<ReturnQuest NpcName="Marshal Dughan" QuestId="39" QuestName="Deliver Thomas\' Report" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Cloth and Leather Armor') == false and Data.HasCompletedQuest('Cloth and Leather Armor') == false">
+		<TakeQuest NpcName="Marshal Dughan" QuestId="59" QuestName="Cloth and Leather Armor" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Cloth and Leather Armor') == true">	
+		<ReturnQuest NpcName="Sara Timberlain" QuestId="59" QuestName="Cloth and Leather Armor" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Report to Gryan Stoutmantle') == false and Data.HasCompletedQuest('Report to Gryan Stoutmantle') == false">
+		<TakeQuest NpcName="Guard Thomas" QuestId="109" QuestName="Report to Gryan Stoutmantle" />
+	</If>		
+</ShadowProfile>

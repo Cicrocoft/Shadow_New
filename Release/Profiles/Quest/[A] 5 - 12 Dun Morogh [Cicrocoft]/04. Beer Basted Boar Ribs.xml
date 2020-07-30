@@ -1,53 +1,53 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Beer Basted Boar Ribs') == false">
-
-    <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == false">
-        <TakeQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
-    </If>
-    
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Innkeeper Belm"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Grawn Thromwyn"/>
-    <SetRepairPercent Value="35" />
-	<SetEnableRestockItems Value="true"/>
-	<AddDoNotSellItem ItemName="Crag Boar Rib" />
-    <ClearHotspots />
-		<AddHotspot X="-6038.267578125" Y="-356.29528808594" Z="420.56726074219" Range="50" />
-		<AddHotspot X="-5971.7006835938" Y="-470.47201538086" Z="406.10687255859" Range="50" />
-		<AddHotspot X="-5918.7998046875" Y="-593.66925048828" Z="402.59924316406" Range="50" />
-		<AddHotspot X="-5768.4663085938" Y="-583.54888916016" Z="397.37307739258" Range="50" />
-		<AddHotspot X="-5676.5" Y="-601.40051269531" Z="402.41702270508" Range="50" />
-		<AddHotspot X="-5563.826171875" Y="-676.30426025391" Z="410.71905517578" Range="50" />
-		<AddHotspot X="-5525.6220703125" Y="-576.89685058594" Z="404.7438659668" Range="50" />
-		<AddHotspot X="-5516.1967773438" Y="-433.44186401367" Z="405.64373779297" Range="50" />
-		<AddHotspot X="-5593.3256835938" Y="-364.22573852539" Z="404.96536254883" Range="50" />
-		<AddHotspot X="-5717.5244140625" Y="-373.41534423828" Z="366.47473144531" Range="50" />
-		<AddHotspot X="-5841.9663085938" Y="-277.08435058594" Z="359.46661376953" Range="50" />
-		<AddHotspot X="-5848.1220703125" Y="-170.75082397461" Z="358.02264404297" Range="100" />
-    <SetTargetingMode Mode="Around Points" />
-    <ClearMonsterFilter/>
-    <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Crag Boar" />
-    <AddMonsterFilterName Value="Young Black Bear" />
-    <AddMonsterFilterName Value="Ice Claw Bear" />	
-    <AddMonsterFilterName Value="Large Crag Boar" />	
-    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 1) == false" >
-        <Wait Value="100" />
-    </While>	
-    <ClearHotspots />
-	<ClearRestockItems/>
-		<AddRestockItem ItemName="Rhapsody Malt" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
-		<AddHotspot X="-5599.17578125" Y="-530.15808105469" Z="399.65188598633" Range="5" />
-    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 2) == false" >
-        <Wait Value="100" />
-    </While>	
-	<ClearRestockItems/>	
-    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == true">
-        <ReturnQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
-    </If>
-	
-
+<ShadowProfile Condition="Data.HasCompletedQuest('Beer Basted Boar Ribs') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == false">
+        <TakeQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
+    </If>
+    
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Innkeeper Belm"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Grawn Thromwyn"/>
+    <SetRepairPercent Value="35" />
+	<SetEnableRestockItems Value="true"/>
+	<AddDoNotSellItem ItemName="Crag Boar Rib" />
+    <ClearHotspots />
+		<AddHotspot X="-6038.267578125" Y="-356.29528808594" Z="420.56726074219" Range="50" />
+		<AddHotspot X="-5971.7006835938" Y="-470.47201538086" Z="406.10687255859" Range="50" />
+		<AddHotspot X="-5918.7998046875" Y="-593.66925048828" Z="402.59924316406" Range="50" />
+		<AddHotspot X="-5768.4663085938" Y="-583.54888916016" Z="397.37307739258" Range="50" />
+		<AddHotspot X="-5676.5" Y="-601.40051269531" Z="402.41702270508" Range="50" />
+		<AddHotspot X="-5563.826171875" Y="-676.30426025391" Z="410.71905517578" Range="50" />
+		<AddHotspot X="-5525.6220703125" Y="-576.89685058594" Z="404.7438659668" Range="50" />
+		<AddHotspot X="-5516.1967773438" Y="-433.44186401367" Z="405.64373779297" Range="50" />
+		<AddHotspot X="-5593.3256835938" Y="-364.22573852539" Z="404.96536254883" Range="50" />
+		<AddHotspot X="-5717.5244140625" Y="-373.41534423828" Z="366.47473144531" Range="50" />
+		<AddHotspot X="-5841.9663085938" Y="-277.08435058594" Z="359.46661376953" Range="50" />
+		<AddHotspot X="-5848.1220703125" Y="-170.75082397461" Z="358.02264404297" Range="100" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Crag Boar" />
+    <AddMonsterFilterName Value="Young Black Bear" />
+    <AddMonsterFilterName Value="Ice Claw Bear" />	
+    <AddMonsterFilterName Value="Large Crag Boar" />	
+    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 1) == false" >
+        <Wait Value="100" />
+    </While>	
+    <ClearHotspots />
+	<ClearRestockItems/>
+		<AddRestockItem ItemName="Rhapsody Malt" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
+		<AddHotspot X="-5599.17578125" Y="-530.15808105469" Z="399.65188598633" Range="5" />
+    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 2) == false" >
+        <Wait Value="100" />
+    </While>	
+	<ClearRestockItems/>	
+    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == true">
+        <ReturnQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
+    </If>
+	
+
 </ShadowProfile>
