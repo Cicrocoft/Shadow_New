@@ -24,7 +24,7 @@
 	<AddHotspot X="-9851.5224609375" Y="1001.8734741211" Z="30.253280639648" Range="100" />
 	<AddHotspot X="-10203.028320313" Y="1051.2332763672" Z="36.423355102539" Range="10" />
 	<AddHotspot X="-10162.173828125" Y="1324.8088378906" Z="38.329292297363" Range="50" />
-    <SetEnableQuestNodes Value="true" />	
+	<AllowQuestNode NodeName="Sack of Oats" />	
     <While Condition="Data.AllQuestObjectivesAreComplete('Poor Old Blanchy') == false" >
         <Wait Value="100" />
     </While>
