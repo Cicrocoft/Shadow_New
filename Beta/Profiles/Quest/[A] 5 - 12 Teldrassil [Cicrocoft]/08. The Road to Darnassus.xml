@@ -90,8 +90,14 @@
     <If Condition="Data.HasActiveQuest('Crown of the Earth', 7383) == false and Data.HasCompletedQuest('Crown of the Earth', 7383) == false">
         <TakeQuest NpcName="Corithras Moonrage" QuestId="7383" QuestName="Crown of the Earth" />
     </If>
-    <If Condition="Data.HasActiveQuest('The Road to Darnassus') == true and Data.AllQuestObjectivesAreComplete('The Road to Darnassus') == true">
-        <ReturnQuest NpcName="Moon Priestess Amara" QuestId="487" QuestName="The Road to Darnassus" />
-    </If>		
+	<If Condition="Data.HasActiveQuest('The Road to Darnassus') == true and Data.AllQuestObjectivesAreComplete('The Road to Darnassus') == true">
+		<AddBlackspot X="10023.478515625" Y="1181.0710449219" Z="1325.3693847656" Range="20" />
+		<MoveTo X="10122.178710938" Y="1381.8748779297" Z="1309.9573974609" />
+		<ReturnQuest NpcName="Moon Priestess Amara" QuestId="487" QuestName="The Road to Darnassus" />				
+	</If>				
+			
+		
+
+	
 
 </ShadowProfile>

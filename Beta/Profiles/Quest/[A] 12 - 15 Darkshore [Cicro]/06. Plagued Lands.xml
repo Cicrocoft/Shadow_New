@@ -1,0 +1,93 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Plagued Lands') == false or Data.HasCompletedQuest('Plagued Lands') == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+    <SetRepairPercent Value="40" />
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+
+	<!-- Pickup -->	
+	
+	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4727) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4727) == false">
+		<TakeQuestFromObject QuestName="Beached Sea Turtle" QuestId="4727" X="7540.24609375" Y="-540.40032958984" Z="1.4731357097626" />
+	</If> 		
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == false and Data.HasCompletedQuest('Plagued Lands') == false">
+		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
+	</If> 	
+
+ 
+  
+	<!-- Objective Completion -->
+
+    <While Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="7162.0209960938" Y="-141.8197479248" Z="20.837295532227" Range="50" />
+
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Rabid Thistle Bear" />	
+
+
+	<While Condition="Data.AllQuestObjectivesAreComplete('Plagued Lands') == false" >
+			<Wait Value="100" />
+			<If Condition="UnitIsDead('target') == false and UnitName('target') == 'Rabid Thistle Bear' and CheckInteractDistance('target', 3) == true">
+				<SetEnableProfileIgnoreCombat Value="true" />			
+				<UseItem ItemId="7586" />
+				<BotSleep Value="4563"/>
+				<SetEnablePreemptiveMonsterAttack Value="true" />
+				<SetEnableProfileIgnoreCombat Value="false"/>					
+			</If>				
+		</While>
+
+    </While>
+	
+	
+	<!-- TurnIn -->
+	
+	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4727) == true and Data.AllQuestObjectivesAreComplete('Beached Sea Turtle', 4727) == true">
+		<ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4727" QuestName="Beached Sea Turtle" />
+	</If> 		
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == false and Data.AllQuestObjectivesAreComplete('Plagued Lands') == true">
+		<ReturnQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
+	</If> 	
+	
+</ShadowProfile>

@@ -39,14 +39,11 @@
         <TakeQuest NpcName="Corithras Moonrage" QuestId="929" QuestName="Crown of the Earth" />
     </If>
 
-	<If Condition="Data.HasActiveQuest('Crown of the Earth', 929) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 929) == false">
+	<While Condition="Data.HasActiveQuest('Crown of the Earth', 929) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 929) == false">
 		<ClearHotspots />
 		<MoveTo X="9859.81640625" Y="591.23248291016" Z="1300.8079833984" />
 		<UseItem ItemName="Jade Phial" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('Crown of the Earth', 929) == false" >
-			<Wait Value="100" />
-		</While>
-	</If>
+	</While>
 
 	<If Condition="Data.HasActiveQuest('Crown of the Earth', 929) == true">
 		<ReturnQuest NpcName="Corithras Moonrage" QuestId="929" QuestName="Crown of the Earth" />

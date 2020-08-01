@@ -1,0 +1,99 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Buzzbox 323') == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+    <SetRepairPercent Value="40" />
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+
+	<!-- Pickup -->	
+	<If Condition="Data.HasActiveQuest('Buzzbox 323') == false and Data.HasCompletedQuest('Buzzbox 411') == true">
+		<ClearHotspots />	
+		<AddBlackspot X="6954.3193359375" Y="194.94247436523" Z="0.21656090021133" Range="35" />
+		<TakeQuestFromObject QuestName="Buzzbox 323" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" />
+	</If> 	
+ 
+  
+	<!-- Objective Completion -->
+	
+
+	
+    <If Condition="Data.HasActiveQuest('Buzzbox 323') == true and Data.AllQuestObjectivesAreComplete('Buzzbox 323') == false">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="6897.6884765625" Y="-10.544112205505" Z="24.473400115967" Range="50" />
+		<AddHotspot X="6948.0913085938" Y="-5.0841522216797" Z="17.275527954102" Range="50" />
+		<AddHotspot X="6998.205078125" Y="26.604427337646" Z="14.730291366577" Range="50" />
+		<AddHotspot X="7052.2060546875" Y="32.729866027832" Z="15.546993255615" Range="50" />
+		<AddHotspot X="7117.5654296875" Y="30.343322753906" Z="10.561477661133" Range="50" />
+		<AddHotspot X="7176.3227539063" Y="87.680122375488" Z="11.898509979248" Range="50" />
+		<AddHotspot X="7265.1948242188" Y="59.126556396484" Z="14.066434860229" Range="50" />
+		<AddHotspot X="7250.5317382813" Y="13.477770805359" Z="8.507791519165" Range="100" />
+		<AddHotspot X="7306.8618164063" Y="-54.133823394775" Z="7.7038331031799" Range="100" />
+		<AddHotspot X="7270.623046875" Y="-169.63293457031" Z="15.514505386353" Range="100" />
+		<AddHotspot X="7263.0385742188" Y="-262.46881103516" Z="20.780275344849" Range="50" />
+		<AddHotspot X="7176.3427734375" Y="-271.51861572266" Z="30.396966934204" Range="100" />
+		<AddHotspot X="7129.2651367188" Y="-335.83694458008" Z="37.007377624512" Range="100" />
+		<AddHotspot X="7136.8334960938" Y="-490.65350341797" Z="38.869918823242" Range="100" />
+		<AddHotspot X="7017.255859375" Y="-603.14526367188" Z="52.025398254395" Range="100" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Moonstalker" />
+		<AddMonsterFilterName Value="Moonstalker Runt" />		
+		<AddMonsterFilterName Value="Thistle Bear" />
+		<AddMonsterFilterName Value="Rapid Thistle Bear" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Buzzbox 323') == false" >
+			<Wait Value="100" />
+		</While>
+    </If>
+	
+	
+	<!-- TurnIn -->
+	
+    <If Condition="Data.HasActiveQuest('Buzzbox 323') == true">
+		<ClearHotspots />	
+		<ReturnQuestToObject QuestName="Buzzbox 323" X="7258.3291015625" Y="-416.59912109375" Z="26.949256896973" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Buzzbox 525') == false and Data.HasCompletedQuest('Buzzbox 323') == true">
+		<TakeQuestFromObject QuestName="Buzzbox 525" X="7258.3291015625" Y="-416.59912109375" Z="26.949256896973" />
+	</If> 	
+	
+</ShadowProfile>

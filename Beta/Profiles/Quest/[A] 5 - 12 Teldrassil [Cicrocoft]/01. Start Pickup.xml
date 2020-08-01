@@ -11,9 +11,9 @@
     <If Condition="Data.HasActiveQuest('A Troubling Breeze') == false and Data.HasCompletedQuest('A Troubling Breeze') == false">
         <TakeQuest NpcName="Athridas Bearmantle" QuestId="475" QuestName="A Troubling Breeze" />
     </If>
-	<If Condition="Data.HasActiveQuest('Twisted Hatred') == false and Data.HasCompletedQuest('Twisted Hatred') == false">
+<!--	<If Condition="Data.HasActiveQuest('Twisted Hatred') == false and Data.HasCompletedQuest('Twisted Hatred') == false">
         <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="932" QuestName="Twisted Hatred" />
-    </If>
+    </If> -->
 	<If Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == false and Data.HasCompletedQuest('The Emerald Dreamcatcher') == false">
         <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="2438" QuestName="The Emerald Dreamcatcher" />
     </If>

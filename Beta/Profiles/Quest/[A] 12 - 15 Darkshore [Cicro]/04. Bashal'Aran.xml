@@ -1,0 +1,114 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Bashal\'Aran', 957) == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('Bashal\'Aran', 954) == false and Data.HasCompletedQuest('Bashal\'Aran', 954) == false">
+        <TakeQuest NpcName="Thundris Windweaver" QuestId="954" QuestName="Bashal\'Aran" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Bashal\'Aran', 954) == true">
+        <ReturnQuest NpcName="Asterion" QuestId="954" QuestName="Bashal\'Aran" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Bashal\'Aran', 955) == false and Data.HasCompletedQuest('Bashal\'Aran', 955) == false">
+        <TakeQuest NpcName="Asterion" QuestId="955" QuestName="Bashal\'Aran" />
+    </If>	
+	
+
+	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('Bashal\'Aran', 955) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 955) == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		<AddBlackspot X="6680.3125" Y="-60.172439575195" Z="22.724308013916" Range="20" />
+		<!-- Hotspots -->
+		<AddHotspot X="6685.8735351563" Y="18.088653564453" Z="42.849822998047" Range="20" />
+		<AddHotspot X="6709.5009765625" Y="1.3089591264725" Z="43.079704284668" Range="35" />
+		<AddHotspot X="6731.9252929688" Y="-42.077789306641" Z="42.926387786865" Range="25" />
+		<AddHotspot X="6732.1713867188" Y="-87.304000854492" Z="43.202404022217" Range="25" />
+		<AddHotspot X="6713.3071289063" Y="-138.01586914063" Z="35.813495635986" Range="25" />
+		<AddHotspot X="6659.9243164063" Y="-137.95391845703" Z="33.819156646729" Range="25" />
+		<AddHotspot X="6618.7065429688" Y="-119.83071136475" Z="33.469467163086" Range="25" />
+		<AddHotspot X="6608.6284179688" Y="-90.336364746094" Z="31.732849121094" Range="25" />
+		<AddHotspot X="6584.6040039063" Y="-46.396724700928" Z="32.568912506104" Range="25" />
+		<AddHotspot X="6605.2221679688" Y="-2.3943824768066" Z="30.28058052063" Range="25" />
+		<AddHotspot X="6644.5327148438" Y="5.5472593307495" Z="36.317687988281" Range="25" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<While Condition="Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 955) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+    <If Condition="Data.HasActiveQuest('Bashal\'Aran', 955) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 955) == true">
+        <ReturnQuest NpcName="Asterion" QuestId="955" QuestName="Bashal\'Aran" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Bashal\'Aran', 956) == false and Data.HasCompletedQuest('Bashal\'Aran', 956) == false">
+        <TakeQuest NpcName="Asterion" QuestId="956" QuestName="Bashal\'Aran" />
+    </If>
+
+	<If Condition="Data.HasActiveQuest('Bashal\'Aran', 956) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 956) == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		<AddBlackspot X="6680.3125" Y="-60.172439575195" Z="22.724308013916" Range="20" />
+		<!-- Hotspots -->
+		<AddHotspot X="6685.8735351563" Y="18.088653564453" Z="42.849822998047" Range="20" />
+		<AddHotspot X="6709.5009765625" Y="1.3089591264725" Z="43.079704284668" Range="35" />
+		<AddHotspot X="6731.9252929688" Y="-42.077789306641" Z="42.926387786865" Range="25" />
+		<AddHotspot X="6732.1713867188" Y="-87.304000854492" Z="43.202404022217" Range="25" />
+		<AddHotspot X="6713.3071289063" Y="-138.01586914063" Z="35.813495635986" Range="25" />
+		<AddHotspot X="6659.9243164063" Y="-137.95391845703" Z="33.819156646729" Range="25" />
+		<AddHotspot X="6618.7065429688" Y="-119.83071136475" Z="33.469467163086" Range="25" />
+		<AddHotspot X="6608.6284179688" Y="-90.336364746094" Z="31.732849121094" Range="25" />
+		<AddHotspot X="6584.6040039063" Y="-46.396724700928" Z="32.568912506104" Range="25" />
+		<AddHotspot X="6605.2221679688" Y="-2.3943824768066" Z="30.28058052063" Range="25" />
+		<AddHotspot X="6644.5327148438" Y="5.5472593307495" Z="36.317687988281" Range="25" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<While Condition="Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 956) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+    <If Condition="Data.HasActiveQuest('Bashal\'Aran', 956) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 956) == true">
+        <ReturnQuest NpcName="Asterion" QuestId="956" QuestName="Bashal\'Aran" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == false and Data.HasCompletedQuest('Bashal\'Aran', 957) == false">
+        <TakeQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" />
+    </If>	
+	
+</ShadowProfile>
