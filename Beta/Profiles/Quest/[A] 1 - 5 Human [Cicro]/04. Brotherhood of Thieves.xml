@@ -22,7 +22,7 @@
 		<SetTargetingMode Mode="Around Points" />
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Defias Tug"/>		
+		<AddMonsterFilterName Value="Defias Thug"/>		
 		<While Condition="Data.AllQuestObjectivesAreComplete('Brotherhood of Thieves') == false" >
 			<Wait Value="100" />
 		</While>
