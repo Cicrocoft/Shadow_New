@@ -2,7 +2,7 @@
 	<!-- Vendor Settings -->
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Godric Rothgar"/>
-    <SetVendorSlotsCount Value="0" />
+    <SetVendorSlotsCount Value="1" />
     <SetEnableRepairing Value="true"/>
     <SetRepairNpc NpcName="Godric Rothgar"/>
     <SetRepairPercent Value="35" />
