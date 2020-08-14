@@ -41,7 +41,9 @@
 
 	<While Condition="Data.HasActiveQuest('Crown of the Earth', 929) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 929) == false">
 		<ClearHotspots />
-		<MoveTo X="9859.81640625" Y="591.23248291016" Z="1300.8079833984" />
+		<If Condition="Nav.RangeFromMeXYZ(9859.81640625, 591.23248291016, 1300.8079833984) &gt; 3">
+			<MoveTo X="9859.81640625" Y="591.23248291016" Z="1300.8079833984" />
+		</If>
 		<UseItem ItemName="Jade Phial" />
 	</While>
 

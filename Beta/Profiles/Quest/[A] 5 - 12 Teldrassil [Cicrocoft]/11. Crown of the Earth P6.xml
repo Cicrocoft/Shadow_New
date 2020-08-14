@@ -46,7 +46,9 @@
 	
 	<If Condition="Data.HasActiveQuest('Crown of the Earth', 7383) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 7383) == false">
 		<ClearHotspots />
-		<MoveTo X="10672.815429688" Y="1856.8459472656" Z="1324.3133544922" />
+		<If Condition="Nav.RangeFromMeXYZ(10672.815429688, 1856.8459472656, 1324.3133544922) &gt; 3">
+			<MoveTo X="10672.815429688" Y="1856.8459472656" Z="1324.3133544922" />
+		</If>
 		<UseItem ItemName="Amethyst Phial" />
 		<While Condition="Data.AllQuestObjectivesAreComplete('Crown of the Earth', 7383) == false" >
 			<Wait Value="100" />

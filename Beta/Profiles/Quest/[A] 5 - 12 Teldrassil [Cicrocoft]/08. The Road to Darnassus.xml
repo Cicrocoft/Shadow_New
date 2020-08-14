@@ -71,7 +71,9 @@
 		<AddBlackspot X="9565.3193359375" Y="1291.4835205078" Z="1300.9554443359" Range="20" />
 		<AddBlackspot X="9370.8828125" Y="1706.7620849609" Z="1308.5528564453" Range="20" />
 		<!-- Hotspots -->
-		<MoveTo X="9551.951171875" Y="1656.1898193359" Z="1299.544921875" />
+		<If Condition="Nav.RangeFromMeXYZ(9551.951171875, 1656.1898193359, 1299.544921875) &gt; 3">
+			<MoveTo X="9551.951171875" Y="1656.1898193359" Z="1299.544921875" />
+		</If>
 		<UseItem ItemName="Tourmaline Phial" />
 		<While Condition="Data.AllQuestObjectivesAreComplete('Crown of the Earth', 933) == false" >
 			<Wait Value="100" />
