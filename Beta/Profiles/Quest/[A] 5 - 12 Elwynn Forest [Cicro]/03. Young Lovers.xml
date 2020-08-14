@@ -33,7 +33,7 @@
 
 	<!-- Quset Completion -->
 	<If Condition="Data.HasActiveQuest('Collecting Kelp') == true">
-		<ClearHotspots />
+		<ClearHotspots />		<SetTargetingMode Mode="Around Points" />	
 		<!-- Blackspots -->
 		<AddBlackspot X="-9468.9755859375" Y="-357.41949462891" Z="60.144378662109" Range="35" />
 		<AddBlackspot X="-9489.6337890625" Y="-402.89010620117" Z="59.606990814209" Range="20" />

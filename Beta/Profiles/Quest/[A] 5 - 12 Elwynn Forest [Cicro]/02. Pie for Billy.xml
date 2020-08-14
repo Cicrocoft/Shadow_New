@@ -23,8 +23,8 @@
 		<TakeQuest NpcName="Billy Maclure" QuestId="86" QuestName="Pie for Billy" />
 	</If>	
 	<!-- Quset Completion -->
-	<If Condition="Data.HasActiveQuest('Pie for Billy') == true and Data.HasCompletedQuest('Pie for Billy') == false">
-		<ClearHotspots />
+	<If Condition="Data.HasActiveQuest('Pie for Billy') == true and Data.AllQuestObjectivesAreComplete('Pie for Billy') == false">
+		<ClearHotspots />		<SetTargetingMode Mode="Around Points" />	
 		<!-- Blackspots -->
 		
 		<!-- Hotspots -->

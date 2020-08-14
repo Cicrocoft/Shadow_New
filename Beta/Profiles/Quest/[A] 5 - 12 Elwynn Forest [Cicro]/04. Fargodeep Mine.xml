@@ -30,7 +30,7 @@
 	</If>
 
 	<If Condition="Data.HasActiveQuest('Goldtooth') == true and Data.AllQuestObjectivesAreComplete('Goldtooth') == false">
-		<ClearHotspots />
+		<ClearHotspots />		<SetTargetingMode Mode="Around Points" />	
 		<!-- Blackspots -->
 		
 		<!-- Hotspots -->
@@ -45,7 +45,7 @@
 	</If>
 	
 	<If Condition="Data.HasActiveQuest('Kobold Candles') == true and Data.HasCompletedQuest('Kobold Candles') == false and Data.HasActiveQuest('Gold Dust Exchange') == true and Data.HasCompletedQuest('Gold Dust Exchange') == false">
-		<ClearHotspots />
+		<ClearHotspots />		<SetTargetingMode Mode="Around Points" />	
 		<!-- Blackspots -->
 		
 		<!-- Hotspots -->

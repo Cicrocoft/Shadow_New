@@ -7,7 +7,7 @@
 
 	<!-- Quset Completion -->
 	<If Condition="Data.HasActiveQuest('Protect the Frontier') == true and Data.HasCompletedQuest('Protect the Frontier') == false">
-		<ClearHotspots />
+		<ClearHotspots />		<SetTargetingMode Mode="Around Points" />	
 		<!-- Blackspots -->
 		<AddBlackspot X="-9533.103515625" Y="-242.87438964844" Z="58.667331695557" Range="20" />
 		<!-- Hotspots -->
