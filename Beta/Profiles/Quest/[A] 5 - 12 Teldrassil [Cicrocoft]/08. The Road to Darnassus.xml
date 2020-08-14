@@ -3,6 +3,8 @@
     <SetBaseSettings />
 	<!-- Pickup -->
     <If Condition="Data.HasActiveQuest('The Road to Darnassus') == false and Data.HasCompletedQuest('The Road to Darnassus') == false">
+		<AddBlackspot X="10023.478515625" Y="1181.0710449219" Z="1325.3693847656" Range="20" />
+		<MoveTo X="10122.178710938" Y="1381.8748779297" Z="1309.9573974609" />	
         <TakeQuest NpcName="Moon Priestess Amara" QuestId="487" QuestName="The Road to Darnassus" />
     </If>	
 

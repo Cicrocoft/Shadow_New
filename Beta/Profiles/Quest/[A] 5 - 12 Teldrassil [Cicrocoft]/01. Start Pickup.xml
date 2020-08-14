@@ -17,8 +17,6 @@
 	<If Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == false and Data.HasCompletedQuest('The Emerald Dreamcatcher') == false">
         <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="2438" QuestName="The Emerald Dreamcatcher" />
     </If>
-    <If Condition="Data.HasActiveQuest('The Road to Darnassus') == false and Data.HasCompletedQuest('The Road to Darnassus') == false">
-        <TakeQuest NpcName="Moon Priestess Amara" QuestId="487" QuestName="The Road to Darnassus" />
-    </If>	
+	
 	
 </ShadowProfile>
