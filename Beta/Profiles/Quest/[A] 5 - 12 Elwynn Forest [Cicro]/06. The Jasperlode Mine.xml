@@ -9,7 +9,7 @@
 	<If Condition="Data.HasActiveQuest('The Jasperlode Mine') == true and Data.HasCompletedQuest('The Jasperlode Mine') == false">
 		<ClearHotspots />
 		<!-- Blackspots -->
-		<AddBlackspot X="-9300.9091796875" Y="-287.78863525391" Z="70.903450012207" Range="15" />
+		<AddBlackspot X="-9300.9091796875" Y="-287.78863525391" Z="70.903450012207" Range="30" />
 		<!-- Hotspots -->
 		<AddHotspot X="-9115.982421875" Y="-568.14587402344" Z="59.102584838867" Range="10" />
 		<AddHotspot X="-9096.8115234375" Y="-565.29705810547" Z="62.226535797119" Range="10" />		

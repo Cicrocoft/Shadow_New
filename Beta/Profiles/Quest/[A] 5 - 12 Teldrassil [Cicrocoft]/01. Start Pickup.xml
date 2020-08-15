@@ -1,4 +1,4 @@
-<ShadowProfile Condition="UnitLevel('player') &gt;= 5 and Data.HasCompletedQuest('The Road to Darnassus') == false">
+<ShadowProfile Condition="UnitLevel('player') &gt;= 5 and Data.HasCompletedQuest('The Emerald Dreamcatcher') == false">
 	<SetBaseSettings />
 	<!-- Pickup -->
     <If Condition="Data.HasActiveQuest('Crown of the Earth', 929) == false and Data.HasCompletedQuest('Crown of the Earth', 929) == false and Data.HasCompletedQuest('Crown of the Earth', 928) == true">

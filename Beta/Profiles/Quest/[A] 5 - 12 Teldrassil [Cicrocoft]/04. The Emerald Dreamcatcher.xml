@@ -1,5 +1,5 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('The Emerald Dreamcatcher') == false or Data.HasCompletedQuest('A Troubling Breeze') == false">
-<Lua>HerbNodes[126158]=0</Lua> 
+<Lua>QuestNodes[126158]=0</Lua> 
 	<!-- Pickup -->	
     <If Condition="Data.HasActiveQuest('A Troubling Breeze') == false and Data.HasCompletedQuest('A Troubling Breeze') == false">
         <TakeQuest NpcName="Athridas Bearmantle" QuestId="475" QuestName="A Troubling Breeze" />

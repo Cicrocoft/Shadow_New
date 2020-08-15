@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('The Balance of Nature', 457) == true and Data.MyRace() == WoWRace.NightElf">
+<ShadowProfile Condition="Data.HasCompletedQuest('The Balance of Nature', 457) == true and Data.MyRace() == WoWRace.NightElf and Data.HasCompletedQuest('The Woodland Protector', 459) == false">
 	<SetBaseSettings />
 <!-- Pickup other quests for later -->
 

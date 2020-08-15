@@ -1,5 +1,0 @@
-<ShadowProfile Condition="UnitLevel('player') &gt;= 1">
-	<SetBaseSettings />
-<MoveTo X="-8804.3173828125" Y="665.15728759766" Z="96.20223236084" />
-	
-</ShadowProfile>
