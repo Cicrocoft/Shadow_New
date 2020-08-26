@@ -1,4 +1,4 @@
-<ShadowProfile Condition="UnitLevel('player') <= 10">
+<ShadowProfile Condition="UnitLevel('player') &gt;= 10">
 
 
 <!-- Rogue --><!-- Mesh issue and doo many deaths 

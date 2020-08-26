@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Dwarven Outfitters') == true">
+<ShadowProfile Condition="Data.HasCompletedQuest('Dwarven Outfitters') == true and UnitLevel('player') &lt;= 4">
 	<SetBaseSettings />
 <!-- Pickup other quests for later -->
     <If Condition="Data.HasActiveQuest('Coldridge Valley Mail Delivery') == false and Data.HasCompletedQuest('Coldridge Valley Mail Delivery') == false">

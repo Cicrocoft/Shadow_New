@@ -1,6 +1,6 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('The Troll Cave') == false">
-
-    <SetBaseSettings />
+<Lua>QuestNodes[148499]=0</Lua> <Lua>QuestNodes[178084]=0</Lua> <Lua>QuestNodes[178085]=0</Lua> 
+    <SetBaseSettings />	<!-- Restock Dun Morogh 1-5 -->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems/>	<!-- Food -->	<!-- Water -->	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Light Shot" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="1200"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="1200"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="1200"/>	</If>	<!-- End Restock -->
     <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('A Refugee\'s Quandary') == false">
         <TakeQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />
     </If>

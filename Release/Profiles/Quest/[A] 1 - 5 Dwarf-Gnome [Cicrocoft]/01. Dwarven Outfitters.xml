@@ -9,7 +9,7 @@
     <SetEnableRepairing Value="true"/>
     <SetRepairNpc NpcName="Rybrad Coldbank"/>
     <SetRepairPercent Value="35" />
-
+	<!-- Restock Dun Morogh 1-5 -->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems/>	<!-- Food -->	<!-- Water -->	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Light Shot" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="1200"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="1200"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="1200"/>	</If>	<!-- End Restock -->
     <ClearHotspots />
     <AddHotspot X="-6322.3017" Y="297.5596" Z="379.5429" Range="150" />
     <AddHotspot X="-6332.7768" Y="399.6272" Z="379.1054" Range="180" />

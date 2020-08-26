@@ -1,0 +1,26 @@
+<ShadowProfile>
+
+<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<MoveTo X="-4606.8540039063" Y="-920.8818359375" Z="501.07025146484" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<MoveTo X="-4648.9672851563" Y="-1122.1918945313" Z="508.5498046875" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<MoveTo X="-5043.2133789063" Y="-1242.8718261719" Z="507.75524902344" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<MoveTo X="-4617.8266601563" Y="-908.22515869141" Z="501.07015991211" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<MoveTo X="-4595.1611328125" Y="-907.48510742188" Z="502.7668762207" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<MoveTo X="-5011.5673828125" Y="-1272.5648193359" Z="507.75323486328" />
+</If>
+<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<MoveTo X="-4601.990234375" Y="-1111.0716552734" Z="504.9384765625" />
+</If>
+
+	
+</ShadowProfile>
