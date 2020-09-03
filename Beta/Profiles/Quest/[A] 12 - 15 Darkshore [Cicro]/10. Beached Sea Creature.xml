@@ -1,0 +1,70 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Beached Sea Creature', 4728) == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- TakeQuest --> 	
+	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4722) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4722) == false">
+		<MoveTo X="5644.06640625" Y="480.49157714844" Z="15.016500473022" />
+		<SetEnableAutoLoot Value="false"/>  
+		<TakeQuestFromObject QuestId="4722" QuestName="Beached Sea Turtle" X="5622.6186523438" Y="511.00469970703" Z="3.6274197101593" />
+		<MoveTo X="5644.06640625" Y="480.49157714844" Z="15.016500473022" />
+		<SetEnableAutoLoot Value="true"/>  
+	</If>		
+	<If Condition="Data.HasActiveQuest('Beached Sea Creature', 4728) == false and Data.HasCompletedQuest('Beached Sea Creature', 4728) == false">
+		<MoveTo X="5271.927734375" Y="557.66552734375" Z="4.816828250885" />
+		<SetEnableAutoLoot Value="false"/>  
+		<TakeQuestFromObject QuestId="4728" QuestName="Beached Sea Creature" X="5239.3549804688" Y="581.296875" Z="0.43434768915176" />
+		<MoveTo X="5271.927734375" Y="557.66552734375" Z="4.816828250885" />
+		<SetEnableAutoLoot Value="true"/> 
+	</If>	
+
+	
+	<!-- TurnIn -->
+	<AddBlackspot X="5624.5922851563" Y="513.72314453125" Z="3.3854539394379" Range="50" />
+	<If Condition="Data.HasActiveQuest('Grove of the Ancients') == true">
+        <ReturnQuest NpcName="Onu" QuestId="952" QuestName="Grove of the Ancients" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4722) == true">
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4722" QuestName="Beached Sea Turtle" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Beached Sea Creature', 4728) == true">
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4728" QuestName="Beached Sea Creature" />
+    </If>	
+	
+</ShadowProfile>

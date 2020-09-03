@@ -1,0 +1,85 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Cliffspring River') == false or Data.HasCompletedQuest('Beached Sea Creature', 4723) == false or Data.HasCompletedQuest('Beached Sea Turtle', 4725) == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+    <SetRepairPercent Value="40" />
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+
+	<!-- Pickup (Mangler object quests) -->	
+	
+
+	<If Condition="Data.HasActiveQuest('The Cliffspring River') == false and Data.HasCompletedQuest('The Cliffspring River') == false">
+		<TakeQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" />
+	</If> 	
+ 
+	<!-- Objective Completion -->
+
+	<If Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == false">
+		<ClearHotspots />
+		<AddBlackspot X="6704.8896" Y="-28.909109" Z="43.096920013" Range="100" />
+		<While Condition="Data.GetItemCountByName('Empty Sampling Tube') == 1">
+			<MoveTo X="7220.910156" Y="-385.03491210" Z="0" />
+			<UseItem ItemName="Empty Sampling Tube" />
+		</While>
+	</If>
+	
+	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4725) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4725) == false">
+		<SetEnableAutoLoot Value="false"/>  
+		<TakeQuestFromObject QuestId="4725" QuestName="Beached Sea Turtle" X="7434.4814453125" Y="43.90470123291" Z="2.1896209716797" />
+		<MoveTo X="7285.7734375" Y="77.737854003906" Z="14.601586341858" />
+		<SetEnableAutoLoot Value="true"/>  
+	</If>	
+	<If Condition="Data.HasActiveQuest('Beached Sea Creature', 4723) == false and Data.HasCompletedQuest('Beached Sea Creature', 4723) == false">
+		<SetEnableAutoLoot Value="false"/>  
+		<TakeQuestFromObject QuestId="4723" QuestName="Beached Sea Creature" X="6956.4750976563" Y="195.52613830566" Z="0.13002036511898" />
+		<MoveTo X="6883.15625" Y="182.55332946777" Z="10.341988563538" />
+		<SetEnableAutoLoot Value="true"/> 
+	</If>	
+	
+	<!-- TurnIn -->
+	<SetEnableAutoLoot Value="true"/> 
+    <If Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == true">
+		<ReturnQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" />
+	</If>			
+    <If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4725) == true">
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4725" QuestName="Beached Sea Turtle" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Beached Sea Creature', 4723) == true">
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4723" QuestName="Beached Sea Creature" />
+    </If>	
+		
+</ShadowProfile>
