@@ -1,0 +1,1 @@
+/run local file="C:\\log\\file.txt";local cX,cY,cZ=UnlAPI.ObjectPosition('player');writeString='<AddHotspot X="'..cX..'" Y="'..cY..'" Z="'..cZ..'" Range="100" />';UnlAPI.WriteFile(file, writeString..'\n', true);print(writeString)
