@@ -1,0 +1,112 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Fragments Within') == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+    <SetRepairPercent Value="40" />
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+
+	<!-- Pickup -->	
+	
+
+	<If Condition="Data.HasActiveQuest('The Red Crystal') == false and Data.HasCompletedQuest('The Red Crystal') == false">
+		<TakeQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4811" QuestName="The Red Crystal" />
+	</If> 	
+
+ 
+  
+	<!-- Objective Completion -->
+
+    <While Condition="Data.HasActiveQuest('The Red Crystal') == true and Data.AllQuestObjectivesAreComplete('The Red Crystal') == false">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="6203.367675" Y="-158.02137756348" Z="80.7173385" Range="10" />
+
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+
+	<While Condition="Data.AllQuestObjectivesAreComplete('The Red Crystal') == false" >
+			<Wait Value="100" />			
+		</While>
+
+    </While>
+	
+	
+	<!-- TurnIn -->
+	
+	<If Condition="Data.HasActiveQuest('The Red Crystal') == true and Data.AllQuestObjectivesAreComplete('The Red Crystal') == true">
+		<ReturnQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4811" QuestName="The Red Crystal" />
+	</If> 	
+
+	<!-- Part 2 -->
+	<!-- Pickup -->	
+	
+
+	<If Condition="Data.HasActiveQuest('As Water Cascades') == false and Data.HasCompletedQuest('The Red Crystal') == true and Data.HasCompletedQuest('As Water Cascades') == false">
+		<TakeQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4812" QuestName="As Water Cascades" />
+	</If> 	
+
+ 
+  
+	<!-- Objective Completion -->
+
+	<If Condition="Data.HasActiveQuest('As Water Cascades') == true and Data.AllQuestObjectivesAreComplete('As Water Cascades') == false">
+		<ClearHotspots />
+		<While Condition="Data.GetItemCountByName('Moonwell Water Tube') == 0 and Data.GetItemCountByName('Empty Water Tube') == 1">
+			<MoveTo X="6412.5239257813" Y="467.12496948242" Z="8.1258535385132" />
+			<UseItem ItemName="Empty Water Tube" />
+		</While>
+	</If>
+	
+	
+	<!-- TurnIn -->
+	
+    <If Condition="Data.HasActiveQuest('As Water Cascades') == true and Data.AllQuestObjectivesAreComplete('As Water Cascades') == true">
+		<ReturnQuestToObject QuestName="As Water Cascades" X="6206.390625" Y="-157.69007873535" Z="80.934577941895" />
+	</If>			
+
+	<If Condition="Data.HasActiveQuest('The Fragments Within') == false and Data.HasCompletedQuest('The Fragments Within') == false and Data.HasCompletedQuest('As Water Cascades') == true">
+		<TakeQuestFromObject QuestName="The Fragments Within" X="6206.390625" Y="-157.69007873535" Z="80.934577941895" />
+	</If>
+
+    <If Condition="Data.HasActiveQuest('The Fragments Within') == true">
+        <ReturnQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4813" QuestName="The Fragments Within" />
+    </If>		
+</ShadowProfile>
