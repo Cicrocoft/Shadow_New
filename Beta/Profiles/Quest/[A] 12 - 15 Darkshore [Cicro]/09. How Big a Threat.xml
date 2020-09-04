@@ -37,6 +37,33 @@
 		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
 	</If>
 	<!-- End Restock -->
+
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('How Big a Threat?', 984) == false and Data.HasCompletedQuest('How Big a Threat?', 984) == false">
+        <TakeQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" />
+    </If>
+	
+	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('How Big a Threat?', 985) == true and Data.AllQuestObjectivesAreComplete('How Big a Threat?', 985) == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="6049.6655273438" Y="340.09338378906" Z="27.607864379883" Range="10" />
+		<AddHotspot X="6016.9008789063" Y="344.72003173828" Z="28.253084182739" Range="10" />
+
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<While Condition="Data.AllQuestObjectivesAreComplete('How Big a Threat?', 984) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+	
+    <If Condition="Data.HasActiveQuest('How Big a Threat?', 984) == true and Data.AllQuestObjectivesAreComplete('How Big a Threat?', 984) == true">
+        <ReturnQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" />
+    </If>	
+	
+
 	
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('How Big a Threat?', 985) == false and Data.HasCompletedQuest('How Big a Threat?', 985) == false">
@@ -44,7 +71,7 @@
     </If>
 	
 
-	<!-- QuestObjective -->
+	<!-- QuestObjective Hotspot skal måske flyttes og monsterfilter opdateres -->
 	<If Condition="Data.HasActiveQuest('How Big a Threat?', 985) == true and Data.AllQuestObjectivesAreComplete('How Big a Threat?', 985) == false">
 		<ClearHotspots />
 		<!-- Blackspots -->
