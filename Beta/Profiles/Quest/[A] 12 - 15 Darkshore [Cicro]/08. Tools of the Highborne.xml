@@ -1,0 +1,168 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Tools of the Highborne') == false or Data.HasCompletedQuest('Bashal\'Aran', 957) == false">
+<Lua>QuestNodes[16393]=0</Lua>
+<Lua>QuestNodes[17189]=0</Lua>
+<Lua>QuestNodes[17188]=0</Lua>
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('Tools of the Highborne') == false and Data.HasCompletedQuest('Tools of the Highborne') == false">
+        <TakeQuest NpcName="Thundris Windweaver" QuestId="958" QuestName="Tools of the Highborne" />
+    </If>
+    <If Condition="Data.HasActiveQuest('For Love Eternal') == false and Data.HasCompletedQuest('For Love Eternal') == false">
+        <TakeQuest NpcName="Cerellean Whiteclaw" QuestId="963" QuestName="For Love Eternal" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('How Big a Threat?', 984) == false and Data.HasCompletedQuest('How Big a Threat?', 984) == false">
+		<TakeQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == false and Data.HasCompletedQuest('Bashal\'Aran', 957) == false and Data.HasCompletedQuest('Bashal\'Aran', 956) == true">
+        <TakeQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" />
+    </If>	
+
+	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('How Big a Threat?') == true and Data.HasCompletedQuest('How Big a Threat?') == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		<AddBlackspot X="5982.0795898438" Y="333.58480834961" Z="22.405843734741" Range="45" />
+		<!-- Hotspots -->
+		<AddHotspot X="6033.1513671875" Y="343.31604003906" Z="28.874279022217" Range="10" />
+		<AddHotspot X="6026.7065429688" Y="346.25543212891" Z="28.616102218628" Range="10" />
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Stonetusk Boar" />			
+		<While Condition="Data.AllQuestObjectivesAreComplete('How Big a Threat?') == false" >
+				<Wait Value="100" />
+		</While>	
+	</If>	
+
+    <If Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == false and Data.HasCompletedQuest('The Fall of Ameth\'Aran') == false">
+		<TakeQuest NpcName="Sentinel Tysha Moonblade" QuestId="953" QuestName="The Fall of Ameth\'Aran" />
+    </If>
+
+	<If Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 957) == false" >
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Ancient Flame" />	
+		<AddHotspot X="5636.6748046875" Y="167.64875793457" Z="32.149555206299" Range="30" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 957) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+
+	<If Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == true and Data.AllQuestObjectivesAreComplete('The Fall of Ameth\'Aran') == false" >
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="The Fall of Ameth\'Aran" />	
+		<AddHotspot X="5577.720703125" Y="148.92169189453" Z="28.94506072998" Range="50" />
+		<While Condition="Data.QuestObjectiveIsComplete('The Fall of Ameth\'Aran', 2) == false" >
+			<Wait Value="100" />
+		</While>
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="The Lay of Ameth\'Aran" />	
+		<AddHotspot X="5768.1162109375" Y="103.87934112549" Z="34.84370803833" Range="50" />
+		<While Condition="Data.QuestObjectiveIsComplete('The Fall of Ameth\'Aran', 1) == false" >
+			<Wait Value="100" />
+		</While>		
+	</If>
+	
+	<If Condition="Data.HasActiveQuest('Tools of the Highborne') == true and Data.AllQuestObjectivesAreComplete('Tools of the Highborne') == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="5781.8432617188" Y="170.46360778809" Z="36.151191711426" Range="100" />
+		<AddHotspot X="5767.45703125" Y="125.45136260986" Z="35.232044219971" Range="100" />
+		<AddHotspot X="5727.2045898438" Y="105.2043838501" Z="31.057712554932" Range="100" />
+		<AddHotspot X="5672.2719726563" Y="123.0845489502" Z="33.083148956299" Range="100" />
+		<AddHotspot X="5598.658203125" Y="114.56327056885" Z="26.022808074951" Range="100" />
+		<AddHotspot X="5594.4711914063" Y="186.61204528809" Z="28.750398635864" Range="100" />
+		<AddHotspot X="5652.8071289063" Y="203.90478515625" Z="26.801145553589" Range="100" />
+		<AddHotspot X="5706.677734375" Y="186.55641174316" Z="29.332284927368" Range="100" />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Anaya Dawnrunner" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('For Love Eternal') == false" >
+			<Wait Value="100" />
+		</While>
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Cursed Highborne" />
+		<AddMonsterFilterName Value="Writhing Highborne" />
+		<AddMonsterFilterName Value="Wailing Highborne" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Tools of the Highborne') == false" >
+			<Wait Value="100" />
+		</While>		
+	</If>
+
+
+
+	<!-- TurnIn -->
+	<AddBlackspot X="5982.0795898438" Y="333.58480834961" Z="22.405843734741" Range="70" />
+    <If Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == true and Data.AllQuestObjectivesAreComplete('The Fall of Ameth\'Aran') == true">
+        <ReturnQuest NpcName="Sentinel Tysha Moonblade" QuestId="953" QuestName="The Fall of Ameth\'Aran" />
+    </If>
+    <If Condition="Data.HasActiveQuest('How Big a Threat?', 984) == true and Data.AllQuestObjectivesAreComplete('How Big a Threat?', 984) == true">
+        <ReturnQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" />
+    </If>
+    <If Condition="Data.HasActiveQuest('How Big a Threat?', 985) == false and Data.HasCompletedQuest('How Big a Threat?', 985) == false and Data.HasCompletedQuest('How Big a Threat?', 984) == true">
+		<TakeQuest NpcName="Terenthis" QuestId="985" QuestName="How Big a Threat?" />
+		<TakeQuest NpcName="Terenthis" QuestId="4761" QuestName="Thundris Windweaver" />
+    </If>
+    <If Condition="Data.HasActiveQuest('For Love Eternal') == true and Data.AllQuestObjectivesAreComplete('For Love Eternal') == true">
+        <ReturnQuest NpcName="Cerellean Whiteclaw" QuestId="963" QuestName="For Love Eternal" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Thundris Windweaver') == true and Data.AllQuestObjectivesAreComplete('Thundris Windweaver') == true">
+		<ReturnQuest NpcName="Thundris Windweaver" QuestId="4761" QuestName="Thundris Windweaver" />
+		<TakeQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Tools of the Highborne') == true and Data.AllQuestObjectivesAreComplete('Tools of the Highborne') == true">
+        <ReturnQuest NpcName="Thundris Windweaver" QuestId="958" QuestName="Tools of the Highborne" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 957) == true">
+        <ReturnQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" />
+    </If>	
+	
+</ShadowProfile>
