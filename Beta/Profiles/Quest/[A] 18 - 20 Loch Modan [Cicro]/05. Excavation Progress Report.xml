@@ -1,0 +1,88 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('After the Ambush') == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Gothor Brumn"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Gothor Brumn"/>
+    <SetRepairPercent Value="40" />
+	
+	<!-- Restock Loch Modan 18 - 20 (Thelsmar)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Hearthstove" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('Excavation Progress Report') == false and Data.HasCompletedQuest('Excavation Progress Report') == false">
+		<TakeQuest NpcName="Prospector Ironband" QuestId="298" QuestName="Excavation Progress Report" />
+	</If> 	
+	<If Condition="Data.HasActiveQuest('Excavation Progress Report') == true">
+        <ReturnQuest NpcName="Jern Hornhelm" QuestId="298" QuestName="Excavation Progress Report" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Report to Ironforge') == false and Data.HasCompletedQuest('Report to Ironforge') == false and Data.HasCompletedQuest('Excavation Progress Report') == true">
+		<TakeQuest NpcName="Jern Hornhelm" QuestId="301" QuestName="Report to Ironforge" />
+	</If> 
+	<If Condition="Data.HasActiveQuest('Report to Ironforge') == true">
+        <ReturnQuest NpcName="Prospector Stormpike" QuestId="301" QuestName="Report to Ironforge" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Powder to Ironband') == false and Data.HasCompletedQuest('Powder to Ironband') == false and Data.HasCompletedQuest('Report to Ironforge') == true">
+		<TakeQuest NpcName="Prospector Stormpike" QuestId="302" QuestName="Powder to Ironband" />
+	</If> 	
+	<If Condition="Data.HasActiveQuest('Powder to Ironband') == true">
+        <ReturnQuest NpcName="Jern Hornhelm" QuestId="302" QuestName="Powder to Ironband" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('Resupplying the Excavation') == false and Data.HasCompletedQuest('Resupplying the Excavation') == false and Data.HasCompletedQuest('Powder to Ironband') == true">
+		<TakeQuest NpcName="Jern Hornhelm" QuestId="273" QuestName="Resupplying the Excavation" />
+	</If> 
+
+	<If Condition="Data.HasActiveQuest('Resupplying the Excavation') == true and Data.AllQuestObjectivesAreComplete('Resupplying the Excavation') == false">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+<AddHotspot X="-5763.6474609375" Y="-3430.8186035156" Z="304.97714233398" Range="20" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<While Condition="Data.AllQuestObjectivesAreComplete('Resupplying the Excavation') == false" >
+			<Wait Value="100" />
+		</While>
+    </If>
+
+	<If Condition="Data.HasActiveQuest('Resupplying the Excavation') == true and Data.AllQuestObjectivesAreComplete('Resupplying the Excavation') == true">
+        <ReturnQuest NpcName="Huldar" QuestId="273" QuestName="Resupplying the Excavation" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('After the Ambush') == false and Data.HasCompletedQuest('After the Ambush') == false and Data.HasCompletedQuest('Resupplying the Excavation') == true">
+		<TakeQuest NpcName="Huldar" QuestId="454" QuestName="After the Ambush" />
+	</If> 	
+	<If Condition="Data.HasActiveQuest('After the Ambush') == true">
+        <ReturnQuest NpcName="Miran" QuestId="454" QuestName="After the Ambush" />
+    </If>		
+</ShadowProfile>

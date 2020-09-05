@@ -1,0 +1,82 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
+<Lua>QuestNodes[7343]=0</Lua>
+<Lua>QuestNodes[7345]=0</Lua> 
+<Lua>QuestNodes[7346]=0</Lua> 
+<Lua>QuestNodes[7376]=0</Lua>  
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Morhan Coppertongue"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Morhan Coppertongue"/>
+    <SetRepairPercent Value="40" />
+	
+	<!-- Restock Loch Modan 18 - 20 (Thelsmar)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Hearthstove" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- TakeQuest -->
+    <If Condition="Data.HasActiveQuest('Find Bingles') == true">
+        <ReturnQuest NpcName="Bingles Blastenheimer" QuestId="2039" QuestName="Find Bingles" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Bingles\' Missing Supplies') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
+		<TakeQuest NpcName="Bingles Blastenheimer" QuestId="2038" QuestName="Bingles\' Missing Supplies" />
+	</If> 			
+
+	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('Filthy Paws') == true and Data.AllQuestObjectivesAreComplete('Filthy Paws') == false">
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Miners\' League Crates" />	
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-4885.2685546875" Y="-2971.6831054688" Z="316.9323425293" Range="30" />
+		<AddHotspot X="-4902.3237304688" Y="-2978.4270019531" Z="318.01724243164" Range="30" />
+		<AddHotspot X="-4925.7983398438" Y="-2964.62890625" Z="317.44635009766" Range="30" />
+		<AddHotspot X="-4925.2622070313" Y="-2992.5700683594" Z="320.36575317383" Range="30" />
+		<AddHotspot X="-4936.7036132813" Y="-2986.1462402344" Z="321.56561279297" Range="30" />
+		<AddHotspot X="-4943.5209960938" Y="-2967.9074707031" Z="321.63555908203" Range="30" />
+		<AddHotspot X="-4973.5068359375" Y="-2996.1083984375" Z="316.27166748047" Range="30" />
+		<AddHotspot X="-4995.2016601563" Y="-2981.48828125" Z="314.49609375" Range="30" />
+		<AddHotspot X="-4981.015625" Y="-2956.1916503906" Z="314.86517333984" Range="30" />
+		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Filthy Paws') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+
+    <If Condition="Data.HasActiveQuest('Filthy Paws') == true and Data.AllQuestObjectivesAreComplete('Filthy Paws') == true">
+        <ReturnQuest NpcName="Mountaineer Stormpike" QuestId="307" QuestName="Filthy Paws" />
+    </If>
+
+	
+</ShadowProfile>
