@@ -41,8 +41,13 @@
 
 	<!-- Pickup (Mangler object quests) -->	
 	
-
-	<If Condition="Data.HasActiveQuest('The Cliffspring River') == false and Data.HasCompletedQuest('The Cliffspring River') == false">
+    <If Condition="Data.HasActiveQuest('Thundris Windweaver') == false and Data.HasCompletedQuest('How Big a Threat?', 984) == true and Data.HasCompletedQuest('Thundris Windweaver') == false">
+		<TakeQuest NpcName="Terenthis" QuestId="4761" QuestName="Thundris Windweaver" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Thundris Windweaver') == true">
+        <ReturnQuest NpcName="Thundris Windweaver" QuestId="4761" QuestName="Thundris Windweaver" />
+    </If>
+	<If Condition="Data.HasActiveQuest('The Cliffspring River') == false and Data.HasCompletedQuest('The Cliffspring River') == false and Data.HasCompletedQuest('Thundris Windweaver') == true">
 		<TakeQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" />
 	</If> 	
  
@@ -52,7 +57,7 @@
 		<ClearHotspots />
 		<AddBlackspot X="6704.8896" Y="-28.909109" Z="43.096920013" Range="100" />
 		<While Condition="Data.GetItemCountByName('Empty Sampling Tube') == 1">
-			<MoveTo X="7220.910156" Y="-385.03491210" Z="0" />
+			<MoveTo X="7220.910156" Y="-385.03491210" Z="-3.9" />
 			<UseItem ItemName="Empty Sampling Tube" />
 		</While>
 	</If>

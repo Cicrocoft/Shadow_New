@@ -105,7 +105,7 @@
 		</While>		
 	</If>
 	
-	<If Condition="Data.HasActiveQuest('Tools of the Highborne') == true and Data.AllQuestObjectivesAreComplete('Tools of the Highborne') == false">
+	<If Condition="Data.HasActiveQuest('Tools of the Highborne') == true and Data.AllQuestObjectivesAreComplete('Tools of the Highborne') == false or Data.HasActiveQuest('For Love Eternal') == true and Data.AllQuestObjectivesAreComplete('For Love Eternal') == false">
 		<ClearHotspots />
 		<!-- Blackspots -->
 

@@ -1,0 +1,75 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Fruit of the Sea') == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('Fruit of the Sea') == false and Data.HasCompletedQuest('Fruit of the Sea') == false">
+        <TakeQuest NpcName="Gubber Blump" QuestId="1138" QuestName="Fruit of the Sea" />
+    </If>
+	
+	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('Fruit of the Sea') == true and Data.AllQuestObjectivesAreComplete('Fruit of the Sea') == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="7429.0629882813" Y="-128.60195922852" Z="1.5844081640244" Range="100" />
+		<AddHotspot X="7411.29296875" Y="-229.30178833008" Z="0.58215248584747" Range="100" />
+		<AddHotspot X="7401.0830078125" Y="-282.87326049805" Z="2.2237532138824" Range="100" />
+		<AddHotspot X="7368.6538085938" Y="-318.16885375977" Z="2.4123473167419" Range="100" />
+
+
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />		
+		<AddMonsterFilterName Value="Reef Crawler" />			
+		<While Condition="Data.AllQuestObjectivesAreComplete('Fruit of the Sea') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+	
+    <If Condition="Data.HasActiveQuest('Fruit of the Sea') == true and Data.AllQuestObjectivesAreComplete('Fruit of the Sea') == true">
+        <ReturnQuest NpcName="Gubber Blump" QuestId="1138" QuestName="Fruit of the Sea" />
+    </If>	
+	
+
+	
+
+	
+</ShadowProfile>
