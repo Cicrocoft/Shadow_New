@@ -1,8 +1,10 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
-<Lua>QuestNodes[7343]=0</Lua>
-<Lua>QuestNodes[7345]=0</Lua> 
-<Lua>QuestNodes[7346]=0</Lua> 
-<Lua>QuestNodes[7376]=0</Lua>  
+<Lua>QuestNodes[104564]=0</Lua>
+<Lua>QuestNodes[104575]=0</Lua> 
+<Lua>QuestNodes[104569]=0</Lua> 
+<Lua>QuestNodes[104574]=0</Lua>
+<Lua>QuestNodes[104565]=0</Lua> 
+<Lua>QuestNodes[104566]=0</Lua>  
 	<!-- Bot settings -->
 	<SetBaseSettings />
     <SetEnableVendoring Value="true"/>
@@ -50,33 +52,80 @@
 	</If> 			
 
 	<!-- QuestObjective -->
-	<If Condition="Data.HasActiveQuest('Filthy Paws') == true and Data.AllQuestObjectivesAreComplete('Filthy Paws') == false">
+	<If Condition="Data.HasActiveQuest('Bingles\' Missing Supplies') == true and Data.AllQuestObjectivesAreComplete('Bingles\' Missing Supplies') == false">
 		<SetTargetingMode Mode="Gather Only" />
 		<SetEnableAutoHerb Value="true" />
-		<AllowQuestNode NodeName="Miners\' League Crates" />	
+		<AllowQuestNode NodeName="Bingles\'s Toolbucket" />	
 		<ClearHotspots />
 		<!-- Blackspots -->
 
 		<!-- Hotspots -->
-		<AddHotspot X="-4885.2685546875" Y="-2971.6831054688" Z="316.9323425293" Range="30" />
-		<AddHotspot X="-4902.3237304688" Y="-2978.4270019531" Z="318.01724243164" Range="30" />
-		<AddHotspot X="-4925.7983398438" Y="-2964.62890625" Z="317.44635009766" Range="30" />
-		<AddHotspot X="-4925.2622070313" Y="-2992.5700683594" Z="320.36575317383" Range="30" />
-		<AddHotspot X="-4936.7036132813" Y="-2986.1462402344" Z="321.56561279297" Range="30" />
-		<AddHotspot X="-4943.5209960938" Y="-2967.9074707031" Z="321.63555908203" Range="30" />
-		<AddHotspot X="-4973.5068359375" Y="-2996.1083984375" Z="316.27166748047" Range="30" />
-		<AddHotspot X="-4995.2016601563" Y="-2981.48828125" Z="314.49609375" Range="30" />
-		<AddHotspot X="-4981.015625" Y="-2956.1916503906" Z="314.86517333984" Range="30" />
+		<AddHotspot X="-5041.9272460938" Y="-3338.0168457031" Z="299.11450195313" Range="10" />		
+		<While Condition="Data.QuestObjectiveIsComplete('Bingles\' Missing Supplies', 1) == false" >
+			<Wait Value="100" />
+		</While>
 		
-		<While Condition="Data.AllQuestObjectivesAreComplete('Filthy Paws') == false" >
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Bingles\'s Blastencapper" />	
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-4976.0595703125" Y="-3487.9819335938" Z="305.48400878906" Range="3" />	
+		<While Condition="Data.QuestObjectiveIsComplete('Bingles\' Missing Supplies', 4) == false" >
+			<Wait Value="100" />
+		</While>		
+
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Bingles\'s Toolbucket" />	
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-4929.9365234375" Y="-3420.3049316406" Z="304.2917175293" Range="5" />	
+		<While Condition="Data.QuestObjectiveIsComplete('Bingles\' Missing Supplies', 3) == false" >
+			<Wait Value="100" />
+		</While>		
+
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Bingles\'s Toolbucket" />	
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-4862.9165039063" Y="-3328.4458007813" Z="304.52944946289" Range="5" />
+		<While Condition="Data.QuestObjectiveIsComplete('Bingles\' Missing Supplies', 1) == false" >
+			<Wait Value="100" />
+		</While>		
+	</If>
+
+	<If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 263) == true and Data.AllQuestObjectivesAreComplete('In Defense of the King\'s Lands', 263) == false">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-4974.328125" Y="-3473.1123046875" Z="307.02813720703" Range="100" />
+		<AddHotspot X="-4919.5717773438" Y="-3432.6081542969" Z="304.64447021484" Range="100" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Stonesplinter Shaman" />
+		<AddMonsterFilterName Value="Stonesplinter Bonesnapper" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('In Defense of the King\'s Lands', 263) == false" >
 			<Wait Value="100" />
 		</While>
 	</If>
-
-
+	
     <If Condition="Data.HasActiveQuest('Filthy Paws') == true and Data.AllQuestObjectivesAreComplete('Filthy Paws') == true">
         <ReturnQuest NpcName="Mountaineer Stormpike" QuestId="307" QuestName="Filthy Paws" />
     </If>
-
+    <If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 263) == true and Data.AllQuestObjectivesAreComplete('In Defense of the King\'s Lands', 263) == true">
+		<ReturnQuest NpcName="Mountaineer Wallbang" QuestId="263" QuestName="In Defense of the King\'s Lands" />
+	</If>
 	
 </ShadowProfile>
