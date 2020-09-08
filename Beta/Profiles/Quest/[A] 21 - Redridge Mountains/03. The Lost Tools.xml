@@ -1,0 +1,66 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Lost Tools') == false">
+<Lua>QuestNodes[32]=0</Lua>
+	<!-- Pickup -->	
+    <If Condition="Data.HasActiveQuest('The Lost Tools') == false and Data.HasCompletedQuest('The Lost Tools') == false">
+        <TakeQuest NpcName="Foreman Oslow" QuestId="125" QuestName="The Lost Tools" />
+    </If>	
+  
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Kara Adams"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Kara Adams"/>
+    <SetRepairPercent Value="40" />
+
+	<!-- Restock Lakeshire 21+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	
+	<!-- Objective Completion -->
+	
+	
+	<If Condition="Data.HasActiveQuest('The Lost Tools') == true and Data.AllQuestObjectivesAreComplete('The Lost Tools') == false" >
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Sunken Chest" />	
+		<AddHotspot X="-9367.9111328125" Y="-2473.1682128906" Z="18.363132476807" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Lost Tools') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('The Lost Tools') == true">
+        <ReturnQuest NpcName="Foreman Oslow" QuestId="125" QuestName="The Lost Tools" />
+		<TakeQuest NpcName="Foreman Oslow" QuestId="89" QuestName="The Everstill Bridge" />
+    </If>	
+
+
+</ShadowProfile>

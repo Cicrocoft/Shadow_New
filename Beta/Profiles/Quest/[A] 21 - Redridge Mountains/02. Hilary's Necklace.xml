@@ -1,0 +1,67 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Hilary\'s Necklace') == false">
+<Lua>QuestNodes[154357]=0</Lua>
+	<!-- Pickup -->	
+    <If Condition="Data.HasActiveQuest('Hilary\'s Necklace') == false and Data.HasCompletedQuest('Hilary\'s Necklace') == false">
+        <TakeQuest NpcName="Shawn" QuestId="3741" QuestName="Hilary\'s Necklace" />
+    </If>
+  
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Kara Adams"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Kara Adams"/>
+    <SetRepairPercent Value="40" />
+
+	<!-- Restock Lakeshire 21+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	
+	<!-- Objective Completion -->
+	
+	
+	<If Condition="Data.HasActiveQuest('Hilary\'s Necklace') == true and Data.AllQuestObjectivesAreComplete('Hilary\'s Necklace') == false" >
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Glinting Mud" />	
+		<AddHotspot X="-9336.9736328125" Y="-2075.1923828125" Z="53.492744445801" Range="100" />
+		<AddHotspot X="-9356.6357421875" Y="-2162.5764160156" Z="53.527603149414" Range="100" />
+		<AddHotspot X="-9372.7294921875" Y="-2319.3413085938" Z="53.510288238525" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Hilary\'s Necklace') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('Hilary\'s Necklace') == true">
+        <ReturnQuest NpcName="Hilary" QuestId="3741" QuestName="Hilary\'s Necklace" />
+    </If>	
+
+
+</ShadowProfile>
