@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Back to Billy') == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('Back to Billy') == false">
 	<!-- Vendor Settings -->
 	<SetBaseSettings />	
     <SetEnableVendoring Value="true"/>
@@ -8,7 +8,7 @@
     <SetRepairNpc NpcName="Andrew Krighton"/>
     <SetRepairPercent Value="35" />
 	<AddDoNotSellItem ItemName="Chunk of Boar Meat" />
-	<!-- Restock Elwynn Forest 5-12 Goldshire -->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems/>	<!-- Food -->	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">		<AddRestockItem ItemName="Darnassian Bleu" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Darnassian Bleu" />	</If>	<!-- Water -->	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Refreshing Spring Water" />	</If>	<If Condition="Data.PlayerClass() == WoWClass.Priest">		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="3" BuyAmount="20"/>		<AddDoNotSellItem ItemName="Refreshing Spring Water" />	</If>	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Light Shot" NpcName="Brog Hamfist" UnderAmount="100" BuyAmount="1200"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Brog Hamfist" UnderAmount="100" BuyAmount="1200"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Brog Hamfist" UnderAmount="100" BuyAmount="1200"/>	</If>	<!-- End Restock -->	
+	
 	<!-- Pickup -->
 	<If Condition="Data.HasActiveQuest('Lost Necklace') == false and Data.HasCompletedQuest('Lost Necklace') == false">
 		<TakeQuest NpcName="Auntie Bernice Stonefield" QuestId="85" QuestName="Lost Necklace" />
@@ -23,8 +23,8 @@
 		<TakeQuest NpcName="Billy Maclure" QuestId="86" QuestName="Pie for Billy" />
 	</If>	
 	<!-- Quset Completion -->
-	<If Condition="Data.HasActiveQuest('Pie for Billy') == true and Data.AllQuestObjectivesAreComplete('Pie for Billy') == false">
-		<ClearHotspots />		<SetTargetingMode Mode="Around Points" />	
+	<If Condition="Data.HasActiveQuest('Pie for Billy') == true and Data.HasCompletedQuest('Pie for Billy') == false">
+		<ClearHotspots />
 		<!-- Blackspots -->
 		
 		<!-- Hotspots -->
@@ -35,7 +35,7 @@
 		<AddHotspot X="-9802.76171875" Y="364.05389404297" Z="38.912075042725" Range="50" />
 		<AddHotspot X="-9879.6767578125" Y="396.48370361328" Z="35.160911560059" Range="50" />
 		<AddHotspot X="-9946.216796875" Y="391.52954101563" Z="34.950336456299" Range="50" />		
-		<!-- Monster Filter -->
+		<!-- Monster Filter -->		<SetTargetingMode Mode="Around Points" />
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />
 		<AddMonsterFilterName Value="Stonetusk Boar" />	
