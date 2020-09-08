@@ -13,7 +13,7 @@
     <SetRepairNpc NpcName="Burdrak Harglhelm"/>
     <SetRepairPercent Value="35" />
     <If Condition="Data.HasActiveQuest('Frostmane Hold') == true and Data.HasCompletedQuest('Frostmane Hold') == false">	
-		<ClearHotspots />
+		<ClearHotspots /><AddBlackspot X="-5320.4565429688" Y="158.76176452637" Z="390.14410400391" Range="40" /><AddBlackspot X="-5249.099609375" Y="101.77604675293" Z="391.97369384766" Range="50" />
 			<AddBlackspot X="-5570.404296875" Y="512.13232421875" Z="381.84985351563" Range="45" />
 			<AddHotspot X="-5557.8999023438" Y="642.83795166016" Z="399.37362670898" Range="20" />
 			<AddHotspot X="-5553.318359375" Y="570.30773925781" Z="394.33544921875" Range="20" />
