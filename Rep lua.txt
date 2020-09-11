@@ -1,0 +1,14 @@
+<Lua>
+    function GetFactionReputation(factionName)
+        for factionIndex = 1, GetNumFactions() do
+            name, description, standingId, bottomValue, topValue, earnedValue, atWarWith,
+            canToggleAtWar, isHeader, isCollapsed, hasRep, isWatched, isChild = GetFactionInfo(factionIndex)
+            if name == factionName then
+                return earnedValue
+            end
+        end
+    end
+</Lua>
+<If Condition="GetFactionReputation('Thorium Brotherhood') > 1000">
+    do stuff
+</If>
