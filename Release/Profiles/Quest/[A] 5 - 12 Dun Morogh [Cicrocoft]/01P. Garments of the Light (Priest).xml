@@ -22,10 +22,9 @@
 		<Lua>CastSpellByName('Lesser Heal(Rank 2)')</Lua>
 		<Wait Value="3000" />
 		<Lua>CastSpellByName('Power Word: Fortitude')</Lua>
-		</ShadowProfile>
 	</If>
 	
 <!-- TurnIn Quest -->
     <If Condition="Data.HasActiveQuest('Garments of the Light') == true">
         <ReturnQuest NpcName="Maxan Anvol" QuestName="Garments of the Light" />
-    </If>
+    </If></ShadowProfile>	
