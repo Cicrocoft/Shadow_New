@@ -13,7 +13,17 @@
     </If>	
 	<!-- TurnIn Part 2 + Pickup Part 3 -->
     <If Condition="Data.HasActiveQuest('Ride to Ironforge') == true">
-        <ReturnQuest NpcName="Golnir Bouldertoe" QuestName="Ride to Ironforge" />
+		<If Condition="GetZoneText() == 'Loch Modan'">
+			<NPCInteract NpcName="Thorgrum Borrelson" DialogIndex1="1"/>
+			<Lua>TakeTaxiNode(1)</Lua>
+			<BotSleep Value="10000"/>
+		</If>
+		<While Condition="UnitOnTaxi('player') == true">
+			<BotSleep Value="5000"/>
+		</While>
+		<If Condition="GetZoneText() == 'City of Ironforge'">
+			<ReturnQuest NpcName="Golnir Bouldertoe" QuestName="Ride to Ironforge" />
+		</If>
 	</If>	
 	<If Condition="Data.HasActiveQuest('Gryth Thurden') == false and Data.HasCompletedQuest('Gryth Thurden') == false">
         <TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
@@ -30,6 +40,18 @@
     </If>	
 	<!-- Final Turnin -->
     <If Condition="Data.HasActiveQuest('Return to Brock') == true">
-        <ReturnQuest NpcName="Brock Stoneseeker" QuestName="Return to Brock" />
-	</If>	
+		<If Condition="GetZoneText() == 'City of Ironforge'">
+			<NPCInteract NpcName="Gryth Thurden" DialogIndex1="1"/>
+			<Lua>TakeTaxiNode(2)</Lua>
+			<BotSleep Value="10000"/>
+		</If>
+		<While Condition="UnitOnTaxi('player') == true">
+			<BotSleep Value="5000"/>
+		</While>
+		<If Condition="GetZoneText() == 'Loch Modan'">
+			<ReturnQuest NpcName="Brock Stoneseeker" QuestName="Return to Brock" />
+		</If>
+	</If>		
+	
+	
 </ShadowProfile>

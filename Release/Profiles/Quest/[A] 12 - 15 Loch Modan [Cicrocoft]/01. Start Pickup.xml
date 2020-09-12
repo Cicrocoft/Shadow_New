@@ -13,9 +13,15 @@
 	<ClearRestockItems/>
 	<!-- Food -->
 	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
-		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
-		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
 	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
+	</If>	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
 		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
@@ -44,6 +50,7 @@
         <TakeQuest NpcName="Captain Rugelfuss" QuestId="267" QuestName="The Trogg Threat" />
     </If>
 	<If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == false and Data.HasCompletedQuest('Thelsamar Blood Sausages') == false">
+		<MoveTo X="-5381.0874023438" Y="-2968.3381347656" Z="322.05776977539" />
         <TakeQuest NpcName="Vidra Hearthstove" QuestId="418" QuestName="Thelsamar Blood Sausages" />
     </If>
 	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false and Data.MyRace() == WoWRace.Dwarf">

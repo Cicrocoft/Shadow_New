@@ -18,9 +18,15 @@
 	<ClearRestockItems/>
 	<!-- Food -->
 	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
-		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
-		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
 	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
+	</If>	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
 		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
@@ -40,7 +46,7 @@
 	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
 		<AddRestockItem ItemName="Rough Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
 	</If>
-	<!-- End Restock -->	
+	<!-- End Restock -->		
 	
 	<!-- Pickup -->
     <If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == false">
