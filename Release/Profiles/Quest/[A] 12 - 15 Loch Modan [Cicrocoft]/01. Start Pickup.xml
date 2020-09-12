@@ -46,9 +46,12 @@
 	<If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == false and Data.HasCompletedQuest('Thelsamar Blood Sausages') == false">
         <TakeQuest NpcName="Vidra Hearthstove" QuestId="418" QuestName="Thelsamar Blood Sausages" />
     </If>
-	    <If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false">
+	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false and Data.MyRace() == WoWRace.Dwarf">
         <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
     </If>
+	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false and Data.MyRace() == WoWRace.Gnome">
+        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
+    </If>	
     <If Condition="Data.HasActiveQuest('Rat Catching') == false and Data.HasCompletedQuest('Rat Catching') == false">
         <TakeQuest NpcName="Mountaineer Kadrell" QuestId="416" QuestName="Rat Catching" />
     </If>	

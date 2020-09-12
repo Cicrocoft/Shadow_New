@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Return to Brock') == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('Return to Brock') == false and Data.MyRace() == WoWRace.Gnome or Data.HasCompletedQuest('Return to Brock') == false and Data.MyRace() == WoWRace.Dwarf">
 	<SetBaseSettings />
 	<!-- Initial Pickup -->
 	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false">
