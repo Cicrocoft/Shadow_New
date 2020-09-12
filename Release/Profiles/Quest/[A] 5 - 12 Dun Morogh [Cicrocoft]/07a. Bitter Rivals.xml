@@ -1,7 +1,7 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Bitter Rivals') == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('Return to Marleth') == false">
 
     <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Bitter Rivals') == false">
+    <If Condition="Data.HasActiveQuest('Bitter Rivals') == false and Data.HasCompletedQuest('Bitter Rivals') == false">
         <TakeQuest NpcName="Marleth Barleybrew" QuestName="Bitter Rivals" />
     </If>
     <SetBaseSettings />
@@ -21,11 +21,10 @@
 	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true and Data.GetItemCountByName('Thunder Ale') == 0">
 		<AddRestockItem ItemName="Thunder Ale" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
 	</If>
-	<Lua> BotSleep(1485) return true </Lua>
-	<If Condition="Data.GetItemCountByName('Thunder Ale') == 1 and Data.HasActiveQuest('Bitter Rivals') == true and Data.HasCompletedQuest('Distracting Jarven') == false">
-		<ClearRestockItems/>
-		<TakeQuest NpcName="Jarven Thunderbrew" QuestName="Distracting Jarven" />
-		<Lua> BotSleep(1485) return true </Lua>
+
+	<If Condition="Data.GetItemCountByName('Thunder Ale') == 1 and Data.HasActiveQuest('Bitter Rivals') == true">
+		<ClearRestockItems/>		<NPCInteract NpcName="Jarven Thunderbrew" />
+		<Lua>CompleteQuest()</Lua>		<Lua>GetQuestReward()</Lua>		<BotSleep Value="1584"/>		<Lua>CompleteQuest()</Lua>		<Lua>QuestRewardCompleteButton_OnClick()</Lua>		<BotSleep Value="6475"/>		
 	</If>
 	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true">	
 		<ReturnQuestToObject QuestName="Bitter Rivals" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
@@ -33,8 +32,8 @@
 	<If Condition="Data.HasActiveQuest('Return to Marleth') == false and Data.HasCompletedQuest('Return to Marleth') == false and Data.HasCompletedQuest('Bitter Rivals') == true">
 		<TakeQuestFromObject QuestName="Return to Marleth" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
 	</If>
-	<If Condition="Data.HasActiveQuest('Return to Marleth') == false">
-		<ReturnQuest NpcName="Marleth Barleybrew" QuestName="Return to Marleth" />
+	<If Condition="Data.HasActiveQuest('Return to Marleth') == true">
+		<ReturnQuest NpcName="Marleth Barleybrew" QuestId="311" QuestName="Return to Marleth" />
 	</If>
 </ShadowProfile>
 
