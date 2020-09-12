@@ -71,7 +71,7 @@
 		<AddHotspot X="-5134.9892578125" Y="-2718.0969238281" Z="341.29025268555" Range="30" />
 		<!-- Mob settings -->
 		<SetTargetingMode Mode="Around Points" />
-		<SetHotspotTraverseMode Mode="Circular"/>
+		<SetHotspotTraverseMode Mode="Straight"/>
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />
 		<AddMonsterFilterName Value="Tunnel Rat Scout" />
