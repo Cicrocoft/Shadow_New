@@ -13,16 +13,10 @@
 	<SetEnableRestockItems Value="true"/>
 	<ClearRestockItems/>
 	<!-- Food -->
-	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
 		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
 		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
 	</If>
-	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
-		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="60"/>
-		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
-		<Lua>settings.ShouldFeedPet = true</Lua>
-		<Lua>settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
-	</If>		
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
 		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
@@ -62,7 +56,7 @@
 		<!-- Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Blackspots -->
-
+		<AddBlackspot X="7268.7973632813" Y="-117.13552856445" Z="15.38508605957" Range="20" />
 		<!-- Hotspots -->
 		<AddHotspot X="6897.6884765625" Y="-10.544112205505" Z="24.473400115967" Range="50" />
 		<AddHotspot X="6948.0913085938" Y="-5.0841522216797" Z="17.275527954102" Range="50" />
