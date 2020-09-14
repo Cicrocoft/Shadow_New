@@ -1,0 +1,12 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Veteran Uzzek') == false and Data.PlayerClass() == WoWClass.Warrior">
+    <SetBaseSettings />
+    <AddBlackspot X="315.83" Y="-4770.5" Z="11.99" Range="1" />
+    <AddBlackspot X="331.02" Y="-4763.57" Z="12.63" Range="1" />
+    <If Condition="Data.HasActiveQuest('Veteran Uzzek') == false">
+        <TakeQuest NpcName="Tarshaw Jaggedscar" QuestName="Veteran Uzzek" />
+    </If>
+    <SetBaseSettings />
+    <AddBlackspot X="315.83" Y="-4770.5" Z="11.99" Range="1" />
+    <AddBlackspot X="331.02" Y="-4763.57" Z="12.63" Range="1" />
+    <ReturnQuest NpcName="Uzzek" QuestName="Veteran Uzzek" />
+</ShadowProfile>

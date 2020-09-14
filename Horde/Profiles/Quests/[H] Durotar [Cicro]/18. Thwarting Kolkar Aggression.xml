@@ -1,0 +1,54 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Thwarting Kolkar Aggression') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Thwarting Kolkar Aggression') == false">
+        <TakeQuest NpcName="Lar Prowltusk" QuestName="Thwarting Kolkar Aggression" />
+    </If>
+    <SetBaseSettings />
+    <SetTargetingMode Mode="Gather Only" />
+    <AddHotspot X="-1057.4952" Y="-4595.675" Z="26.100016" Range="70" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Attack Plan: Valley of Trials" />
+    <AllowQuestNode NodeName="Attack Plan: Sen\'jin Village" />
+    <AllowQuestNode NodeName="Attack Plan: Orgrimmar" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Trayexir"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Trayexir"/>
+    <ClearRestockItems/>
+    <AddRestockItem ItemName="Rough Arrow" NpcName="Ghrawt" UnderAmount="50" BuyAmount="200" DisableMage="true"  DisableWarrior="true" DisableWarlock="true" DisablePriest="true" DisableShaman="true" DisableDruid="true" DisableRogue="true" DisablePaladin="true" />
+    <While Condition="Data.QuestObjectiveIsComplete('Thwarting Kolkar Aggression', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <SetBaseSettings />
+    <SetTargetingMode Mode="Gather Only" />
+    <AddHotspot X="-919.56354" Y="-4479.806" Z="29.685469" Range="70" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Attack Plan: Valley of Trials" />
+    <AllowQuestNode NodeName="Attack Plan: Sen\'jin Village" />
+    <AllowQuestNode NodeName="Attack Plan: Orgrimmar" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Trayexir"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Trayexir"/>
+    <While Condition="Data.QuestObjectiveIsComplete('Thwarting Kolkar Aggression', 2) == false" >
+        <Wait Value="100" />
+    </While>
+    <SetBaseSettings />
+    <SetTargetingMode Mode="Gather Only" />
+    <AddHotspot X="-976.42004" Y="-4410.6123" Z="29.412498" Range="40" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Attack Plan: Valley of Trials" />
+    <AllowQuestNode NodeName="Attack Plan: Sen\'jin Village" />
+    <AllowQuestNode NodeName="Attack Plan: Orgrimmar" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Trayexir"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Trayexir"/>
+    <While Condition="Data.QuestObjectiveIsComplete('Thwarting Kolkar Aggression', 3) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Lar Prowltusk" QuestName="Thwarting Kolkar Aggression" />
+</ShadowProfile>

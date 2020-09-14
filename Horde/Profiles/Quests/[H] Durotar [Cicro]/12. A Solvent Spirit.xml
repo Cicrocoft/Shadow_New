@@ -1,0 +1,44 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A Solvent Spirit') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('A Solvent Spirit') == false">
+        <TakeQuest NpcName="Master Vornal" QuestName="A Solvent Spirit" />
+    </If>
+    <SetBaseSettings />
+    <AddHotspot X="-779.3" Y="-5112.242" Z="0.13" Range="240" />
+    <AddHotspot X="-897.94" Y="-5029.448" Z="1.4835" Range="240" />
+    <AddHotspot X="-939.453" Y="-5009.429" Z="2.736" Range="240" />
+    <AddHotspot X="-1036.5837" Y="-4888.816" Z="1.4643" Range="240" />
+    <AddHotspot X="-1109.19" Y="-4794.93" Z="5.05" Range="240" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Trayexir"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Trayexir"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Makrura Clacker"/>
+    <AddMonsterFilterName Value="Makrura Shellhide"/>
+    <While Condition="Data.QuestObjectiveIsComplete('A Solvent Spirit', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <SetBaseSettings />
+    <AddHotspot X="-779.3" Y="-5112.242" Z="0.13" Range="240" />
+    <AddHotspot X="-897.94" Y="-5029.448" Z="1.4835" Range="240" />
+    <AddHotspot X="-939.453" Y="-5009.429" Z="2.736" Range="240" />
+    <AddHotspot X="-1036.5837" Y="-4888.816" Z="1.4643" Range="240" />
+    <AddHotspot X="-1109.19" Y="-4794.93" Z="5.05" Range="240" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Trayexir"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Trayexir"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Pygmy Surf Crawler"/>
+    <While Condition="Data.QuestObjectiveIsComplete('A Solvent Spirit', 2) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Master Vornal" QuestName="A Solvent Spirit" />
+</ShadowProfile>

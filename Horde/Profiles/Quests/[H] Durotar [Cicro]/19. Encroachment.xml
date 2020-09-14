@@ -1,0 +1,46 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Encroachment') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Encroachment') == false">
+        <TakeQuest NpcName="Gar\'Thok" QuestName="Encroachment" />
+    </If>
+    <SetBaseSettings />
+    <AddHotspot X="108.465706" Y="-4657.983" Z="32.295017" Range="250" />
+    <AddHotspot X="24.680054" Y="-4616.825" Z="45.905033" Range="250" />
+    <AddHotspot X="59.92993" Y="-4468.7754" Z="47.56873" Range="250" />
+    <AddHotspot X="116.329956" Y="-4479.3496" Z="39.304596" Range="250" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Wuark"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Wuark"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Razormane Quilboar"/>
+    <ClearRestockItems/>
+    <AddRestockItem ItemName="Rough Arrow" NpcName="Ghrawt" UnderAmount="50" BuyAmount="200" DisableMage="true"  DisableWarrior="true" DisableWarlock="true" DisablePriest="true" DisableShaman="true" DisableDruid="true" DisableRogue="true" DisablePaladin="true" />
+    <While Condition="Data.QuestObjectiveIsComplete('Encroachment', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/>
+    <AddMonsterFilterName Value="Razormane Scout"/>
+    <While Condition="Data.QuestObjectiveIsComplete('Encroachment', 2) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearHotspots/>
+    <AddHotspot X="-10.569946" Y="-4130.375" Z="78.40439" Range="250" />
+    <AddHotspot X="-81.07007" Y="-4024.625" Z="63.97925" Range="250" />
+    <AddHotspot X="-110.900566" Y="-3982.5967" Z="59.639023" Range="250" />
+    <AddHotspot X="-130.42004" Y="-4003.4749" Z="59.534927" Range="250" />
+    <ClearMonsterFilter/>
+    <AddMonsterFilterName Value="Razormane Dustrunner"/>
+    <While Condition="Data.QuestObjectiveIsComplete('Encroachment', 3) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/>
+    <AddMonsterFilterName Value="Razormane Battleguard"/>
+    <While Condition="Data.QuestObjectiveIsComplete('Encroachment', 4) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Gar\'Thok" QuestName="Encroachment" />
+</ShadowProfile>

@@ -1,0 +1,22 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Cutting Teeth') == false and UnitLevel('player') <= 2">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Cutting Teeth') == false">
+        <MoveTo X="-600.084" Y="-4188.32" Z="41.093" />
+        <TakeQuest NpcName="Gornek" QuestName="Cutting Teeth" />
+    </If>
+    <ClearHotspots />
+    <AddHotspot X="-466.77" Y="-4311.01" Z="47.49" Range="200" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Duokna"/>
+    <SetVendorSlotsCount Value="3" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Mottled Boar"/>
+    <While Condition="Data.AllQuestObjectivesAreComplete('Cutting Teeth') == false" >
+        <Wait Value="100" />
+    </While>
+    <SetTargetingMode Mode="None" /> <!-- turn off grind-->
+    <MoveTo X="-600.084" Y="-4188.32" Z="41.093" />
+    <ReturnQuest NpcName="Gornek" QuestName="Cutting Teeth" />
+</ShadowProfile>

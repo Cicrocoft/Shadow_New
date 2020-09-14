@@ -1,0 +1,33 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Burning Blade Medallion') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Burning Blade Medallion') == false">
+        <TakeQuest NpcName="Zureetha Fargaze" QuestName="Burning Blade Medallion" />
+    </If>
+    <SetBaseSettings />
+    <ClearHotspots />
+    <AddHotspot X="-58.1846" Y="-4220.64" Z="62.3418"  Range="40" />
+    <AddBlackspot X="-72.28" Y="-4321.11" Z="64.96" Range="1" />
+    <AddBlackspot X="-248.31" Y="-4358.31" Z="62.42" Range="1" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Yarrog Baneshadow"/>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Duokna"/>
+    <SetEnableRestockItems Value="true"/>
+    <ClearRestockItems/>
+    <AddRestockItem ItemName="Rough Arrow" NpcName="Duokna" UnderAmount="50" BuyAmount="200" DisableMage="true"  DisableWarrior="true" DisableWarlock="true" DisablePriest="true" DisableShaman="true" DisableDruid="true" DisableRogue="true" DisablePaladin="true" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('Burning Blade Medallion') == false" >
+        <Wait Value="100" />
+        <If Condition="Nav.RangeFromMeXYZ(-58.1846,-4220.64,62.3418) &lt; 20 ">            
+            <SetEnableAutoLoot Value="true" />
+        </If>
+        <If Condition="Nav.RangeFromMeXYZ(-58.1846,-4220.64,62.3418) &gt;= 20">
+            <SetEnableAutoLoot Value="false" />
+        </If>
+    </While>
+    <SetBaseSettings />
+    <AddBlackspot X="-72.28" Y="-4321.11" Z="64.96" Range="1" />
+    <AddBlackspot X="-248.31" Y="-4358.31" Z="62.42" Range="1" />
+    <ReturnQuest NpcName="Zureetha Fargaze" QuestName="Burning Blade Medallion" />
+</ShadowProfile>

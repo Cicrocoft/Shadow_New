@@ -1,0 +1,41 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Need for a Cure') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Need for a Cure') == false">
+        <MoveTo X="1146.84" Y="-4189.495" Z="22.75" />
+        <MoveTo X="1152.147" Y="-4158.191" Z="20.06" />
+        <TakeQuest NpcName="Rhinag" QuestName="Need for a Cure" />
+    </If>
+    <If Condition="Nav.RangeFromMeXYZ(1152.147, -4158.191, 20.06) &lt; 10" >
+        <MoveTo X="1146.84" Y="-4189.495" Z="22.75" />
+        <MoveTo X="1123.01" Y="-4186.889" Z="21.62"/>
+    </If>
+    <!-- disable auto flight path-->
+    <If Condition="Data.HasActiveQuest('Finding the Antidote') == false">
+        <TakeQuest NpcName="Kor\'ghan" QuestName="Finding the Antidote" />
+    </If>
+    <SetBaseSettings />
+    <AddHotspot X="1177.355" Y="-4283.713" Z="21.867851" Range="250" />
+    <AddHotspot X="1085.705" Y="-4331.3" Z="24.504889" Range="250" />
+    <AddHotspot X="1075.13" Y="-4167.3877" Z="19.449722" Range="250" />
+    <AddHotspot X="1184.405" Y="-4167.3877" Z="21.995398" Range="250" />
+    <AddHotspot X="1184.405" Y="-4008.7625" Z="17.208069" Range="250" />
+    <AddHotspot X="1110.3799" Y="-3977.0374" Z="16.863459" Range="250" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Wuark"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Wuark"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMaxZDifference Value="20"/>
+    <SetEnableIgnoreLootAroundMobs Value="false"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Venomtail Scorpid"/>
+    <While Condition="Data.AllQuestObjectivesAreComplete('Finding the Antidote') == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Kor\'ghan" QuestName="Finding the Antidote" />
+    <MoveTo X="1146.84" Y="-4189.495" Z="22.75" />
+    <MoveTo X="1152.147" Y="-4158.191" Z="20.06" />
+    <ReturnQuest NpcName="Rhinag" QuestName="Need for a Cure" />
+</ShadowProfile>

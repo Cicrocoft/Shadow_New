@@ -1,0 +1,29 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Vile Familiars') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Vile Familiars') == false">
+        <TakeQuest NpcName="Zureetha Fargaze" QuestName="Vile Familiars" />
+    </If>
+    <SetBaseSettings />
+    <ClearHotspots />
+    <AddHotspot X="-271.42004" Y="-4373.5996" Z="57.162605" Range="250" />
+    <AddHotspot X="-215.02002" Y="-4426.4746" Z="64.33171" Range="250" />
+    <AddHotspot X="-130.42004" Y="-4352.45" Z="67.86696" Range="250" />
+    <AddHotspot X="-144.29008" Y="-4245.8374" Z="57.873344" Range="250" />
+    <AddHotspot X="-222.06995" Y="-4341.875" Z="65.22225" Range="250" />
+    <AddHotspot X="-251.83626" Y="-4274.346" Z="60.801964" Range="250" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Vile Familiar"/>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Duokna"/>
+    <SetVendorSlotsCount Value="3" />
+    <SetEnableRestockItems Value="true"/>
+    <ClearRestockItems/>
+    <AddRestockItem ItemName="Rough Arrow" NpcName="Duokna" UnderAmount="50" BuyAmount="200" DisableMage="true"  DisableWarrior="true" DisableWarlock="true" DisablePriest="true" DisableShaman="true" DisableDruid="true" DisableRogue="true" DisablePaladin="true" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('Vile Familiars') == false" >
+        <Wait Value="100" />
+    </While>
+    <SetBaseSettings />
+    <ReturnQuest NpcName="Zureetha Fargaze" QuestName="Vile Familiars" />
+</ShadowProfile>
