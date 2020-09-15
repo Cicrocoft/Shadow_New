@@ -34,14 +34,14 @@
     <If Condition="Data.HasActiveQuest('Crown of the Earth', 921) == false and Data.HasCompletedQuest('Crown of the Earth', 921) == false and Data.HasCompletedQuest('Tenaron\'s Summons') == true">
         <TakeQuest NpcName="Tenaron Stormgrip" QuestId="921" QuestName="Crown of the Earth" />
     </If>
-	<If Condition="Data.HasActiveQuest('Crown of the Earth', 921) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 921) == false">
+	<While Condition="Data.HasActiveQuest('Crown of the Earth', 921) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 921) == false">
 		<ClearHotspots />
-		<MoveTo X="10706.436523438" Y="762.38861083984" Z="1321.3536376953" />
+		<If Condition="Nav.RangeFromMeXYZ(10706.436523438, 762.38861083984, 1321.3536376953) &gt; 3">
+			<MoveTo X="10706.436523438" Y="762.38861083984" Z="1321.3536376953" />
+		</If>
 		<UseItem ItemName="Crystal Phial" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('Crown of the Earth', 921) == false" >
-			<Wait Value="100" />
-		</While>
-	</If>
+	</While>	
+	
 	<If Condition="Data.HasActiveQuest('Crown of the Earth', 921) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 921) == true">
         <ReturnQuest NpcName="Tenaron Stormgrip" QuestId="921" QuestName="Crown of the Earth" />
     </If>

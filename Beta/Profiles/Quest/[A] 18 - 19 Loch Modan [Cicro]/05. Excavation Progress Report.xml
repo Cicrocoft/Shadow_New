@@ -50,7 +50,7 @@
 	</If> 
 	<If Condition="Data.HasActiveQuest('Report to Ironforge') == true">
         <ReturnQuest NpcName="Prospector Stormpike" QuestId="301" QuestName="Report to Ironforge" />
-    </If>
+    </If>	
 	<If Condition="Data.HasActiveQuest('Powder to Ironband') == false and Data.HasCompletedQuest('Powder to Ironband') == false and Data.HasCompletedQuest('Report to Ironforge') == true">
 		<TakeQuest NpcName="Prospector Stormpike" QuestId="302" QuestName="Powder to Ironband" />
 	</If> 	
@@ -81,8 +81,10 @@
     </If>	
 	<If Condition="Data.HasActiveQuest('After the Ambush') == false and Data.HasCompletedQuest('After the Ambush') == false and Data.HasCompletedQuest('Resupplying the Excavation') == true">
 		<TakeQuest NpcName="Huldar" QuestId="454" QuestName="After the Ambush" />
+		<Lua>CloseGossip()</Lua>
 	</If> 	
 	<If Condition="Data.HasActiveQuest('After the Ambush') == true">
+		<Lua>CloseGossip()</Lua>
         <ReturnQuest NpcName="Miran" QuestId="454" QuestName="After the Ambush" />
     </If>		
 </ShadowProfile>
