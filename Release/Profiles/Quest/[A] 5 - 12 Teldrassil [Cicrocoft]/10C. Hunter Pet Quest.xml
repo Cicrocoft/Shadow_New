@@ -1,0 +1,60 @@
+<ShadowProfile Condition="UnitLevel('player') &gt;= 10 and Data.HasCompletedQuest('Taming the Beast', 6103) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">
+
+<!-- NE Hunter (NOT WORKING!!!) -->
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">
+		<If Condition="Data.HasActiveQuest('Taming the Beast', 6063) == false and Data.HasCompletedQuest('Taming the Beast', 6063) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">
+			<TakeQuest NpcName="Dazalar" QuestId="6063" QuestName="Taming the Beast" />
+		</If>
+		
+		<While Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6063) == false">
+			<MoveTo X="9966.4267578125" Y="734.14685058594" Z="1322.1916503906" />
+			<SetEnablePreemptiveMonsterAttack Value="false" />			<SetEnableProfileIgnoreCombat Value="true" />			<UseItemOnNpc NpcId="1998" ItemId="15921" OnlyAlive="true" />						<BotSleep Value="10000"/>			<SetEnableProfileIgnoreCombat Value="false" />	
+		</While>	
+		<If Condition="Data.HasActiveQuest('Taming the Beast', 6063) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf"> 
+			<ReturnQuest NpcName="Dazalar" QuestId="6063" QuestName="Taming the Beast" />
+		</If>
+		
+	
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6101) == false and Data.HasCompletedQuest('Taming the Beast', 6101) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">		<Lua>PetDismiss()</Lua>
+        <TakeQuest NpcName="Dazalar" QuestId="6101" QuestName="Taming the Beast" />
+    </If>
+	
+	<While Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6101) == false">
+		<MoveTo X="9377.3974609375" Y="947.27783203125" Z="1288.525390625" />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<SetEnableProfileIgnoreCombat Value="true" />			<UseItemOnNpc NpcId="2043" ItemId="15922" OnlyAlive="true" />
+		<BotSleep Value="10000"/>
+		<SetEnableProfileIgnoreCombat Value="false" />
+	</While>	
+    <If Condition="Data.HasActiveQuest('Taming the Beast', 6101) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf"> 
+		<ReturnQuest NpcName="Dazalar" QuestId="6101" QuestName="Taming the Beast" />		
+	</If>
+	
+	
+	
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6102) == false and Data.HasCompletedQuest('Taming the Beast', 6102) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">		<Lua>PetDismiss()</Lua>	
+        <TakeQuest NpcName="Dazalar" QuestId="6102" QuestName="Taming the Beast" />
+    </If>
+	
+	<While Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6102) == false">
+		<MoveTo X="9531.6142578125" Y="547.29602050781" Z="1319.1751708984" />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<SetEnableProfileIgnoreCombat Value="true" />
+		<UseItemOnNpc NpcId="1996" ItemId="15923" OnlyAlive="true" />
+		<BotSleep Value="10000"/>
+		<SetEnableProfileIgnoreCombat Value="false" />
+	</While>	
+    <If Condition="Data.HasActiveQuest('Taming the Beast', 6102) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf"> 
+		<ReturnQuest NpcName="Dazalar" QuestId="6102" QuestName="Taming the Beast" />
+	</If>
+	
+	</If>
+	
+	<If Condition="Data.HasActiveQuest('Training the Beast', 6103) == false and Data.HasCompletedQuest('Taming the Beast', 6103) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">		<Lua>PetDismiss()</Lua>	
+        <TakeQuest NpcName="Dazalar" QuestId="6103" QuestName="Training the Beast" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Training the Beast', 6103) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf"> 
+		<ReturnQuest NpcName="Jocaste" QuestId="6103" QuestName="Training the Beast" />
+	</If>	
+</ShadowProfile>
