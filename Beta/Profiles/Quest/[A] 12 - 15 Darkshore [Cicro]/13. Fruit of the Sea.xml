@@ -22,7 +22,7 @@
 		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
 		<Lua>settings.ShouldFeedPet = true</Lua>
 		<Lua>settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
-	</If>		
+	</If>	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
 		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
@@ -53,7 +53,7 @@
 	<If Condition="Data.HasActiveQuest('Fruit of the Sea') == true and Data.AllQuestObjectivesAreComplete('Fruit of the Sea') == false">
 		<ClearHotspots />
 		<!-- Blackspots -->
-
+		<AddBlackspot X="6916.85546875" Y="48.317203521729" Z="17.266174316406" Range="20" />
 		<!-- Hotspots -->
 		<AddHotspot X="7429.0629882813" Y="-128.60195922852" Z="1.5844081640244" Range="100" />
 		<AddHotspot X="7411.29296875" Y="-229.30178833008" Z="0.58215248584747" Range="100" />
