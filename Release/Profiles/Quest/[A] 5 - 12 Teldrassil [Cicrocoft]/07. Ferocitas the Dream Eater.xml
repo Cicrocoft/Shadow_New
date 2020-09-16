@@ -2,7 +2,7 @@
 
     <SetBaseSettings />
 	<!-- Pickup -->
-    <If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('Ferocitas the Dream Eater') == false" and Data.HasCompletedQuest('The Emerald Dreamcatcher') == true">
+    <If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('The Emerald Dreamcatcher') == true">
         <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="2459" QuestName="Ferocitas the Dream Eater" />
     </If>	
 
