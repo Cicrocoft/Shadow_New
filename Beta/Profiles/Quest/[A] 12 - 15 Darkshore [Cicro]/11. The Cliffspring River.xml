@@ -13,7 +13,7 @@
 	<SetEnableRestockItems Value="true"/>
 	<ClearRestockItems/>
 	<!-- Food -->
-	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin or Data.PlayerClass() == WoWClass.Priest">
 		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
 		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
 	</If>
