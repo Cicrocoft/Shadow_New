@@ -65,6 +65,15 @@
 			<Wait Value="100" />
 		</While>
 	</If>
+<!-- Idea to fix issue now 	
+	<While Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == true and Data.AllQuestObjectivesAreComplete('The Emerald Dreamcatcher') == false" >	
+		<ClearHotspots />
+		<If Condition="Nav.RangeFromMeXYZ(9859.81640625, 591.23248291016, 1300.8079833984) &gt; 3">
+			<MoveTo X="9859.81640625" Y="591.23248291016" Z="1300.8079833984" />
+		</If>
+		<SetEnableAutoLoot Value="true"/>
+		<InteractWithClosetGameObject />
+	</While> -->
     <If Condition="Data.HasActiveQuest('Gnarlpine Corruption') == true">
         <ReturnQuest NpcName="Athridas Bearmantle" QuestId="476" QuestName="Gnarlpine Corruption" />
     </If>	
