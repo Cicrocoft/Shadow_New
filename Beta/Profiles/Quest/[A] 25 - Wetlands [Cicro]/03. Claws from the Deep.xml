@@ -1,0 +1,113 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Claws from the Deep', 279) == false or Data.HasCompletedQuest('Young Crocolisk Skins', 484) == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+	<SetEnableVendoring Value="true"/>
+	<SetVendorNpc NpcName="Murndan Derth" />
+	<SetVendorSlotsCount Value="2" />
+	<SetEnableRepairing Value="true"/>
+	<SetRepairNpc NpcName="Murndan Derth" />
+	<SetRepairPercent Value="35" />	
+	
+	<!-- Restock Wetlands 22+ (Menethil Harbor)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Haunch of Meat" NpcName="Innkeeper Helbrek" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Haunch of Meat" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Haunch of Meat" NpcName="Innkeeper Helbrek" UnderAmount="5" BuyAmount="80"/>
+		<AddDoNotSellItem ItemName="Haunch of Meat" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Haunch of Meat" </Lua>
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Helbrek" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Helbrek" UnderAmount="3" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &lt;= 24">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &lt;= 24">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &lt;= 24">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &gt;= 25">
+		<AddRestockItem ItemName="Solid Shot" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &gt;= 25">
+		<AddRestockItem ItemName="Razor Arrow" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &gt;= 25">
+		<AddRestockItem ItemName="Razor Arrow" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>	
+	<!-- End Restock -->	
+
+	<If Condition="Data.HasActiveQuest('Claws from the Deep', 279) == false and Data.HasCompletedQuest('Claws from the Deep', 279) == false">
+		<TakeQuest NpcName="Karl Boran" QuestId="279" QuestName="Claws from the Deep" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Young Crocolisk Skins', 484) == false and Data.HasCompletedQuest('Young Crocolisk Skins', 484) == false">
+		<TakeQuest NpcName="James Halloran" QuestId="484" QuestName="Young Crocolisk Skins" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Claws from the Deep', 279) == true and Data.AllQuestObjectivesAreComplete('Claws from the Deep', 279) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Gobbler" />
+		<AddMonsterFilterName Value="Bluegill Murloc" />		
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-3245.8999023438" Y="-967.67199707031" Z="9.1764478683472" Range="100" />
+		<AddHotspot X="-3251.1838378906" Y="-1066.3884277344" Z="9.3922595977783" Range="100" />
+		<AddHotspot X="-3262.7524414063" Y="-1154.2160644531" Z="9.4226789474487" Range="100" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Claws from the Deep', 279) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Young Crocolisk Skins', 484) == true and Data.AllQuestObjectivesAreComplete('Young Crocolisk Skins', 484) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Young Wetlands Crocolisk" />		
+		<!-- Blackspots -->
+		<AddBlackspot X="-3088.4653320313" Y="-2011.5623779297" Z="9.3295230865479" Range="40" />		
+		<!-- Hotspots -->
+		<AddHotspot X="-3392.0129394531" Y="-1235.3120117188" Z="7.3529920578003" Range="100" />
+		<AddHotspot X="-3370.3203125" Y="-1346.7198486328" Z="9.228196144104" Range="100" />
+		<AddHotspot X="-3275.662109375" Y="-1486.4246826172" Z="9.2369651794434" Range="100" />
+		<AddHotspot X="-3227.9145507813" Y="-1616.9548339844" Z="7.8046154975891" Range="100" />
+		<AddHotspot X="-3101.5686035156" Y="-1585.1663818359" Z="7.339165687561" Range="100" />
+		<AddHotspot X="-3172.3488769531" Y="-1763.9636230469" Z="9.4513177871704" Range="100" />
+		<AddHotspot X="-3140.3090820313" Y="-1924.9761962891" Z="7.6203756332397" Range="100" />			
+		<While Condition="Data.AllQuestObjectivesAreComplete('Young Crocolisk Skins', 484) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Young Crocolisk Skins', 484) == true and Data.AllQuestObjectivesAreComplete('Young Crocolisk Skins', 484) == true">
+		<ReturnQuest NpcName="James Halloran" QuestId="484" QuestName="Young Crocolisk Skins" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Apprentice\'s Duties', 471) == false and Data.HasCompletedQuest('Apprentice\'s Duties', 471) == false">
+		<TakeQuest NpcName="James Halloran" QuestId="471" QuestName="Apprentice\'s Duties" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Claws from the Deep', 279) == true and Data.AllQuestObjectivesAreComplete('Claws from the Deep', 279) == true">
+		<ReturnQuest NpcName="Karl Boran" QuestId="279" QuestName="Claws from the Deep" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Reclaiming Goods', 281) == false and Data.HasCompletedQuest('Reclaiming Goods', 281) == false">
+		<TakeQuest NpcName="Karl Boran" QuestId="281" QuestName="Reclaiming Goods" />
+	</If>	
+</ShadowProfile>

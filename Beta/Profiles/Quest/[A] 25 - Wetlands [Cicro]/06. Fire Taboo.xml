@@ -1,0 +1,102 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Fire Taboo', 277) == false and Data.HasCompletedQuest('Tramping Paws', 276) == true">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+	<SetEnableVendoring Value="true"/>
+	<SetVendorNpc NpcName="Murndan Derth" />
+	<SetVendorSlotsCount Value="2" />
+	<SetEnableRepairing Value="true"/>
+	<SetRepairNpc NpcName="Murndan Derth" />
+	<SetRepairPercent Value="35" />	
+	
+	<!-- Restock Wetlands 22+ (Menethil Harbor)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Haunch of Meat" NpcName="Innkeeper Helbrek" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Haunch of Meat" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Haunch of Meat" NpcName="Innkeeper Helbrek" UnderAmount="5" BuyAmount="80"/>
+		<AddDoNotSellItem ItemName="Haunch of Meat" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Haunch of Meat" </Lua>
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Helbrek" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Helbrek" UnderAmount="3" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &lt;= 24">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &lt;= 24">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &lt;= 24">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &gt;= 25">
+		<AddRestockItem ItemName="Solid Shot" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &gt;= 25">
+		<AddRestockItem ItemName="Razor Arrow" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &gt;= 25">
+		<AddRestockItem ItemName="Razor Arrow" NpcName="Gruham Rumdnul" UnderAmount="100" BuyAmount="800"/>
+	</If>	
+	<!-- End Restock -->	
+
+	<If Condition="Data.HasActiveQuest('Fire Taboo', 277) == false and Data.HasCompletedQuest('Fire Taboo', 277) == false">
+		<TakeQuest NpcName="Rethiel the Greenwarden" QuestId="277" QuestName="Fire Taboo" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Fire Taboo', 277) == true and Data.AllQuestObjectivesAreComplete('Fire Taboo', 277) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Mosshide Fenrunner" />
+		<AddMonsterFilterName Value="Mosshide Trapper" />
+		<!-- Blackspots -->
+		<AddBlackspot X="-3089.1623535156" Y="-2010.7098388672" Z="9.4315013885498" Range="40" />
+		<AddBlackspot X="-2966.1325683594" Y="-1946.4425048828" Z="9.305136680603" Range="40" />
+		<AddBlackspot X="-3052.1958007813" Y="-1680.1724853516" Z="9.2923011779785" Range="40" />
+		<AddBlackspot X="-3042.0454101563" Y="-2164.2065429688" Z="9.4994792938232" Range="40" />
+		<AddBlackspot X="-3103.1572265625" Y="-2194.4165039063" Z="9.0898332595825" Range="40" />
+		<AddBlackspot X="-3101.6616210938" Y="-2273.8132324219" Z="9.4986362457275" Range="40" />
+		<AddBlackspot X="-2964.5703125" Y="-1701.1149902344" Z="10.209762573242" Range="40" />
+		<AddBlackspot X="-3246.1765136719" Y="-2084.0913085938" Z="25.450506210327" Range="25" />
+		<AddBlackspot X="-3290.7805175781" Y="-2159.8994140625" Z="30.063035964966" Range="50" />		
+		<AddBlackspot X="-3353.3879394531" Y="-1620.0093994141" Z="10.593851089478" Range="40" />
+		<AddBlackspot X="-3900.1428222656" Y="-3033.9321289063" Z="12.43491268158" Range="35" />	
+		<AddBlackspot X="-3759.5749511719" Y="-2916.814453125" Z="12.020570755005" Range="35" />	
+		<AddBlackspot X="-4064.4458007813" Y="-2981.064453125" Z="11.751978874207" Range="35" />
+		<AddBlackspot X="-4142.833984375" Y="-2941.17578125" Z="11.59254360199" Range="35" />			
+		<!-- Hotspots -->
+		<AddHotspot X="-2987.8986816406" Y="-2082.9689941406" Z="8.3789548873901" Range="100" />
+		<AddHotspot X="-2948.5212402344" Y="-2002.1628417969" Z="9.6600017547607" Range="100" />
+		<AddHotspot X="-3055.376953125" Y="-2049.1228027344" Z="8.17702293396" Range="100" />	
+		<AddHotspot X="-2966.7282714844" Y="-1898.3759765625" Z="9.1077823638916" Range="100" />		
+		<AddHotspot X="-3022.8112792969" Y="-1735.6419677734" Z="7.3054084777832" Range="100" />
+		<AddHotspot X="-3003.8916015625" Y="-1649.7702636719" Z="9.2334403991699" Range="100" />
+		<AddHotspot X="-3012.0539550781" Y="-1583.0495605469" Z="9.6908674240112" Range="100" />
+		<AddHotspot X="-3110.9145507813" Y="-1570.0296630859" Z="8.2727308273315" Range="100" />
+		<AddHotspot X="-3175.9777832031" Y="-1589.1580810547" Z="7.7372393608093" Range="100" />
+		<AddHotspot X="-3185.2648925781" Y="-1489.654296875" Z="10.70571231842" Range="100" />
+		<AddHotspot X="-3121.6708984375" Y="-1525.9879150391" Z="9.1474142074585" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Fire Taboo', 277) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Fire Taboo', 277) == true and Data.AllQuestObjectivesAreComplete('Fire Taboo', 277) == true">
+		<ReturnQuest NpcName="Rethiel the Greenwarden" QuestId="277" QuestName="Fire Taboo" />
+	</If>	
+</ShadowProfile>
+
