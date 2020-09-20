@@ -58,7 +58,7 @@
 		<!-- Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Blackspots -->
-
+		<AddBlackspot X="4992.6118164063" Y="560.41522216797" Z="4.1801152229309" Range="40" />
 		<!-- Hotspots -->
 		<AddHotspot X="5331.1640625" Y="408.02490234375" Z="28.857032775879" Range="100" />
 		<AddHotspot X="5263.76953125" Y="382.45529174805" Z="29.046649932861" Range="100" />
@@ -79,7 +79,7 @@
 		<!-- Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Blackspots -->
-
+		<AddBlackspot X="4992.6118164063" Y="560.41522216797" Z="4.1801152229309" Range="40" />
 		<!-- Hotspots -->
 		<AddHotspot X="5331.1640625" Y="408.02490234375" Z="28.857032775879" Range="100" />
 		<AddHotspot X="5263.76953125" Y="382.45529174805" Z="29.046649932861" Range="100" />
@@ -96,7 +96,7 @@
     </If>	
 	<!-- TurnIn -->
 	
-
+	<AddBlackspot X="4992.6118164063" Y="560.41522216797" Z="4.1801152229309" Range="40" />
      <If Condition="Data.HasActiveQuest('The Absent Minded Prospector') == true">
         <ReturnQuest  NpcName="Prospector Remtravel" QuestId="729" QuestName="The Absent Minded Prospector" />
     </If>  
