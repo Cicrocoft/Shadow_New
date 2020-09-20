@@ -22,10 +22,10 @@
 		<AddRestockItem ItemName="Thunder Ale" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
 	</If>
 
-	<If Condition="Data.GetItemCountByName('Thunder Ale') == 1 and Data.HasActiveQuest('Bitter Rivals') == true">
+	<While Condition="Data.GetItemCountByName('Thunder Ale') == 1 and Data.HasActiveQuest('Bitter Rivals') == true">
 		<ClearRestockItems/>		<NPCInteract NpcName="Jarven Thunderbrew" />
-		<Lua>CompleteQuest()</Lua>		<Lua>GetQuestReward()</Lua>		<BotSleep Value="1584"/>		<Lua>CompleteQuest()</Lua>		<Lua>QuestRewardCompleteButton_OnClick()</Lua>		<BotSleep Value="6475"/>		
-	</If>
+		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>GetQuestReward()</Lua>		<BotSleep Value="1584"/>		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>QuestRewardCompleteButton_OnClick()</Lua>		<BotSleep Value="6475"/>		
+	</While>
 	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true">	
 		<ReturnQuestToObject QuestName="Bitter Rivals" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
 	</If>
