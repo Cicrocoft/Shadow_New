@@ -16,11 +16,7 @@
     <SetVendorSlotsCount Value="3" />
     <SetEnableRestockItems Value="true"/>
     <ClearRestockItems/>
-    <AddRestockItem ItemName="Rough Arrow" NpcName="Duokna" UnderAmount="50" BuyAmount="200" DisableMage="true"  DisableWarrior="true" DisableWarlock="true" DisablePriest="true" DisableShaman="true" DisableDruid="true" DisableRogue="true" DisablePaladin="true" />
-    <While Condition="Data.AllQuestObjectivesAreComplete('Thazz\'ril\'s Pick') == false" >
-        <Wait Value="100" />
-    </While>
-    <SetBaseSettings />
+    <AddRestockItem ItemName="Rough Arrow" NpcName="Duokna" UnderAmount="50" BuyAmount="200" DisableMage="true"  DisableWarrior="true" DisableWarlock="true" DisablePriest="true" DisableShaman="true" DisableDruid="true" DisableRogue="true" DisablePaladin="true" />	<While Condition="Data.HasActiveQuest('Thazz\'ril\'s Pick') == true and Data.AllQuestObjectivesAreComplete('Thazz\'ril\'s Pick') == false" >			<ClearHotspots />		<If Condition="Nav.RangeFromMeXYZ(-87.46, -4274.787, 65.852) &gt; 5">			<MoveTo X="-87.46" Y="-4274.787" Z="65.852" />		</If>		<SetEnableAutoLoot Value="true"/>		<InteractWithClosestGameObject />		<BotSleep Value="8000"/>	</While>    <SetBaseSettings />
     <AddBlackspot X="-72.28" Y="-4321.11" Z="64.96" Range="1" />
     <AddBlackspot X="-248.31" Y="-4358.31" Z="62.42" Range="1" />
     <ReturnQuest NpcName="Foreman Thazz\'ril" QuestName="Thazz\'ril\'s Pick" />
