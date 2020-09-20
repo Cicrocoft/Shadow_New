@@ -1,0 +1,131 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
+<Lua>QuestNodes[104564]=0</Lua>
+<Lua>QuestNodes[104575]=0</Lua> 
+<Lua>QuestNodes[104569]=0</Lua> 
+<Lua>QuestNodes[104574]=0</Lua>
+<Lua>QuestNodes[104565]=0</Lua> 
+<Lua>QuestNodes[104566]=0</Lua>  
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Morhan Coppertongue"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Morhan Coppertongue"/>
+    <SetRepairPercent Value="40" />
+	
+	<!-- Restock Loch Modan 18 - 20 (Thelsmar)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Hearthstove" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- TakeQuest -->
+    <If Condition="Data.HasActiveQuest('Find Bingles') == true">
+        <ReturnQuest NpcName="Bingles Blastenheimer" QuestId="2039" QuestName="Find Bingles" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Bingles\' Missing Supplies') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
+		<TakeQuest NpcName="Bingles Blastenheimer" QuestId="2038" QuestName="Bingles\' Missing Supplies" />
+	</If> 			
+
+	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('Bingles\' Missing Supplies') == true and Data.AllQuestObjectivesAreComplete('Bingles\' Missing Supplies') == false">
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Bingles\'s Toolbucket" />	
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-5041.9272460938" Y="-3338.0168457031" Z="299.11450195313" Range="10" />		
+		<While Condition="Data.QuestObjectiveIsComplete('Bingles\' Missing Supplies', 1) == false" >
+			<Wait Value="100" />
+		</While>
+		
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Bingles\'s Blastencapper" />	
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-4976.0595703125" Y="-3487.9819335938" Z="305.48400878906" Range="3" />	
+		<While Condition="Data.QuestObjectiveIsComplete('Bingles\' Missing Supplies', 4) == false" >
+			<Wait Value="100" />
+		</While>		
+
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Bingles\'s Toolbucket" />	
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-4929.9365234375" Y="-3420.3049316406" Z="304.2917175293" Range="5" />	
+		<While Condition="Data.QuestObjectiveIsComplete('Bingles\' Missing Supplies', 3) == false" >
+			<Wait Value="100" />
+		</While>		
+
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Bingles\'s Toolbucket" />	
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-4862.9165039063" Y="-3328.4458007813" Z="304.52944946289" Range="5" />
+		<While Condition="Data.QuestObjectiveIsComplete('Bingles\' Missing Supplies', 1) == false" >
+			<Wait Value="100" />
+		</While>		
+	</If>
+
+	<If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 263) == true and Data.AllQuestObjectivesAreComplete('In Defense of the King\'s Lands', 263) == false">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-4974.328125" Y="-3473.1123046875" Z="307.02813720703" Range="100" />
+		<AddHotspot X="-4919.5717773438" Y="-3432.6081542969" Z="304.64447021484" Range="100" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Stonesplinter Shaman" />
+		<AddMonsterFilterName Value="Stonesplinter Bonesnapper" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('In Defense of the King\'s Lands', 263) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	
+    <If Condition="Data.HasActiveQuest('Filthy Paws') == true and Data.AllQuestObjectivesAreComplete('Filthy Paws') == true">
+        <ReturnQuest NpcName="Mountaineer Stormpike" QuestId="307" QuestName="Filthy Paws" />
+    </If>
+    <If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 263) == true and Data.AllQuestObjectivesAreComplete('In Defense of the King\'s Lands', 263) == true">
+		<ReturnQuest NpcName="Mountaineer Wallbang" QuestId="263" QuestName="In Defense of the King\'s Lands" />
+	</If>
+	
+</ShadowProfile>

@@ -1,0 +1,59 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A Dark Threat Looms', 199) == false">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Gothor Brumn"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Gothor Brumn"/>
+    <SetRepairPercent Value="40" />
+	
+	<!-- Restock Loch Modan 18 - 20 (Thelsmar)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xander Goodbeard" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xander Goodbeard" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('A Dark Threat Looms', 250) == false and Data.HasCompletedQuest('A Dark Threat Looms', 250) == false">	
+		<TakeQuest NpcName="Chief Engineer Hinderweir VII" QuestId="250" QuestName="A Dark Threat Looms" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('A Dark Threat Looms', 250) == true">
+		<ReturnQuestToObject QuestId="250" QuestName="A Dark Threat Looms" X="-4730.5981445313" Y="-3541.8518066406" Z="303.19680786133" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Dark Threat Looms', 199) == false and Data.HasCompletedQuest('A Dark Threat Looms', 250) == true and Data.HasCompletedQuest('A Dark Threat Looms', 199) == false">
+		<TakeQuestFromObject QuestId="199" QuestName="A Dark Threat Looms" X="-4730.5981445313" Y="-3541.8518066406" Z="303.19680786133" />
+	</If> 
+	<If Condition="Data.HasActiveQuest('A Dark Threat Looms', 199) == true">
+        <ReturnQuest NpcName="Chief Engineer Hinderweir VII" QuestId="199" QuestName="A Dark Threat Looms" />
+    </If>
+	<If Condition="Data.HasActiveQuest('A Dark Threat Looms', 161) == false and Data.HasCompletedQuest('A Dark Threat Looms', 199) == true and Data.HasCompletedQuest('A Dark Threat Looms', 161) == false">
+		<TakeQuest NpcName="Chief Engineer Hinderweir VII" QuestId="161" QuestName="A Dark Threat Looms" />
+	</If>
+
+	
+</ShadowProfile>

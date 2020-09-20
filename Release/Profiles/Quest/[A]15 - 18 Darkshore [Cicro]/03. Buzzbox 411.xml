@@ -8,13 +8,12 @@
     <SetEnableRepairing Value="true"/>
     <SetRepairNpc NpcName="Elisa Steelhand"/>
     <SetRepairPercent Value="35" />
-	<SetMaxZDifference Value="40" />
 	
 	<!-- Restock Darkshore 12+ -->
 	<SetEnableRestockItems Value="true"/>
 	<ClearRestockItems/>
 	<!-- Food -->
-	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin or Data.PlayerClass() == WoWClass.Priest">
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
 		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
 		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
 	</If>
@@ -52,24 +51,25 @@
 	</If> 
     <If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 3524) == true">
         <TakeQuest  NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" />
-    </If>  
+    </If>
   
 	<!-- Objective Completion -->
 	
-	<If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 4681) == false" >
-		<MoveTo X="6303.3608398438" Y="863.56494140625" Z="-6.5635361671448" />	
-		<MoveTo X="6307.7143554688" Y="858.86077880859" Z="-12.862330436707" />
-		<SetTargetingMode Mode="Gather Only" />
+	<While Condition="Data.HasActiveQuest('Washed Ashore', 4681) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 4681) == false" >	
 		<ClearHotspots />
-		<SetEnableAutoHerb Value="true" />
-		<AddHotspot X="6308.7416992188" Y="858.64398193359" Z="-13.014876365662" Range="25" />
-		<AllowQuestNode NodeName="Skeletal Sea Turtle" />	
-		<While Condition="Data.AllQuestObjectivesAreComplete('Washed Ashore', 4681) == false" >
-			<Wait Value="100" />
-		</While>
-	</If>
+		<If Condition="Nav.RangeFromMeXYZ(6309.4672851563, 858.53509521484, -13.563896179199) &gt; 1">
+			<MoveTo X="6298.2719726563" Y="858.97064208984" Z="-2.1566138267517" />
+			<MoveTo NoNav="true" X="6309.4672851563" Y="858.53509521484" Z="-13.563896179199" />
+			<BotSleep Value="4500"/>
+		</If>
+		<Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>
+		<SetEnableAutoLoot Value="true"/>
+		<Lua>UnlAPI.ObjectInteract(Data.GetClosestGameObject())</Lua>
+		<BotSleep Value="8000"/>
+	</While>	
 	
-	    <If Condition="Data.HasActiveQuest('Buzzbox 411') == true and Data.AllQuestObjectivesAreComplete('Buzzbox 411') == false">
+	
+	<If Condition="Data.HasActiveQuest('Buzzbox 411') == true and Data.AllQuestObjectivesAreComplete('Buzzbox 411') == false">
 		<ClearHotspots />
 		<!-- Settings -->
 		<SetTargetingMode Mode="Around Points" />
@@ -80,14 +80,6 @@
 		<AddHotspot X="6382.09765625" Y="900.55529785156" Z="-1.89697265625" Range="50" />
 		<AddHotspot X="6601.0810546875" Y="722.04107666016" Z="-1.7186691761017" Range="100" />
 		<AddHotspot X="6690.1752929688" Y="632.22802734375" Z="-1.6879705190659" Range="100" />
-		<AddHotspot X="6802.0561523438" Y="703.41516113281" Z="-1.4204034805298" Range="100" />
-		<AddHotspot X="6882.6806640625" Y="701.55334472656" Z="-1.2510098218918" Range="100" />
-		<AddHotspot X="6950.8774414063" Y="689.58984375" Z="-1.29152572155" Range="100" />
-		<AddHotspot X="6950.0639648438" Y="648.23431396484" Z="-1.29152572155" Range="100" />
-		<AddHotspot X="6910.4868164063" Y="618.16967773438" Z="-1.2961134910583" Range="100" />
-		<AddHotspot X="6971.115234375" Y="567.72082519531" Z="-1.2526779174805" Range="100" />
-		<AddHotspot X="6980.1606445313" Y="510.51721191406" Z="-1.2526779174805" Range="100" />
-		<AddHotspot X="6969.78125" Y="459.26403808594" Z="-1.2526779174805" Range="100" />		
 		<!-- Mob Whitelist -->
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />

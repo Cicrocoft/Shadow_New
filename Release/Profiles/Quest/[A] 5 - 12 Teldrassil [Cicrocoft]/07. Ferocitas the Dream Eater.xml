@@ -63,6 +63,7 @@
 		<!-- Completion condition -->
 		<While Condition="Data.AllQuestObjectivesAreComplete('Ferocitas the Dream Eater') == false" >
 			<If Condition="Data.ItemExistsByName('Gnarlpine Necklace')">
+				<Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>			
 				<UseItem ItemName="Gnarlpine Necklace" />
 			</If>
 			<Wait Value="100" />
