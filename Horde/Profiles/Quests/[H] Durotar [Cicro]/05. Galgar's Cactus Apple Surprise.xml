@@ -6,7 +6,7 @@
     <SetBaseSettings />
     <SetTargetingMode Mode="Gather Only" />
     <ClearHotspots />
-    <SetEnableAutoHerb Value="true" />
+    <SetEnableAutoHerb Value="true" />		<AddBlackspot X="-359.18157958984" Y="-4337.7553710938" Z="58.270084381104" Range="20" />
     <AddHotspot X="-553.42004" Y="-4294.287" Z="37.28547" Range="150" />
     <AddHotspot X="-696.48486" Y="-4358.5454" Z="54.485466" Range="150" />
     <AddHotspot X="-673.7343" Y="-4296.821" Z="43.767395" Range="150" />
