@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Garments of the Light') == false and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Dwarf">
+<ShadowProfile Condition="Data.HasCompletedQuest('Garments of the Light', 5625) == false and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Dwarf">
 <!-- Settings -->
 	<SetBaseSettings />
     <SetEnableVendoring Value="true"/>
@@ -10,11 +10,11 @@
 	<!-- Restock Dun Morogh 5-12 (Kharanos)-->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems/>	<!-- Food -->	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />	</If>	<!-- Water -->	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Refreshing Spring Water" />	</If>	<If Condition="Data.PlayerClass() == WoWClass.Priest">		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="3" BuyAmount="20"/>		<AddDoNotSellItem ItemName="Refreshing Spring Water" />	</If>	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Light Shot" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>	</If>	<!-- End Restock -->
 <!-- Pickup Quest -->
     <If Condition="Data.HasActiveQuest('Garments of the Light') == false">
-        <TakeQuest NpcName="Maxan Anvol" QuestName="Garments of the Light" />
+        <TakeQuest NpcName="Maxan Anvol" QuestId="5625" QuestName="Garments of the Light" />
     </If>
 	
 <!-- Quest Completion -->
-	<If Condition="Data.HasActiveQuest('Garments of the Light') == true">	
+	<If Condition="Data.HasActiveQuest('Garments of the Light', 5625) == true">	
 
 		<MoveTo X="-5665.9775390625" Y="-456.51123046875" Z="394.68743896484" />
 		<Wait Value="3000" />
@@ -25,6 +25,6 @@
 	</If>
 	
 <!-- TurnIn Quest -->
-    <If Condition="Data.HasActiveQuest('Garments of the Light') == true">
-        <ReturnQuest NpcName="Maxan Anvol" QuestName="Garments of the Light" />
+    <If Condition="Data.HasActiveQuest('Garments of the Light', 5625) == true">
+        <ReturnQuest NpcName="Maxan Anvol" QuestId="5625" QuestName="Garments of the Light" />
     </If></ShadowProfile>	
