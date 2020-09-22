@@ -162,12 +162,12 @@
 	<If Condition="Data.HasActiveQuest('The Shimmering Frond') == true">
 		<ReturnQuest NpcName="Denalan" QuestId="931" QuestName="The Shimmering Frond" />
 	</If>		
- <!--   <If Condition="Data.HasActiveQuest('The Sprouted Fronds') == false and Data.HasCompletedQuest('The Sprouted Fronds') == false and Data.HasCompletedQuest('The Shimmering Frond') == true">
+    <If Condition="Data.HasActiveQuest('The Sprouted Fronds') == false and Data.HasCompletedQuest('The Sprouted Fronds') == false and Data.HasCompletedQuest('The Shimmering Frond') == true">
 		<TakeQuestFromObject QuestName="The Sprouted Fronds" X="9505.353515625" Y="719.59582519531" Z="1256.1866455078" />
     </If>	
     <If Condition="Data.HasActiveQuest('The Sprouted Fronds') == true">
 		<ReturnQuestToObject QuestName="The Sprouted Fronds" X="9505.353515625" Y="719.59582519531" Z="1256.1866455078" />
-    </If> -->		
+    </If>	
     <If Condition="Data.HasActiveQuest('Nessa Shadowsong') == false and Data.HasCompletedQuest('Nessa Shadowsong') == false">
         <TakeQuest NpcName="Mydrannul" QuestId="6344" QuestName="Nessa Shadowsong" />
     </If>	
@@ -215,13 +215,40 @@
     <If Condition="Data.HasActiveQuest('Flight to Auberdine') == false and Data.HasCompletedQuest('The Bounty of Teldrassil') == true and Data.HasCompletedQuest('Flight to Auberdine') == false">
         <TakeQuest NpcName="Vesprystus" QuestId="6342" QuestName="Flight to Auberdine" />
     </If>		
-	<If Condition="GetZoneText() == 'Darkshore' and Data.HasActiveQuest('Flight to Auberdine') == true">
-		<ReturnQuest NpcName="Laird" QuestId="6342" QuestName="Flight to Auberdine" />
-	</If>
+	
+    <If Condition="Data.HasActiveQuest('Flight to Auberdine') == true">
+		<If Condition="GetZoneText() == 'Teldrassil'">
+			<NPCInteract NpcName="Vesprystus" DialogIndex1="1"/>
+			<Lua>TakeTaxiNode(1)</Lua>
+			<BotSleep Value="10000"/>
+		</If>
+		<While Condition="UnitOnTaxi('player') == true">
+			<BotSleep Value="5000"/>
+		</While>
+		<If Condition="GetZoneText() == 'Darkshore' and Data.HasActiveQuest('Flight to Auberdine') == true">
+			<ReturnQuest NpcName="Laird" QuestId="6342" QuestName="Flight to Auberdine" />
+		</If>
+	</If>		
+	
+	
     <If Condition="Data.HasActiveQuest('Return to Nessa') == false and Data.HasCompletedQuest('Flight to Auberdine') == true and Data.HasCompletedQuest('Return to Nessa') == false and GetZoneText() == 'Darkshore'">
         <TakeQuest NpcName="Laird" QuestId="6343" QuestName="Return to Nessa" />
+		<BotSleep Value="2354"/>
     </If>	
-	<If Condition="Data.HasActiveQuest('Return to Nessa') == true and GetZoneText() == 'Teldrassil'">	
-		<ReturnQuest NpcName="Nessa Shadowsong" QuestName="Return to Nessa" />
-	</If>	
+	
+    <If Condition="Data.HasActiveQuest('Return to Nessa') == true">
+		<If Condition="GetZoneText() == 'Darkshore'">
+			<NPCInteract NpcName="Caylais Moonfeather" DialogIndex1="1"/>
+			<Lua>TakeTaxiNode(2)</Lua>
+			<BotSleep Value="10000"/>
+		</If>
+		<While Condition="UnitOnTaxi('player') == true">
+			<BotSleep Value="5000"/>
+		</While>
+	</If>		
+
+		<If Condition="Data.HasActiveQuest('Return to Nessa') == true and GetZoneText() == 'Teldrassil'">
+			<ReturnQuest NpcName="Nessa Shadowsong" QuestName="Return to Nessa" />
+		</If>	
+
 </ShadowProfile>
