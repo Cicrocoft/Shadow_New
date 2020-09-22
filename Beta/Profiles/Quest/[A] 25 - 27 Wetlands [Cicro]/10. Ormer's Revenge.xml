@@ -44,6 +44,12 @@
 	</If>	
 	<!-- End Restock -->
 
+	<!-- Zone Blackspots -->
+	<AddBlackspot X="-3710.7377929688" Y="-2610.4448242188" Z="56.420711517334" Range="50" />
+	<AddBlackspot X="-3416.6657714844" Y="-2519.9558105469" Z="26.467210769653" Range="50" />
+	<AddBlackspot X="-3290.6032714844" Y="-2183.0148925781" Z="36.422168731689" Range="50" />
+	<AddBlackspot X="-3293.1372070313" Y="-2156.9799804688" Z="30.924919128418" Range="50" />
+
 	<If Condition="Data.HasActiveQuest('In Search of The Excavation Team', 305) == false and Data.HasCompletedQuest('In Search of The Excavation Team', 305) == false">
 		<TakeQuest NpcName="Tarrel Rockweaver" QuestId="305" QuestName="In Search of The Excavation Team" />
 	</If>
@@ -67,6 +73,10 @@
 		<AddMonsterFilterName Value="Mottled Screecher" />		
 		<!-- Blackspots -->
 		<AddBlackspot X="-3494.7717285156" Y="-1472.880859375" Z="9.1566696166992" Range="50" />
+		<AddBlackspot X="-3710.7377929688" Y="-2610.4448242188" Z="56.420711517334" Range="50" />
+		<AddBlackspot X="-3416.6657714844" Y="-2519.9558105469" Z="26.467210769653" Range="50" />
+		<AddBlackspot X="-3290.6032714844" Y="-2183.0148925781" Z="36.422168731689" Range="50" />
+		<AddBlackspot X="-3293.1372070313" Y="-2156.9799804688" Z="30.924919128418" Range="50" />
 		<!-- Hotspots -->
 		<AddHotspot X="-3355.8095703125" Y="-1590.3544921875" Z="9.9569292068481" Range="100" />
 		<AddHotspot X="-3383.7919921875" Y="-1509.9903564453" Z="12.763855934143" Range="100" />
