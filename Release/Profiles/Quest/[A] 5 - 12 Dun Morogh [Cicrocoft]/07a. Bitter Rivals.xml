@@ -26,7 +26,7 @@
 		<ClearRestockItems/>		<NPCInteract NpcName="Jarven Thunderbrew" />
 		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>GetQuestReward()</Lua>		<BotSleep Value="1584"/>		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>QuestRewardCompleteButton_OnClick()</Lua>		<BotSleep Value="6475"/>		
 	</While>
-	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true">	
+	<If Condition="Data.GetItemCountByName('Thunder Ale') == 0 and Data.HasActiveQuest('Bitter Rivals') == true">	
 		<ReturnQuestToObject QuestName="Bitter Rivals" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Return to Marleth') == false and Data.HasCompletedQuest('Return to Marleth') == false and Data.HasCompletedQuest('Bitter Rivals') == true">
