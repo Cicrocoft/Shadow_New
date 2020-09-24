@@ -20,13 +20,10 @@
 	<SetEnableRestockItems Value="true" />
 	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true and Data.GetItemCountByName('Thunder Ale') == 0">
 		<AddRestockItem ItemName="Thunder Ale" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
-	</If>
-
-	<While Condition="Data.GetItemCountByName('Thunder Ale') == 1 and Data.HasActiveQuest('Bitter Rivals') == true">
-		<ClearRestockItems/>		<NPCInteract NpcName="Jarven Thunderbrew" />
-		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>GetQuestReward()</Lua>		<BotSleep Value="1584"/>		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>QuestRewardCompleteButton_OnClick()</Lua>		<BotSleep Value="6475"/>		
-	</While>
-	<If Condition="Data.GetItemCountByName('Thunder Ale') == 0 and Data.HasActiveQuest('Bitter Rivals') == true">	
+	</If>	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true" >
+	<MoveTo X="-5603.970703125" Y="-543.77270507813" Z="392.43057250977" />	</If>
+	<While Condition="Data.HasActiveQuest('Bitter Rivals') == true and Data.GetItemCountByName('Thunder Ale') == 1">	<NPCInteract NpcName="Jarven Thunderbrew" />	<BotSleep Value="2547"/>		<ClearRestockItems/>		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>GetQuestReward()</Lua>		<BotSleep Value="1584"/>		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>QuestRewardCompleteButton_OnClick()</Lua>		<BotSleep Value="6475"/>	</While>
+	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true">			<BotSleep Value="2145"/>
 		<ReturnQuestToObject QuestName="Bitter Rivals" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Return to Marleth') == false and Data.HasCompletedQuest('Return to Marleth') == false and Data.HasCompletedQuest('Bitter Rivals') == true">
