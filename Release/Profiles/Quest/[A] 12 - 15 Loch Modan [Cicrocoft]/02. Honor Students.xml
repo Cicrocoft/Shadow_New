@@ -16,7 +16,8 @@
 		<If Condition="GetZoneText() == 'Loch Modan'">
 			<NPCInteract NpcName="Thorgrum Borrelson" DialogIndex1="1"/>
 			<Lua>TakeTaxiNode(1)</Lua>
-			<BotSleep Value="10000"/>
+			<BotSleep Value="5000"/>
+			<BotSleep Value="5000"/>			
 		</If>
 		<While Condition="UnitOnTaxi('player') == true">
 			<BotSleep Value="5000"/>
@@ -31,6 +32,30 @@
     <If Condition="Data.HasActiveQuest('Find Bingles') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
         <TakeQuest NpcName="Gnoarn" QuestName="Find Bingles" />
 	</If>	
+	
+    <If Condition="Data.HasCompletedQuest('Deeprun Rat Roundup') == false">	
+		<If Condition="GetZoneText() == 'City of Ironforge'">
+			<MoveTo X="-4839.357421875" Y="-1320.4995117188" Z="501.86849975586" />
+			<MoveTo NoNav="true" X="-4840.181640625" Y="-1324.6179199219" Z="501.86849975586" />
+			<Lua> BotSleep(10000) return true </Lua>
+		</If>
+		<While Condition="GetZoneText() == 'Deeprun Tram'">
+			 <If Condition="Data.HasActiveQuest('Deeprun Rat Roundup') == false and Data.HasCompletedQuest('Deeprun Rat Roundup') == false">
+				<TakeQuest NpcName="Monty" QuestId="6661" QuestName="Deeprun Rat Roundup" />
+			</If>
+			<If Condition="Data.HasActiveQuest('Deeprun Rat Roundup') == true and Data.AllQuestObjectivesAreComplete('Deeprun Rat Roundup') == false">		
+				<UseItemOnNpc NpcId="13016" ItemId="17117" OnlyAlive="true" />
+			</If>
+			<If Condition="Data.HasActiveQuest('Deeprun Rat Roundup') == true and Data.AllQuestObjectivesAreComplete('Deeprun Rat Roundup') == true">
+				<ReturnQuest NpcName="Monty" QuestId="6661" QuestName="Deeprun Rat Roundup" />
+			</If>
+		</While>
+	</If>
+	<If Condition="Data.HasCompletedQuest('Deeprun Rat Roundup') == true and GetZoneText() == 'Deeprun Tram'">
+		<MoveTo X="72.116325378418" Y="10.420029640198" Z="-4.2973365783691" />
+		<MoveTo NoNav="true" X="74.138366699219" Y="10.599565505981" Z="-4.2973365783691" />
+		<Lua> BotSleep(10000) return true </Lua>
+	</If>	
 	<!-- TurnIn Part 3 + Pickup Part 4 -->
     <If Condition="Data.HasActiveQuest('Gryth Thurden') == true">
         <ReturnQuest NpcName="Gryth Thurden" QuestName="Gryth Thurden" />
@@ -43,7 +68,8 @@
 		<If Condition="GetZoneText() == 'City of Ironforge'">
 			<NPCInteract NpcName="Gryth Thurden" DialogIndex1="1"/>
 			<Lua>TakeTaxiNode(2)</Lua>
-			<BotSleep Value="10000"/>
+			<BotSleep Value="5000"/>
+			<BotSleep Value="5000"/>			
 		</If>
 		<While Condition="UnitOnTaxi('player') == true">
 			<BotSleep Value="5000"/>

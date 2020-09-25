@@ -1,14 +1,108 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Thelsamar Blood Sausages') == false">
 
 
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
     <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Morhan Coppertongue"/>
-    <SetVendorSlotsCount Value="2" />
     <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Morhan Coppertongue"/>
     <SetRepairNpc NpcName="Morhan Coppertongue"/>
-    <SetRepairPercent Value="35" />
+	
+	
+	
 	<AddDoNotSellItem ItemName="Boar Intestines" />
 	<AddDoNotSellItem ItemName="Bear Meat" />
 	<AddDoNotSellItem ItemName="Spider Ichor" />
@@ -62,14 +156,12 @@
 		<!-- Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Blackspots -->
-		
+		<AddBlackspot X="-5281.98828125" Y="-2712.20703125" Z="342.21441650391" Range="50" />
 		<!-- Hotspots -->
-		<AddHotspot X="-5166.1147460938" Y="-2999.0122070313" Z="336.22650146484" Range="100" />
-		<AddHotspot X="-5043.125" Y="-3063.2873535156" Z="324.56503295898" Range="50" />
-		<AddHotspot X="-5021.8598632813" Y="-2933.5009765625" Z="338.54611206055" Range="50" />
-		<AddHotspot X="-5077.4375" Y="-2766.6884765625" Z="329.85446166992" Range="100" />
-		<AddHotspot X="-5286.205078125" Y="-2807.8447265625" Z="348.17370605469" Range="100" />
-		<AddHotspot X="-5470.15234375" Y="-2796.7248535156" Z="356.71133422852" Range="100" />
+		<AddHotspot X="-5127.5615234375" Y="-2846.4143066406" Z="328.54534912109" Range="100" />
+		<AddHotspot X="-5110.4692382813" Y="-2900.2944335938" Z="329.26278686523" Range="100" />
+		<AddHotspot X="-5091.5712890625" Y="-2959.4768066406" Z="333.33911132813" Range="100" />
+		<AddHotspot X="-5081.515625" Y="-3014.4567871094" Z="323.77386474609" Range="100" />
 		<!-- Mob Whitelist -->
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />
@@ -87,7 +179,7 @@
 		<!-- Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Blackspots -->
-		
+		<AddBlackspot X="-5281.98828125" Y="-2712.20703125" Z="342.21441650391" Range="50" />		
 		<!-- Hotspots -->
 		<AddHotspot X="-5043.125" Y="-3063.2873535156" Z="324.56503295898" Range="50" />
 		<AddHotspot X="-5021.8598632813" Y="-2933.5009765625" Z="338.54611206055" Range="50" />
@@ -111,7 +203,7 @@
 		<!-- Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Blackspots -->
-		
+		<AddBlackspot X="-5281.98828125" Y="-2712.20703125" Z="342.21441650391" Range="50" />		
 		<!-- Hotspots -->
 		<AddHotspot X="-5043.125" Y="-3063.2873535156" Z="324.56503295898" Range="50" />
 		<AddHotspot X="-5021.8598632813" Y="-2933.5009765625" Z="338.54611206055" Range="50" />
@@ -129,7 +221,21 @@
 			<Wait Value="100" />
 		</While>	
     </If>
+	<ClearHotspots />
 	<ClearMonsterFilter/>
+	<SetTargetingMode Mode="Around Points" />
+	<SetMonsterFilterMode Mode="None"/>
+	<AddHotspot X="-5166.1147460938" Y="-2999.0122070313" Z="336.22650146484" Range="100" />
+	<AddHotspot X="-5043.125" Y="-3063.2873535156" Z="324.56503295898" Range="50" />
+	<AddHotspot X="-5021.8598632813" Y="-2933.5009765625" Z="338.54611206055" Range="50" />
+	<AddHotspot X="-5077.4375" Y="-2766.6884765625" Z="329.85446166992" Range="100" />
+	<AddHotspot X="-5286.205078125" Y="-2807.8447265625" Z="348.17370605469" Range="100" />
+	<AddHotspot X="-5470.15234375" Y="-2796.7248535156" Z="356.71133422852" Range="100" />
+	<While Condition="UnitLevel('player') &lt; 13" >
+		<Wait Value="100" />
+	</While>
+	
+	
 	<!-- TurnIn -->
     <If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == true and Data.AllQuestObjectivesAreComplete('Thelsamar Blood Sausages') == true">
         <ReturnQuest NpcName="Vidra Hearthstove" QuestName="Thelsamar Blood Sausages" />

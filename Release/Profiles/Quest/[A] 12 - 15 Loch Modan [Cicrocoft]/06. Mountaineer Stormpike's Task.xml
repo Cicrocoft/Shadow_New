@@ -1,4 +1,4 @@
-<ShadowProfile Condition="UnitLevel('player') <= 12 and Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
@@ -136,42 +136,37 @@
 	</If>
 	<!-- End Restock -->	
 	<!-- Pickup -->
-    <If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 224) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 224) == false">
-        <TakeQuest NpcName="Mountaineer Cobbleflint" QuestId="224" QuestName="In Defense of the King\'s Lands" />
-    </If>   
-    <If Condition="Data.HasActiveQuest('The Trogg Threat', 267) == false and Data.HasCompletedQuest('The Trogg Threat', 267) == false">
-        <TakeQuest NpcName="Captain Rugelfuss" QuestId="267" QuestName="The Trogg Threat" />
-    </If>
-	<If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == false and Data.HasCompletedQuest('Thelsamar Blood Sausages') == false">
-		<MoveTo X="-5381.0874023438" Y="-2968.3381347656" Z="322.05776977539" />
-        <TakeQuest NpcName="Vidra Hearthstove" QuestId="418" QuestName="Thelsamar Blood Sausages" />
-    </If>
-	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false and Data.MyRace() == WoWRace.Dwarf">
-        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
-    </If>
-	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false and Data.MyRace() == WoWRace.Gnome">
-        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
-    </If>	
-    <If Condition="Data.HasActiveQuest('Rat Catching') == false and Data.HasCompletedQuest('Rat Catching') == false">
-        <TakeQuest NpcName="Mountaineer Kadrell" QuestId="416" QuestName="Rat Catching" />
-    </If>	
+
     <If Condition="Data.HasActiveQuest('Mountaineer Stormpike\'s Task') == false and Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
         <TakeQuest NpcName="Mountaineer Kadrell" QuestId="1339" QuestName="Mountaineer Stormpike\'s Task" />
     </If>	
-
+	
 	<ClearHotspots />
     <ClearMonsterFilter/>
     <SetTargetingMode Mode="Around Points" />
 	<SetMonsterFilterMode Mode="None"/>
-	<AddBlackspot X="-5379.1342773438" Y="-2725.1926269531" Z="361.84707641602" Range="45" />
-	<AddHotspot X="-5396.7392578125" Y="-2839.0715332031" Z="352.73486328125" Range="100" />
-	<AddHotspot X="-5324.7885742188" Y="-2829.4536132813" Z="337.59381103516" Range="100" />
-	<AddHotspot X="-5244.490234375" Y="-2931.7067871094" Z="340.57183837891" Range="100" />
-	<AddHotspot X="-5171.9326171875" Y="-2978.3479003906" Z="334.64340209961" Range="100" />
-	<AddHotspot X="-5069.9204101563" Y="-3040.3015136719" Z="320.45712280273" Range="100" />
- <While Condition="UnitLevel('player') &lt; 12 or UnitXP('player') &lt;= 4000 and UnitXPMax('player') == 10100" >
+	<AddHotspot X="-5179.0268554688" Y="-2923.1711425781" Z="334.44082641602" Range="100" />
+	<AddHotspot X="-5109.34375" Y="-2904.4377441406" Z="327.37713623047" Range="100" />
+	<AddHotspot X="-5075.7353515625" Y="-2977.9931640625" Z="334.83126831055" Range="100" />
+	<AddHotspot X="-5015.7436523438" Y="-2865.7507324219" Z="336.04348754883" Range="100" />
+	<AddHotspot X="-4957.138671875" Y="-2791.1999511719" Z="321.19815063477" Range="100" />
+	<AddHotspot X="-4871.35546875" Y="-2779.0847167969" Z="326.11218261719" Range="100" />
+	<AddHotspot X="-4814.5151367188" Y="-2788.8503417969" Z="322.67929077148" Range="100" />
+	<AddHotspot X="-4723.4916992188" Y="-2805.0170898438" Z="322.09838867188" Range="100" />
+ <While Condition="UnitLevel('player') &lt; 14 or UnitXP('player') &lt;= 3000 and UnitXPMax('player') == 12900" >
         <Wait Value="100" />
-    </While>
+    </While>	
+	
+	
+    <If Condition="Data.HasActiveQuest('Mountaineer Stormpike\'s Task') == true">
+        <ReturnQuest NpcName="Mountaineer Stormpike" QuestId="1339" QuestName="Mountaineer Stormpike\'s Task" />
+    </If>		
+    <If Condition="Data.HasActiveQuest('Stormpike\'s Order') == false and Data.HasCompletedQuest('Stormpike\'s Order') == false">
+        <TakeQuest NpcName="Mountaineer Stormpike" QuestId="1338" QuestName="Stormpike\'s Order" />
+    </If>		
+	
+
+
 
 
 	
