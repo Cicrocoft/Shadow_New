@@ -1,6 +1,6 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('The Troll Cave') == false">
-<Lua>QuestNodes[148499]=0</Lua> <Lua>QuestNodes[178084]=0</Lua> <Lua>QuestNodes[178085]=0</Lua> 
-    <SetBaseSettings />	<!-- Restock Dun Morogh 1-5 -->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems/>	<!-- Food -->	<!-- Water -->	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Light Shot" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="600"/>	</If>	<!-- End Restock -->
+<ShadowProfile Condition="Data.HasCompletedQuest('A Refugee\'s Quandary') == false or Data.HasCompletedQuest('The Troll Cave') == false">
+
+	<!-- Restock Dun Morogh 1-5 -->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems/>	<!-- Food -->	<!-- Water -->	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Light Shot" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Adlin Pridedrift" UnderAmount="100" BuyAmount="600"/>	</If>	<!-- End Restock -->
     <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('A Refugee\'s Quandary') == false">
         <TakeQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />
     </If>
@@ -9,7 +9,7 @@
     </If>	
     <SetBaseSettings />
 
-    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == true">
+    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == true"><Lua>QuestNodes[148499]=0</Lua> <Lua>QuestNodes[178084]=0</Lua> <Lua>QuestNodes[178085]=0</Lua> 
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Adlin Pridedrift"/>
     <SetVendorSlotsCount Value="2" />
@@ -19,7 +19,7 @@
     <SetTargetingMode Mode="Gather Only" />
     <ClearHotspots />
     <SetEnableAutoHerb Value="true" />
-	<AddHotspot X="-6374.056640625" Y="773.17364501953" Z="386.21313476563" Range="20" />
+	<AddHotspot X="-6374.056640625" Y="773.17364501953" Z="386.21313476563" Range="20" />	<AddBlackspot X="-6389.9130859375" Y="776.43328857422" Z="386.21343994141" Range="7" />
     <AllowQuestNode NodeName="Felix\'s Box" />	
     <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 1) == false" >
         <Wait Value="100" />
@@ -28,7 +28,7 @@
     <ClearHotspots />	
     <SetTargetingMode Mode="Gather Only" />
     <SetEnableAutoHerb Value="true" />
-	<AddBlackspot X="-6511.28515625" Y="686.92022705078" Z="387.27383422852" Range="5" />
+	<AddBlackspot X="-6511.28515625" Y="686.92022705078" Z="387.27383422852" Range="5" />	<AddBlackspot X="-6389.9130859375" Y="776.43328857422" Z="386.21343994141" Range="7" />
 	<AddHotspot X="-6497.4931640625" Y="680.60815429688" Z="387.13925170898" Range="10" />
     <AllowQuestNode NodeName="Felix\'s Chest" />
     <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 2) == false" >
@@ -37,7 +37,7 @@
 
     <SetTargetingMode Mode="Gather Only" />
     <ClearHotspots />	
-    <SetEnableAutoHerb Value="true" />
+    <SetEnableAutoHerb Value="true" />	<AddBlackspot X="-6389.9130859375" Y="776.43328857422" Z="386.21343994141" Range="7" />
 	<AddHotspot X="-6477.9897460938" Y="507.86172485352" Z="385.86993408203" Range="20" />
     <AllowQuestNode NodeName="Felix\'s Bucket of Bolts" />
     <While Condition="Data.QuestObjectiveIsComplete('A Refugee\'s Quandary', 3) == false" >
@@ -53,8 +53,8 @@
     <SetRepairNpc NpcName="Rybrad Coldbank"/>
     <SetRepairPercent Value="35" />
 
-    <ClearHotspots />
-	<AddHotspot X="-6374.056640625" Y="773.17364501953" Z="386.21313476563" Range="50" />
+    <ClearHotspots />	<AddBlackspot X="-6389.9130859375" Y="776.43328857422" Z="386.21343994141" Range="7" />
+	<AddHotspot X="-6374.056640625" Y="773.17364501953" Z="386.21313476563" Range="50" />	<AddBlackspot X="-6511.28515625" Y="686.92022705078" Z="387.27383422852" Range="5" />
 	<AddHotspot X="-6497.4931640625" Y="680.60815429688" Z="387.13925170898" Range="50" />
 	<AddHotspot X="-6477.9897460938" Y="507.86172485352" Z="385.86993408203" Range="50" />
     <SetTargetingMode Mode="Around Points" />
@@ -63,11 +63,11 @@
     <AddMonsterFilterName Value="Frostmane Troll Whelp" />
     <While Condition="Data.AllQuestObjectivesAreComplete('The Troll Cave') == false" >
         <Wait Value="100" />
-    </While>	
+    </While>	    <ClearMonsterFilter/>	<SetMonsterFilterMode Mode="None"/> <While Condition="UnitLevel('player') &lt; 5 or UnitXP('player') &lt;= 2500" >        <Wait Value="100" />    </While>
 	</If>
     <If Condition="Data.HasActiveQuest('The Troll Cave') == true">
         <ReturnQuest NpcName="Grelin Whitebeard" QuestName="The Troll Cave" />
     </If>
-	
+    <If Condition="Data.HasActiveQuest('The Stolen Journal') == false and Data.HasCompletedQuest('The Stolen Journal') == false">        <TakeQuest NpcName="Grelin Whitebeard" QuestName="The Stolen Journal" />    </If>	    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == true">        <ReturnQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />    </If>	
 
 </ShadowProfile>

@@ -1,0 +1,16 @@
+<ShadowProfile Condition="Data.HasCompletedQuest(nil, 420) == false or Data.HasCompletedQuest('Supplies to Tannok') == false">
+	<SetBaseSettings />
+    <If Condition="Data.HasActiveQuest(nil, 420) == false and Data.HasCompletedQuest(nil, 420) == false">
+        <TakeQuest NpcName="Mountaineer Thalos" QuestId="420" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Supplies to Tannok') == false and Data.HasCompletedQuest('Supplies to Tannok') == false">
+        <TakeQuest NpcName="Hands Springsprocket" QuestId="2160" QuestName="Supplies to Tannok" />
+    </If>
+    <ClearMonsterFilter/>	<SetMonsterFilterMode Mode="None"/>    <SetTargetingMode Mode="Around Points" />	<AddBlackspot X="-5837.7373046875" Y="-104.79264831543" Z="356.61248779297" Range="50" />	<AddHotspot X="-5892.240234375" Y="-190.93292236328" Z="362.77590942383" Range="50" />	<AddHotspot X="-5873.6411132813" Y="-242.25325012207" Z="362.58807373047" Range="50" />	<AddHotspot X="-5855.4365234375" Y="-276.50701904297" Z="360.50134277344" Range="50" />	<AddHotspot X="-5858.1235351563" Y="-314.8017578125" Z="362.30590820313" Range="50" />	<AddHotspot X="-5835.6625976563" Y="-344.77352905273" Z="368.95727539063" Range="50" />	<AddHotspot X="-5796.1772460938" Y="-366.82733154297" Z="366.58242797852" Range="50" />	<AddHotspot X="-5760.9819335938" Y="-406.15341186523" Z="365.28091430664" Range="50" />	<AddHotspot X="-5709.71484375" Y="-380.37454223633" Z="366.17279052734" Range="50" />	 <While Condition="UnitLevel('player') &lt; 7" >        <Wait Value="100" />    </While>
+	<If Condition="Data.HasActiveQuest('Senir\'s Observations', 420) == true">
+		<ReturnQuest NpcName="Senir Whitebeard" QuestId="420" QuestName="'Senir\'s Observations'" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Supplies to Tannok', 2160) == true">
+		<ReturnQuest NpcName="Tannok Frosthammer" QuestId="2160" QuestName="Supplies to Tannok" />
+	</If>	
+</ShadowProfile>

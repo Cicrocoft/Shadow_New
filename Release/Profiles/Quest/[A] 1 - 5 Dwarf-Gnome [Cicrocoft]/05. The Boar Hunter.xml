@@ -21,7 +21,7 @@
 
     <While Condition="Data.AllQuestObjectivesAreComplete('The Boar Hunter') == false" >
         <Wait Value="100" />
-    </While>
+    </While>    <ClearMonsterFilter/>	<SetMonsterFilterMode Mode="None"/>	 <ClearHotspots />	<AddHotspot X="-6322.5732421875" Y="523.66809082031" Z="386.52340698242" Range="100" />	<AddHotspot X="-6262.572265625" Y="495.08728027344" Z="386.28921508789" Range="100" />	<AddHotspot X="-6308.732421875" Y="777.39093017578" Z="389.32257080078" Range="100" />	<AddHotspot X="-6248.8305664063" Y="772.60375976563" Z="386.82232666016" Range="100" />	<AddHotspot X="-6191.8330078125" Y="737.33386230469" Z="386.19897460938" Range="100" />	<AddHotspot X="-6163.228515625" Y="669.86999511719" Z="388.17861938477" Range="100" />	<AddHotspot X="-6154.8989257813" Y="602.70715332031" Z="386.50524902344" Range="100" />		    <While Condition="UnitLevel('player') &lt; 4 and UnitXP('player') &lt;= 1200" >        <Wait Value="100" />    </While>
     
     <ReturnQuest NpcName="Talin Keeneye" QuestId="183" />
 </ShadowProfile>

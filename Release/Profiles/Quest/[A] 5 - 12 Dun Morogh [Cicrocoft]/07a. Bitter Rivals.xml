@@ -1,36 +1,0 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Return to Marleth') == false">
-
-    <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Bitter Rivals') == false and Data.HasCompletedQuest('Bitter Rivals') == false">
-        <TakeQuest NpcName="Marleth Barleybrew" QuestName="Bitter Rivals" />
-    </If>
-    <SetBaseSettings />
-
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Innkeeper Belm"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Grawn Thromwyn"/>
-    <SetRepairPercent Value="35" />
-	<SetEnableRestockItems Value="true"/>
-	
-    <ClearHotspots />
-	<AddDoNotSellItem ItemName="Tunder Ale" />
-	<SetEnableRestockItems Value="true" />
-	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true and Data.GetItemCountByName('Thunder Ale') == 0">
-		<AddRestockItem ItemName="Thunder Ale" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
-	</If>	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true" >
-	<MoveTo X="-5603.970703125" Y="-543.77270507813" Z="392.43057250977" />	</If>
-	<While Condition="Data.HasActiveQuest('Bitter Rivals') == true and Data.GetItemCountByName('Thunder Ale') == 1">	<NPCInteract NpcName="Jarven Thunderbrew" />	<BotSleep Value="2547"/>		<ClearRestockItems/>		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>GetQuestReward()</Lua>		<BotSleep Value="1584"/>		<Lua>CompleteQuest()</Lua>		<BotSleep Value="1584"/>		<Lua>QuestRewardCompleteButton_OnClick()</Lua>		<BotSleep Value="6475"/>	</While>
-	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true">			<BotSleep Value="2145"/>
-		<ReturnQuestToObject QuestName="Bitter Rivals" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Return to Marleth') == false and Data.HasCompletedQuest('Return to Marleth') == false and Data.HasCompletedQuest('Bitter Rivals') == true">
-		<TakeQuestFromObject QuestName="Return to Marleth" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Return to Marleth') == true">
-		<ReturnQuest NpcName="Marleth Barleybrew" QuestId="311" QuestName="Return to Marleth" />
-	</If>
-</ShadowProfile>
-

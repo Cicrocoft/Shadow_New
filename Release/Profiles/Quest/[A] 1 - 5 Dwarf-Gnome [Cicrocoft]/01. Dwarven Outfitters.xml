@@ -18,9 +18,9 @@
     <SetMonsterFilterMode Mode="Whitelist" />
     <AddMonsterFilterName Value="Ragged Young Wolf"/>
 
-    <While Condition="Data.AllQuestObjectivesAreComplete('Dwarven Outfitters') == false" >
-        <Wait Value="100" />
-    </While>
+    <While Condition="Data.AllQuestObjectivesAreComplete('Dwarven Outfitters') == false" >
+        <Wait Value="100" />
+    </While>    <ClearMonsterFilter/>	<SetMonsterFilterMode Mode="None"/>    <While Condition="UnitLevel('player') &lt; 2 or UnitXP('player') &lt;= 550" >        <Wait Value="100" />    </While>
     
     <ReturnQuest NpcName="Sten Stoutarm" QuestName="Dwarven Outfitters" />
 </ShadowProfile>

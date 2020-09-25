@@ -4,9 +4,7 @@
     <If Condition="Data.HasActiveQuest('Coldridge Valley Mail Delivery') == false and Data.HasCompletedQuest('Coldridge Valley Mail Delivery') == false">
         <TakeQuest NpcName="Sten Stoutarm" QuestName="Coldridge Valley Mail Delivery" />
     </If>
-    <If Condition="Data.HasActiveQuest('A New Threat') == false and Data.HasCompletedQuest('A New Threat') == false">
-        <TakeQuest NpcName="Balir Frosthammer" QuestName="A New Threat" />
-    </If>
+
  <!-- End -->
 <!-- Gnome Rogue -->
     <If Condition="Data.HasActiveQuest('Encrypted Memorandum') == false and Data.HasCompletedQuest('Encrypted Memorandum') == false and Data.PlayerClass() == WoWClass.Rogue and Data.MyRace() == WoWRace.Gnome">
@@ -67,5 +65,5 @@
     <If Condition="Data.HasActiveQuest('Hallowed Rune') == true and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Dwarf"> 
 		<ReturnQuest NpcName="Branstock Khalder" QuestName="Hallowed Rune" />
 	</If>	
-	
+    <If Condition="Data.HasActiveQuest('A New Threat') == false and Data.HasCompletedQuest('A New Threat') == false">        <TakeQuest NpcName="Balir Frosthammer" QuestName="A New Threat" />    </If>	
 </ShadowProfile>

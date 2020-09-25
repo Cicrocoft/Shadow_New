@@ -23,6 +23,6 @@
 	<AddMonsterFilterName Value="Burly Rockjaw Trogg"/>	
     <While Condition="Data.QuestObjectiveIsComplete('A New Threat', 2) == false" >
         <Wait Value="100" />
-    </While>	
+    </While>		    <ClearMonsterFilter/>	<SetMonsterFilterMode Mode="None"/>    <While Condition="UnitLevel('player') &lt; 3 or UnitXP('player') &lt;= 1000" >        <Wait Value="100" />    </While>	
     <ReturnQuest NpcName="Balir Frosthammer" QuestName="A New Threat" />
 </ShadowProfile>

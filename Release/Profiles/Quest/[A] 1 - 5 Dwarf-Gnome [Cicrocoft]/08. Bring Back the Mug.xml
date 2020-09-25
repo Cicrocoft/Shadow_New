@@ -3,8 +3,6 @@
     <If Condition="Data.HasActiveQuest('Scalding Mornbrew Delivery') == false">
         <TakeQuest NpcName="Durnan Furcutter" QuestName="Bring Back the Mug" />
     </If>
-    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('Bring Back the Mug') == false">
-        <TakeQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />
-    </If>    
+    <If Condition="Data.HasActiveQuest('A Refugee\'s Quandary') == false and Data.HasCompletedQuest('Bring Back the Mug') == false">        <TakeQuest NpcName="Felix Whindlebolt" QuestName="A Refugee\'s Quandary" />    </If> 	    <SetTargetingMode Mode="Around Points" />    <ClearMonsterFilter/>	<SetMonsterFilterMode Mode="None"/>	 <ClearHotspots />	<AddHotspot X="-6270.9619140625" Y="475.56982421875" Z="386.23452758789" Range="100" />	    <While Condition="UnitLevel('player') &lt; 5 or UnitXP('player') &lt;= 250" >        <Wait Value="100" />    </While>
     <ReturnQuest NpcName="Nori Pridedrift" QuestName="Bring Back the Mug" />
 </ShadowProfile>

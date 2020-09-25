@@ -1,0 +1,306 @@
+<ShadowProfile Condition="Data.GetMyProfessionLevel('Herbalism') ~= nil or Data.GetMyProfessionLevel('Skinning')  ~= nil">
+<Lua>
+function TrainSkill(skillName)
+if SelectVendorLink("trainer") then
+                    mainFrame.Sleep(2000)
+                    return true
+                end
+                if GetTrainerServiceTypeFilter("unavailable") then
+                    SetTrainerServiceTypeFilter("unavailable", 0)
+                    mainFrame.Sleep(200)
+                    return true
+                elseif GetTrainerServiceTypeFilter("used") then
+                    SetTrainerServiceTypeFilter("used", 0)
+                    mainFrame.Sleep(200)
+                    return true
+                elseif not GetTrainerServiceTypeFilter("available") then
+                    SetTrainerServiceTypeFilter("available", 1)
+                    mainFrame.Sleep(200)
+                    return true
+                end
+local serviceLines = GetNumTrainerServices()
+for j = 1, serviceLines do
+                            local name, rank, category, expanded = GetTrainerServiceInfo(j)
+        
+                            if expanded == nil then
+                                ExpandTrainerSkillLine(0)
+                                mainFrame.Sleep(500)
+                                return true
+                            end
+        
+                            if category == "available" and name == skillName then
+                                BuyTrainerService(j)
+                                mainFrame.Sleep(2000)
+                                return false
+                            end
+                        end
+return false
+end
+</Lua>
+<Lua>
+function MaxSkill(profName)
+for skillIndex = 1, GetNumSkillLines() do
+   local skillName, isHeader, isExpanded, skillRank, numTempPoints, skillModifier,
+   skillMaxRank, isAbandonable, stepCost, rankCost, minLevel, skillCostType,
+   skillDescription = GetSkillLineInfo(skillIndex)
+   if skillName == profName  then
+      return skillMaxRank
+      end
+    end
+end	
+</Lua>
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Grawn Thromwyn"/>
+	<SetVendorNpc NpcName="Grawn Thromwyn"/>
+
+	<!-- Restock Dun Morogh 5-12 (Kharanos)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="GetMoney() &gt;= 700" >
+		<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+			<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>
+			<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+		</If>
+		<!-- Water -->
+		<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+			<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>
+			<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		</If>
+		<If Condition="Data.PlayerClass() == WoWClass.Priest">
+			<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="3" BuyAmount="20"/>
+			<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		</If>
+	</If>		
+		<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.GetMyProfessionLevel('Skinning') &lt;= 65 and Data.GetMyProfessionLevel('Skinning') &gt;= 1" >
+		<SetTargetingMode Mode="Around Points" />
+
+
+		<ClearHotspots />
+		
+		<!-- Mob Blacklist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None"/>
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddBlackspot X="-5327.998046875" Y="485.0592956543" Z="389.57614135742" Range="25" />
+		<AddBlackspot X="-5329.2846679688" Y="484.72146606445" Z="390.64788818359" Range="25" />
+		<AddHotspot X="-5428.318359375" Y="496.04656982422" Z="385.75909423828" Range="100" />
+		<AddHotspot X="-5471.47265625" Y="410.54516601563" Z="387.53378295898" Range="100" />
+		<AddHotspot X="-5527.7250976563" Y="350.85592651367" Z="392.26098632813" Range="100" />
+		<AddHotspot X="-5636.8208007813" Y="309.71661376953" Z="389.16732788086" Range="100" />
+		<AddHotspot X="-5745.2587890625" Y="226.99827575684" Z="371.45706176758" Range="100" />
+		<AddHotspot X="-5754.3403320313" Y="137.24214172363" Z="368.47744750977" Range="100" />
+		<AddHotspot X="-5826.2431640625" Y="48.726078033447" Z="357.23031616211" Range="100" />
+		<AddHotspot X="-5876.3359375" Y="-29.756319046021" Z="363.79357910156" Range="100" />
+		<AddHotspot X="-5871.1772460938" Y="-122.70655059814" Z="360.78317260742" Range="100" />
+		<AddHotspot X="-5857.4106445313" Y="-205.15882873535" Z="358.42126464844" Range="100" />
+		<AddHotspot X="-5798.7387695313" Y="-298.72296142578" Z="357.33941650391" Range="100" />
+		<AddHotspot X="-5711.5551757813" Y="-379.01477050781" Z="366.24655151367" Range="100" />
+		<AddHotspot X="-5615.6762695313" Y="-369.59442138672" Z="398.78799438477" Range="50" />
+		<AddHotspot X="-5726.7509765625" Y="-572.16467285156" Z="398.99066162109" Range="100" />
+		<AddHotspot X="-5849.3515625" Y="-623.02478027344" Z="397.04443359375" Range="100" />
+		<AddHotspot X="-5832.5908203125" Y="-697.08233642578" Z="397.72988891602" Range="100" />
+		<AddHotspot X="-5805.0922851563" Y="-771.42993164063" Z="398.91278076172" Range="100" />
+		<AddHotspot X="-5743.0922851563" Y="-914.78521728516" Z="398.07391357422" Range="100" />
+		<AddHotspot X="-5652.2358398438" Y="-987.77777099609" Z="394.701171875" Range="100" />
+		<AddHotspot X="-5560.3608398438" Y="-1001.4154663086" Z="393.20678710938" Range="100" />
+		<AddHotspot X="-5433.3017578125" Y="-917.02899169922" Z="392.93780517578" Range="100" />
+		<AddHotspot X="-5393.6328125" Y="-740.10614013672" Z="395.46484375" Range="100" />
+		<AddHotspot X="-5374.2192382813" Y="-646.18218994141" Z="395.36181640625" Range="100" />
+		<AddHotspot X="-5333.4350585938" Y="-515.05657958984" Z="391.49356079102" Range="100" />
+		<AddHotspot X="-5226.1884765625" Y="-433.7756652832" Z="388.97470092773" Range="100" />
+		<AddHotspot X="-5110.2041015625" Y="-376.75476074219" Z="391.37860107422" Range="100" />
+		<AddHotspot X="-5009.7275390625" Y="-371.28170776367" Z="392.7614440918" Range="100" />
+		<AddHotspot X="-4921.4228515625" Y="-335.07366943359" Z="389.58316040039" Range="100" />
+		<AddHotspot X="-4910.8862304688" Y="-214.06694030762" Z="380.96365356445" Range="100" />
+		<AddHotspot X="-4933.6884765625" Y="-131.33796691895" Z="379.19052124023" Range="100" />
+		<AddHotspot X="-5020.115234375" Y="-53.871528625488" Z="387.77398681641" Range="100" />
+		<AddHotspot X="-5067.5849609375" Y="39.82447052002" Z="397.11825561523" Range="100" />
+		<AddHotspot X="-5080.07421875" Y="165.13414001465" Z="398.32632446289" Range="100" />
+		<AddHotspot X="-5164.9418945313" Y="270.62789916992" Z="396.99203491211" Range="100" />
+		<AddHotspot X="-5237.8037109375" Y="330.57824707031" Z="398.69161987305" Range="100" />
+
+
+		<While Condition="Data.GetMyProfessionLevel('Skinning') &lt;= 65 and Data.GetMyProfessionLevel('Skinning') &gt;= 1" >
+				<Wait Value="100" />
+		</While>
+		
+	</If>
+	
+	<If Condition="Data.GetMyProfessionLevel('Herbalism') &lt;= 55 and Data.GetMyProfessionLevel('Herbalism') &gt;= 1" >
+		<SetTargetingMode Mode="Gather Only" />
+
+		<ClearHotspots />
+		
+		<!-- Mob Blacklist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None"/>
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddBlackspot X="-5327.998046875" Y="485.0592956543" Z="389.57614135742" Range="25" />
+		<AddBlackspot X="-5329.2846679688" Y="484.72146606445" Z="390.64788818359" Range="25" />
+		<AddHotspot X="-5428.318359375" Y="496.04656982422" Z="385.75909423828" Range="100" />
+		<AddHotspot X="-5471.47265625" Y="410.54516601563" Z="387.53378295898" Range="100" />
+		<AddHotspot X="-5527.7250976563" Y="350.85592651367" Z="392.26098632813" Range="100" />
+		<AddHotspot X="-5636.8208007813" Y="309.71661376953" Z="389.16732788086" Range="100" />
+		<AddHotspot X="-5745.2587890625" Y="226.99827575684" Z="371.45706176758" Range="100" />
+		<AddHotspot X="-5754.3403320313" Y="137.24214172363" Z="368.47744750977" Range="100" />
+		<AddHotspot X="-5826.2431640625" Y="48.726078033447" Z="357.23031616211" Range="100" />
+		<AddHotspot X="-5876.3359375" Y="-29.756319046021" Z="363.79357910156" Range="100" />
+		<AddHotspot X="-5871.1772460938" Y="-122.70655059814" Z="360.78317260742" Range="100" />
+		<AddHotspot X="-5857.4106445313" Y="-205.15882873535" Z="358.42126464844" Range="100" />
+		<AddHotspot X="-5798.7387695313" Y="-298.72296142578" Z="357.33941650391" Range="100" />
+		<AddHotspot X="-5711.5551757813" Y="-379.01477050781" Z="366.24655151367" Range="100" />
+		<AddHotspot X="-5615.6762695313" Y="-369.59442138672" Z="398.78799438477" Range="50" />
+		<AddHotspot X="-5726.7509765625" Y="-572.16467285156" Z="398.99066162109" Range="100" />
+		<AddHotspot X="-5849.3515625" Y="-623.02478027344" Z="397.04443359375" Range="100" />
+		<AddHotspot X="-5832.5908203125" Y="-697.08233642578" Z="397.72988891602" Range="100" />
+		<AddHotspot X="-5805.0922851563" Y="-771.42993164063" Z="398.91278076172" Range="100" />
+		<AddHotspot X="-5743.0922851563" Y="-914.78521728516" Z="398.07391357422" Range="100" />
+		<AddHotspot X="-5652.2358398438" Y="-987.77777099609" Z="394.701171875" Range="100" />
+		<AddHotspot X="-5560.3608398438" Y="-1001.4154663086" Z="393.20678710938" Range="100" />
+		<AddHotspot X="-5433.3017578125" Y="-917.02899169922" Z="392.93780517578" Range="100" />
+		<AddHotspot X="-5393.6328125" Y="-740.10614013672" Z="395.46484375" Range="100" />
+		<AddHotspot X="-5374.2192382813" Y="-646.18218994141" Z="395.36181640625" Range="100" />
+		<AddHotspot X="-5333.4350585938" Y="-515.05657958984" Z="391.49356079102" Range="100" />
+		<AddHotspot X="-5226.1884765625" Y="-433.7756652832" Z="388.97470092773" Range="100" />
+		<AddHotspot X="-5110.2041015625" Y="-376.75476074219" Z="391.37860107422" Range="100" />
+		<AddHotspot X="-5009.7275390625" Y="-371.28170776367" Z="392.7614440918" Range="100" />
+		<AddHotspot X="-4921.4228515625" Y="-335.07366943359" Z="389.58316040039" Range="100" />
+		<AddHotspot X="-4910.8862304688" Y="-214.06694030762" Z="380.96365356445" Range="100" />
+		<AddHotspot X="-4933.6884765625" Y="-131.33796691895" Z="379.19052124023" Range="100" />
+		<AddHotspot X="-5020.115234375" Y="-53.871528625488" Z="387.77398681641" Range="100" />
+		<AddHotspot X="-5067.5849609375" Y="39.82447052002" Z="397.11825561523" Range="100" />
+		<AddHotspot X="-5080.07421875" Y="165.13414001465" Z="398.32632446289" Range="100" />
+		<AddHotspot X="-5164.9418945313" Y="270.62789916992" Z="396.99203491211" Range="100" />
+		<AddHotspot X="-5237.8037109375" Y="330.57824707031" Z="398.69161987305" Range="100" />
+
+
+		<While Condition="Data.GetMyProfessionLevel('Herbalism') &lt;= 55 and Data.GetMyProfessionLevel('Herbalism') &gt;= 1" >
+				<Wait Value="100" />
+		</While>
+		
+	</If>	
+	<If Condition="Data.GetMyProfessionLevel('Herbalism') &gt;= 55 and MaxSkill('Herbalism') == 75" >
+		<NPCInteract NpcName="Reyna Stonebranch" />
+		<Lua> return TrainSkill("Journeyman Herbalist")</Lua>
+	</If>	
+	<If Condition="Data.GetMyProfessionLevel('Skinning') &gt;= 55 and MaxSkill('Skinning') == 75" >
+		<NPCInteract NpcName="Balthus Stoneflayer" />
+		<Lua> return TrainSkill("Journeyman Skinning")</Lua>
+	</If>
+	
+
+
+</ShadowProfile>
