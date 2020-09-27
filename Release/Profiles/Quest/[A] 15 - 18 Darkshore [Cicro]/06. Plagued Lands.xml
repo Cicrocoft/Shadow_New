@@ -92,17 +92,18 @@
 		<UseItemOnNpc NpcId="2164" ItemId="7586" />
 		<BotSleep Value="10000"/>
 	</If>
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == true">
+		<ReturnQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
+	</If>
+</While>
 	
 	
 	<!-- TurnIn -->
-	
-	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4727) == true and Data.AllQuestObjectivesAreComplete('Beached Sea Turtle', 4727) == true">
-		<ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4727" QuestName="Beached Sea Turtle" />
-	</If> 		
-	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == true">
-		<ReturnQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
-	</If> 	
 	<If Condition="Data.HasActiveQuest('Cleansing of the Infected') == false and Data.HasCompletedQuest('Cleansing of the Infected') == false and Data.HasCompletedQuest('Plagued Lands') == true">
 		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2138" QuestName="Cleansing of the Infected" />
-	</If>	
+	</If>		
+	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4727) == true and Data.AllQuestObjectivesAreComplete('Beached Sea Turtle', 4727) == true">
+		<ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4727" QuestName="Beached Sea Turtle" />
+	</If> 			
+
 </ShadowProfile>
