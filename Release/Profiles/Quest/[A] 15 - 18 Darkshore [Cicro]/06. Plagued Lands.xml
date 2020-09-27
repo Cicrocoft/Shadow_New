@@ -58,43 +58,40 @@
   
 	<!-- Objective Completion -->
 
-    <While Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false">
-		<ClearHotspots />
-		<!-- Settings -->
-		<SetTargetingMode Mode="Around Points" />
+<While Condition="Data.HasCompletedQuest('Plagued Lands') == false">
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == false and Data.HasCompletedQuest('Plagued Lands') == false">
+		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
+	</If> 
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.GetItemCountByName('Tharnariun\'s Hope') == 0 and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false">
+		<Lua>
+			local questId = 2118; 
+			for i=1,GetNumQuestLogEntries() do
+			   local _, _, _, _, _, _, _, id = GetQuestLogTitle(i);
+			   if id == questId then
+				  SelectQuestLogEntry(i);
+				  SetAbandonQuest();
+				  AbandonQuest();
+			   end
+			end
+			BotSleep(2145) return true
+		</Lua>
+	</If>
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and Nav.RangeFromMeXYZ(7113.5703125, -236.44342041016, 35.597888946533) &gt; 150">
+		<Lua>PetDefensiveMode()</Lua>
+		<SetEnableProfileIgnoreCombat Value="false" />
+		<MoveTo X="7113.5703125" Y="-236.44342041016" Z="35.597888946533" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and UnitIsDead('target') == false and UnitName('target') ~= 'Rabid Thistle Bear'">
+		<SetEnableProfileIgnoreCombat Value="false" />
+		<Lua>PetDefensiveMode()</Lua>
+	</If>
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and Nav.RangeFromMeXYZ(7113.5703125, -236.44342041016, 35.597888946533) &lt; 150">
 		<SetEnableProfileIgnoreCombat Value="true" />
-		<!-- Blackspots -->
-		<AddBlackspot X="7268.7973632813" Y="-117.13552856445" Z="15.38508605957" Range="20" />
-		<AddBlackspot X="6916.0952148438" Y="48.706497192383" Z="17.349678039551" Range="15" />
-		<AddBlackspot X="6949.7036132813" Y="14.920105934143" Z="17.211923599243" Range="15" />
-		<AddBlackspot X="7046.0971679688" Y="-283.98764038086" Z="42.862331390381" Range="15" />
-		<AddBlackspot X="7080.0141601563" Y="15.890189170837" Z="16.414686203003" Range="15" />
-		<!-- Hotspots -->
-		<AddHotspot X="7113.5703125" Y="-236.44342041016" Z="35.597888946533" Range="100" />
-		<AddHotspot X="7060.6616210938" Y="-238.68719482422" Z="36.984851837158" Range="100" />
-
-		<!-- Mob Whitelist -->
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Rabid Thistle Bear" />	
-
-
-	<While Condition="Data.AllQuestObjectivesAreComplete('Plagued Lands') == false" >
-			<Wait Value="100" />
-			<If Condition="UnitIsDead('target') == false and UnitName('target') ~= 'Rabid Thistle Bear'">
-				<SetEnableProfileIgnoreCombat Value="false"/>	
-			</If>
-			<If Condition="UnitIsDead('target') == false and UnitName('target') == 'Rabid Thistle Bear' and Nav.RangeFromMe('target') &lt;= 10">
-				<SetEnableProfileIgnoreCombat Value="true" />			
-				<UseItem ItemId="7586" />
-				<UseItemOnNpc NpcId="2164" ItemId="7586" />
-				<BotSleep Value="4563"/>
-				<SetEnablePreemptiveMonsterAttack Value="true" />
-				<SetEnableProfileIgnoreCombat Value="false"/>					
-			</If>				
-		</While>
-
-    </While>
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<Lua>PetPassiveMode()</Lua>
+		<UseItemOnNpc NpcId="2164" ItemId="7586" />
+		<BotSleep Value="10000"/>
+	</If>
 	
 	
 	<!-- TurnIn -->
