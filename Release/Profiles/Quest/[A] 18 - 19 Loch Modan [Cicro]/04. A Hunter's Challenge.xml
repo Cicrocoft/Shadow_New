@@ -1,6 +1,6 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('A Hunter\'s Challenge') == false and Data.HasCompletedQuest('A Hunter\'s Boast') == true">
 
-	<!-- Bot settings -->
+	<!-- Settings -->
 	<SetBaseSettings />
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Kat Sampson"/>
@@ -8,7 +8,7 @@
     <SetEnableRepairing Value="true"/>
     <SetRepairNpc NpcName="Kat Sampson"/>
     <SetRepairPercent Value="35" />
-	
+
 	<!-- Restock Loch Modan 18 - 20 (Thelsmar)-->
 	<SetEnableRestockItems Value="true"/>
 	<ClearRestockItems/>
@@ -19,22 +19,22 @@
 	</If>
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
-		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xander Goodbeard" UnderAmount="5" BuyAmount="40"/>
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xandar Goodbeard" UnderAmount="5" BuyAmount="40"/>
 		<AddDoNotSellItem ItemName="Ice Cold Milk" />
 	</If>
 	<If Condition="Data.PlayerClass() == WoWClass.Priest">
-		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xander Goodbeard" UnderAmount="3" BuyAmount="20"/>
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xandar Goodbeard" UnderAmount="3" BuyAmount="20"/>
 		<AddDoNotSellItem ItemName="Ice Cold Milk" />
 	</If>
 	<!-- Bullets/Arrows -->
 	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
-		<AddRestockItem ItemName="Heavy Shot" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Xandar Goodbeard" UnderAmount="100" BuyAmount="1200"/>
 	</If>
 	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
-		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xandar Goodbeard" UnderAmount="100" BuyAmount="1200"/>
 	</If>
 	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
-		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xandar Goodbeard" UnderAmount="100" BuyAmount="1200"/>
 	</If>
 	<!-- End Restock -->
 
