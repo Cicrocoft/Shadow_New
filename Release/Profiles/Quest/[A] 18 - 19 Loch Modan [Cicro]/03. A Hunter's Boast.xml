@@ -37,6 +37,16 @@
 		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
 	</If>
 	<!-- End Restock -->
+
+	<AddBlackspot X="-5019.8149414063" Y="-3885.0297851563" Z="311.3669128418" Range="50" />
+	<AddBlackspot X="-4958.9711914063" Y="-3909.3828125" Z="304.38958740234" Range="50" />
+	<AddBlackspot X="-4873.4819335938" Y="-3814.7385253906" Z="304.74975585938" Range="50" />
+	<AddBlackspot X="-4841.806640625" Y="-3885.0861816406" Z="301.32904052734" Range="50" />
+	<AddBlackspot X="-4884.2065429688" Y="-3979.5771484375" Z="298.4826965332" Range="50" />
+	<AddBlackspot X="-5026.5961914063" Y="-4059.4860839844" Z="301.47418212891" Range="50" />
+	<AddBlackspot X="-5050.7041015625" Y="-4034.6325683594" Z="307.99096679688" Range="50" />
+
+
 	
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('Excavation Progress Report') == false and Data.HasCompletedQuest('Excavation Progress Report') == false">
