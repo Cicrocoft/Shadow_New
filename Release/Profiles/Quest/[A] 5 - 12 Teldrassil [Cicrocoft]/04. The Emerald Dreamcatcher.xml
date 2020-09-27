@@ -59,6 +59,7 @@
 		<If Condition="Nav.RangeFromMeXYZ(9807.759765625, 352.78915405273, 1308.4595947266) &gt; 3">
 			<MoveTo X="9807.759765625" Y="352.78915405273" Z="1308.4595947266" />
 		</If>
+		<Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>
 		<SetEnableAutoLoot Value="true"/>
 		<InteractWithClosestGameObject />
 		<BotSleep Value="8000"/>
