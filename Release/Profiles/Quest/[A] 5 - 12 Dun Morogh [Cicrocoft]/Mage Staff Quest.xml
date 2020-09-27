@@ -1,0 +1,51 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Mage-tastic Gizmonitor') == false and Data.PlayerClass() == WoWClass.Mage and UnitLevel('player') &gt;= 10">
+<Lua>QuestNodes[102984]=0</Lua> 
+<!-- Mage -->
+
+    <If Condition="Data.HasActiveQuest('Speak with Bink') == false and Data.HasCompletedQuest('Speak with Bink') == false">
+
+        <TakeQuest NpcName="Magis Sparkmantle" QuestName="Speak with Bink" />
+
+    </If>
+
+    <If Condition="Data.HasActiveQuest('Speak with Bink') == true"> 
+
+		<ReturnQuest NpcName="Bink" QuestName="Speak with Bink" />
+
+	</If>
+
+    <If Condition="Data.HasActiveQuest('Mage-tastic Gizmonitor') == false and Data.HasCompletedQuest('Speak with Bink') == true and Data.HasCompletedQuest('Mage-tastic Gizmonitor') == false">
+
+        <TakeQuest NpcName="Bink" QuestName="Mage-tastic Gizmonitor" />
+
+    </If>
+
+    <SetTargetingMode Mode="Gather Only" />
+
+    <ClearHotspots />
+
+    <SetEnableAutoHerb Value="true" />
+
+	<AddHotspot X="-5072.419921875" Y="437.97259521484" Z="410.96682739258" Range="50" />
+
+    <AllowQuestNode NodeName="Bink\'s Toolbox" />
+
+    <While Condition="Data.AllQuestObjectivesAreComplete('Mage-tastic Gizmonitor') == false" >
+
+        <Wait Value="100" />
+
+    </While>
+
+
+
+	
+
+    <If Condition="Data.HasActiveQuest('Mage-tastic Gizmonitor') == true and "> 
+
+		<ReturnQuest NpcName="Bink" QuestName="Mage-tastic Gizmonitor" />
+
+	</If>	
+
+    <ClearBlackspots />	
+
+</While>
