@@ -1,13 +1,104 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Buzzbox 827') == false or Data.HasCompletedQuest('Washed Ashore', 3524) == false">
 
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
     <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Elisa Steelhand"/>
-    <SetVendorSlotsCount Value="2" />
     <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
     <SetRepairNpc NpcName="Elisa Steelhand"/>
-    <SetRepairPercent Value="35" />
 	
 	<!-- Restock Darkshore 12+ -->
 	<SetEnableRestockItems Value="true"/>
@@ -54,18 +145,33 @@
     </If>   
   
 	<!-- Objective Completion -->
+    <SetTargetingMode Mode="Around Points" />
+    <ClearHotspots />
+	<AddHotspot X="6096.0600585938" Y="498.56259155273" Z="13.795783996582" Range="100" />
+	<AddHotspot X="6122.9350585938" Y="426.89483642578" Z="26.445211410522" Range="100" />
+	<AddHotspot X="6152.583984375" Y="350.83050537109" Z="33.151657104492" Range="100" />
+	<AddHotspot X="6253.9672851563" Y="375.57601928711" Z="31.350015640259" Range="100" />
+	<AddHotspot X="6273.6127929688" Y="272.21301269531" Z="31.151126861572" Range="100" />
+	<AddHotspot X="6165.0732421875" Y="231.95620727539" Z="29.629627227783" Range="100" />
+
 	
-	<If Condition="Data.HasActiveQuest('Washed Ashore', 3524) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 3524) == false" >
-		<SetTargetingMode Mode="Gather Only" />
+    <ClearMonsterFilter/>
+	<SetMonsterFilterMode Mode="None"/>
+
+ <While Condition="UnitLevel('player') &lt; 14 or UnitXP('player') &lt;= 5500 and UnitXPMax('player') == 12900" >
+        <Wait Value="100" />
+    </While>		
+	<While Condition="Data.HasActiveQuest('Washed Ashore', 3524) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 3524) == false" >	
 		<ClearHotspots />
-		<SetEnableAutoHerb Value="true" />
-		<AddHotspot X="6111.7822265625" Y="558.00964355469" Z="1.0471271276474" Range="20" />
-		<AllowQuestNode NodeName="Beached Sea Creature" />	
-		<While Condition="Data.AllQuestObjectivesAreComplete('Washed Ashore', 3524) == false" >
-			<Wait Value="100" />
-		</While>
-	</If>
-	
+		<If Condition="Nav.RangeFromMeXYZ(6111.7578125, 558.05120849609, 1.0424065589905) &gt; 1">
+			<MoveTo X="6111.7578125" Y="558.05120849609" Z="1.0424065589905" />
+			<BotSleep Value="1500"/>
+		</If>
+		<Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>
+		<SetEnableAutoLoot Value="true"/>
+		<Lua>UnlAPI.ObjectInteract(Data.GetClosestGameObject())</Lua>
+		<BotSleep Value="5000"/>
+	</While>		
 	    <If Condition="Data.HasActiveQuest('Buzzbox 827') == true and Data.AllQuestObjectivesAreComplete('Buzzbox 827') == false">
 		<ClearHotspots />
 		<!-- Settings -->
@@ -91,7 +197,22 @@
 			<Wait Value="100" />
 		</While>
     </If>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearHotspots />
+	<AddHotspot X="6096.0600585938" Y="498.56259155273" Z="13.795783996582" Range="100" />
+	<AddHotspot X="6122.9350585938" Y="426.89483642578" Z="26.445211410522" Range="100" />
+	<AddHotspot X="6152.583984375" Y="350.83050537109" Z="33.151657104492" Range="100" />
+	<AddHotspot X="6253.9672851563" Y="375.57601928711" Z="31.350015640259" Range="100" />
+	<AddHotspot X="6273.6127929688" Y="272.21301269531" Z="31.151126861572" Range="100" />
+	<AddHotspot X="6165.0732421875" Y="231.95620727539" Z="29.629627227783" Range="100" />
+
 	
+    <ClearMonsterFilter/>
+	<SetMonsterFilterMode Mode="None"/>
+
+ <While Condition="UnitLevel('player') &lt; 14 or UnitXP('player') &lt;= 8500 and UnitXPMax('player') == 12900" >
+        <Wait Value="100" />
+    </While>	
 	
 	<!-- TurnIn -->
     <If Condition="Data.HasActiveQuest('Buzzbox 827') == true">
