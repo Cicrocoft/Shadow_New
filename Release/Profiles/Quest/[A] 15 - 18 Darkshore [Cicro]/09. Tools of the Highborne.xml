@@ -59,24 +59,12 @@
     <If Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == false and Data.HasCompletedQuest('Bashal\'Aran', 957) == false and Data.HasCompletedQuest('Bashal\'Aran', 956) == true">
         <TakeQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" />
     </If>	
-
+	
 	<!-- QuestObjective -->
-	<If Condition="Data.HasActiveQuest('How Big a Threat?') == true and Data.HasCompletedQuest('How Big a Threat?') == false">
-		<ClearHotspots />
-		<!-- Blackspots -->
-		<AddBlackspot X="5982.0795898438" Y="333.58480834961" Z="22.405843734741" Range="45" />
-		<!-- Hotspots -->
-		<AddHotspot X="6033.1513671875" Y="343.31604003906" Z="28.874279022217" Range="10" />
-		<AddHotspot X="6026.7065429688" Y="346.25543212891" Z="28.616102218628" Range="10" />
-		<!-- Monster Filter -->
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Stonetusk Boar" />			
-		<While Condition="Data.AllQuestObjectivesAreComplete('How Big a Threat?') == false" >
-				<Wait Value="100" />
-		</While>	
-	</If>	
-
+	<While Condition="Nav.RangeFromMeXYZ(6022.658203125, 346.67980957031, 28.425586700439) &gt; 3 and Data.AllQuestObjectivesAreComplete('How Big a Threat?') == false and Data.HasActiveQuest('How Big a Threat?') == true">
+		<MoveTo X="6022.658203125" Y="346.67980957031" Z="28.425586700439" />
+	</While>		
+	<AddBlackspot X="5982.0795898438" Y="333.58480834961" Z="22.405843734741" Range="40" />
     <If Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == false and Data.HasCompletedQuest('The Fall of Ameth\'Aran') == false">
 		<TakeQuest NpcName="Sentinel Tysha Moonblade" QuestId="953" QuestName="The Fall of Ameth\'Aran" />
     </If>
