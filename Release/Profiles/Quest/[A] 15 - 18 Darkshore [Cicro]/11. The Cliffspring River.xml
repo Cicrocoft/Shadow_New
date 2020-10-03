@@ -62,12 +62,18 @@
 	<If Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == false">
 		<ClearHotspots />
 		<AddBlackspot X="6704.8896" Y="-28.909109" Z="43.096920013" Range="100" />
+		<AddBlackspot X="6946.7978515625" Y="193.41215515137" Z="0.67052751779556" Range="35" />
 		<While Condition="Data.GetItemCountByName('Empty Sampling Tube') == 1">
-			<MoveTo X="7220.910156" Y="-385.03491210" Z="-3.9" />
+			<MoveTo X="7266.7905273438" Y="-377.52597045898" Z="-0.026679269969463" />
+			<MoveTo NoNav="true" X="7217.013671875" Y="-387.01043701172" Z="-2.7243022918701" />
 			<UseItem ItemName="Empty Sampling Tube" />
 		</While>
 	</If>
-	
+	<If Condition="Nav.RangeFromMeXYZ(7220.910156, -385.03491210, -3.9) &lt; 40" >
+		<MoveTo NoNav="true" X="7266.7905273438" Y="-377.52597045898" Z="-0.026679269969463" />
+		<BotSleep Value="5000"/>
+		<MoveTo X="7308.1772460938" Y="-364.5244140625" Z="0.95011913776398" />
+	</If>
 	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4725) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4725) == false">
 		<SetEnableAutoLoot Value="false"/>  
 		<TakeQuestFromObject QuestId="4725" QuestName="Beached Sea Turtle" X="7434.4814453125" Y="43.90470123291" Z="2.1896209716797" />
