@@ -1,0 +1,82 @@
+	<If Condition="Data.HasActiveQuest('Cave Mushrooms') == false and Data.HasCompletedQuest('Cave Mushrooms') == false">
+        <TakeQuest NpcName="Barithras Moonshade" QuestId="947" QuestName="Cave Mushrooms" />
+    </If>
+
+	<If Condition="Data.HasActiveQuest('Cave Mushrooms') == true and Data.QuestObjectiveIsComplete('Cave Mushrooms', 1) == false and Data.QuestObjectiveIsComplete('Cave Mushrooms', 2) == false" >
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Scaber Stalk" />	
+		<AllowQuestNode NodeName="Death Cap" />		
+		<AddBlackspot X="6813.7543945313" Y="-385.08062744141" Z="40.226852416992" Range="50" />
+		<AddBlackspot X="6866.8559570313" Y="-487.52880859375" Z="40.143436431885" Range="50" />	
+		<AddBlackspot X="6813.2202148438" Y="-686.21643066406" Z="64.877243041992" Range="20" />		
+		<AddBlackspot X="6791.6469726563" Y="-678.62225341797" Z="67.658920288086" Range="20" />
+		<AddHotspot X="6790.669921875" Y="-695.31878662109" Z="73.376304626465" Range="5" />
+		<AddHotspot X="6827.4018554688" Y="-711.25036621094" Z="81.258163452148" Range="5" />
+		<AddHotspot X="6849.69140625" Y="-681.25964355469" Z="83.119331359863" Range="5" />
+		<AddHotspot X="6820.3901367188" Y="-666.48236083984" Z="86.735809326172" Range="5" />
+		<AddHotspot X="6779.5625" Y="-680.02783203125" Z="89.333541870117" Range="5" />
+		<AddHotspot X="6754.5375976563" Y="-708.45324707031" Z="89.793060302734" Range="5" />
+		<AddHotspot X="6750.7993164063" Y="-691.78021240234" Z="89.689651489258" Range="5" />
+		<While Condition="Data.QuestObjectiveIsComplete('Cave Mushrooms', 1) == false and Data.QuestObjectiveIsComplete('Cave Mushrooms', 2) == false" >
+				<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Cave Mushrooms') == true and Data.QuestObjectiveIsComplete('Cave Mushrooms', 1) == false" >
+		<!-- Bot settings -->
+		<SetBaseSettings />
+		<SetEnableVendoring Value="true"/>
+		<SetVendorNpc NpcName="Elisa Steelhand"/>
+		<SetVendorSlotsCount Value="2" />
+		<SetEnableRepairing Value="true"/>
+		<SetRepairNpc NpcName="Elisa Steelhand"/>
+		<SetRepairPercent Value="35" />	
+	
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Scaber Stalk" />		
+		<AddBlackspot X="6813.7543945313" Y="-385.08062744141" Z="40.226852416992" Range="50" />
+		<AddBlackspot X="6866.8559570313" Y="-487.52880859375" Z="40.143436431885" Range="50" />
+		<AddBlackspot X="6813.2202148438" Y="-686.21643066406" Z="64.877243041992" Range="20" />	
+		<AddBlackspot X="6791.6469726563" Y="-678.62225341797" Z="67.658920288086" Range="20" />		
+		<AddHotspot X="6790.669921875" Y="-695.31878662109" Z="73.376304626465" Range="5" />
+		<AddHotspot X="6827.4018554688" Y="-711.25036621094" Z="81.258163452148" Range="5" />
+		<AddHotspot X="6849.69140625" Y="-681.25964355469" Z="83.119331359863" Range="5" />
+		<AddHotspot X="6820.3901367188" Y="-666.48236083984" Z="86.735809326172" Range="5" />
+		<AddHotspot X="6779.5625" Y="-680.02783203125" Z="89.333541870117" Range="5" />
+		<While Condition="Data.QuestObjectiveIsComplete('Cave Mushrooms', 1) == false" >
+				<Wait Value="100" />
+		</While>
+	</If>	
+	<If Condition="Data.HasActiveQuest('Cave Mushrooms') == true and Data.QuestObjectiveIsComplete('Cave Mushrooms', 2) == false" >
+		<!-- Bot settings -->
+		<SetBaseSettings />
+		<SetEnableVendoring Value="true"/>
+		<SetVendorNpc NpcName="Elisa Steelhand"/>
+		<SetVendorSlotsCount Value="2" />
+		<SetEnableRepairing Value="true"/>
+		<SetRepairNpc NpcName="Elisa Steelhand"/>
+		<SetRepairPercent Value="35" />	
+	
+		<SetTargetingMode Mode="Gather Only" />
+		<ClearHotspots />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Death Cap" />			
+		<AddHotspot X="6754.5375976563" Y="-708.45324707031" Z="89.793060302734" Range="10" />
+		<AddHotspot X="6750.7993164063" Y="-691.78021240234" Z="89.689651489258" Range="10" />
+		<While Condition="Data.QuestObjectiveIsComplete('Cave Mushrooms', 2) == false" >
+				<Wait Value="100" />
+		</While>
+	</If>	
+
+   <If Condition="Data.HasActiveQuest('Cave Mushrooms') == true and Data.AllQuestObjectivesAreComplete('Cave Mushrooms') == true">
+        <ReturnQuest NpcName="Barithras Moonshade" QuestId="947" QuestName="Cave Mushrooms" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Onu') == false and Data.HasCompletedQuest('Onu') == false and Data.HasCompletedQuest('Cave Mushrooms') == true">
+		<TakeQuest NpcName="Barithras Moonshade" QuestId="948" QuestName="Onu" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Onu') == true">
+        <ReturnQuest NpcName="Onu" QuestId="948" QuestName="Onu" />
+    </If>		
