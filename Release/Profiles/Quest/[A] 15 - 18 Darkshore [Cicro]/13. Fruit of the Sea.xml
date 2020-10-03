@@ -1,13 +1,104 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Fruit of the Sea') == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('Fruit of the Sea') == false or UnitLevel('player') &lt; 18">
 
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
     <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Elisa Steelhand"/>
-    <SetVendorSlotsCount Value="2" />
     <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
     <SetRepairNpc NpcName="Elisa Steelhand"/>
-    <SetRepairPercent Value="35" />
 	
 	<!-- Restock Darkshore 12+ -->
 	<SetEnableRestockItems Value="true"/>
@@ -54,6 +145,7 @@
 		<ClearHotspots />
 		<!-- Blackspots -->
 		<AddBlackspot X="6916.85546875" Y="48.317203521729" Z="17.266174316406" Range="20" />
+		<AddBlackspot X="6948.1489257813" Y="194.18586730957" Z="0.58761149644852" Range="35" />
 		<!-- Hotspots -->
 		<AddHotspot X="7429.0629882813" Y="-128.60195922852" Z="1.5844081640244" Range="100" />
 		<AddHotspot X="7411.29296875" Y="-229.30178833008" Z="0.58215248584747" Range="100" />
@@ -74,8 +166,15 @@
         <ReturnQuest NpcName="Gubber Blump" QuestId="1138" QuestName="Fruit of the Sea" />
     </If>	
 	
+		<ClearHotspots />
+		<AddHotspot X="5331.1640625" Y="408.02490234375" Z="28.857032775879" Range="100" />
+		<AddHotspot X="5263.76953125" Y="382.45529174805" Z="29.046649932861" Range="100" />
+		<AddHotspot X="5160.3188476563" Y="395.39724731445" Z="31.232055664063" Range="100" />	
+    <ClearMonsterFilter/>
+	<SetMonsterFilterMode Mode="None"/>
 
-	
-
+ <While Condition="UnitLevel('player') &lt; 18" >
+        <Wait Value="100" />
+    </While>
 	
 </ShadowProfile>
