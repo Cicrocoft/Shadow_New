@@ -1,0 +1,200 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A Dark Threat Looms', 199) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Kat Sampson"/>
+    <SetRepairNpc NpcName="Kat Sampson"/>
+
+	
+	<!-- Restock Loch Modan 18-19 (The Farstrider Lodge)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xander Goodbeard" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xander Goodbeard" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xander Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->
+
+	<AddBlackspot X="-5019.8149414063" Y="-3885.0297851563" Z="311.3669128418" Range="50" />
+	<AddBlackspot X="-4958.9711914063" Y="-3909.3828125" Z="304.38958740234" Range="50" />
+	<AddBlackspot X="-4873.4819335938" Y="-3814.7385253906" Z="304.74975585938" Range="50" />
+	<AddBlackspot X="-4841.806640625" Y="-3885.0861816406" Z="301.32904052734" Range="50" />
+	<AddBlackspot X="-4884.2065429688" Y="-3979.5771484375" Z="298.4826965332" Range="50" />
+	<AddBlackspot X="-5026.5961914063" Y="-4059.4860839844" Z="301.47418212891" Range="50" />
+	<AddBlackspot X="-5050.7041015625" Y="-4034.6325683594" Z="307.99096679688" Range="50" />
+	<AddBlackspot X="-5534.5805664063" Y="-2728.3725585938" Z="367.19979858398" Range="50" />
+	<AddBlackspot X="-5066.3798828125" Y="-3795.857421875" Z="311.67230224609" Range="50" />
+	<AddBlackspot X="-5097.7509765625" Y="-3837.2473144531" Z="316.89587402344" Range="50" />
+	<AddBlackspot X="-5114.359375" Y="-3888.4409179688" Z="332.42489624023" Range="50" />
+	<AddBlackspot X="-5092.8178710938" Y="-4040.8405761719" Z="316.13803100586" Range="50" />
+	<AddBlackspot X="-5070.3217773438" Y="-4113.771484375" Z="313.14889526367" Range="50" />	
+	
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('A Dark Threat Looms', 250) == false and Data.HasCompletedQuest('A Dark Threat Looms', 250) == false">	
+		<TakeQuest NpcName="Chief Engineer Hinderweir VII" QuestId="250" QuestName="A Dark Threat Looms" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('A Dark Threat Looms', 250) == true">
+		<ReturnQuestToObject QuestId="250" QuestName="A Dark Threat Looms" X="-4730.5981445313" Y="-3541.8518066406" Z="303.19680786133" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Dark Threat Looms', 199) == false and Data.HasCompletedQuest('A Dark Threat Looms', 250) == true and Data.HasCompletedQuest('A Dark Threat Looms', 199) == false">
+		<TakeQuestFromObject QuestId="199" QuestName="A Dark Threat Looms" X="-4730.5981445313" Y="-3541.8518066406" Z="303.19680786133" />
+	</If> 
+	
+<AddHotspot X="-4897.9750976563" Y="-3607.2321777344" Z="302.52600097656" Range="100" />
+<AddHotspot X="-4977.9477539063" Y="-3629.2592773438" Z="299.15518188477" Range="100" />
+<AddHotspot X="-5048.9916992188" Y="-3632.2639160156" Z="301.03570556641" Range="100" />
+<AddHotspot X="-5148.4653320313" Y="-3670.0778808594" Z="304.1071472168" Range="100" />
+<AddHotspot X="-5221.6958007813" Y="-3724.9663085938" Z="313.04751586914" Range="100" />
+<AddHotspot X="-5251.7016601563" Y="-3813.6677246094" Z="322.17712402344" Range="100" />
+<AddHotspot X="-5348.08203125" Y="-3831.7248535156" Z="327.21591186523" Range="100" />
+<AddHotspot X="-5433.5229492188" Y="-3868.3334960938" Z="331.09939575195" Range="100" />
+<AddHotspot X="-5414.2436523438" Y="-3784.05078125" Z="305.15289306641" Range="100" />
+<AddHotspot X="-5304.8774414063" Y="-3743.0241699219" Z="305.51782226563" Range="100" />
+<AddHotspot X="-5219.875" Y="-3696.927734375" Z="307.17694091797" Range="100" />
+<AddHotspot X="-5141.3364257813" Y="-3660.3271484375" Z="303.56066894531" Range="100" />
+<AddHotspot X="-5057.0234375" Y="-3652.1030273438" Z="303.23336791992" Range="100" />
+<AddHotspot X="-4946.8955078125" Y="-3638.6259765625" Z="303.66452026367" Range="100" />
+<AddHotspot X="-4872.1298828125" Y="-3593.1508789063" Z="304.29025268555" Range="100" />	
+
+    <SetTargetingMode Mode="Around Points" />	
+	<SetHotspotTraverseMode Mode="Circular"/>
+    <ClearMonsterFilter/>
+	<SetMonsterFilterMode Mode="Blacklist"/>
+	<AddMonsterFilterName Value="Loch Frenzy" />
+ <While Condition="UnitLevel('player') &lt; 19 or UnitXP('player') &lt;= 4000 and UnitXPMax('player') == 21300" >
+        <Wait Value="100" />
+    </While>	
+	
+	
+	
+	
+	<If Condition="Data.HasActiveQuest('A Dark Threat Looms', 199) == true">
+        <ReturnQuest NpcName="Chief Engineer Hinderweir VII" QuestId="199" QuestName="A Dark Threat Looms" />
+    </If>
+	<If Condition="Data.HasActiveQuest('A Dark Threat Looms', 161) == false and Data.HasCompletedQuest('A Dark Threat Looms', 199) == true and Data.HasCompletedQuest('A Dark Threat Looms', 161) == false">
+		<TakeQuest NpcName="Chief Engineer Hinderweir VII" QuestId="161" QuestName="A Dark Threat Looms" />
+	</If>
+
+	
+</ShadowProfile>

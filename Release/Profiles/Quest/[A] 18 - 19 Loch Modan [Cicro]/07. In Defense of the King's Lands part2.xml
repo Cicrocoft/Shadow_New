@@ -1,0 +1,85 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('In Defense of the King\'s Lands', 237) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 224) == true">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Morhan Coppertongue"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Morhan Coppertongue"/>
+    <SetRepairPercent Value="35" />
+	
+	<!-- Restock Loch Modan 18 - 20 (Thelsmar)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Hearthstove" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 237) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 237) == false">	
+		<TakeQuest NpcName="Mountaineer Gravelgaw" QuestId="237" QuestName="In Defense of the King\'s Lands" />
+	</If>	
+
+	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 237) == true and Data.AllQuestObjectivesAreComplete('In Defense of the King\'s Lands', 237) == false">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		<AddBlackspot X="-5949.1767578125" Y="-2885.9274902344" Z="371.18145751953" Range="30" />
+		<AddBlackspot X="-5894.2778320313" Y="-2962.1628417969" Z="367.78256225586" Range="40" />
+		<AddBlackspot X="-5866.6948242188" Y="-2855.2563476563" Z="366.14541625977" Range="40" />
+		<!-- Hotspots -->
+		<AddHotspot X="-5971.1337890625" Y="-2992.3791503906" Z="387.11752319336" Range="100" />
+		<AddHotspot X="-6006.595703125" Y="-2971.7194824219" Z="396.28341674805" Range="100" />
+		<AddHotspot X="-6044.1293945313" Y="-3001.8559570313" Z="401.83395385742" Range="100" />
+		<AddHotspot X="-6090.2836914063" Y="-2981.4343261719" Z="417.32760620117" Range="100" />
+		<AddHotspot X="-6101.9536132813" Y="-2923.1970214844" Z="418.78073120117" Range="100" />
+		<AddHotspot X="-6061.0991210938" Y="-2861.6928710938" Z="413.29891967773" Range="100" />
+		<AddHotspot X="-6052.8798828125" Y="-2791.03125" Z="407.45379638672" Range="100" />
+
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Stonesplinter Skullthumper" />
+		<AddMonsterFilterName Value="Stonesplinter Seer" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('In Defense of the King\'s Lands', 237) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+
+	<If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 237) == true and Data.AllQuestObjectivesAreComplete('In Defense of the King\'s Lands', 237) == true">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		<AddBlackspot X="-5949.1767578125" Y="-2885.9274902344" Z="371.18145751953" Range="30" />
+		<AddBlackspot X="-5866.6948242188" Y="-2855.2563476563" Z="366.14541625977" Range="40" /> 
+		<ReturnQuest NpcName="Mountaineer Gravelgaw" QuestId="237" QuestName="In Defense of the King\'s Lands" />
+    </If>
+	<If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 263) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 263) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 237) == true">	
+		<TakeQuest NpcName="Mountaineer Wallbang" QuestId="263" QuestName="In Defense of the King\'s Lands" />
+	</If>
+	
+</ShadowProfile>

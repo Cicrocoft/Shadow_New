@@ -1,0 +1,194 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Crocolisk Hunting') == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Kat Sampson"/>
+    <SetRepairNpc NpcName="Kat Sampson"/>
+
+	
+	<!-- Restock Loch Modan 18-19 (The Farstrider Lodge)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xandar Goodbeard" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Xandar Goodbeard" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Xandar Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xandar Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Xandar Goodbeard" UnderAmount="100" BuyAmount="1200"/>
+	</If>
+	<!-- End Restock -->
+
+		<AddBlackspot X="-5019.8149414063" Y="-3885.0297851563" Z="311.3669128418" Range="50" />
+		<AddBlackspot X="-4958.9711914063" Y="-3909.3828125" Z="304.38958740234" Range="50" />
+		<AddBlackspot X="-4873.4819335938" Y="-3814.7385253906" Z="304.74975585938" Range="50" />
+		<AddBlackspot X="-4841.806640625" Y="-3885.0861816406" Z="301.32904052734" Range="50" />
+		<AddBlackspot X="-4884.2065429688" Y="-3979.5771484375" Z="298.4826965332" Range="50" />
+		<AddBlackspot X="-5026.5961914063" Y="-4059.4860839844" Z="301.47418212891" Range="50" />
+		<AddBlackspot X="-5050.7041015625" Y="-4034.6325683594" Z="307.99096679688" Range="50" />
+	<AddBlackspot X="-5534.5805664063" Y="-2728.3725585938" Z="367.19979858398" Range="50" />
+	<AddBlackspot X="-5066.3798828125" Y="-3795.857421875" Z="311.67230224609" Range="50" />
+	<AddBlackspot X="-5097.7509765625" Y="-3837.2473144531" Z="316.89587402344" Range="50" />
+	<AddBlackspot X="-5114.359375" Y="-3888.4409179688" Z="332.42489624023" Range="50" />
+	<AddBlackspot X="-5092.8178710938" Y="-4040.8405761719" Z="316.13803100586" Range="50" />
+	<AddBlackspot X="-5070.3217773438" Y="-4113.771484375" Z="313.14889526367" Range="50" />
+
+   <!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('Excavation Progress Report') == false and Data.HasCompletedQuest('Excavation Progress Report') == false">
+		<TakeQuest NpcName="Prospector Ironband" QuestId="298" QuestName="Excavation Progress Report" />
+	</If> 		
+    <If Condition="Data.HasActiveQuest('Find Bingles') == true">
+        <ReturnQuest NpcName="Bingles Blastenheimer" QuestId="2039" QuestName="Find Bingles" />
+    </If>	 
+	<If Condition="Data.HasActiveQuest('Crocolisk Hunting') == false">
+        <TakeQuest NpcName="Marek Ironheart" QuestId="385" QuestName="Crocolisk Hunting" />
+    </If>
+	
+	
+	<!-- Quest Completion -->
+    <If Condition="Data.HasActiveQuest('Crocolisk Hunting') == true">
+		<ClearHotspots />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-5443.8041992188" Y="-3724.3269042969" Z="301.82864379883" Range="20" />
+		<AddHotspot X="-5364.4409179688" Y="-3733.5134277344" Z="301.03210449219" Range="20" />
+		<AddHotspot X="-5320.7412109375" Y="-3714.5480957031" Z="300.97351074219" Range="20" />
+		<AddHotspot X="-5286.2294921875" Y="-3690.0205078125" Z="300.54458618164" Range="20" />
+		<AddHotspot X="-5243.6401367188" Y="-3658.6181640625" Z="300.17028808594" Range="20" />
+		<AddHotspot X="-5193.744140625" Y="-3491.1782226563" Z="300.13461303711" Range="100" />
+		<!-- Mob settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<SetHotspotTraverseMode Mode="Straight"/>
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Loch Crocolisk" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Crocolisk Hunting') == false" >
+			<Wait Value="100" />
+		</While>	
+    </If>
+  
+	<!-- TurnIn -->
+  	
+    <If Condition="Data.HasActiveQuest('Crocolisk Hunting') == true and Data.AllQuestObjectivesAreComplete('Crocolisk Hunting') == true">
+        <ReturnQuest NpcName="Marek Ironheart" QuestId="385" QuestName="Crocolisk Hunting" />
+    </If>
+
+</ShadowProfile>
