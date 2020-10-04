@@ -184,6 +184,8 @@
 		<BotSleep Value="10000"/>
 	</If>
 	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == true">
+		<SetEnableProfileIgnoreCombat Value="false" />
+		<SetEnablePreemptiveMonsterAttack Value="true" />
 		<ReturnQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
 	</If>
 </While>
