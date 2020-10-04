@@ -1,0 +1,223 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Cave Mushrooms') == false or Data.HasCompletedQuest('The Tower of Althalaxx', 967) == false or UnitLevel('player') &lt; 21">
+<Lua>QuestNodes[11713]=0</Lua>
+<Lua>QuestNodes[5270]=0</Lua>
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+<SetEnableMonsterLevelFilter Value="true" />
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Elisa Steelhand"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+	
+	<!-- Restock Darkshore 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin or Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Laird" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
+	</If>	
+	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Dalmond" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- TakeQuest -->
+	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 965) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 965) == false">
+        <TakeQuest NpcName="Sentinel Elissa Starbreeze" QuestId="965" QuestName="The Tower of Althalaxx" />
+    </If>	
+
+	<!-- QuestObjective -->
+		<!-- Blackspots -->
+		<AddBlackspot X="6818.7529296875" Y="-382.69662475586" Z="40.684844970703" Range="100" />
+		<AddBlackspot X="6863.3842773438" Y="-479.56393432617" Z="40.143852233887" Range="100" />
+		<AddBlackspot X="6885.7250976563" Y="-511.59030151367" Z="40.41414642334" Range="100" />		
+		<AddBlackspot X="6685.8735351563" Y="18.088653564453" Z="42.849822998047" Range="20" />
+		<AddBlackspot X="6709.5009765625" Y="1.3089591264725" Z="43.079704284668" Range="35" />
+		<AddBlackspot X="6731.9252929688" Y="-42.077789306641" Z="42.926387786865" Range="25" />
+		<AddBlackspot X="6732.1713867188" Y="-87.304000854492" Z="43.202404022217" Range="25" />
+		<AddBlackspot X="6713.3071289063" Y="-138.01586914063" Z="35.813495635986" Range="25" />
+		<AddBlackspot X="6659.9243164063" Y="-137.95391845703" Z="33.819156646729" Range="25" />
+		<AddBlackspot X="6618.7065429688" Y="-119.83071136475" Z="33.469467163086" Range="25" />
+		<AddBlackspot X="6608.6284179688" Y="-90.336364746094" Z="31.732849121094" Range="25" />
+		<AddBlackspot X="6584.6040039063" Y="-46.396724700928" Z="32.568912506104" Range="25" />
+		<AddBlackspot X="6605.2221679688" Y="-2.3943824768066" Z="30.28058052063" Range="25" />
+		<AddBlackspot X="6644.5327148438" Y="5.5472593307495" Z="36.317687988281" Range="25" />
+		<AddBlackspot X="6629.5634765625" Y="18.16365814209" Z="35.506042480469" Range="100" />
+		<AddBlackspot X="6630.6298828125" Y="-36.13822555542" Z="35.742797851563" Range="100" />
+		<AddBlackspot X="6630.353515625" Y="-113.39915466309" Z="33.870578765869" Range="100" />
+		<AddBlackspot X="6669.369140625" Y="-149.25303649902" Z="33.461875915527" Range="100" />
+		<AddBlackspot X="6692.2670898438" Y="-185.47970581055" Z="35.115547180176" Range="100" />
+		<AddBlackspot X="6712.0625" Y="-209.3385925293" Z="39.246662139893" Range="100" />
+
+    <If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 965) == true">
+        <ReturnQuest NpcName="Balthule Shadowstrike" QuestId="965" QuestName="The Tower of Althalaxx" />
+    </If>
+	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 966) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 966) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 965) == true">
+        <TakeQuest NpcName="Balthule Shadowstrike" QuestId="966" QuestName="The Tower of Althalaxx" />
+    </If>	
+
+    <If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 966) == true and Data.AllQuestObjectivesAreComplete('The Tower of Althalaxx', 966) == false">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+
+		<!-- Hotspots -->
+		<AddHotspot X="7163.0776367188" Y="-696.08587646484" Z="47.739803314209" Range="100" />
+		<AddHotspot X="7148.7509765625" Y="-756.27679443359" Z="52.590679168701" Range="100" />
+		<AddHotspot X="7196.7211914063" Y="-806.291015625" Z="38.896003723145" Range="100" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Dark Strand Fanatic" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Tower of Althalaxx', 966) == false" >
+			<Wait Value="100" />
+		</While>
+    </If>	
+
+	
+	<!-- TurnIn -->
+    <If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 966) == true">
+        <ReturnQuest NpcName="Balthule Shadowstrike" QuestId="966" QuestName="The Tower of Althalaxx" />
+    </If>
+	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 967) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 967) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 966) == true">
+        <TakeQuest NpcName="Balthule Shadowstrike" QuestId="967" QuestName="The Tower of Althalaxx" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 967) == true">
+        <ReturnQuest NpcName="Delgren the Purifier" QuestId="967" QuestName="The Tower of Althalaxx" />
+    </If>
+    <SetVendorNpc NpcName="Xai\'ander"/>
+    <SetRepairNpc NpcName="Xai\'ander"/>	
+	<ClearHotspots />
+	<AddHotspot X="3233.8176269531" Y="318.02758789063" Z="5.4033298492432" Range="100" />
+	<AddHotspot X="3305.5698242188" Y="370.87484741211" Z="5.4857015609741" Range="100" />
+	<AddHotspot X="3266.3786621094" Y="460.83059692383" Z="2.4196262359619" Range="100" />
+	<AddHotspot X="3271.6064453125" Y="540.02117919922" Z="-0.21290042996407" Range="100" />
+	<AddHotspot X="3341.5695800781" Y="587.22253417969" Z="3.07266497612" Range="100" />
+	<AddHotspot X="3465.1228027344" Y="526.96282958984" Z="5.4898800849915" Range="100" />
+	<AddHotspot X="3519.2114257813" Y="420.7548828125" Z="1.1410958766937" Range="100" />
+	<AddHotspot X="3580.4880371094" Y="327.48376464844" Z="6.5056281089783" Range="100" />	
+    <SetTargetingMode Mode="Around Points" />	
+	<SetHotspotTraverseMode Mode="Straight"/>
+    <ClearMonsterFilter/>
+	<SetMonsterFilterMode Mode="None"/>
+	<While Condition="UnitLevel('player') &lt; 21" >
+        <Wait Value="100" />
+    </While>	
+	<NPCInteract NpcName="Daelyshia" />
+</ShadowProfile>
