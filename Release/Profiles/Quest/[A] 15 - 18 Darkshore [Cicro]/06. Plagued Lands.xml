@@ -167,12 +167,12 @@
 			BotSleep(2145) return true
 		</Lua>
 	</If>
-	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and Nav.RangeFromMeXYZ(7113.5703125, -236.44342041016, 35.597888946533) &gt; 200 and UnitName('target') ~= 'Rabid Thistle Bear">
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and Nav.RangeFromMeXYZ(7113.5703125, -236.44342041016, 35.597888946533) &gt; 200 and UnitName('target') ~= 'Rabid Thistle Bear'">
 		<Lua>PetDefensiveMode()</Lua>
 		<SetEnableProfileIgnoreCombat Value="false" />
 		<MoveTo X="7113.5703125" Y="-236.44342041016" Z="35.597888946533" />
 	</If>
-	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and UnitIsDead('target') == false and UnitName('target') ~= 'Rabid Thistle Bear' and UnitIsDead('target') == false">
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and UnitIsDead('target') == false and UnitName('target') ~= 'Rabid Thistle Bear'">
 		<SetEnableProfileIgnoreCombat Value="false" />
 		<Lua>PetDefensiveMode()</Lua>
 	</If>
