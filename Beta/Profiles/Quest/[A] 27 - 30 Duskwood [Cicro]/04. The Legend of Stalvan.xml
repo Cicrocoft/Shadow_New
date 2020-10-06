@@ -1,0 +1,184 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Legend of Stalvan', 97) == false or UnitXP('player') &lt;= 25000 and UnitXPMax('player') == 38900" >
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Bliztik" />
+	<SetRepairNpc NpcName="Morg Gnarltree" />	
+
+	<If Condition="Data.HasActiveQuest('Raven Hill', 163) == false and Data.HasCompletedQuest('Raven Hill', 163) == false">
+		<TakeQuest NpcName="Elaine Carevin" QuestId="163" QuestName="Raven Hill" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Hermit', 165) == false and Data.HasCompletedQuest('The Hermit', 165) == false">
+		<TakeQuest NpcName="Elaine Carevin" QuestId="165" QuestName="The Hermit" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 66) == false and Data.HasCompletedQuest('The Legend of Stalvan', 66) == false">
+		<TakeQuest NpcName="Madame Eva" QuestId="66" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 66) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 66) == true">
+		<ReturnQuest NpcName="Clerk Daltry" QuestId="66" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 67) == false and Data.HasCompletedQuest('The Legend of Stalvan', 67) == false">
+		<TakeQuest NpcName="Clerk Daltry" QuestId="67" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Hermit', 165) == true">
+		<ReturnQuest NpcName="Abercrombie" QuestId="165" QuestName="The Hermit" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('Supplies from Darkshire', 148) == false and Data.HasCompletedQuest('Supplies from Darkshire', 148) == false and Data.HasCompletedQuest('The Hermit', 165) == true">
+		<TakeQuest NpcName="Abercrombie" QuestId="148" QuestName="Supplies from Darkshire" />
+	</If>
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+		<AddBlackspot X="-10431.016601563" Y="178.59965515137" Z="35.795894622803" Range="50" />
+		<AddBlackspot X="-10546.802734375" Y="229.1388092041" Z="31.646213531494" Range="50" />
+		<AddBlackspot X="-10598.604492188" Y="271.34014892578" Z="33.474033355713" Range="50" />
+		<!-- Hotspots -->
+		<AddHotspot X="-10314.133789063" Y="-52.557125091553" Z="41.538181304932" Range="100" />
+		<AddHotspot X="-10405.922851563" Y="-47.866703033447" Z="49.142333984375" Range="100" />
+		<AddHotspot X="-10491.169921875" Y="-43.069725036621" Z="46.669456481934" Range="100" />
+		<AddHotspot X="-10590.9140625" Y="-44.61088180542" Z="36.31538772583" Range="100" />
+		<AddHotspot X="-10667.1015625" Y="-72.773429870605" Z="33.881587982178" Range="50" />
+
+		<While Condition="UnitLevel('player') &lt; 27 or UnitXP('player') &lt;= 25000 and UnitXPMax('player') == 38900" >
+				<Wait Value="100" />
+		</While>
+	<If Condition="Data.HasActiveQuest('Deliveries to Sven', 164) == true and Data.AllQuestObjectivesAreComplete('Deliveries to Sven', 164) == true">
+		<ReturnQuest NpcName="Sven Yorgen" QuestId="164" QuestName="Deliveries to Sven" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Sven\'s Revenge', 95) == false and Data.HasCompletedQuest('Sven\'s Revenge', 95) == false">
+		<TakeQuest NpcName="Sven Yorgen" QuestId="95" QuestName="Sven\'s Revenge" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Wolves at Our Heels', 226) == false and Data.HasCompletedQuest('Wolves at Our Heels', 226) == false">
+		<TakeQuest NpcName="Lars" QuestId="226" QuestName="Wolves at Our Heels" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Wolves at Our Heels', 226) == true and Data.AllQuestObjectivesAreComplete('Wolves at Our Heels', 226) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<ClearBlackspots />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Starving Dire Wolf" />	
+		<AddMonsterFilterName Value="Rabid Dire Wolf" />	
+		<!-- Blackspots -->
+		<AddBlackspot X="-10431.016601563" Y="178.59965515137" Z="35.795894622803" Range="50" />
+		<AddBlackspot X="-10546.802734375" Y="229.1388092041" Z="31.646213531494" Range="50" />
+		<AddBlackspot X="-10598.604492188" Y="271.34014892578" Z="33.474033355713" Range="50" />
+		<!-- Hotspots -->
+		<AddHotspot X="-10285.620117188" Y="550.51800537109" Z="39.95361328125" Range="100" />
+		<AddHotspot X="-10253.77734375" Y="457.80029296875" Z="42.239433288574" Range="100" />
+		<AddHotspot X="-10184.951171875" Y="345.02420043945" Z="33.089851379395" Range="100" />
+		<AddHotspot X="-10217.998046875" Y="177.95043945313" Z="28.12866973877" Range="100" />
+		<AddHotspot X="-10189.986328125" Y="-6.8238625526428" Z="28.166042327881" Range="100" />
+		<AddHotspot X="-10139.56640625" Y="-125.65827941895" Z="29.559576034546" Range="100" />
+		<AddHotspot X="-10092.623046875" Y="-239.32929992676" Z="31.10863494873" Range="100" />
+		<AddHotspot X="-10058.741210938" Y="-341.76834106445" Z="31.206480026245" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Wolves at Our Heels', 226) == false" >
+			<Wait Value="100" />			
+		</While>		
+	</If>	
+	<If Condition="Data.HasActiveQuest('Wolves at Our Heels', 226) == true and Data.HasCompletedQuest('Wolves at Our Heels', 226) == false">
+		<SetEnablePreemptiveMonsterAttack Value="true" />
+		<ReturnQuest NpcName="Lars" QuestId="226" QuestName="Wolves at Our Heels" />
+	</If>	
+</ShadowProfile>
