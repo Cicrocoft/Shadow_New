@@ -49,11 +49,23 @@
 	<AddBlackspot X="-3416.6657714844" Y="-2519.9558105469" Z="26.467210769653" Range="50" />
 	<AddBlackspot X="-3290.6032714844" Y="-2183.0148925781" Z="36.422168731689" Range="50" />
 	<AddBlackspot X="-3293.1372070313" Y="-2156.9799804688" Z="30.924919128418" Range="50" />
-
+	
 	<If Condition="Data.HasActiveQuest('In Search of The Excavation Team', 305) == false and Data.HasCompletedQuest('In Search of The Excavation Team', 305) == false">
 		<TakeQuest NpcName="Tarrel Rockweaver" QuestId="305" QuestName="In Search of The Excavation Team" />
 	</If>
 	<If Condition="Data.HasActiveQuest('In Search of The Excavation Team', 305) == true and Data.AllQuestObjectivesAreComplete('In Search of The Excavation Team', 305) == true">
+	<AddBlackspot X="-3494.7717285156" Y="-1472.880859375" Z="9.1566696166992" Range="50" />
+	<AddBlackspot X="-3710.7377929688" Y="-2610.4448242188" Z="56.420711517334" Range="50" />
+	<AddBlackspot X="-3416.6657714844" Y="-2519.9558105469" Z="26.467210769653" Range="50" />
+	<AddBlackspot X="-3290.6032714844" Y="-2183.0148925781" Z="36.422168731689" Range="50" />
+	<AddBlackspot X="-3293.1372070313" Y="-2156.9799804688" Z="30.924919128418" Range="50" />
+		<AddBlackspot X="-3355.8095703125" Y="-1590.3544921875" Z="9.9569292068481" Range="100" />
+		<AddBlackspot X="-3383.7919921875" Y="-1509.9903564453" Z="12.763855934143" Range="100" />
+		<AddBlackspot X="-3463.7250976563" Y="-1442.0322265625" Z="9.1462001800537" Range="100" />
+		<AddBlackspot X="-3517.6369628906" Y="-1374.7410888672" Z="10.430549621582" Range="100" />
+		<AddBlackspot X="-3589.2458496094" Y="-1344.4095458984" Z="11.013011932373" Range="100" />
+		<AddBlackspot X="-3602.279296875" Y="-1269.3480224609" Z="10.368233680725" Range="100" />
+		<AddBlackspot X="-3671.775390625" Y="-1323.9489746094" Z="10.756290435791" Range="100" />
 		<ReturnQuest NpcName="Merrin Rockweaver" QuestId="305" QuestName="In Search of The Excavation Team" />
 	</If>
 	<If Condition="Data.HasActiveQuest('In Search of The Excavation Team', 306) == false and Data.HasCompletedQuest('In Search of The Excavation Team', 306) == false">
@@ -66,6 +78,7 @@
 		<!-- Objective Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<ClearHotspots />
+		<ClearBlackspots />
 		<!-- Monsterfilter -->
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />

@@ -75,9 +75,35 @@
 		<While Condition="Data.AllQuestObjectivesAreComplete('Claws from the Deep', 279) == false" >
 			<Wait Value="100" />
 		</While>
+		<While Condition="UnitLevel('player') &lt;= 25 or UnitXP('player') &lt;= 5000 and UnitXPMax('player') == 34000" >
+				<Wait Value="100" />
+		</While>		
+		
+		
 	</If>
+		<ClearHotspots />
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />	
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-3245.8999023438" Y="-967.67199707031" Z="9.1764478683472" Range="100" />
+		<AddHotspot X="-3251.1838378906" Y="-1066.3884277344" Z="9.3922595977783" Range="100" />
+		<AddHotspot X="-3262.7524414063" Y="-1154.2160644531" Z="9.4226789474487" Range="100" />		
+		<AddHotspot X="-3134.2824707031" Y="-1011.7744140625" Z="10.220883369446" Range="100" />
+		<AddHotspot X="-3075.2192382813" Y="-1089.5471191406" Z="9.3957538604736" Range="100" />
+		<AddHotspot X="-3057.7810058594" Y="-1197.6114501953" Z="9.1469430923462" Range="100" />
+		<AddHotspot X="-3110.4194335938" Y="-1288.5823974609" Z="9.9148254394531" Range="100" />
+		<AddHotspot X="-3168.0825195313" Y="-1359.0825195313" Z="10.268133163452" Range="100" />	
+
+		<While Condition="UnitLevel('player') &lt; 25 or UnitXP('player') &lt;= 5000 and UnitXPMax('player') == 34000" >
+				<Wait Value="100" />
+		</While>
 
 	<If Condition="Data.HasActiveQuest('Young Crocolisk Skins', 484) == true and Data.AllQuestObjectivesAreComplete('Young Crocolisk Skins', 484) == false">
+		<ClearHotspots />
 		<!-- Objective Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Monsterfilter -->
@@ -97,7 +123,34 @@
 		<While Condition="Data.AllQuestObjectivesAreComplete('Young Crocolisk Skins', 484) == false" >
 			<Wait Value="100" />
 		</While>
+
+	
+		
 	</If>
+	
+		<ClearHotspots />
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />	
+		<!-- Blackspots -->
+		<AddBlackspot X="-3088.4653320313" Y="-2011.5623779297" Z="9.3295230865479" Range="40" />	
+		<!-- Hotspots -->
+		<AddHotspot X="-3380.5961914063" Y="-1403.2647705078" Z="9.0020580291748" Range="100" />
+		<AddHotspot X="-3475.1064453125" Y="-1349.6273193359" Z="9.1518898010254" Range="100" />
+		<AddHotspot X="-3392.0129394531" Y="-1235.3120117188" Z="7.3529920578003" Range="100" />
+		<AddHotspot X="-3370.3203125" Y="-1346.7198486328" Z="9.228196144104" Range="100" />
+		<AddHotspot X="-3275.662109375" Y="-1486.4246826172" Z="9.2369651794434" Range="100" />
+		<AddHotspot X="-3227.9145507813" Y="-1616.9548339844" Z="7.8046154975891" Range="100" />
+		<AddHotspot X="-3101.5686035156" Y="-1585.1663818359" Z="7.339165687561" Range="100" />
+		<AddHotspot X="-3172.3488769531" Y="-1763.9636230469" Z="9.4513177871704" Range="100" />
+		<AddHotspot X="-3140.3090820313" Y="-1924.9761962891" Z="7.6203756332397" Range="100" />	
+
+		<While Condition="UnitLevel('player') &lt; 25 or UnitXP('player') &lt;= 8000 and UnitXPMax('player') == 34000" >
+				<Wait Value="100" />
+		</While>	
+	
 	<If Condition="Data.HasActiveQuest('Young Crocolisk Skins', 484) == true and Data.AllQuestObjectivesAreComplete('Young Crocolisk Skins', 484) == true">
 		<ReturnQuest NpcName="James Halloran" QuestId="484" QuestName="Young Crocolisk Skins" />
 	</If>

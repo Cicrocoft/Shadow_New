@@ -61,9 +61,7 @@
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Monsterfilter -->
 		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Mosshide Fenrunner" />
-		<AddMonsterFilterName Value="Mosshide Trapper" />
+		<SetMonsterFilterMode Mode="None" />
 		<!-- Blackspots -->
 		<AddBlackspot X="-3089.1623535156" Y="-2010.7098388672" Z="9.4315013885498" Range="40" />
 		<AddBlackspot X="-2966.1325683594" Y="-1946.4425048828" Z="9.305136680603" Range="40" />

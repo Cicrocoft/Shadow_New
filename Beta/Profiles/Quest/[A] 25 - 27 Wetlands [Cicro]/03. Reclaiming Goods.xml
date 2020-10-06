@@ -80,6 +80,28 @@
 	<If Condition="Data.HasActiveQuest('Return the Statuette', 286) == false and Data.HasCompletedQuest('Return the Statuette', 286) == false">
 		<TakeQuestFromObject QuestId="286" QuestName="Return the Statuette" X="-3108.9477539063" Y="-969.45483398438" Z="8.1165723800659" />
 	</If>
+
+		<ClearHotspots />
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />	
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-3245.8999023438" Y="-967.67199707031" Z="9.1764478683472" Range="100" />
+		<AddHotspot X="-3251.1838378906" Y="-1066.3884277344" Z="9.3922595977783" Range="100" />
+		<AddHotspot X="-3262.7524414063" Y="-1154.2160644531" Z="9.4226789474487" Range="100" />		
+		<AddHotspot X="-3134.2824707031" Y="-1011.7744140625" Z="10.220883369446" Range="100" />
+		<AddHotspot X="-3075.2192382813" Y="-1089.5471191406" Z="9.3957538604736" Range="100" />
+		<AddHotspot X="-3057.7810058594" Y="-1197.6114501953" Z="9.1469430923462" Range="100" />
+		<AddHotspot X="-3110.4194335938" Y="-1288.5823974609" Z="9.9148254394531" Range="100" />
+		<AddHotspot X="-3168.0825195313" Y="-1359.0825195313" Z="10.268133163452" Range="100" />	
+
+		<While Condition="UnitLevel('player') &lt; 25 or UnitXP('player') &lt;= 22000 and UnitXPMax('player') == 34000" >
+				<Wait Value="100" />
+		</While>	
+	
 	<If Condition="Data.HasActiveQuest('Return the Statuette', 286) == true and Data.AllQuestObjectivesAreComplete('Return the Statuette', 286) == true">
 		<ReturnQuest NpcName="Karl Boran" QuestId="286" QuestName="Return the Statuette" />
 	</If>	
