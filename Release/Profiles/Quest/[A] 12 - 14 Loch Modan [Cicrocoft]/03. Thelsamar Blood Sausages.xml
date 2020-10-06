@@ -162,6 +162,7 @@
 		<AddHotspot X="-5110.4692382813" Y="-2900.2944335938" Z="329.26278686523" Range="100" />
 		<AddHotspot X="-5091.5712890625" Y="-2959.4768066406" Z="333.33911132813" Range="100" />
 		<AddHotspot X="-5081.515625" Y="-3014.4567871094" Z="323.77386474609" Range="100" />
+		<AddHotspot X="-5206.6499023438" Y="-3027.1015625" Z="333.31665039063" Range="100" />
 		<!-- Mob Whitelist -->
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />
