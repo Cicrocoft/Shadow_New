@@ -100,6 +100,41 @@
 	<SetVendorNpc NpcName="Morg Gnarltree" />
 	<SetRepairNpc NpcName="Morg Gnarltree" />	
 
+	<!-- Restock Darkshire 27+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin or Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Dwarven Mild" NpcName="Innkeeper Trelayne" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Dwarven Mild" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Dwarven Mild" NpcName="Innkeeper Trelayne" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Dwarven Mild" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Dwarven Mild" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Melon Juice" NpcName="Innkeeper Trelayne" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Melon Juice" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Melon Juice" NpcName="Innkeeper Trelayne" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Melon Juice" />
+	</If>	
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Solid Shot" NpcName="Mabel Solaj" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Razor Arrow" NpcName="Mabel Solaj" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Razor Arrow" NpcName="Mabel Solaj" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
 	<If Condition="Data.HasActiveQuest('The Night Watch', 56) == false and Data.HasCompletedQuest('The Night Watch', 56) == false">
 		<TakeQuest NpcName="Commander Althea Ebonlocke" QuestId="56" QuestName="The Night Watch" />
 	</If>
