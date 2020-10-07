@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('The Legend of Stalvan', 97) == false or UnitXP('player') &lt;= 25000 and UnitXPMax('player') == 38900" >
+<ShadowProfile Condition="Data.HasCompletedQuest('The Legend of Stalvan', 97) == false or UnitXP('player') &lt;= 26000 and UnitXPMax('player') == 38900" >
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
@@ -130,6 +130,11 @@
 		<AddBlackspot X="-10431.016601563" Y="178.59965515137" Z="35.795894622803" Range="50" />
 		<AddBlackspot X="-10546.802734375" Y="229.1388092041" Z="31.646213531494" Range="50" />
 		<AddBlackspot X="-10598.604492188" Y="271.34014892578" Z="33.474033355713" Range="50" />
+		<AddBlackspot X="-10373.774414063" Y="-841.85034179688" Z="43.701061248779" Range="70" />
+		<AddBlackspot X="-10381.754882813" Y="-909.92712402344" Z="46.859466552734" Range="70" />
+		<AddBlackspot X="-10432.913085938" Y="-950.57641601563" Z="44.073383331299" Range="70" />
+		<AddBlackspot X="-10381.421875" Y="-1033.849609375" Z="43.889553070068" Range="35" />
+		<AddBlackspot X="-10245.069335938" Y="-750.21337890625" Z="45.859325408936" Range="50" />
 		<!-- Hotspots -->
 		<AddHotspot X="-10314.133789063" Y="-52.557125091553" Z="41.538181304932" Range="100" />
 		<AddHotspot X="-10405.922851563" Y="-47.866703033447" Z="49.142333984375" Range="100" />
@@ -137,7 +142,7 @@
 		<AddHotspot X="-10590.9140625" Y="-44.61088180542" Z="36.31538772583" Range="100" />
 		<AddHotspot X="-10667.1015625" Y="-72.773429870605" Z="33.881587982178" Range="50" />
 
-		<While Condition="UnitLevel('player') &lt; 27 or UnitXP('player') &lt;= 25000 and UnitXPMax('player') == 38900" >
+		<While Condition="UnitLevel('player') &lt; 27 or UnitXP('player') &lt;= 26000 and UnitXPMax('player') == 38900" >
 				<Wait Value="100" />
 		</While>
 	<If Condition="Data.HasActiveQuest('Deliveries to Sven', 164) == true and Data.AllQuestObjectivesAreComplete('Deliveries to Sven', 164) == true">
@@ -164,6 +169,11 @@
 		<AddBlackspot X="-10431.016601563" Y="178.59965515137" Z="35.795894622803" Range="50" />
 		<AddBlackspot X="-10546.802734375" Y="229.1388092041" Z="31.646213531494" Range="50" />
 		<AddBlackspot X="-10598.604492188" Y="271.34014892578" Z="33.474033355713" Range="50" />
+		<AddBlackspot X="-10373.774414063" Y="-841.85034179688" Z="43.701061248779" Range="70" />
+		<AddBlackspot X="-10381.754882813" Y="-909.92712402344" Z="46.859466552734" Range="70" />
+		<AddBlackspot X="-10432.913085938" Y="-950.57641601563" Z="44.073383331299" Range="70" />
+		<AddBlackspot X="-10381.421875" Y="-1033.849609375" Z="43.889553070068" Range="35" />
+		<AddBlackspot X="-10245.069335938" Y="-750.21337890625" Z="45.859325408936" Range="50" />
 		<!-- Hotspots -->
 		<AddHotspot X="-10285.620117188" Y="550.51800537109" Z="39.95361328125" Range="100" />
 		<AddHotspot X="-10253.77734375" Y="457.80029296875" Z="42.239433288574" Range="100" />
@@ -178,7 +188,116 @@
 		</While>		
 	</If>	
 	<If Condition="Data.HasActiveQuest('Wolves at Our Heels', 226) == true and Data.HasCompletedQuest('Wolves at Our Heels', 226) == false">
-		<SetEnablePreemptiveMonsterAttack Value="true" />
 		<ReturnQuest NpcName="Lars" QuestId="226" QuestName="Wolves at Our Heels" />
+		<SetEnablePreemptiveMonsterAttack Value="true" />
+	</If>	
+	<SetEnablePreemptiveMonsterAttack Value="false" />
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 67) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 67) == true">
+		<NPCInteract NpcName="Thor" />
+		<ReturnQuestToObject QuestId="67" QuestName="The Legend of Stalvan" X="-10958.0703125" Y="1563.669921875" Z="45.619083404541" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 68) == false and Data.HasCompletedQuest('The Legend of Stalvan', 68) == false">
+		<TakeQuestFromObject QuestId="68" QuestName="The Legend of Stalvan" X="-10958.0703125" Y="1563.669921875" Z="45.619083404541" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 68) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 68) == true">
+		<ReturnQuest NpcName="Clerk Daltry" QuestId="68" QuestName="The Legend of Stalvan" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 69) == false and Data.HasCompletedQuest('The Legend of Stalvan', 69) == false">
+		<TakeQuest NpcName="Clerk Daltry" QuestId="69" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Supplies from Darkshire', 148) == true and Data.AllQuestObjectivesAreComplete('Supplies from Darkshire', 148) == true">
+		<ReturnQuestToObject QuestId="148" QuestName="Supplies from Darkshire" X="-10532.78515625" Y="-1211.0031738281" Z="28.117643356323" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Ghost Hair Thread', 149) == false and Data.HasCompletedQuest('Ghost Hair Thread', 149) == false">
+		<TakeQuest NpcName="Madame Eva" QuestId="149" QuestName="Ghost Hair Thread" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 69) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 69) == true">
+		<ReturnQuest NpcName="Innkeeper Farley" QuestId="69" QuestName="The Legend of Stalvan" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 70) == false and Data.HasCompletedQuest('The Legend of Stalvan', 70) == false">
+		<TakeQuest NpcName="Innkeeper Farley" QuestId="70" QuestName="The Legend of Stalvan" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 70) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 70) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<ClearHotspots />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[1560]=0</Lua>
+		<!-- QuestObjects -->
+		<AllowQuestNode NodeName="Storage Chest" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-9462.99609375" Y="-1.2560822963715" Z="63.820606231689" Range="30" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 70) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 70) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 70) == true">
+		<ReturnQuest NpcName="Caretaker Folsom" QuestId="70" QuestName="The Legend of Stalvan" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 72) == false and Data.HasCompletedQuest('The Legend of Stalvan', 72) == false">
+		<TakeQuest NpcName="Caretaker Folsom" QuestId="72" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 72) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 72) == true">
+		<ReturnQuestToObject QuestId="72" QuestName="The Legend of Stalvan" X="-8831.71875" Y="984.55865478516" Z="98.727073669434" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 74) == false and Data.HasCompletedQuest('The Legend of Stalvan', 74) == false">
+		<TakeQuestFromObject QuestId="74" QuestName="The Legend of Stalvan" X="-8831.71875" Y="984.55865478516" Z="98.727073669434" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('A Scroll from Mauren', 1075) == true">
+		<ReturnQuest NpcName="Collin Mauren" QuestId="1075" QuestName="A Scroll from Mauren" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 74) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 74) == true">
+		<ReturnQuest NpcName="Marshal Haggard" QuestId="74" QuestName="The Legend of Stalvan" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 75) == false and Data.HasCompletedQuest('The Legend of Stalvan', 75) == false">
+		<TakeQuest NpcName="Marshal Haggard" QuestId="75" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 75) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 75) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<ClearHotspots />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[1562]=0</Lua>
+		<!-- QuestObjects -->
+		<AllowQuestNode NodeName="Marshal Haggard\'s Chest" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-9549.86328125" Y="-1437.9398193359" Z="62.2956199646" Range="30" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 75) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 75) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 75) == true">
+		<ReturnQuest NpcName="Marshal Haggard" QuestId="75" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 78) == false and Data.HasCompletedQuest('The Legend of Stalvan', 78) == false">
+		<TakeQuest NpcName="Marshal Haggard" QuestId="78" QuestName="The Legend of Stalvan" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 78) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 78) == true">
+		<ReturnQuest NpcName="Tavernkeep Smitts" QuestId="78" QuestName="The Legend of Stalvan" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 79) == false and Data.HasCompletedQuest('The Legend of Stalvan', 79) == false">
+		<TakeQuest NpcName="Tavernkeep Smitts" QuestId="79" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 79) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 79) == true">
+		<ReturnQuest NpcName="Commander Althea Ebonlocke" QuestId="79" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 80) == false and Data.HasCompletedQuest('The Legend of Stalvan', 80) == false">
+		<TakeQuest NpcName="Commander Althea Ebonlocke" QuestId="80" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 80) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 80) == true">
+		<ReturnQuest NpcName="Clerk Daltry" QuestId="80" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 97) == false and Data.HasCompletedQuest('The Legend of Stalvan', 97) == false">
+		<TakeQuest NpcName="Clerk Daltry" QuestId="97" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 97) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 97) == true">
+		<ReturnQuest NpcName="Commander Althea Ebonlocke" QuestId="97" QuestName="The Legend of Stalvan" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 98) == false and Data.HasCompletedQuest('The Legend of Stalvan', 98) == false">
+		<TakeQuest NpcName="Commander Althea Ebonlocke" QuestId="98" QuestName="The Legend of Stalvan" />
 	</If>	
 </ShadowProfile>
