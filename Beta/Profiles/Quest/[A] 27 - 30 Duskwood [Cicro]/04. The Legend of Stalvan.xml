@@ -134,7 +134,15 @@
 		<AddRestockItem ItemName="Razor Arrow" NpcName="Mabel Solaj" UnderAmount="100" BuyAmount="800"/>
 	</If>
 	<!-- End Restock -->
-
+	
+	<AddBlackspot X="-10431.016601563" Y="178.59965515137" Z="35.795894622803" Range="50" />
+	<AddBlackspot X="-10546.802734375" Y="229.1388092041" Z="31.646213531494" Range="50" />
+	<AddBlackspot X="-10598.604492188" Y="271.34014892578" Z="33.474033355713" Range="50" />
+	<AddBlackspot X="-10373.774414063" Y="-841.85034179688" Z="43.701061248779" Range="70" />
+	<AddBlackspot X="-10381.754882813" Y="-909.92712402344" Z="46.859466552734" Range="70" />
+	<AddBlackspot X="-10432.913085938" Y="-950.57641601563" Z="44.073383331299" Range="70" />
+	<AddBlackspot X="-10381.421875" Y="-1033.849609375" Z="43.889553070068" Range="35" />
+	<AddBlackspot X="-10245.069335938" Y="-750.21337890625" Z="45.859325408936" Range="50" />
 	<If Condition="Data.HasActiveQuest('Raven Hill', 163) == false and Data.HasCompletedQuest('Raven Hill', 163) == false">
 		<TakeQuest NpcName="Elaine Carevin" QuestId="163" QuestName="Raven Hill" />
 	</If>
@@ -193,7 +201,6 @@
 		<!-- Objective Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<ClearHotspots />
-		<ClearBlackspots />
 		<SetEnablePreemptiveMonsterAttack Value="false" />
 		<!-- Monsterfilter -->
 		<ClearMonsterFilter/>
