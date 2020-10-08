@@ -151,7 +151,7 @@
 		<AddBlackspot X="-11094.471679688" Y="-525.61126708984" Z="32.385646820068" Range="25" />
 		<ReturnQuestToObject QuestId="95" QuestName="Sven\'s Revenge" X="-11117.229492188" Y="-516.37530517578" Z="32.823799133301" />
 	</If>
-	<If Condition="Data.HasActiveQuest('Sven\'s Camp', 95) == true and Data.AllQuestObjectivesAreComplete('Sven\'s Camp', 95) == true">
+	<If Condition="Data.HasActiveQuest('Sven\'s Camp', 230) == false and Data.HasCompletedQuest('Sven\'s Revenge', 230) == false">
 		<AddBlackspot X="-11040.419921875" Y="-541.43707275391" Z="33.071479797363" Range="25" />
 		<AddBlackspot X="-11070.03515625" Y="-538.01959228516" Z="32.884544372559" Range="25" />
 		<AddBlackspot X="-11101.967773438" Y="-533.03839111328" Z="33.20804977417" Range="25" />
