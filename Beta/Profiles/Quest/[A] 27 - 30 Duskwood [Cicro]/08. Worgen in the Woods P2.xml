@@ -1,0 +1,209 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Ogre Thieves', 134) == false or Data.HasActiveQuest('An Old History Book') == true">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Morg Gnarltree" />
+	<SetRepairNpc NpcName="Morg Gnarltree" />
+
+	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 221) == false and Data.HasCompletedQuest('Worgen in the Woods', 221) == false">
+		<TakeQuest NpcName="Calor" QuestId="221" QuestName="Worgen in the Woods" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Noble Brew', 335) == true and Data.QuestObjectiveIsComplete('A Noble Brew', 1, 335) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<ClearHotspots />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[321]=0</Lua>
+		<!-- QuestObjects -->
+		<AllowQuestNode NodeName="Tear of Tilloa" />
+		<!-- Blackspots -->
+		<AddBlackspot X="-10375.330078125" Y="-1257.0374755859" Z="35.829116821289" Range="25" />
+		<!-- Hotspots -->
+		<AddHotspot X="-10364.06640625" Y="-1282.9187011719" Z="35.360061645508" Range="15" />
+		<While Condition="Data.QuestObjectiveIsComplete('A Noble Brew', 1, 335) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 221) == false and Data.HasCompletedQuest('Worgen in the Woods', 221) == false or UnitLevel('player') &lt; 29 or UnitXP('player') &lt;= 40000 and UnitXPMax('player') == 44300">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<!-- Blackspots -->
+		<AddBlackspot X="-11033.359375" Y="-896.80682373047" Z="63.789302825928" Range="35" />
+		<AddBlackspot X="-11075.697265625" Y="-816.44989013672" Z="58.330089569092" Range="45" />
+		<AddBlackspot X="-10644.650390625" Y="-892.2626953125" Z="49.543960571289" Range="50" />
+		<AddBlackspot X="-10448.713867188" Y="-809.892578125" Z="50.439926147461" Range="50" />
+		<AddBlackspot X="-10333.33984375" Y="-1260.9813232422" Z="35.301746368408" Range="30" />
+		<AddBlackspot X="-10375.330078125" Y="-1257.0374755859" Z="35.829116821289" Range="25" />
+		<!-- Hotspots -->
+		<AddHotspot X="-10325.897460938" Y="-907.05426025391" Z="38.036262512207" Range="100" />
+		<AddHotspot X="-10415.603515625" Y="-920.44989013672" Z="46.332767486572" Range="100" />
+		<AddHotspot X="-10489.362304688" Y="-899.45141601563" Z="45.465667724609" Range="100" />
+		<AddHotspot X="-10595.654296875" Y="-838.17584228516" Z="53.500991821289" Range="100" />
+		<AddHotspot X="-10930.892578125" Y="-902.22747802734" Z="69.876335144043" Range="100" />
+		<AddHotspot X="-10990.983398438" Y="-947.30670166016" Z="67.016342163086" Range="100" />
+		<AddHotspot X="-11056.875" Y="-903.31915283203" Z="62.926990509033" Range="100" />
+		<AddHotspot X="-11034.282226563" Y="-843.46539306641" Z="60.548854827881" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Worgen in the Woods', 221) == false and UnitXP('player') &lt;= 40000 and UnitXPMax('player') == 44300" >
+            <If Condition="IsSpellKnown(604) and Data.HaveBuff('player', 'Dampen Magic') == false and Data.PlayerClass() == WoWClass.Mage">
+                <CastSpell SpellName="Dampen Magic"/>
+                <Wait Value="500"/>
+            </If> 			
+			<Wait Value="100" />
+		</While>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Nightbane Dark Runner" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Worgen in the Woods', 221) == false" >
+            <If Condition="IsSpellKnown(604) and Data.HaveBuff('player', 'Dampen Magic') == false and Data.PlayerClass() == WoWClass.Mage">
+                <CastSpell SpellName="Dampen Magic"/>
+                <Wait Value="500"/>
+            </If> 			
+			<Wait Value="100" />
+		</While>		
+	</If>
+	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 221) == true and Data.AllQuestObjectivesAreComplete('Worgen in the Woods', 221) == true">
+		<ReturnQuest NpcName="Calor" QuestId="221" QuestName="Worgen in the Woods" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 222) == false and Data.HasCompletedQuest('Worgen in the Woods', 222) == false">
+		<TakeQuest NpcName="Calor" QuestId="222" QuestName="Worgen in the Woods" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Juice Delivery', 159) == true and Data.AllQuestObjectivesAreComplete('Juice Delivery', 159) == true">
+		<ReturnQuest NpcName="Abercrombie" QuestId="159" QuestName="Juice Delivery" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Ghoulish Effigy', 133) == false and Data.HasCompletedQuest('Ghoulish Effigy', 133) == false">
+		<TakeQuest NpcName="Abercrombie" QuestId="133" QuestName="Ghoulish Effigy" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Ghoulish Effigy', 133) == true and Data.AllQuestObjectivesAreComplete('Ghoulish Effigy', 133) == false or UnitLevel('player') &lt; 30">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<ClearBlackspots />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Mor'Ladim" />			
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-10411.348632813" Y="222.51672363281" Z="33.49633026123" Range="100" />
+		<AddHotspot X="-10356.1796875" Y="169.06594848633" Z="34.656509399414" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Ghoulish Effigy', 133) == false or UnitLevel('player') &lt; 30" >
+			<Wait Value="100" />			
+		</While>		
+	</If>	
+	<If Condition="Data.HasActiveQuest('Ghoulish Effigy', 133) == true and Data.AllQuestObjectivesAreComplete('Ghoulish Effigy', 133) == true">
+		<ReturnQuest NpcName="Abercrombie" QuestId="133" QuestName="Ghoulish Effigy" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Ogre Thieves', 134) == false and Data.HasCompletedQuest('Ogre Thieves', 134) == false">
+		<TakeQuest NpcName="Abercrombie" QuestId="134" QuestName="Ogre Thieves" />
+	</If>	
+	<While Condition="Data.GetItemCountByName('An Old History Book') == 1 and Data.HasActiveQuest('An Old History Book') == false">
+		<UseItem ItemId="2794" />
+		<BotSleep Value="1234" />
+		<Lua>AcceptQuest()</Lua>
+		<BotSleep Value="2500" />
+	</While>
+	<If Condition="Data.HasActiveQuest('An Old History Book') == true and Data.AllQuestObjectivesAreComplete('An Old History Book') == true">
+		<ReturnQuest NpcName="Milton Sheaf" QuestId="337" QuestName="An Old History Book" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Southshore', 538) == false and Data.HasCompletedQuest('Southshore', 538) == false">
+		<TakeQuest NpcName="Milton Sheaf" QuestId="538" QuestName="Southshore" />
+	</If>	
+</ShadowProfile>
