@@ -248,7 +248,7 @@
 		<TakeQuest NpcName="Clerk Daltry" QuestId="69" QuestName="The Legend of Stalvan" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Supplies from Darkshire', 148) == true and Data.AllQuestObjectivesAreComplete('Supplies from Darkshire', 148) == true">
-		<ReturnQuestToObject QuestId="148" QuestName="Supplies from Darkshire" X="-10532.78515625" Y="-1211.0031738281" Z="28.117643356323" />
+		<ReturnQuest NpcName="Madame Eva" QuestId="148" QuestName="Supplies from Darkshire" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Ghost Hair Thread', 149) == false and Data.HasCompletedQuest('Ghost Hair Thread', 149) == false">
 		<TakeQuest NpcName="Madame Eva" QuestId="149" QuestName="Ghost Hair Thread" />
