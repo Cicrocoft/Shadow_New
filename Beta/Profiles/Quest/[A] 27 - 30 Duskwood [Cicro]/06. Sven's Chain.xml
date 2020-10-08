@@ -297,8 +297,8 @@
 	<If Condition="Data.HasActiveQuest('The Missing Diplomat', 1274) == false and Data.HasCompletedQuest('The Missing Diplomat', 1274) == false">
 		<TakeQuest NpcName="Thomas" QuestId="1274" QuestName="The Missing Diplomat" />
 	</If>
-	<If Condition="Data.HasActiveQuest('Stormpike's Order', 1338) == true and Data.AllQuestObjectivesAreComplete('Stormpike's Order', 1338) == true">
-		<ReturnQuest NpcName="Furen Longbeard" QuestId="1338" QuestName="Stormpike's Order" />
+	<If Condition="Data.HasActiveQuest('Stormpike\'s Order', 1338) == true and Data.AllQuestObjectivesAreComplete('Stormpike\'s Order', 1338) == true">
+		<ReturnQuest NpcName="Furen Longbeard" QuestId="1338" QuestName="Stormpike\'s Order" />
 	</If>
 	<If Condition="Data.HasActiveQuest('The Missing Diplomat', 1274) == true and Data.AllQuestObjectivesAreComplete('The Missing Diplomat', 1274) == true">
 		<ReturnQuest NpcName="Bishop DeLavey" QuestId="1274" QuestName="The Missing Diplomat" />
@@ -330,9 +330,6 @@
 	<If Condition="Data.HasActiveQuest('The Missing Diplomat', 1243) == false and Data.HasCompletedQuest('The Missing Diplomat', 1243) == false">
 		<TakeQuest NpcName="Elling Trias" QuestId="1243" QuestName="The Missing Diplomat" />
 	</If>
-	<If Condition="Data.HasActiveQuest('Blackrock Bounty', 128) == false and Data.HasCompletedQuest('Blackrock Bounty', 128) == false">
-		<TakeQuest NpcName="Guard Howe" QuestId="128" QuestName="Blackrock Bounty" />
-	</If>
 	<If Condition="Data.HasActiveQuest('Ink Supplies', 345) == true and Data.AllQuestObjectivesAreComplete('Ink Supplies', 345) == true">
 		<ReturnQuest NpcName="Foreman Oslow" QuestId="345" QuestName="Ink Supplies" />
 	</If>
@@ -344,26 +341,53 @@
 		<SetRepairNpc NpcName="Kara Adams"/>
 		<SetVendorNpc NpcName="Kara Adams"/>
 		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
 		<!-- Monsterfilter -->
 		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Redridge Drudger" />
 		<!-- Blackspots -->
+		<AddBlackspot X="-9102.1083984375" Y="-2034.4373779297" Z="128.65110778809" Range="30" />
+		<AddBlackspot X="-8829.447265625" Y="-1945.8669433594" Z="133.12698364258" Range="30" />
 		<!-- Hotspots -->
+		<AddHotspot X="-8978.638671875" Y="-2013.4967041016" Z="135.75701904297" Range="40" />
+		<AddHotspot X="-8939.9111328125" Y="-1988.6903076172" Z="139.14247131348" Range="40" />
+		<AddHotspot X="-8915.966796875" Y="-1971.9514160156" Z="138.01319885254" Range="40" />
+		<AddHotspot X="-8899.951171875" Y="-1946.9378662109" Z="138.39640808105" Range="40" />
+		<AddHotspot X="-8885.19921875" Y="-1926.31640625" Z="134.92877197266" Range="40" />
+		<AddHotspot X="-8854.302734375" Y="-1911.6362304688" Z="126.64092254639" Range="40" />
+		<AddHotspot X="-8866.11328125" Y="-1962.208984375" Z="122.83228302002" Range="40" />
+		<AddHotspot X="-8879.5751953125" Y="-2011.7705078125" Z="124.45337677002" Range="40" />
+		<AddHotspot X="-8842.791015625" Y="-1983.8746337891" Z="124.68090057373" Range="40" />
+		<AddHotspot X="-8804.29296875" Y="-1942.5733642578" Z="125.53561401367" Range="40" />
+		<AddHotspot X="-8790.1533203125" Y="-1979.6174316406" Z="126.77261352539" Range="40" />
+		<AddHotspot X="-8770.716796875" Y="-2008.7956542969" Z="130.53784179688" Range="40" />
+		<AddHotspot X="-8783.4501953125" Y="-2035.3887939453" Z="127.61566162109" Range="40" />
+		<AddHotspot X="-8815.443359375" Y="-2049.2661132813" Z="128.85211181641" Range="40" />
+		<AddHotspot X="-8856.2177734375" Y="-2055.8930664063" Z="123.82820129395" Range="40" />
+		<AddHotspot X="-8904.6181640625" Y="-2046.8258056641" Z="126.95902252197" Range="40" />
+		<AddHotspot X="-8920.525390625" Y="-1999.7746582031" Z="138.69848632813" Range="40" />
+		<AddHotspot X="-8911.4609375" Y="-1967.2154541016" Z="136.58213806152" Range="40" />
+		<AddHotspot X="-8887.1552734375" Y="-1924.6121826172" Z="135.26864624023" Range="40" />
+		<AddHotspot X="-8854.1005859375" Y="-1914.7238769531" Z="126.80500793457" Range="40" />
 		<While Condition="Data.AllQuestObjectivesAreComplete('Rethban Ore', 347) == false" >
 			<Wait Value="100" />
 		</While>
 	</If>
-	<If Condition="Data.HasActiveQuest('Blackrock Bounty', 128) == true and Data.AllQuestObjectivesAreComplete('Blackrock Bounty', 128) == false">
-		<!-- Objective Settings -->
-		<SetRepairNpc NpcName="Kara Adams"/>
-		<SetVendorNpc NpcName="Kara Adams"/>
-		<SetTargetingMode Mode="Around Points" />
-		<!-- Monsterfilter -->
-		<ClearMonsterFilter/>
-		<!-- Blackspots -->
-		<!-- Hotspots -->
-		<While Condition="Data.AllQuestObjectivesAreComplete('Blackrock Bounty', 128) == false" >
-			<Wait Value="100" />
-		</While>
+	<If Condition="Data.HasActiveQuest('Rethban Ore', 347) == true and Data.AllQuestObjectivesAreComplete('Rethban Ore', 347) == true">
+		<ReturnQuest NpcName="Brother Paxton" QuestId="347" QuestName="Rethban Ore" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Return to Kristoff', 346) == false and Data.HasCompletedQuest('Return to Kristoff', 346) == false">
+		<TakeQuest NpcName="Brother Paxton" QuestId="346" QuestName="Return to Kristoff" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Return to Kristoff', 346) == true and Data.AllQuestObjectivesAreComplete('Return to Kristoff', 346) == true">
+		<ReturnQuest NpcName="Brother Kristoff" QuestId="346" QuestName="Return to Kristoff" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Missing Diplomat', 1243) == true and Data.AllQuestObjectivesAreComplete('The Missing Diplomat', 1243) == true">
+		<ReturnQuest NpcName="Watcher Backus" QuestId="1243" QuestName="The Missing Diplomat" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Missing Diplomat', 1244) == false and Data.HasCompletedQuest('The Missing Diplomat', 1244) == false">
+		<TakeQuest NpcName="Watcher Backus" QuestId="1244" QuestName="The Missing Diplomat" />
 	</If>	
 </ShadowProfile>
 
