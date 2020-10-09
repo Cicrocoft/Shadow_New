@@ -1,0 +1,58 @@
+<ShadowProfile>
+<Lua>
+function TrainSkill(skillName)
+if SelectVendorLink("trainer") then
+                    mainFrame.Sleep(2000)
+                    return true
+                end
+                if GetTrainerServiceTypeFilter("unavailable") then
+                    SetTrainerServiceTypeFilter("unavailable", 0)
+                    mainFrame.Sleep(200)
+                    return true
+                elseif GetTrainerServiceTypeFilter("used") then
+                    SetTrainerServiceTypeFilter("used", 0)
+                    mainFrame.Sleep(200)
+                    return true
+                elseif not GetTrainerServiceTypeFilter("available") then
+                    SetTrainerServiceTypeFilter("available", 1)
+                    mainFrame.Sleep(200)
+                    return true
+                end
+local serviceLines = GetNumTrainerServices()
+for j = 1, serviceLines do
+                            local name, rank, category, expanded = GetTrainerServiceInfo(j)
+        
+                            if expanded == nil then
+                                ExpandTrainerSkillLine(0)
+                                mainFrame.Sleep(500)
+                                return true
+                            end
+        
+                            if category == "available" and name == skillName then
+                                BuyTrainerService(j)
+                                mainFrame.Sleep(2000)
+                                return false
+                            end
+                        end
+return false
+end
+</Lua>
+<Lua>
+function MaxSkill(profName)
+for skillIndex = 1, GetNumSkillLines() do
+   local skillName, isHeader, isExpanded, skillRank, numTempPoints, skillModifier,
+   skillMaxRank, isAbandonable, stepCost, rankCost, minLevel, skillCostType,
+   skillDescription = GetSkillLineInfo(skillIndex)
+   if skillName == profName  then
+      return skillMaxRank
+      end
+    end
+end	
+</Lua>
+
+	<If Condition="Data.GetMyProfessionLevel('Herbalism') == nil" >
+		<NPCInteract NpcName="Firodren Mooncaller"/>
+		<Lua> return TrainSkill("Apprentice Herbalist")</Lua>
+	</If>
+
+</ShadowProfile>

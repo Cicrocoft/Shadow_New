@@ -2,6 +2,8 @@
 
 <If Condition="Data.PlayerClass() == WoWClass.Mage">
 	<MoveTo X="-9014.5087890625" Y="874.66821289063" Z="148.61747741699" />
+	<MoveTo NoNav="true" X="-9017.1630859375" Y="877.57238769531" Z="148.61714172363" />
+	<BotSleep Value="2500" />
 </If>
 <If Condition="Data.PlayerClass() == WoWClass.Rogue">
 	<MoveTo X="-8752.1865234375" Y="379.25872802734" Z="101.0562286377" />
