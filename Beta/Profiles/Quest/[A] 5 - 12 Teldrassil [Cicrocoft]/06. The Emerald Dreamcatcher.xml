@@ -1,0 +1,192 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Emerald Dreamcatcher') == false or Data.HasCompletedQuest('A Troubling Breeze') == false">
+	
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Keina"/>
+    <SetRepairNpc NpcName="Keina"/>	
+	
+	<Lua>QuestNodes[126158]=0</Lua> 
+	<!-- Pickup -->	
+    <If Condition="Data.HasActiveQuest('A Troubling Breeze') == false and Data.HasCompletedQuest('A Troubling Breeze') == false">
+        <TakeQuest NpcName="Athridas Bearmantle" QuestId="475" QuestName="A Troubling Breeze" />
+    </If>
+	<If Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == false and Data.HasCompletedQuest('The Emerald Dreamcatcher') == false">
+        <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="2438" QuestName="The Emerald Dreamcatcher" />
+    </If>   
+ 
+
+	<!-- Restock Teldrassil 5-12 -->
+	<SetEnableRestockItems Value="true"/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Keldamyr" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Keldamyr" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Keldamyr" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Aldia " UnderAmount="400" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jeena Featherbow" UnderAmount="400" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jeena Featherbow" UnderAmount="400" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+	
+	<!-- Objective Completion -->
+	<If Condition="Data.HasActiveQuest('A Troubling Breeze') == true">
+		<ReturnQuest NpcName="Gaerolas Talvethren" QuestId="475" QuestName="A Troubling Breeze" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Gnarlpine Corruption') == false and Data.HasCompletedQuest('A Troubling Breeze') == true and Data.HasCompletedQuest('Gnarlpine Corruption') == false">
+		<TakeQuest NpcName="Gaerolas Talvethren" QuestId="476" QuestName="Gnarlpine Corruption" />
+	</If>
+	
+	<While Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == true and Data.AllQuestObjectivesAreComplete('The Emerald Dreamcatcher') == false" >	
+		<ClearHotspots />
+		<If Condition="Nav.RangeFromMeXYZ(9807.759765625, 352.78915405273, 1308.4595947266) &gt; 3">
+			<MoveTo X="9807.759765625" Y="352.78915405273" Z="1308.4595947266" />
+		</If>
+		<Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>
+		<SetEnableAutoLoot Value="true"/>
+		<InteractWithClosestGameObject />
+		<BotSleep Value="8000"/>
+	</While>	
+
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="9804.13671875" Y="632.63049316406" Z="1297.5355224609" Range="100" />
+		<AddHotspot X="9775.4208984375" Y="747.22735595703" Z="1299.1092529297" Range="100" />
+		<AddHotspot X="9859.158203125" Y="720.02471923828" Z="1303.6146240234" Range="100" />
+		<AddHotspot X="9679.9521484375" Y="601.45568847656" Z="1302.7628173828" Range="100" />
+
+		<While Condition="UnitLevel('player') &lt; 9" >
+				<Wait Value="100" />
+		</While>
+
+	
+    <If Condition="Data.HasActiveQuest('Gnarlpine Corruption') == true">
+        <ReturnQuest NpcName="Athridas Bearmantle" QuestId="476" QuestName="Gnarlpine Corruption" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('The Relics of Wakening') == false and Data.HasCompletedQuest('The Relics of Wakening') == false and Data.HasCompletedQuest('Gnarlpine Corruption') == true">
+        <TakeQuest NpcName="Athridas Bearmantle" QuestId="483" QuestName="The Relics of Wakening" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == true and Data.AllQuestObjectivesAreComplete('The Emerald Dreamcatcher') == true">
+        <ReturnQuest NpcName="Tallonkai Swiftroot" QuestId="2438" QuestName="The Emerald Dreamcatcher" />
+    </If>  
+	<If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('Ferocitas the Dream Eater') == false">
+        <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="2459" QuestName="Ferocitas the Dream Eater" />
+    </If>   	
+
+</ShadowProfile>

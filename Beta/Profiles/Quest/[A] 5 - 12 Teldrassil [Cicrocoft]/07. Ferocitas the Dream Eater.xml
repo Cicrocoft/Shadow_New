@@ -1,0 +1,194 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Ferocitas the Dream Eater') == false or UnitLevel('player') &lt; 10">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Keina"/>
+    <SetRepairNpc NpcName="Keina"/>
+
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('The Emerald Dreamcatcher') == true">
+        <TakeQuest NpcName="Tallonkai Swiftroot" QuestId="2459" QuestName="Ferocitas the Dream Eater" />
+    </If>	
+
+	<!-- Restock Teldrassil 5-12 -->
+	<SetEnableRestockItems Value="true"/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Keldamyr" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Keldamyr" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Keldamyr" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Aldia " UnderAmount="400" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jeena Featherbow" UnderAmount="400" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jeena Featherbow" UnderAmount="400" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+
+	<!-- Objective Completion -->
+    <If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == true">
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+		<AddBlackspot X="10058.048828125" Y="323.04086303711" Z="1324.8781738281" Range="15" />
+		<!-- Hotspots -->
+		<AddHotspot X="10020.362304688" Y="288.21548461914" Z="1322.9482421875" Range="30" />
+		<AddHotspot X="10045.489257813" Y="234.84506225586" Z="1326.9310302734" Range="35" />
+		<AddHotspot X="9960.3388671875" Y="265.09750366211" Z="1326.0974121094" Range="20" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Gnarlpine Mystic" />
+		<AddMonsterFilterName Value="Ferocitas the Dream Eater" />
+		<!-- Completion condition -->
+		<While Condition="Data.AllQuestObjectivesAreComplete('Ferocitas the Dream Eater') == false" >
+			<If Condition="Data.ItemExistsByName('Gnarlpine Necklace') == true and Data.ItemExistsByName('Tallonkai\'s Jewel') == false">
+				<Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>			
+				<UseItem ItemName="Gnarlpine Necklace" />
+			</If>
+			<Wait Value="100" />
+		</While>
+    </If>
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="9704.8369140625" Y="645.12567138672" Z="1296.4552001953" Range="50" />
+		<AddHotspot X="9641.4140625" Y="575.63391113281" Z="1310.0645751953" Range="50" />
+		<AddHotspot X="9541.466796875" Y="534.28802490234" Z="1322.8924560547" Range="50" />
+		<AddHotspot X="9462.302734375" Y="555.07867431641" Z="1321.0151367188" Range="50" />
+		<AddHotspot X="9399.8994140625" Y="582.73840332031" Z="1321.4204101563" Range="50" />
+		<AddHotspot X="9356.5556640625" Y="638.81097412109" Z="1316.1481933594" Range="50" />
+		<AddHotspot X="9295.5859375" Y="718.9833984375" Z="1313.6087646484" Range="50" />
+		<AddHotspot X="9242.30859375" Y="797.59582519531" Z="1323.4323730469" Range="50" />
+		<AddHotspot X="9289.2294921875" Y="870.98199462891" Z="1312.5256347656" Range="50" />
+		<AddBlackspot X="9268.30859375" Y="940.31420898438" Z="1311.8961181641" Range="50" />
+		<AddHotspot X="9348.33203125" Y="944.40954589844" Z="1293.4754638672" Range="50" />
+		<AddHotspot X="9313.9541015625" Y="1027.3492431641" Z="1298.3089599609" Range="50" />
+		<AddHotspot X="9207.1103515625" Y="1116.0830078125" Z="1318.1376953125" Range="50" />
+		<AddHotspot X="9220.24609375" Y="1220.6696777344" Z="1315.1719970703" Range="50" />
+
+		<While Condition="UnitLevel('player') &lt; 9 or UnitXP('player') &lt;= 5300 and UnitXPMax('player') == 6500" >
+				<Wait Value="100" />
+		</While>
+
+	<!-- TurnIn -->
+    <If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == true and Data.AllQuestObjectivesAreComplete('Ferocitas the Dream Eater') == true">
+        <ReturnQuest NpcName="Tallonkai Swiftroot" QuestId="2459" QuestName="Ferocitas the Dream Eater" />
+    </If>		
+
+</ShadowProfile>
