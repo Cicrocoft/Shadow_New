@@ -180,9 +180,6 @@
     <If Condition="Data.HasActiveQuest('Gnarlpine Corruption') == true">
         <ReturnQuest NpcName="Athridas Bearmantle" QuestId="476" QuestName="Gnarlpine Corruption" />
     </If>	
-    <If Condition="Data.HasActiveQuest('The Relics of Wakening') == false and Data.HasCompletedQuest('The Relics of Wakening') == false and Data.HasCompletedQuest('Gnarlpine Corruption') == true">
-        <TakeQuest NpcName="Athridas Bearmantle" QuestId="483" QuestName="The Relics of Wakening" />
-    </If>	
 	<If Condition="Data.HasActiveQuest('The Emerald Dreamcatcher') == true and Data.AllQuestObjectivesAreComplete('The Emerald Dreamcatcher') == true">
         <ReturnQuest NpcName="Tallonkai Swiftroot" QuestId="2438" QuestName="The Emerald Dreamcatcher" />
     </If>  
