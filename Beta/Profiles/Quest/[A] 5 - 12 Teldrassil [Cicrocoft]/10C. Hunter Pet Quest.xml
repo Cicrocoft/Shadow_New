@@ -1,60 +1,0 @@
-<ShadowProfile Condition="UnitLevel('player') &gt;= 10 and Data.HasCompletedQuest('Taming the Beast', 6103) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">	<!-- Bot Settings -->	<SetBaseSettings />	<Lua>settings.DoNotSellItems = {}</Lua>	<SetEnableAutoHerb Value="true" />	<SetEnableAutoSkin Value="true" />	<SetEnableAutoMine Value="true" />	<SetEnableProfileIgnoreCombat Value="false"/>    <SetEnableUseFood Value="true" />    <SetEnableUseDrink Value="true" />    <SetEnableAutoDetectFood Value="true" />    <SetEnableAutoDetectDrink Value="true" />    <SetEnableVendoring Value="true"/>    <SetEnableRepairing Value="true"/>    <SetVendorSlotsCount Value="2"/>    <SetRepairPercent Value="40"/>    <SetEnableRest Value="true"/>    <SetEnableVendorGreens Value="true"/>    <SetEnableIgnoreLootAroundMobs Value="true"/>    <SetEnablePreemptiveMonsterAttack Value="true"/>	<SetEnableAutoLoot Value="true" />	<!-- Rest Settings -->	<!-- Rogue -->	    <If Condition="Data.PlayerClass() == WoWClass.Rogue">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Hunter -->		<If Condition="Data.PlayerClass() == WoWClass.Hunter">	<SetRestHPPercent Value="55" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="40" />	<SetUseFoodPercent Value="60" />    </If>	<!-- Mage -->		<If Condition="Data.PlayerClass() == WoWClass.Mage">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warrior -->	<If Condition="Data.PlayerClass() == WoWClass.Warrior">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warlock -->	<If Condition="Data.PlayerClass() == WoWClass.Warlock">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Priest -->		<If Condition="Data.PlayerClass() == WoWClass.Priest">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Paladin -->	<If Condition="Data.PlayerClass() == WoWClass.Paladin">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="25" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Rest Settings End -->	<!-- Vendors to use -->    <SetVendorNpc NpcName="Keina"/>    <SetRepairNpc NpcName="Keina"/>
-
-<!-- NE Hunter (NOT WORKING!!!) -->
-	<If Condition="Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">
-		<If Condition="Data.HasActiveQuest('Taming the Beast', 6063) == false and Data.HasCompletedQuest('Taming the Beast', 6063) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">
-			<TakeQuest NpcName="Dazalar" QuestId="6063" QuestName="Taming the Beast" />
-		</If>
-		
-		<While Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6063) == false">
-			<MoveTo X="9966.4267578125" Y="734.14685058594" Z="1322.1916503906" />
-			<SetEnablePreemptiveMonsterAttack Value="false" />			<SetEnableProfileIgnoreCombat Value="true" />			<UseItemOnNpc NpcId="1998" ItemId="15921" OnlyAlive="true" />						<BotSleep Value="10000"/>			<SetEnableProfileIgnoreCombat Value="false" />	
-		</While>	
-		<If Condition="Data.HasActiveQuest('Taming the Beast', 6063) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf"> 
-			<ReturnQuest NpcName="Dazalar" QuestId="6063" QuestName="Taming the Beast" />
-		</If>
-		
-	
-
-	<If Condition="Data.HasActiveQuest('Taming the Beast', 6101) == false and Data.HasCompletedQuest('Taming the Beast', 6101) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">		<Lua>PetDismiss()</Lua>
-        <TakeQuest NpcName="Dazalar" QuestId="6101" QuestName="Taming the Beast" />
-    </If>
-	
-	<While Condition="Data.GetMyPet() == nil and Data.HasActiveQuest('Taming the Beast', 6101) == true">
-		<MoveTo X="9377.3974609375" Y="947.27783203125" Z="1288.525390625" />
-		<SetEnablePreemptiveMonsterAttack Value="false" />
-		<SetEnableProfileIgnoreCombat Value="true" />			<UseItemOnNpc NpcId="2043" ItemId="15922" OnlyAlive="true" />
-		<BotSleep Value="10000"/>
-		<SetEnableProfileIgnoreCombat Value="false" />
-	</While>	
-    <If Condition="Data.HasActiveQuest('Taming the Beast', 6101) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf"> 
-		<ReturnQuest NpcName="Dazalar" QuestId="6101" QuestName="Taming the Beast" />		
-	</If>
-	
-	
-	
-	<If Condition="Data.HasActiveQuest('Taming the Beast', 6102) == false and Data.HasCompletedQuest('Taming the Beast', 6102) == false and Data.HasCompletedQuest('Taming the Beast', 6101) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">		<Lua>PetDismiss()</Lua>	
-        <TakeQuest NpcName="Dazalar" QuestId="6102" QuestName="Taming the Beast" />
-    </If>
-	
-	<While Condition="Data.GetMyPet() == nil and Data.HasActiveQuest('Taming the Beast', 6102) == true">
-		<MoveTo X="9531.6142578125" Y="547.29602050781" Z="1319.1751708984" />
-		<SetEnablePreemptiveMonsterAttack Value="false" />
-		<SetEnableProfileIgnoreCombat Value="true" />
-		<UseItemOnNpc NpcId="1996" ItemId="15923" OnlyAlive="true" />
-		<BotSleep Value="10000"/>
-		<SetEnableProfileIgnoreCombat Value="false" />
-	</While>	
-    <If Condition="Data.HasActiveQuest('Taming the Beast', 6102) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf"> 
-		<ReturnQuest NpcName="Dazalar" QuestId="6102" QuestName="Taming the Beast" />
-	</If>
-	
-	</If>
-	
-	<If Condition="Data.HasActiveQuest('Training the Beast', 6103) == false and Data.HasCompletedQuest('Taming the Beast', 6103) == false and Data.HasCompletedQuest('Taming the Beast', 6102) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf">		<Lua>PetDismiss()</Lua>	
-        <TakeQuest NpcName="Dazalar" QuestId="6103" QuestName="Training the Beast" />
-    </If>	
-    <If Condition="Data.HasActiveQuest('Training the Beast', 6103) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.NightElf"> 
-		<ReturnQuest NpcName="Jocaste" QuestId="6103" QuestName="Training the Beast" />
-	</If>	
-</ShadowProfile>

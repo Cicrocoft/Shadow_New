@@ -1,14 +1,108 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Crown of the Earth', 929) == false">
-	<!-- Vendor Settings -->
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
     <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Keina"/>
-    <SetVendorSlotsCount Value="2" />
     <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Keina"/>
-    <SetRepairPercent Value="35" />
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
+    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
 
 	<!-- Restock Teldrassil 5-12 -->
 	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
 	<!-- Food -->
 	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
 		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Keldamyr" UnderAmount="5" BuyAmount="40"/>
@@ -39,6 +133,26 @@
         <TakeQuest NpcName="Corithras Moonrage" QuestId="929" QuestName="Crown of the Earth" />
     </If>
 
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="9826.623046875" Y="749.66766357422" Z="1304.4201660156" Range="100" />
+		<AddHotspot X="9745.6376953125" Y="744.802734375" Z="1297.6173095703" Range="100" />
+		<AddHotspot X="9750.5419921875" Y="669.54772949219" Z="1295.5489501953" Range="100" />
+		<AddHotspot X="9675.625" Y="612.13592529297" Z="1303.1085205078" Range="100" />
+		<AddHotspot X="9707.13671875" Y="554.90380859375" Z="1310.3566894531" Range="100" />
+		<AddHotspot X="9812.375" Y="616.86169433594" Z="1298.671875" Range="100" />
+
+
+		<While Condition="UnitLevel('player') &lt; 6 or UnitXP('player') &lt;= 2200 and UnitXPMax('player') == 3600" >
+				<Wait Value="100" />
+		</While>
+
 	<While Condition="Data.HasActiveQuest('Crown of the Earth', 929) == true and Data.AllQuestObjectivesAreComplete('Crown of the Earth', 929) == false">
 		<ClearHotspots />
 		<If Condition="Nav.RangeFromMeXYZ(9859.81640625, 591.23248291016, 1300.8079833984) &gt; 3">
@@ -46,6 +160,26 @@
 		</If>
 		<UseItem ItemName="Jade Phial" />
 	</While>
+
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="9826.623046875" Y="749.66766357422" Z="1304.4201660156" Range="100" />
+		<AddHotspot X="9745.6376953125" Y="744.802734375" Z="1297.6173095703" Range="100" />
+		<AddHotspot X="9750.5419921875" Y="669.54772949219" Z="1295.5489501953" Range="100" />
+		<AddHotspot X="9675.625" Y="612.13592529297" Z="1303.1085205078" Range="100" />
+		<AddHotspot X="9707.13671875" Y="554.90380859375" Z="1310.3566894531" Range="100" />
+		<AddHotspot X="9812.375" Y="616.86169433594" Z="1298.671875" Range="100" />
+
+
+		<While Condition="UnitLevel('player') &lt; 7" >
+				<Wait Value="100" />
+		</While>
 
 	<If Condition="Data.HasActiveQuest('Crown of the Earth', 929) == true">
 		<ReturnQuest NpcName="Corithras Moonrage" QuestId="929" QuestName="Crown of the Earth" />
