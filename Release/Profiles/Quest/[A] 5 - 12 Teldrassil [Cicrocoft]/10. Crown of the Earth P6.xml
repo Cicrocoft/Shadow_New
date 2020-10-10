@@ -97,12 +97,11 @@
     </If>	
 	<!-- Rest Settings End -->
 	<!-- Vendors to use -->
-    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
-    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorNpc NpcName="Keina"/>
+    <SetRepairNpc NpcName="Keina"/>
 
 	<!-- Restock Teldrassil 5-12 -->
 	<SetEnableRestockItems Value="true"/>
-	<ClearRestockItems />
 	<!-- Food -->
 	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
 		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Keldamyr" UnderAmount="5" BuyAmount="40"/>
@@ -258,10 +257,10 @@
 		<AddBlackspot X="10831.055664063" Y="1602.5856933594" Z="1272.5325927734" Range="50" />
 		<AddBlackspot X="10918.97265625" Y="1537.1540527344" Z="1275.9332275391" Range="50" />
 		<!-- Hotspots -->
-		<AddHotspot X="10971.201171875" Y="1392.2899169922" Z="1319.1918945313" Range="150" />
-		<AddHotspot X="10977.6875" Y="1698.3262939453" Z="1299.2586669922" Range="150" />
-		<AddHotspot X="10964.15234375" Y="1811.7593994141" Z="1326.6489257813" Range="150" />
-		<AddHotspot X="10989.297851563" Y="1483.8560791016" Z="1288.6539306641" Range="150" />
+		<AddHotspot X="10971.201171875" Y="1392.2899169922" Z="1319.1918945313" Range="100" />
+		<AddHotspot X="10989.297851563" Y="1483.8560791016" Z="1288.6539306641" Range="50" />
+		<AddHotspot X="10977.6875" Y="1698.3262939453" Z="1299.2586669922" Range="50" />
+		<AddHotspot X="10964.15234375" Y="1811.7593994141" Z="1326.6489257813" Range="50" />
 		<!-- Mob Whitelist -->
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />
@@ -346,7 +345,7 @@
         <TakeQuest NpcName="Vesprystus" QuestId="6342" QuestName="Flight to Auberdine" />
     </If>		
 	
-    <If Condition="Data.HasActiveQuest('Flight to Auberdine') == true">
+    <While Condition="Data.HasActiveQuest('Flight to Auberdine') == true">
 		<If Condition="GetZoneText() == 'Teldrassil'">
 			<NPCInteract NpcName="Vesprystus" DialogIndex1="1"/>
 			<Lua>TakeTaxiNode(1)</Lua>
@@ -358,7 +357,7 @@
 		<If Condition="GetZoneText() == 'Darkshore' and Data.HasActiveQuest('Flight to Auberdine') == true">
 			<ReturnQuest NpcName="Laird" QuestId="6342" QuestName="Flight to Auberdine" />
 		</If>
-	</If>		
+	</While>		
 	
 	
     <If Condition="Data.HasActiveQuest('Return to Nessa') == false and Data.HasCompletedQuest('Flight to Auberdine') == true and Data.HasCompletedQuest('Return to Nessa') == false and GetZoneText() == 'Darkshore'">
@@ -366,7 +365,7 @@
 		<BotSleep Value="2354"/>
     </If>	
 	
-    <If Condition="Data.HasActiveQuest('Return to Nessa') == true">
+    <While Condition="Data.HasActiveQuest('Return to Nessa') == true">
 		<If Condition="GetZoneText() == 'Darkshore'">
 			<NPCInteract NpcName="Caylais Moonfeather" DialogIndex1="1"/>
 			<Lua>TakeTaxiNode(2)</Lua>
@@ -375,10 +374,13 @@
 		<While Condition="UnitOnTaxi('player') == true">
 			<BotSleep Value="5000"/>
 		</While>
-	</If>		
-
 		<If Condition="Data.HasActiveQuest('Return to Nessa') == true and GetZoneText() == 'Teldrassil'">
 			<ReturnQuest NpcName="Nessa Shadowsong" QuestName="Return to Nessa" />
-		</If>
+		</If>		
+		
+		
+	</While>		
+
+
 
 </ShadowProfile>
