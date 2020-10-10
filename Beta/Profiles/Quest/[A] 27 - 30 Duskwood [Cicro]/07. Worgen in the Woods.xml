@@ -195,6 +195,12 @@
 	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 221) == false and Data.HasCompletedQuest('Worgen in the Woods', 221) == false">
 		<TakeQuest NpcName="Calor" QuestId="221" QuestName="Worgen in the Woods" />
 	</If>
+	<If Condition="Data.HasActiveQuest('Gather Rot Blossoms', 156) == true and Data.AllQuestObjectivesAreComplete('Gather Rot Blossoms', 156) == true">
+		<ReturnQuest NpcName="Tavernkeep Smitts" QuestId="156" QuestName="Gather Rot Blossoms" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Juice Delivery', 159) == false and Data.HasCompletedQuest('Juice Delivery', 159) == false">
+		<TakeQuest NpcName="Tavernkeep Smitts" QuestId="159" QuestName="Juice Delivery" />
+	</If>	
 	<If Condition="Data.HasActiveQuest('The Missing Diplomat', 1244) == true and Data.AllQuestObjectivesAreComplete('The Missing Diplomat', 1244) == true">
 		<ReturnQuest NpcName="Watcher Backus" QuestId="1244" QuestName="The Missing Diplomat" />
 	</If>
