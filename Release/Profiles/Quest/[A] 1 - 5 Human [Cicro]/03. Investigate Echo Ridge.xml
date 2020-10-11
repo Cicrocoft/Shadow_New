@@ -1,19 +1,112 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Investigate Echo Ridge', 15) == false">
-	<!-- Vendor Settings -->
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
     <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Godric Rothgar"/>
-    <SetVendorSlotsCount Value="1" />
     <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="false"/>
+    <SetEnablePreemptiveMonsterAttack Value="false"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Godric Rothgar"/>
     <SetRepairNpc NpcName="Godric Rothgar"/>
-    <SetRepairPercent Value="35" />
-	
+	<AddDoNotSellItem ItemName="Shiney Red Apple" />		
 	<!-- TakeQuest -->
     <If Condition="Data.HasActiveQuest('Investigate Echo Ridge', 15) == false and Data.HasCompletedQuest('Investigate Echo Ridge', 15) == false">
         <TakeQuest NpcName="Marshal McBride" QuestId="15" QuestName="Investigate Echo Ridge" />
     </If>
  
  	<!-- QuestObjective -->
-	<If Condition="Data.HasActiveQuest('Investigate Echo Ridge', 15) == true">
+	<If Condition="Data.HasActiveQuest('Investigate Echo Ridge', 15) == true or UnitLevel('player') &lt; 4 or UnitXP('player') &lt;= 600 and UnitXPMax('player') == 2100">
 		<ClearHotspots />
 		<!-- Blackspots -->
 		
@@ -26,6 +119,11 @@
 		<SetMonsterFilterMode Mode="Whitelist" />
 		<AddMonsterFilterName Value="Kobold Worker"/>		
 		<While Condition="Data.AllQuestObjectivesAreComplete('Investigate Echo Ridge') == false" >
+			<Wait Value="100" />
+		</While>
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<While Condition="UnitLevel('player') &lt; 4 or UnitXP('player') &lt;= 600 and UnitXPMax('player') == 2100" >
 			<Wait Value="100" />
 		</While>
 	</If>
