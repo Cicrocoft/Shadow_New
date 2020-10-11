@@ -297,7 +297,7 @@
 	<If Condition="Data.HasActiveQuest('The Missing Diplomat', 1274) == false and Data.HasCompletedQuest('The Missing Diplomat', 1274) == false">
 		<TakeQuest NpcName="Thomas" QuestId="1274" QuestName="The Missing Diplomat" />
 	</If>
-	<If Condition="Data.HasActiveQuest('Stormpike\'s Order', 1338) == true and Data.AllQuestObjectivesAreComplete('Stormpike\'s Order', 1338) == true">
+	<If Condition="Data.HasActiveQuest('Stormpike\'s Order', 1338) == true and Data.AllQuestObjectivesAreComplete('Stormpike\'s Order', 1338) == true and Data.GetItemCountByName('Stormpike\'s Request') == 1">
 		<ReturnQuest NpcName="Furen Longbeard" QuestId="1338" QuestName="Stormpike\'s Order" />
 	</If>
 	<If Condition="Data.HasActiveQuest('The Missing Diplomat', 1274) == true and Data.AllQuestObjectivesAreComplete('The Missing Diplomat', 1274) == true">
