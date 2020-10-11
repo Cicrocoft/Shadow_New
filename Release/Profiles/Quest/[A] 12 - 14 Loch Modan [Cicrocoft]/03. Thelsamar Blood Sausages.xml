@@ -157,6 +157,7 @@
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Blackspots -->
 		<AddBlackspot X="-5281.98828125" Y="-2712.20703125" Z="342.21441650391" Range="50" />
+		<AddBlackspot X="-4940.080078125" Y="-3017.1293945313" Z="327.79843139648" Range="40" />
 		<!-- Hotspots -->
 		<AddHotspot X="-5127.5615234375" Y="-2846.4143066406" Z="328.54534912109" Range="100" />
 		<AddHotspot X="-5110.4692382813" Y="-2900.2944335938" Z="329.26278686523" Range="100" />
@@ -181,6 +182,7 @@
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Blackspots -->
 		<AddBlackspot X="-5281.98828125" Y="-2712.20703125" Z="342.21441650391" Range="50" />		
+		<AddBlackspot X="-4940.080078125" Y="-3017.1293945313" Z="327.79843139648" Range="40" />
 		<!-- Hotspots -->
 		<AddHotspot X="-5043.125" Y="-3063.2873535156" Z="324.56503295898" Range="50" />
 		<AddHotspot X="-5021.8598632813" Y="-2933.5009765625" Z="338.54611206055" Range="50" />
@@ -204,6 +206,7 @@
 		<!-- Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Blackspots -->
+		<AddBlackspot X="-4940.080078125" Y="-3017.1293945313" Z="327.79843139648" Range="40" />		
 		<AddBlackspot X="-5281.98828125" Y="-2712.20703125" Z="342.21441650391" Range="50" />		
 		<!-- Hotspots -->
 		<AddHotspot X="-5043.125" Y="-3063.2873535156" Z="324.56503295898" Range="50" />
