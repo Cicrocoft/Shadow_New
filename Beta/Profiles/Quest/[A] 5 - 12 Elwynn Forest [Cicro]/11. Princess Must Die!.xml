@@ -1,0 +1,68 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Princess Must Die!') == false">
+	<!-- Settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Rallic Finn"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rallic Finn"/>
+    <SetRepairPercent Value="35" />
+
+	<!-- Restock Elwynn Forest 5-12 Logging Camp -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Darnassian Bleu" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Darnassian Bleu" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Drake Lindgren" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Drake Lindgren" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Drake Lindgren" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+	
+	<!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('Princess Must Die!') == false and Data.HasCompletedQuest('Princess Must Die!') == false">
+		<TakeQuest NpcName="Ma Stonefield" QuestId="88" QuestName="Princess Must Die!" />
+	</If>	
+
+	<!-- Quset Completion -->
+	<If Condition="Data.HasActiveQuest('Princess Must Die!') == true and Data.HasCompletedQuest('Princess Must Die!') == false">
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />		
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="-9770.935546875" Y="-876.55261230469" Z="39.494663238525" Range="50" />
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Princess" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Princess Must Die!') == false" >
+				<Wait Value="100" />
+		</While>			
+	</If>
+	
+
+	
+	<!-- ReturnQuest -->
+    <If Condition="Data.HasActiveQuest('Princess Must Die!') == true and Data.AllQuestObjectivesAreComplete('Princess Must Die!') == true">	
+		<ReturnQuest NpcName="Ma Stonefield" QuestId="88" QuestName="Princess Must Die!" />
+	</If>	
+</ShadowProfile>

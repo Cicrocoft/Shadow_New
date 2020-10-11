@@ -1,0 +1,128 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Cloth and Leather Armor') == false">
+	<!-- Settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Rallic Finn"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rallic Finn"/>
+    <SetRepairPercent Value="35" />
+
+	<!-- Restock Elwynn Forest 5-12 Logging Camp -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Darnassian Bleu" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Darnassian Bleu" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Drake Lindgren" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Drake Lindgren" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Drake Lindgren" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+		<AddBlackspot X="-9493.4912109375" Y="-430.20648193359" Z="59.284282684326" Range="100" />
+		<AddBlackspot X="-9533.9873046875" Y="-416.73385620117" Z="59.385929107666" Range="25" />
+		<AddBlackspot X="-9258.626953125" Y="-1218.9271240234" Z="72.424659729004" Range="25" />
+		<AddBlackspot X="-9245.427734375" Y="-1213.0560302734" Z="72.712432861328" Range="25" />
+		<AddBlackspot X="-9275.3447265625" Y="-1174.5732421875" Z="70.25936126709" Range="25" />		
+		<AddBlackspot X="-9545.1025390625" Y="-198.56860351563" Z="61.659664154053" Range="25" />
+		<AddBlackspot X="-9554.34375" Y="-234.04183959961" Z="62.786762237549" Range="25" />
+		<AddBlackspot X="-9556.3447265625" Y="-278.23336791992" Z="61.119655609131" Range="25" />
+		<AddBlackspot X="-9560.0224609375" Y="-311.38360595703" Z="62.702476501465" Range="25" />
+		<AddBlackspot X="-9561.8798828125" Y="-339.25354003906" Z="62.921005249023" Range="25" />
+		<AddBlackspot X="-9569.32421875" Y="-362.95086669922" Z="61.907543182373" Range="25" />	
+	<!-- Pickup -->
+	<If Condition="Data.HasActiveQuest('A Fishy Peril') == false and Data.HasCompletedQuest('A Fishy Peril') == false">
+		<TakeQuest NpcName="Remy Two Times" QuestId="40" QuestName="A Fishy Peril" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('A Fishy Peril') == true">	
+		<ReturnQuest NpcName="Marshal Dughan" QuestId="40" QuestName="A Fishy Peril" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Further Concerns') == false and Data.HasCompletedQuest('Further Concerns') == false">
+		<TakeQuest NpcName="Marshal Dughan" QuestId="35" QuestName="Further Concerns" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Further Concerns') == true">	
+		<ReturnQuest NpcName="Guard Thomas" QuestId="35" QuestName="Further Concerns" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('Find the Lost Guards') == false and Data.HasCompletedQuest('Find the Lost Guards') == false">
+		<TakeQuest NpcName="Guard Thomas" QuestId="37" QuestName="Find the Lost Guards" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Find the Lost Guards') == true">
+		<ReturnQuestToObject QuestName="Find the Lost Guards" X="-9335.755859375" Y="-987.349609375" Z="67.073783874512" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Discover Rolf\'s Fate') == false and Data.HasCompletedQuest('Find the Lost Guards') == true and Data.HasCompletedQuest('Discover Rolf\'s Fate') == false">
+		<TakeQuestFromObject QuestName="Discover Rolf\'s Fate" X="-9335.755859375" Y="-987.349609375" Z="67.073783874512" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Discover Rolf\'s Fate') == true">
+		<AddBlackspot X="-9207.5830078125" Y="-1212.1552734375" Z="67.866485595703" Range="15" />
+		<AddBlackspot X="-9233.341796875" Y="-1190.9364013672" Z="66.136375427246" Range="15" />
+		<AddBlackspot X="-9264.4443359375" Y="-1166.2659912109" Z="67.74169921875" Range="15" />	
+		<MoveTo X="-9326.8486328125" Y="-1125.0975341797" Z="69.571586608887" Range="50" />
+		<MoveTo X="-9327.255859375" Y="-1215.2237548828" Z="69.788177490234" Range="50" />
+		<MoveTo X="-9235.1298828125" Y="-1277.36328125" Z="75.956573486328" Range="50" />
+		<ReturnQuestToObject QuestName="Discover Rolf\'s Fate" X="-9224.0625" Y="-1235.1824951172" Z="73.708595275879" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Report to Thomas') == false and Data.HasCompletedQuest('Report to Thomas') == false">
+		<TakeQuestFromObject QuestName="Report to Thomas" X="-9224.0625" Y="-1235.1824951172" Z="73.708595275879" />
+	</If>		
+    <If Condition="Data.HasActiveQuest('Report to Thomas') == true">	
+		<AddBlackspot X="-9207.5830078125" Y="-1212.1552734375" Z="67.866485595703" Range="15" />
+		<AddBlackspot X="-9233.341796875" Y="-1190.9364013672" Z="66.136375427246" Range="15" />
+		<AddBlackspot X="-9264.4443359375" Y="-1166.2659912109" Z="67.74169921875" Range="15" />	
+		<ReturnQuest NpcName="Guard Thomas" QuestId="71" QuestName="Report to Thomas" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Deliver Thomas\' Report') == false and Data.HasCompletedQuest('Deliver Thomas\' Report') == false">
+		<TakeQuest NpcName="Guard Thomas" QuestId="39" QuestName="Deliver Thomas\' Report" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Deliver Thomas\' Report') == true">	
+		<ReturnQuest NpcName="Marshal Dughan" QuestId="39" QuestName="Deliver Thomas\' Report" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Cloth and Leather Armor') == false and Data.HasCompletedQuest('Cloth and Leather Armor') == false">
+		<TakeQuest NpcName="Marshal Dughan" QuestId="59" QuestName="Cloth and Leather Armor" />
+	</If>	
+    <If Condition="Data.HasActiveQuest('Cloth and Leather Armor') == true">	
+		<ReturnQuest NpcName="Sara Timberlain" QuestId="59" QuestName="Cloth and Leather Armor" />
+	</If>
+
+		<SetMaxZDifference Value="5" />
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />		
+		<!-- Blackspots -->
+		<AddBlackspot X="-9447.7421875" Y="-549.27545166016" Z="67.691841125488" Range="35" />
+		<AddBlackspot X="-9415.8359375" Y="-562.58325195313" Z="69.578063964844" Range="35" />
+		<!-- Hotspots -->
+		<AddHotspot X="-9553.7333984375" Y="-548.50183105469" Z="59.191051483154" Range="100" />
+		<AddHotspot X="-9478.7314453125" Y="-587.47741699219" Z="66.768180847168" Range="100" />
+		<AddHotspot X="-9403.6884765625" Y="-633.45465087891" Z="67.571235656738" Range="100" />
+		<AddHotspot X="-9405.099609375" Y="-670.599609375" Z="66.587211608887" Range="100" />
+		<AddHotspot X="-9408.1328125" Y="-794.51477050781" Z="66.690803527832" Range="100" />
+		<AddHotspot X="-9722.3251953125" Y="-342.32800292969" Z="55.031970977783" Range="100" />
+		<AddHotspot X="-9699.345703125" Y="-442.31170654297" Z="50.876159667969" Range="100" />
+		<AddHotspot X="-9708.75390625" Y="-566.18780517578" Z="45.879421234131" Range="100" />
+		<AddHotspot X="-9713.89453125" Y="-718.76129150391" Z="45.494789123535" Range="100" />
+		
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<While Condition="UnitLevel('player') &lt; 12" >
+			<Wait Value="100" />
+		</While>
+	
+</ShadowProfile>

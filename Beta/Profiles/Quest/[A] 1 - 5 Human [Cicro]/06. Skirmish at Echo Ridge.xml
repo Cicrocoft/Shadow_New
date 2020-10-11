@@ -1,0 +1,141 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Skirmish at Echo Ridge') == false and Data.HasCompletedQuest('Investigate Echo Ridge') == true">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="false"/>
+    <SetEnablePreemptiveMonsterAttack Value="false"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Godric Rothgar"/>
+    <SetRepairNpc NpcName="Godric Rothgar"/>
+	<AddDoNotSellItem ItemName="Shiney Red Apple" />
+	<AddDoNotSellItem ItemName="Darnassian Bleu" />	
+	
+	<!-- TakeQuest -->
+    <If Condition="Data.HasActiveQuest('Skirmish at Echo Ridge') == false and Data.HasCompletedQuest('Skirmish at Echo Ridge') == false and Data.HasCompletedQuest('Investigate Echo Ridge') == true">
+        <TakeQuest NpcName="Marshal McBride" QuestId="21" QuestName="Skirmish at Echo Ridge" />
+    </If>	
+ 
+ 	<!-- QuestObjective -->
+	<If Condition="Data.HasActiveQuest('Skirmish at Echo Ridge') == true or UnitLevel('player') &lt; 6 or UnitXP('player') &lt;= 800 and UnitXPMax('player') == 3600">
+		<ClearHotspots />
+		<!-- Blackspots -->
+		
+		<!-- Hotspots -->
+		<AddHotspot X="-8656.99609375" Y="-126.73690795898" Z="90.403602600098" Range="20" />
+		<AddHotspot X="-8638.947265625" Y="-139.09844970703" Z="86.772583007813" Range="20" />
+		<AddHotspot X="-8617.79296875" Y="-144.78527832031" Z="87.255256652832" Range="20" />
+		<AddHotspot X="-8599.1201171875" Y="-168.5929107666" Z="86.699882507324" Range="20" />
+		<AddHotspot X="-8575.451171875" Y="-152.40968322754" Z="89.825523376465" Range="20" />
+		<AddHotspot X="-8551.140625" Y="-155.79985046387" Z="87.636650085449" Range="20" />
+		<AddHotspot X="-8540.47265625" Y="-174.60604858398" Z="84.856948852539" Range="20" />
+		<AddHotspot X="-8533.50390625" Y="-196.92774963379" Z="83.65357208252" Range="20" />
+		<AddHotspot X="-8546.298828125" Y="-206.96585083008" Z="84.913261413574" Range="20" />
+		<AddHotspot X="-8562.0537109375" Y="-212.55293273926" Z="84.8427734375" Range="20" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Kobold Laborer"/>		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Skirmish at Echo Ridge') == false or UnitLevel('player') &lt; 6 or UnitXP('player') &lt;= 800 and UnitXPMax('player') == 3600" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('Skirmish at Echo Ridge') == true">
+        <ReturnQuest NpcName="Marshal McBride" QuestId="21" QuestName="Skirmish at Echo Ridge" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Report to Goldshire') == false and Data.HasCompletedQuest('Report to Goldshire') == false and Data.HasCompletedQuest('Skirmish at Echo Ridge') == true">
+        <TakeQuest NpcName="Marshal McBride" QuestId="54" QuestName="Report to Goldshire" />
+    </If>	
+
+</ShadowProfile>
