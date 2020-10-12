@@ -148,28 +148,22 @@
 		<TakeQuest NpcName="Karl Boran" QuestId="281" QuestName="Reclaiming Goods" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Reclaiming Goods', 281) == true and Data.AllQuestObjectivesAreComplete('Reclaiming Goods', 281) == true">
-		<ReturnQuestToObject QuestId="281" QuestName="Reclaiming Goods" X="-3288.5178222656" Y="-947.04602050781" Z="8.9951047897339" />
+		<ReturnQuestToObject GameObjectId="261" QuestId="281" QuestName="Reclaiming Goods" X="-3288.5178222656" Y="-947.04602050781" Z="8.9951047897339" />
 	</If>
 	<If Condition="Data.HasActiveQuest('The Search Continues', 284) == false and Data.HasCompletedQuest('The Search Continues', 284) == false">
-		<TakeQuestFromObject QuestId="284" QuestName="The Search Continues" X="-3289.0051269531" Y="-947.04248046875" Z="8.9997539520264" />
+		<TakeQuestFromObject GameObjectId="261" QuestId="284" QuestName="The Search Continues" X="-3289.0051269531" Y="-947.04248046875" Z="8.9997539520264" />
 	</If>	
 	<If Condition="Data.HasActiveQuest('The Search Continues', 284) == true and Data.AllQuestObjectivesAreComplete('The Search Continues', 284) == true">
-		<ReturnQuestToObject QuestId="284" QuestName="The Search Continues" X="-3199.8488769531" Y="-955.47796630859" Z="9.0408363342285" />
+		<ReturnQuestToObject GameObjectId="142151" QuestId="284" QuestName="The Search Continues" X="-3199.8488769531" Y="-955.47796630859" Z="9.0408363342285" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Search More Hovels', 285) == false and Data.HasCompletedQuest('Search More Hovels', 285) == false">
-		<TakeQuestFromObject QuestId="285" QuestName="Search More Hovels" X="-3199.8488769531" Y="-955.47796630859" Z="9.0408363342285" />
-	</If>
-	<If Condition="Data.HasActiveQuest('The Search Continues', 284) == true and Data.AllQuestObjectivesAreComplete('The Search Continues', 284) == true">
-		<ReturnQuestToObject QuestId="284" QuestName="The Search Continues" X="-3199.8488769531" Y="-955.47796630859" Z="9.0408363342285" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Search More Hovels', 285) == false and Data.HasCompletedQuest('Search More Hovels', 285) == false">
-		<TakeQuestFromObject QuestId="285" QuestName="Search More Hovels" X="-3199.8488769531" Y="-955.47796630859" Z="9.0408363342285" />
+		<TakeQuestFromObject GameObjectId="142151" QuestId="285" QuestName="Search More Hovels" X="-3199.8488769531" Y="-955.47796630859" Z="9.0408363342285" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Search More Hovels', 285) == true and Data.AllQuestObjectivesAreComplete('Search More Hovels', 285) == true">
-		<ReturnQuestToObject QuestId="285" QuestName="Search More Hovels" X="-3108.9477539063" Y="-969.45483398438" Z="8.1165723800659" />
+		<ReturnQuestToObject GameObjectId="259" QuestId="285" QuestName="Search More Hovels" X="-3108.9477539063" Y="-969.45483398438" Z="8.1165723800659" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Return the Statuette', 286) == false and Data.HasCompletedQuest('Return the Statuette', 286) == false">
-		<TakeQuestFromObject QuestId="286" QuestName="Return the Statuette" X="-3108.9477539063" Y="-969.45483398438" Z="8.1165723800659" />
+		<TakeQuestFromObject GameObjectId="259" QuestId="286" QuestName="Return the Statuette" X="-3108.9477539063" Y="-969.45483398438" Z="8.1165723800659" />
 	</If>
 
 		<ClearHotspots />
