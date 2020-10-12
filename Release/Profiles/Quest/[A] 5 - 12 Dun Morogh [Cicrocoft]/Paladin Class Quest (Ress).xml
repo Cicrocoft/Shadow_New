@@ -1,0 +1,114 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Tome of Divinity', 1785) == false">
+	<If Condition="Data.HasActiveQuest('Tome of Divinity', 2999) == false and Data.HasCompletedQuest('Tome of Divinity', 2999) == false">
+		<TakeQuest NpcName="Brandur Ironhammer" QuestId="2999" QuestName="Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Tome of Divinity', 2999) == true and Data.AllQuestObjectivesAreComplete('Tome of Divinity', 2999) == true">
+		<ReturnQuest NpcName="Tiza Battleforge" QuestId="2999" QuestName="Tome of Divinity" />
+	</If>
+	<While Condition="Data.GetItemCountByName('Tome of Divinity') == 1 and Data.HasActiveQuest('Tome of Divinity', 1646) == false">
+		<UseItem ItemId="6916" />
+		<BotSleep Value="1234" />
+		<Lua>AcceptQuest()</Lua>
+		<BotSleep Value="2500" />
+	</While>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1646) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1646) == true">
+		<ReturnQuest NpcName="Tiza Battleforge" QuestId="1646" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1647) == false and Data.HasCompletedQuest('The Tome of Divinity', 1647) == false">
+		<TakeQuest NpcName="Tiza Battleforge" QuestId="1647" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1647) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1647) == true">
+		<ReturnQuest NpcName="John Turner" QuestId="1647" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1648) == false and Data.HasCompletedQuest('The Tome of Divinity', 1648) == false">
+		<TakeQuest NpcName="John Turner" QuestId="1648" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1648) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1648) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Leper Gnome" />		
+		<!-- Blackspots -->
+		<AddBlackspot X="-5032.3471679688" Y="-776.93823242188" Z="495.04006958008" Range="5" />
+		<AddBlackspot X="-5320.4565429688" Y="158.76176452637" Z="390.14410400391" Range="40" />
+		<AddBlackspot X="-5249.099609375" Y="101.77604675293" Z="391.97369384766" Range="50" />
+		<AddBlackspot X="-5252.5561523438" Y="120.30146026611" Z="394.05987548828" Range="50" />
+		<AddBlackspot X="-5320.4565429688" Y="158.76176452637" Z="390.14410400391" Range="40" />
+		<AddBlackspot X="-5249.099609375" Y="101.77604675293" Z="391.97369384766" Range="50" />
+		<AddBlackspot X="-5570.404296875" Y="512.13232421875" Z="381.84985351563" Range="45" />
+		<AddBlackspot X="-5076.9467773438" Y="464.98577880859" Z="406.48379516602" Range="75" />
+		<AddBlackspot X="-5310.2514648438" Y="599.23620605469" Z="390.54211425781" Range="30" />		
+		<!-- Hotspots -->
+		<AddHotspot X="-5181.4775390625" Y="574.09545898438" Z="400.63781738281" Range="50" />
+		<AddHotspot X="-5259.025390625" Y="501.20901489258" Z="386.45193481445" Range="50" />
+		<AddHotspot X="-5303.0004882813" Y="565.37420654297" Z="385.20419311523" Range="50" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1648) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1648) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1648) == true">
+		<ReturnQuest NpcName="John Turner" QuestId="1648" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1778) == false and Data.HasCompletedQuest('The Tome of Divinity', 1778) == false">
+		<TakeQuest NpcName="John Turner" QuestId="1778" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1778) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1778) == true">
+		<ReturnQuest NpcName="Tiza Battleforge" QuestId="1778" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1779) == false and Data.HasCompletedQuest('The Tome of Divinity', 1779) == false">
+		<TakeQuest NpcName="Tiza Battleforge" QuestId="1779" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1779) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1779) == true">
+		<ReturnQuest NpcName="Muiredon Battleforge" QuestId="1779" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1783) == false and Data.HasCompletedQuest('The Tome of Divinity', 1783) == false">
+		<TakeQuest NpcName="Muiredon Battleforge" QuestId="1783" QuestName="The Tome of Divinity" />
+	</If>
+		<AddBlackspot X="-5627.6469726563" Y="-1691.1875" Z="399.70751953125" Range="50" />
+		<AddBlackspot X="-5668.9697265625" Y="-1747.0247802734" Z="400.09872436523" Range="50" />
+		<AddBlackspot X="-5726.4946289063" Y="-1878.1983642578" Z="399.68515014648" Range="50" />
+		<AddBlackspot X="-5784.1435546875" Y="-1941.8024902344" Z="402.21179199219" Range="50" />
+	<While Condition="Data.HasActiveQuest('The Tome of Divinity', 1783) == true and Data.GetItemCountByName('Symbol of Life') == 1">	
+		<UseItemOnNpc NpcId="6177" ItemId="6866" />
+	</While>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1783) == true and  and Data.GetItemCountByName('Symbol of Life') == 0">
+		<ReturnQuest NpcName="Narm Faulk" QuestId="1783" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1784) == false and Data.HasCompletedQuest('The Tome of Divinity', 1784) == false">
+		<TakeQuest NpcName="Narm Faulk" QuestId="1784" QuestName="The Tome of Divinity" />
+	</If>
+		<AddBlackspot X="-5772.0258789063" Y="-2141.3872070313" Z="400.50885009766" Range="50" />
+		<AddBlackspot X="-5662.3627929688" Y="-2111.7946777344" Z="400.53430175781" Range="25" />
+		<AddBlackspot X="-5715.1948242188" Y="-2116.5219726563" Z="400.49945068359" Range="25" />		
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1784) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1784) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Dark Iron Spy" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-5841.123046875" Y="-1995.8868408203" Z="401.11614990234" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1784) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1784) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1784) == true">
+		<ReturnQuest NpcName="Muiredon Battleforge" QuestId="1784" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1785) == false and Data.HasCompletedQuest('The Tome of Divinity', 1785) == false">
+		<TakeQuest NpcName="Muiredon Battleforge" QuestId="1785" QuestName="The Tome of Divinity" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1785) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1785) == true">
+		<ReturnQuest NpcName="Tiza Battleforge" QuestId="1785" QuestName="The Tome of Divinity" />
+	</If>
+
+</ShadowProfile>
+
+
+
