@@ -1,5 +1,5 @@
 <ShadowProfile Condition="UnitLevel('player') &gt;= 10 and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-<!-- Dwarf Hunter -->
+<!-- Dwarf Hunter -->		<Lua>settings.ShouldFeedPet = false</Lua>
 	<If Condition="Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
 		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == false and Data.HasCompletedQuest('Taming the Beast', 6064) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
 			<TakeQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
