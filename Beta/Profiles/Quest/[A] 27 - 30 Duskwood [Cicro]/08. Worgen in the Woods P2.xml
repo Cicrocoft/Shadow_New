@@ -148,7 +148,7 @@
             </If> 			
 			<Wait Value="100" />
 		</While>
-	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 221) == false and Data.AllQuestObjectivesAreComplete('Worgen in the Woods', 221) == false">
+	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 221) == true and Data.AllQuestObjectivesAreComplete('Worgen in the Woods', 221) == false">
 		<!-- Objective Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<ClearHotspots />
