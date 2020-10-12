@@ -172,9 +172,7 @@
 		<ClearBlackspots />
 		<!-- Monsterfilter -->
 		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Mottled Raptor" />
-		<AddMonsterFilterName Value="Mottled Screecher" />		
+		<SetMonsterFilterMode Mode="None" />	
 		<!-- Blackspots -->
 		<AddBlackspot X="-3494.7717285156" Y="-1472.880859375" Z="9.1566696166992" Range="50" />
 		<AddBlackspot X="-3710.7377929688" Y="-2610.4448242188" Z="56.420711517334" Range="50" />
