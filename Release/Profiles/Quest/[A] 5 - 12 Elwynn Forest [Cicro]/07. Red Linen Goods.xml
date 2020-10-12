@@ -44,38 +44,52 @@
 	</If>	
 
 	<!-- Quset Completion -->
-	<If Condition="Data.HasActiveQuest('Red Linen Goods') == true and Data.HasCompletedQuest('Red Linen Goods') == false">
+	<If Condition="Data.HasActiveQuest('Red Linen Goods') == true and Data.HasCompletedQuest('Red Linen Goods') == false or UnitLevel('player') &lt; 11">
 		<ClearHotspots />
 		<SetTargetingMode Mode="Around Points" />		
 		<!-- Blackspots -->
-		<AddBlackspot X="-9862.103515625" Y="-222.87680053711" Z="36.110015869141" Range="10" />
+		<AddBlackspot X="-9864.134765625" Y="-227.75468444824" Z="35.623870849609" Range="40" />
+		<AddBlackspot X="-9466.048828125" Y="-390.1155090332" Z="58.431949615479" Range="100" />
+		<AddBlackspot X="-9493.4912109375" Y="-430.20648193359" Z="59.284282684326" Range="100" />
+		<AddBlackspot X="-9533.9873046875" Y="-416.73385620117" Z="59.385929107666" Range="25" />
+		<AddBlackspot X="-9774.240234375" Y="-880.12554931641" Z="39.506683349609" Range="25" />
 		<!-- Hotspots -->
-		<AddHotspot X="-9739.5703125" Y="-902.83624267578" Z="39.331588745117" Range="20" />
-		<AddHotspot X="-9726.728515625" Y="-840.26715087891" Z="40.630290985107" Range="20" />
-		<AddHotspot X="-9740.6240234375" Y="-822.34606933594" Z="40.545124053955" Range="20" />
-		<AddHotspot X="-9805.1484375" Y="-821.32476806641" Z="41.22021484375" Range="20" />
-		<AddHotspot X="-9834.376953125" Y="-850.04144287109" Z="41.057342529297" Range="20" />
-		<AddHotspot X="-9864.5302734375" Y="-104.68598175049" Z="26.956129074097" Range="20" />
-		<AddHotspot X="-9864.7041015625" Y="-154.75666809082" Z="31.895782470703" Range="20" />
-		<AddHotspot X="-9871.130859375" Y="-175.3053894043" Z="34.41242980957" Range="20" />
-		<AddHotspot X="-9844.0166015625" Y="-787.056640625" Z="35.729080200195" Range="20" />
-		<AddHotspot X="-9834.2099609375" Y="-556.0517578125" Z="24.866771697998" Range="20" />
-		<AddHotspot X="-9873.3046875" Y="-451.16744995117" Z="31.003646850586" Range="20" />
-		<AddHotspot X="-9872.28125" Y="-367.091796875" Z="33.033729553223" Range="20" />
-		<AddHotspot X="-9853.6630859375" Y="-308.75634765625" Z="38.458106994629" Range="20" />		
-		<AddHotspot X="-9864.5302734375" Y="-104.68598175049" Z="26.956129074097" Range="20" />
-		<AddHotspot X="-9864.7041015625" Y="-154.75666809082" Z="31.895782470703" Range="20" />
-		<AddHotspot X="-9871.130859375" Y="-175.3053894043" Z="34.41242980957" Range="20" />
+		<AddHotspot X="-9831.9765625" Y="-191.74732971191" Z="37.654010772705" Range="50" />
+		<AddHotspot X="-9871.421875" Y="-167.24865722656" Z="33.34077835083" Range="50" />
+		<AddHotspot X="-9864.490234375" Y="-101.85999298096" Z="26.75152015686" Range="50" />
+		<AddHotspot X="-9914.158203125" Y="-77.740821838379" Z="29.062410354614" Range="50" />
+		<AddHotspot X="-9818.2490234375" Y="-67.051818847656" Z="24.987979888916" Range="50" />
+		<AddHotspot X="-9726.35546875" Y="-71.583404541016" Z="34.931243896484" Range="50" />
+		<AddHotspot X="-9663.7626953125" Y="-63.409847259521" Z="41.198360443115" Range="50" />
+		<AddHotspot X="-9654.3056640625" Y="-124.1584854126" Z="44.960426330566" Range="50" />
+		<AddHotspot X="-9748.7919921875" Y="-283.82043457031" Z="49.270435333252" Range="50" />
+		<AddHotspot X="-9793.0712890625" Y="-377.28317260742" Z="54.387641906738" Range="50" />
+		<AddHotspot X="-9708.7744140625" Y="-477.62936401367" Z="52.628658294678" Range="50" />
+		<AddHotspot X="-9704.9013671875" Y="-580.93829345703" Z="47.706409454346" Range="50" />
+		<AddHotspot X="-9732.0712890625" Y="-659.74658203125" Z="43.91410446167" Range="50" />
+		<AddHotspot X="-9750.42578125" Y="-741.49066162109" Z="41.262870788574" Range="50" />
+		<AddHotspot X="-9831.6630859375" Y="-846.50433349609" Z="41.028499603271" Range="50" />
+		<AddHotspot X="-9803.291015625" Y="-827.07012939453" Z="40.981212615967" Range="50" />
+		<AddHotspot X="-9751.447265625" Y="-818.22674560547" Z="41.069721221924" Range="50" />
+		<AddHotspot X="-9722.8984375" Y="-834.24267578125" Z="42.070407867432" Range="50" />
+		<AddHotspot X="-9754.3544921875" Y="-915.80902099609" Z="39.306858062744" Range="50" />
+		<AddHotspot X="-9723.078125" Y="-897.28424072266" Z="39.642383575439" Range="50" />
 		<!-- Monster Filter -->
 		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Princess" />
+		<AddMonsterFilterName Value="Porcine Entourage" />		
+		<While Condition="UnitLevel('player') &lt; 11" >
+				<Wait Value="100" />
+		</While>	
 		<SetMonsterFilterMode Mode="Whitelist" />
 		<AddMonsterFilterName Value="Defias Bandit" />
-		<AddMonsterFilterName Value="Rockhide Boar" />		
 		<While Condition="Data.AllQuestObjectivesAreComplete('Red Linen Goods') == false" >
 				<Wait Value="100" />
 		</While>			
 	</If>
 	
+
 
 	
 	<!-- ReturnQuest -->
