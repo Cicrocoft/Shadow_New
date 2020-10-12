@@ -120,7 +120,6 @@
 			<Wait Value="100" />
 		</While>
 	</If>
-	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 221) == false and Data.HasCompletedQuest('Worgen in the Woods', 221) == false or UnitLevel('player') &lt; 29 or UnitXP('player') &lt;= 40000 and UnitXPMax('player') == 44300">
 		<!-- Objective Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<ClearHotspots />
@@ -142,15 +141,37 @@
 		<AddHotspot X="-10990.983398438" Y="-947.30670166016" Z="67.016342163086" Range="100" />
 		<AddHotspot X="-11056.875" Y="-903.31915283203" Z="62.926990509033" Range="100" />
 		<AddHotspot X="-11034.282226563" Y="-843.46539306641" Z="60.548854827881" Range="100" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('Worgen in the Woods', 221) == false and UnitXP('player') &lt;= 40000 and UnitXPMax('player') == 44300" >
+		<While Condition="UnitXP('player') &lt;= 40000 and UnitXPMax('player') == 44300" >
             <If Condition="IsSpellKnown(604) and Data.HaveBuff('player', 'Dampen Magic') == false and Data.PlayerClass() == WoWClass.Mage">
                 <CastSpell SpellName="Dampen Magic"/>
                 <Wait Value="500"/>
             </If> 			
 			<Wait Value="100" />
 		</While>
+	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 221) == false and Data.AllQuestObjectivesAreComplete('Worgen in the Woods', 221) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Nightbane Dark Runner" />		
+		<AddMonsterFilterName Value="Nightbane Dark Runner" />	
+		<!-- Blackspots -->
+		<AddBlackspot X="-11033.359375" Y="-896.80682373047" Z="63.789302825928" Range="35" />
+		<AddBlackspot X="-11075.697265625" Y="-816.44989013672" Z="58.330089569092" Range="45" />
+		<AddBlackspot X="-10644.650390625" Y="-892.2626953125" Z="49.543960571289" Range="50" />
+		<AddBlackspot X="-10448.713867188" Y="-809.892578125" Z="50.439926147461" Range="50" />
+		<AddBlackspot X="-10333.33984375" Y="-1260.9813232422" Z="35.301746368408" Range="30" />
+		<AddBlackspot X="-10375.330078125" Y="-1257.0374755859" Z="35.829116821289" Range="25" />
+		<!-- Hotspots -->
+		<AddHotspot X="-10325.897460938" Y="-907.05426025391" Z="38.036262512207" Range="100" />
+		<AddHotspot X="-10415.603515625" Y="-920.44989013672" Z="46.332767486572" Range="100" />
+		<AddHotspot X="-10489.362304688" Y="-899.45141601563" Z="45.465667724609" Range="100" />
+		<AddHotspot X="-10595.654296875" Y="-838.17584228516" Z="53.500991821289" Range="100" />
+		<AddHotspot X="-10930.892578125" Y="-902.22747802734" Z="69.876335144043" Range="100" />
+		<AddHotspot X="-10990.983398438" Y="-947.30670166016" Z="67.016342163086" Range="100" />
+		<AddHotspot X="-11056.875" Y="-903.31915283203" Z="62.926990509033" Range="100" />
+		<AddHotspot X="-11034.282226563" Y="-843.46539306641" Z="60.548854827881" Range="100" />
 		<While Condition="Data.AllQuestObjectivesAreComplete('Worgen in the Woods', 221) == false" >
             <If Condition="IsSpellKnown(604) and Data.HaveBuff('player', 'Dampen Magic') == false and Data.PlayerClass() == WoWClass.Mage">
                 <CastSpell SpellName="Dampen Magic"/>
