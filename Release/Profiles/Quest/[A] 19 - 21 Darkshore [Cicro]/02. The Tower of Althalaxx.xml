@@ -118,12 +118,12 @@
 	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
-		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
-		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
 	</If>
 	<If Condition="Data.PlayerClass() == WoWClass.Priest">
-		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
-		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Taldan" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
 	</If>
 	<!-- Bullets/Arrows -->
 	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
@@ -144,6 +144,7 @@
 
 	<!-- QuestObjective -->
 		<!-- Blackspots -->
+		<AddBlackspot X="7047.11328125" Y="-283.91760253906" Z="42.83996963501" Range="20" />
 		<AddBlackspot X="6818.7529296875" Y="-382.69662475586" Z="40.684844970703" Range="100" />
 		<AddBlackspot X="6863.3842773438" Y="-479.56393432617" Z="40.143852233887" Range="100" />
 		<AddBlackspot X="6885.7250976563" Y="-511.59030151367" Z="40.41414642334" Range="100" />		
