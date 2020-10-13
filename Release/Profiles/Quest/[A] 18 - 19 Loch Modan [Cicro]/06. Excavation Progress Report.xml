@@ -37,7 +37,7 @@
 		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="1200"/>
 	</If>
 	<!-- End Restock -->
-
+	<AddBlackspot X="-4798.853515625" Y="-2965.1945800781" Z="321.74435424805" Range="50" />
 	<AddBlackspot X="-5019.8149414063" Y="-3885.0297851563" Z="311.3669128418" Range="50" />
 	<AddBlackspot X="-4958.9711914063" Y="-3909.3828125" Z="304.38958740234" Range="50" />
 	<AddBlackspot X="-4873.4819335938" Y="-3814.7385253906" Z="304.74975585938" Range="50" />
