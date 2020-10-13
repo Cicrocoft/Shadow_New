@@ -156,7 +156,7 @@
 		<SetTargetingMode Mode="Around Points" />
 		<SetEnableMonsterLevelFilter Value="true" />
 		<SetMonsterAboveMyLevel Value="1" />
-		<SetMonsterUnderMyLevel Value="5" />
+		<SetMonsterBelowMyLevel Value="5" />
 		<!-- Blackspots -->
 		<AddBlackspot X="4992.6118164063" Y="560.41522216797" Z="4.1801152229309" Range="40" />
 		<AddBlackspot X="6108.6879882813" Y="552.82360839844" Z="1.6646763086319" Range="40" />
