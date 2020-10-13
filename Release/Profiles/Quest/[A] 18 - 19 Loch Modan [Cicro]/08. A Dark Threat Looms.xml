@@ -176,7 +176,7 @@
 <AddHotspot X="-5057.0234375" Y="-3652.1030273438" Z="303.23336791992" Range="100" />
 <AddHotspot X="-4946.8955078125" Y="-3638.6259765625" Z="303.66452026367" Range="100" />
 <AddHotspot X="-4872.1298828125" Y="-3593.1508789063" Z="304.29025268555" Range="100" />	
-
+<AddBlackspot X="-5068.40234375" Y="-3622.3803710938" Z="303.51644897461" Range="50" />
     <SetTargetingMode Mode="Around Points" />	
 	<SetHotspotTraverseMode Mode="Circular"/>
     <ClearMonsterFilter/>
