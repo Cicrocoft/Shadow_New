@@ -51,7 +51,11 @@
 	<AddBlackspot X="-5114.359375" Y="-3888.4409179688" Z="332.42489624023" Range="50" />
 	<AddBlackspot X="-5092.8178710938" Y="-4040.8405761719" Z="316.13803100586" Range="50" />
 	<AddBlackspot X="-5070.3217773438" Y="-4113.771484375" Z="313.14889526367" Range="50" />
-	
+	<AddBlackspot X="-5052.5288085938" Y="-3610.4299316406" Z="299.85919189453" Range="40" />	
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Haren Swifthoof" />
+		<AddMonsterFilterName Value="Thragomm" />
+		<AddMonsterFilterName Value="Gradok" />	
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('Excavation Progress Report') == false and Data.HasCompletedQuest('Excavation Progress Report') == false">
 		<TakeQuest NpcName="Prospector Ironband" QuestId="298" QuestName="Excavation Progress Report" />
