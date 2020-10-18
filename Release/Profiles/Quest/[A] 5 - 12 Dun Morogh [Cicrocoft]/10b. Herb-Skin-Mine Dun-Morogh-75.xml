@@ -153,11 +153,16 @@ end
 	<SetEnableRestockItems Value="true"/>
 	<ClearRestockItems/>
 	<!-- Food -->
-	<If Condition="GetMoney() &gt;= 700" >
-		<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
-			<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>
-			<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
-		</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter and UnitLevel('player') &lt;= 15">
+		<AddRestockItem ItemName="Tough Jerky" NpcName="Innkeeper Firebrew" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Tough Jerky" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Tough Jerky" </Lua>
+	</If>
 		<!-- Water -->
 		<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
 			<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>
@@ -179,7 +184,7 @@ end
 		<AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>
 	</If>
 	<!-- End Restock -->
-
+<If Condition="Data.GetMyProfessionLevel('Skinning')  ~= nil">
 	<If Condition="Data.GetMyProfessionLevel('Skinning') &lt;= 65 and Data.GetMyProfessionLevel('Skinning') &gt;= 1" >
 		<SetTargetingMode Mode="Around Points" />
 
@@ -236,7 +241,8 @@ end
 		</While>
 		
 	</If>
-	
+</If>
+<If Condition="Data.GetMyProfessionLevel('Herbalism') ~= nil">	
 	<If Condition="Data.GetMyProfessionLevel('Herbalism') &lt;= 55 and Data.GetMyProfessionLevel('Herbalism') &gt;= 1" >
 		<SetTargetingMode Mode="Gather Only" />
 
@@ -295,12 +301,14 @@ end
 	<If Condition="Data.GetMyProfessionLevel('Herbalism') &gt;= 55 and MaxSkill('Herbalism') == 75" >
 		<NPCInteract NpcName="Reyna Stonebranch" />
 		<Lua> return TrainSkill("Journeyman Herbalist")</Lua>
-	</If>	
+	</If>
+</If>
+<If Condition="Data.GetMyProfessionLevel('Skinning')  ~= nil">	
 	<If Condition="Data.GetMyProfessionLevel('Skinning') &gt;= 55 and MaxSkill('Skinning') == 75" >
 		<NPCInteract NpcName="Balthus Stoneflayer" />
 		<Lua> return TrainSkill("Journeyman Skinning")</Lua>
 	</If>
-	
+</If>	
 
 
 </ShadowProfile>
