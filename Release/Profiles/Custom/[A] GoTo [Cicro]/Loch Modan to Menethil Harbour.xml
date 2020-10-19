@@ -1,4 +1,8 @@
 <ShadowProfile>
+<SetBaseSettings />
+<SetEnableVendoring Value="false"/>
+<SetEnableRepairing Value="false"/>
+<ClearRestockItems />
 		<AddBlackspot X="-3337.4165039063" Y="-909.57794189453" Z="3.1628561019897" Range="40" />
 		<SetCRMode Mode="External"/>
 		<SetEnableProfileIgnoreCombat Value="true"/>	

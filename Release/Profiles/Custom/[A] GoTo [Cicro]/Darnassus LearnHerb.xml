@@ -1,4 +1,8 @@
 <ShadowProfile>
+<SetBaseSettings />
+<SetEnableVendoring Value="false"/>
+<SetEnableRepairing Value="false"/>
+<ClearRestockItems />
 <Lua>
 function TrainSkill(skillName)
 if SelectVendorLink("trainer") then

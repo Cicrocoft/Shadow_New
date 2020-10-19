@@ -53,10 +53,10 @@ for skillIndex = 1, GetNumSkillLines() do
     end
 end	
 </Lua>
-	<AddRestockItem ItemName="Skinning Knife" NpcName="Saenorion" UnderAmount="0" BuyAmount="1"/>	
+	<AddRestockItem ItemName="Skinning Knife" NpcName="Narret Shadowgrove" UnderAmount="0" BuyAmount="1"/>	
 	<If Condition="Data.GetMyProfessionLevel('Skinning') == nil" >
 		<Lua>CloseMerchant()</Lua>	
-		<NPCInteract NpcName="Eladriel"/>
+		<NPCInteract NpcName="Radnaal Maneweaver"/>
 		<BotSleep Value="1247"/>		
 		<Lua> return TrainSkill("Apprentice Skinning")</Lua>
 		<BotSleep Value="2135"/>		

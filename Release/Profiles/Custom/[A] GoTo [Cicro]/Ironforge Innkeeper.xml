@@ -1,4 +1,8 @@
 <ShadowProfile>
+<SetBaseSettings />
+<SetEnableVendoring Value="false"/>
+<SetEnableRepairing Value="false"/>
+<ClearRestockItems />
 
 <MoveTo X="-4841.318359375" Y="-860.96704101563" Z="501.91448974609" />
 

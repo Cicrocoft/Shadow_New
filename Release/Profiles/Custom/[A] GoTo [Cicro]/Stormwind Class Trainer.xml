@@ -1,4 +1,8 @@
 <ShadowProfile>
+<SetBaseSettings />
+<SetEnableVendoring Value="false"/>
+<SetEnableRepairing Value="false"/>
+<ClearRestockItems />
 
 <If Condition="Data.PlayerClass() == WoWClass.Mage">
 	<MoveTo X="-9014.5087890625" Y="874.66821289063" Z="148.61747741699" />
