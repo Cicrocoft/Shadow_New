@@ -1,5 +1,5 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Kobold Camp Cleanup') == false or Data.HasCompletedQuest('Kobold Camp Cleanup') == false">
-
+<Lua>SetCVar("instantQuestText", "1"); print("Instant Quest Text On");</Lua>
 	<!-- Bot Settings -->
 	<SetBaseSettings />
 	<Lua>settings.DoNotSellItems = {}</Lua>

@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Dwarven Outfitters') == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('Dwarven Outfitters') == false"><Lua>SetCVar("instantQuestText", "1"); print("Instant Quest Text On");</Lua>
     <If Condition="Data.HasActiveQuest('Dwarven Outfitters') == false">
         <TakeQuest NpcName="Sten Stoutarm" QuestName="Dwarven Outfitters" />
     </If>

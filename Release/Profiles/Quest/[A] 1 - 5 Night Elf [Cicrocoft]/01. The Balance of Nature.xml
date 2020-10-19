@@ -1,5 +1,6 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('The Balance of Nature', 457) == false">
-    <If Condition="Data.HasActiveQuest('The Balance of Nature', 456) == false and Data.HasCompletedQuest('The Balance of Nature', 456) == false">
+<Lua>SetCVar("instantQuestText", "1"); print("Instant Quest Text On");</Lua> 
+ <If Condition="Data.HasActiveQuest('The Balance of Nature', 456) == false and Data.HasCompletedQuest('The Balance of Nature', 456) == false">
         <TakeQuest NpcName="Ilthalaine" QuestId="456" QuestName="The Balance of Nature" />
     </If>
 
@@ -41,7 +42,9 @@
 		<While Condition="Data.AllQuestObjectivesAreComplete('The Balance of Nature', 456) == false" >
 			<Wait Value="100" />
 		</While>
-		
+		<While Condition="UnitLevel('player') &lt; 2 or UnitXP('player') &lt;= 500 and UnitXPMax('player') == 900" >
+			<Wait Value="100" />
+		</While>		
 		<ReturnQuest NpcName="Ilthalaine" QuestId="456" QuestName="The Balance of Nature" />
 	</If>
 
@@ -63,6 +66,9 @@
 		<While Condition="Data.AllQuestObjectivesAreComplete('The Balance of Nature', 457) == false" >
 			<Wait Value="100" />
 		</While>
+		<While Condition="UnitLevel('player') &lt; 2 or UnitXP('player') &lt;= 600 and UnitXPMax('player') == 1400" >
+			<Wait Value="100" />
+		</While>		
 		<ReturnQuest NpcName="Ilthalaine" QuestId="457" QuestName="The Balance of Nature" />
 	</If>
 	
