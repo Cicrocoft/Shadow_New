@@ -20,6 +20,7 @@
     <SetEnableIgnoreLootAroundMobs Value="true"/>
     <SetEnablePreemptiveMonsterAttack Value="true"/>
 	<SetEnableAutoLoot Value="true" />
+	<SetCRMode Mode="Internal"/>	
 
 
 	<!-- Rest Settings -->
