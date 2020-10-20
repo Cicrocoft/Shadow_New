@@ -149,20 +149,33 @@
 	</If> 	
  
 	<!-- Objective Completion -->
+	<ClearHotspots />
+	<AddBlackspot X="6704.8896" Y="-28.909109" Z="43.096920013" Range="100" />
+	<AddBlackspot X="6946.7978515625" Y="193.41215515137" Z="0.67052751779556" Range="35" />
 
-	<If Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == false">
-		<ClearHotspots />
-		<AddBlackspot X="6704.8896" Y="-28.909109" Z="43.096920013" Range="100" />
-		<AddBlackspot X="6946.7978515625" Y="193.41215515137" Z="0.67052751779556" Range="35" />
-		<While Condition="Data.GetItemCountByName('Empty Sampling Tube') == 1">
-			<MoveTo X="7266.7905273438" Y="-377.52597045898" Z="-0.026679269969463" />
-			<MoveTo NoNav="true" X="7217.013671875" Y="-387.01043701172" Z="-2.7243022918701" />
-			<UseItem ItemName="Empty Sampling Tube" />
-		</While>
+	<!-- This quest is dedicated to VV aka Vlad -->
+	<While Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == false" >
+	<If Condition="Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &gt; 99" >
+		<MoveTo X="7315.28125" Y="-396.5627746582" Z="0.83316838741302" Range="1" />
+		<Wait Value="145" />
 	</If>
-	<If Condition="Nav.RangeFromMeXYZ(7220.910156, -385.03491210, -3.9) &lt; 40" >
+	<If Condition="Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &lt;= 101 and Nav.RangeFromMeXYZ(7267.0229492188, -377.46853637695, -0.041654016822577) &lt; 53 and Nav.RangeFromMeXYZ(7315.28125, -387.01043701172, -2.7243022918701) &lt; 53" >
+		<MoveTo NoNav="true" X="7267.0229492188" Y="-377.46853637695" Z="-0.041654016822577" Range="1" />
+		<Wait Value="145" />
+	</If>
+	<If Condition="Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &gt; 2 and Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &lt;= 53" >
+		<MoveTo NoNav="true" X="7217.013671875" Y="-387.01043701172" Z="-2.7243022918701" />
+		<Wait Value="145" />
+	</If>
+	<If Condition="Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &lt;= 2 and Data.GetItemCountByName('Empty Sampling Tube') == 1" >
+		<UseItem ItemName="Empty Sampling Tube" />
+		<Wait Value="145" />
+		<BotSleep Value="5000"/>	
+	</If>
+	</While> 
+	<If Condition="Nav.RangeFromMeXYZ(7220.910156, -385.03491210, -3.9) &lt; 70 and Data.GetItemCountByName('Cliffspring River Sample') == 1" >
 		<MoveTo NoNav="true" X="7266.7905273438" Y="-377.52597045898" Z="-0.026679269969463" />
-		<BotSleep Value="5000"/>
+		<BotSleep Value="1247"/>
 		<MoveTo X="7308.1772460938" Y="-364.5244140625" Z="0.95011913776398" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4725) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4725) == false">
