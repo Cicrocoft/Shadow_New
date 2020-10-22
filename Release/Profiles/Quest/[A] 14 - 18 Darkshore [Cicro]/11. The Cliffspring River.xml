@@ -154,6 +154,9 @@
 	<AddBlackspot X="6946.7978515625" Y="193.41215515137" Z="0.67052751779556" Range="35" />
 
 	<!-- This quest is dedicated to VV aka Vlad -->
+	<If Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == false">
+		<MoveTo X="7315.28125" Y="-396.5627746582" Z="0.83316838741302" Range="1" />
+	</If>
 	<While Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == false" >
 	<If Condition="Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &gt; 99" >
 		<MoveTo X="7315.28125" Y="-396.5627746582" Z="0.83316838741302" Range="1" />
