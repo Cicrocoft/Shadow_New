@@ -165,7 +165,7 @@
     <If Condition="Data.HasActiveQuest('Fruit of the Sea') == true and Data.AllQuestObjectivesAreComplete('Fruit of the Sea') == true">
         <ReturnQuest NpcName="Gubber Blump" QuestId="1138" QuestName="Fruit of the Sea" />
     </If>	
-	
+		<SetTargetingMode Mode="Around Points" />	
 		<ClearHotspots />
 		<AddHotspot X="5331.1640625" Y="408.02490234375" Z="28.857032775879" Range="100" />
 		<AddHotspot X="5263.76953125" Y="382.45529174805" Z="29.046649932861" Range="100" />
