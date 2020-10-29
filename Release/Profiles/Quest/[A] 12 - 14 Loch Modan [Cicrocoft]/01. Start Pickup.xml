@@ -14,6 +14,23 @@
 			<Wait Value="100" />
 		</If>
 	</If>
+	<If Condition="GetSubZoneText() == 'Menethil Harbor' or UnlAPI.GetMapId() == 1">
+		<NPCInteract NpcName="Shellei Brondir" Range="5" DestinationMap="0" />	
+	</If>
+	<If Condition="GetSubZoneText() == 'Menethil Harbor' or UnlAPI.GetMapId() == 1">
+		<NPCInteract NpcName="Shellei Brondir" Range="5" DestinationMap="0" />	
+	</If>	
+	<If Condition="Data.MyRace() == WoWRace.NightElf and Data.HasActiveQuest('The Lost Pilot') == false and Data.HasCompletedQuest('The Lost Pilot') == false" >
+		<SetRoadPriority Value="9" />
+		<SetCRMode Mode="External"/>
+		<SetEnableProfileIgnoreCombat Value="true"/>	
+		<SetEnablePreemptiveMonsterAttack Value="false"/>		
+		<SetEnableVendoring Value="false"/>
+		<SetEnableRepairing Value="false"/>		
+		<If Condition="Data.HasCompletedQuest('The Lost Pilot') == false">
+			<TakeQuest NpcName="Pilot Hammerfoot" QuestName="The Lost Pilot" DestinationMap="0" />
+		</If>		
+	</If>
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
@@ -118,38 +135,20 @@
 
 	
 	
-	<!-- Ammo Auto Equip -->
-	<If Condition="IsEquippedItemType('Gun') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2519 and Data.GetItemCountByName('Heavy Shot') &gt;= 1" >
-		<UseItem ItemId="2519" />
-		<While Condition="Data.GetItemCountByName('Light Shot') &gt;= 1">
-			<Lua>Data.DeleteItemStackById(2516)</Lua>
-		</While>	
-	</If>
-	<If Condition="IsEquippedItemType('Bow') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2515 and Data.GetItemCountByName('Sharp Arrow') &gt;= 1" >
-		<UseItem ItemId="2515" />
-		<While Condition="Data.GetItemCountByName('Rough Arrow') &gt;= 1">
-			<Lua>Data.DeleteItemStackById(2512)</Lua>
-		</While>	
-	</If>	
-	<If Condition="IsEquippedItemType('Crossbow') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2515 and Data.GetItemCountByName('Sharp Arrow') &gt;= 1" >
-		<UseItem ItemId="2515" />
-		<While Condition="Data.GetItemCountByName('Rough Arrow') &gt;= 1">
-			<Lua>Data.DeleteItemStackById(2512)</Lua>
-		</While>	
-	</If>		
-	<!-- End Auto Equip -->
-
 	<!-- Pickup -->
     <If Condition="Data.HasActiveQuest('The Lost Pilot') == false and Data.HasCompletedQuest('The Lost Pilot') == false">
-        <TakeQuest NpcName="Pilot Hammerfoot" QuestName="The Lost Pilot" />
+        <TakeQuest NpcName="Pilot Hammerfoot" QuestName="The Lost Pilot" DestinationMap="0" />
     </If>
+	<If Condition="Data.HasActiveQuest('The Lost Pilot') == true and Data.MyRace() == WoWRace.NightElf" >
+		<SetRoadPriority Value="4" />
+	</If>	
 	<!-- Quest Completion -->
     <ClearHotspots />
     <If Condition="Data.HasActiveQuest('The Lost Pilot') == true">
-		<ReturnQuestToObject QuestName="The Lost Pilot" X="-5063.826171875" Y="-2122.1840820313" Z="404.26696777344" />
+		<ReturnQuestToObject QuestName="The Lost Pilot" X="-5063.826171875" Y="-2122.1840820313" Z="404.26696777344" DestinationMap="0" />
 	</If>
 	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == false and Data.HasCompletedQuest('The Lost Pilot') == true and Data.HasCompletedQuest('A Pilot\'s Revenge') == false">
-		<TakeQuestFromObject QuestName="A Pilot\'s Revenge" X="-5063.826171875" Y="-2122.1840820313" Z="404.26696777344" />
+		<TakeQuestFromObject QuestName="A Pilot\'s Revenge" X="-5063.826171875" Y="-2122.1840820313" Z="404.26696777344" DestinationMap="0" />
 	</If>
 	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == true">	
 		<ClearHotspots />
@@ -169,7 +168,7 @@
 	<!-- TurnIn -->
 
 	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == true">
-		<ReturnQuest NpcName="Pilot Hammerfoot" QuestName="A Pilot\'s Revenge" />
+		<ReturnQuest NpcName="Pilot Hammerfoot" QuestName="A Pilot\'s Revenge" DestinationMap="0" />
 	</If>
 
 <!-- Restock Loch Modan 12 - 15 (Thelsmar)-->
@@ -209,26 +208,26 @@
 
 	<!-- Pickup -->
     <If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 224) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 224) == false">
-        <TakeQuest NpcName="Mountaineer Cobbleflint" QuestId="224" QuestName="In Defense of the King\'s Lands" />
+        <TakeQuest NpcName="Mountaineer Cobbleflint" QuestId="224" QuestName="In Defense of the King\'s Lands" DestinationMap="0" />
     </If>   
     <If Condition="Data.HasActiveQuest('The Trogg Threat', 267) == false and Data.HasCompletedQuest('The Trogg Threat', 267) == false">
-        <TakeQuest NpcName="Captain Rugelfuss" QuestId="267" QuestName="The Trogg Threat" />
+        <TakeQuest NpcName="Captain Rugelfuss" QuestId="267" QuestName="The Trogg Threat" DestinationMap="0" />
     </If>
 	<If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == false and Data.HasCompletedQuest('Thelsamar Blood Sausages') == false">
 		<NPCInteract NpcName="Thorgrum Borrelson" />
-        <TakeQuest NpcName="Vidra Hearthstove" QuestId="418" QuestName="Thelsamar Blood Sausages" />
+        <TakeQuest NpcName="Vidra Hearthstove" QuestId="418" QuestName="Thelsamar Blood Sausages" DestinationMap="0" />
     </If>
 	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false and Data.MyRace() == WoWRace.Dwarf">
-        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
+        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" DestinationMap="0" />
     </If>
 	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false and Data.MyRace() == WoWRace.Gnome">
-        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
+        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" DestinationMap="0" />
     </If>	
     <If Condition="Data.HasActiveQuest('Rat Catching') == false and Data.HasCompletedQuest('Rat Catching') == false">
-        <TakeQuest NpcName="Mountaineer Kadrell" QuestId="416" QuestName="Rat Catching" />
+        <TakeQuest NpcName="Mountaineer Kadrell" QuestId="416" QuestName="Rat Catching" DestinationMap="0" />
     </If>	
     <If Condition="Data.HasActiveQuest('Mountaineer Stormpike\'s Task') == false and Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
-        <TakeQuest NpcName="Mountaineer Kadrell" QuestId="1339" QuestName="Mountaineer Stormpike\'s Task" />
+        <TakeQuest NpcName="Mountaineer Kadrell" QuestId="1339" QuestName="Mountaineer Stormpike\'s Task" DestinationMap="0" />
     </If>	
 
 
