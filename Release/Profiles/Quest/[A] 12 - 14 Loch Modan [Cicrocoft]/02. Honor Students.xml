@@ -25,6 +25,9 @@
 			<TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
 		</If>	
 	</If>	
+	<If Condition="Data.MyRace() == WoWRace.NightElf and KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Ironforge, Dun Morogh'] ~= nil">
+		<NPCInteract NpcName="Gryth Thurden" />
+	</If>	
     <If Condition="Data.HasActiveQuest('Find Bingles') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
         <TakeQuest NpcName="Gnoarn" QuestName="Find Bingles" />
 	</If>	
@@ -50,12 +53,23 @@
 		<MoveTo X="69.799560546875" Y="10.21715927124" Z="-4.2967839241028" Range="1" />
 		<MoveTo NoNav="true" X="73.019554138184" Y="10.210012435913" Z="-4.2967839241028" Range="1" />
 	</If>
-
+		<If Condition="Data.MyRace() == WoWRace.NightElf and KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Stormwind, Elwynn'] ~= nil">
+			<IFtoSWTram />
+		</If>
+		<If Condition="GetZoneText() == 'Stormwind City' and Data.MyRace() == WoWRace.NightElf">	
+			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 12000" >
+				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
+			</If>
+			<NPCInteract NpcName="Dungar Longdrink" />
+		</If>
 	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Return to Brock') == false">	
 		<If Condition="Data.HasCompletedQuest('Gryth Thurden') == false and GetZoneText() == 'City of Ironforge'">
 			<IFtoSWTram />
 		</If>
 		<If Condition="GetZoneText() == 'Stormwind City'">	
+			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 12000" >
+				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
+			</If>
 			<NPCInteract NpcName="Dungar Longdrink" />
 		</If>
 		<!-- TurnIn Part 3 + Pickup Part 4 -->

@@ -6,6 +6,9 @@
 		<SetEnableRepairing Value="false"/>
 		<SetEnableRestockItems Value="false"/>
 		<If Condition="GetZoneText() == 'Stormwind City'">	
+			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 12000" >
+				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
+			</If>		
 			<NPCInteract NpcName="Dungar Longdrink" />
 		</If>
 		<SWtoIFTram />
@@ -207,6 +210,9 @@
 	<!-- End Restock -->	
 
 	<!-- Pickup -->
+		<If Condition="(Data.MyRace() ~= WoWRace.Gnome or Data.MyRace() ~= WoWRace.NightElf) and KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Thelsamar, Loch Modan'] ~= nil">	
+			<NPCInteract NpcName="Thorgrum Borrelson" />
+		</If>	
     <If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 224) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 224) == false">
         <TakeQuest NpcName="Mountaineer Cobbleflint" QuestId="224" QuestName="In Defense of the King\'s Lands" DestinationMap="0" />
     </If>   
