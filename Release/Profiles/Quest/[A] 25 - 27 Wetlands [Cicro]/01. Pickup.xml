@@ -1,0 +1,137 @@
+<ShadowProfile Condition="Data.HasActiveQuest('Young Crocolisk Skins', 484) == false and Data.HasCompletedQuest('Young Crocolisk Skins', 484) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Murndan Derth" />
+	<SetRepairNpc NpcName="Murndan Derth" />
+	
+	<ClearRestockItems/>
+
+	
+	<If Condition="Data.HasActiveQuest('Claws from the Deep', 279) == false and Data.HasCompletedQuest('Claws from the Deep', 279) == false">
+		<TakeQuest NpcName="Karl Boran" QuestId="279" QuestName="Claws from the Deep" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Third Fleet', 288) == false and Data.HasCompletedQuest('The Third Fleet', 288) == false">
+		<TakeQuest NpcName="First Mate Fitzsimmons" QuestId="288" QuestName="The Third Fleet" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Greenwarden', 463) == false and Data.HasCompletedQuest('The Greenwarden', 463) == false">
+		<TakeQuest NpcName="First Mate Fitzsimmons" QuestId="463" QuestName="The Greenwarden" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Third Fleet', 288) == true and Data.GetItemCountByName('Flagon of Dwarven Honeymead') == 0">
+		<SetEnableRestockItems Value="true"/>
+		<AddRestockItem ItemName="Flagon of Dwarven Honeymead" NpcName="Innkeeper Helbrek" UnderAmount="0" BuyAmount="1"/>
+		<While Condition="Data.GetItemCountByName('Flagon of Dwarven Honeymead') == 0" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+	<If Condition="Data.GetItemCountByName('Flagon of Dwarven Honeymead') == 1 and Data.HasActiveQuest('The Third Fleet', 288) == true">
+		<ClearRestockItems/>
+		<ReturnQuest NpcName="First Mate Fitzsimmons" QuestId="288" QuestName="The Third Fleet" DestinationMap="0" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Digging Through the Ooze', 470) == false and Data.HasCompletedQuest('Digging Through the Ooze', 470) == false">
+		<TakeQuest NpcName="Sida" QuestId="470" QuestName="Digging Through the Ooze" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('In Search of The Excavation Team', 305) == false and Data.HasCompletedQuest('In Search of The Excavation Team', 305) == false">
+		<TakeQuest NpcName="Tarrel Rockweaver" QuestId="305" QuestName="In Search of The Excavation Team" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Young Crocolisk Skins', 484) == false and Data.HasCompletedQuest('Young Crocolisk Skins', 484) == false">
+		<TakeQuest NpcName="James Halloran" QuestId="484" QuestName="Young Crocolisk Skins" DestinationMap="0" />
+	</If>
+</ShadowProfile>

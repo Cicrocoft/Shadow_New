@@ -1,4 +1,5 @@
-[{"Enabled":true,
+{"NextChainFile":"14-18 Darkshore [Cicro]",
+"Profiles":[{"Enabled":true,
 "ModeDir":"Quest",
 "Extension":".xml",
 "ProfileName":"01. Start Pickup",
@@ -22,4 +23,4 @@
 "ModeDir":"Quest",
 "Extension":".xml",
 "ProfileName":"06. Mountaineer Stormpike's Task",
-"SubDir":"[A] 12 - 14 Loch Modan [Cicrocoft]"}]
+"SubDir":"[A] 12 - 14 Loch Modan [Cicrocoft]"}]}

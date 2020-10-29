@@ -1,4 +1,5 @@
-[{"Enabled":true,
+{"NextChainFile":"25-27 Wetlands [Cicro]",
+"Profiles":[{"Enabled":true,
 "ModeDir":"Quest",
 "Extension":".xml",
 "ProfileName":"01. The Zoram Strand",
@@ -26,4 +27,4 @@
 "ModeDir":"Quest",
 "Extension":".xml",
 "ProfileName":"07. Pridewings of Stonetalon",
-"SubDir":"[A] 22 - 25 Ashenvale [Cicro]"}]
+"SubDir":"[A] 22 - 25 Ashenvale [Cicro]"}]}

@@ -1,5 +1,20 @@
 <ShadowProfile Condition="UnitLevel('player') <= 12 and Data.HasActiveQuest('Mountaineer Stormpike\'s Task') == false and Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
 
+	<!-- Zone Check -->
+	<If Condition="Data.HasActiveQuest('The Lost Pilot') == false and Data.HasCompletedQuest('The Lost Pilot') == false and Data.MyRace() == WoWRace.Human" >
+		<SetEnableVendoring Value="false"/>
+		<SetEnableRepairing Value="false"/>
+		<SetEnableRestockItems Value="false"/>
+		<If Condition="GetZoneText() == 'Stormwind City'">	
+			<NPCInteract NpcName="Dungar Longdrink" />
+		</If>
+		<SWtoIFTram />
+		<If Condition="GetZoneText() == 'City of Ironforge'">
+			<NPCInteract NpcName="Gryth Thurden" />
+			<Wait Value="100" />
+		</If>
+	</If>
+
 	<!-- Bot Settings -->
 	<SetBaseSettings />
 	<Lua>settings.DoNotSellItems = {}</Lua>
@@ -102,7 +117,62 @@
     <SetRepairNpc NpcName="Morhan Coppertongue"/>
 
 	
-	<!-- Restock Loch Modan 12 - 15 (Thelsmar)-->
+	
+	<!-- Ammo Auto Equip -->
+	<If Condition="IsEquippedItemType('Gun') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2519 and Data.GetItemCountByName('Heavy Shot') &gt;= 1" >
+		<UseItem ItemId="2519" />
+		<While Condition="Data.GetItemCountByName('Light Shot') &gt;= 1">
+			<Lua>Data.DeleteItemStackById(2516)</Lua>
+		</While>	
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2515 and Data.GetItemCountByName('Sharp Arrow') &gt;= 1" >
+		<UseItem ItemId="2515" />
+		<While Condition="Data.GetItemCountByName('Rough Arrow') &gt;= 1">
+			<Lua>Data.DeleteItemStackById(2512)</Lua>
+		</While>	
+	</If>	
+	<If Condition="IsEquippedItemType('Crossbow') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2515 and Data.GetItemCountByName('Sharp Arrow') &gt;= 1" >
+		<UseItem ItemId="2515" />
+		<While Condition="Data.GetItemCountByName('Rough Arrow') &gt;= 1">
+			<Lua>Data.DeleteItemStackById(2512)</Lua>
+		</While>	
+	</If>		
+	<!-- End Auto Equip -->
+
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('The Lost Pilot') == false and Data.HasCompletedQuest('The Lost Pilot') == false">
+        <TakeQuest NpcName="Pilot Hammerfoot" QuestName="The Lost Pilot" />
+    </If>
+	<!-- Quest Completion -->
+    <ClearHotspots />
+    <If Condition="Data.HasActiveQuest('The Lost Pilot') == true">
+		<ReturnQuestToObject QuestName="The Lost Pilot" X="-5063.826171875" Y="-2122.1840820313" Z="404.26696777344" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == false and Data.HasCompletedQuest('The Lost Pilot') == true and Data.HasCompletedQuest('A Pilot\'s Revenge') == false">
+		<TakeQuestFromObject QuestName="A Pilot\'s Revenge" X="-5063.826171875" Y="-2122.1840820313" Z="404.26696777344" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == true">	
+		<ClearHotspots />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-5093.82421875" Y="-2082.7783203125" Z="417.57168579102" Range="100" />
+		<!-- Mob settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Mangeclaw" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('A Pilot\'s Revenge') == false" >
+			<Wait Value="100" />
+		</While>	
+	</If>	
+
+	<!-- TurnIn -->
+
+	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == true">
+		<ReturnQuest NpcName="Pilot Hammerfoot" QuestName="A Pilot\'s Revenge" />
+	</If>
+
+<!-- Restock Loch Modan 12 - 15 (Thelsmar)-->
 	<SetEnableRestockItems Value="true"/>
 	<ClearRestockItems/>
 	<!-- Food -->
@@ -136,40 +206,6 @@
 		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="600"/>
 	</If>
 	<!-- End Restock -->	
-	<!-- Ammo Auto Equip -->
-	<If Condition="IsEquippedItemType('Gun') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2519 and Data.GetItemCountByName('Heavy Shot') &gt;= 1" >
-		<UseItem ItemId="2519" />
-		<While Condition="Data.GetItemCountByName('Light Shot') &gt;= 1">
-			<Lua>Data.DeleteItemStackById(2516)</Lua>
-		</While>	
-	</If>
-	<If Condition="IsEquippedItemType('Bow') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2515 and Data.GetItemCountByName('Sharp Arrow') &gt;= 1" >
-		<UseItem ItemId="2515" />
-		<While Condition="Data.GetItemCountByName('Rough Arrow') &gt;= 1">
-			<Lua>Data.DeleteItemStackById(2512)</Lua>
-		</While>	
-	</If>	
-	<If Condition="IsEquippedItemType('Crossbow') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2515 and Data.GetItemCountByName('Sharp Arrow') &gt;= 1" >
-		<UseItem ItemId="2515" />
-		<While Condition="Data.GetItemCountByName('Rough Arrow') &gt;= 1">
-			<Lua>Data.DeleteItemStackById(2512)</Lua>
-		</While>	
-	</If>		
-	<!-- End Auto Equip -->
-
-	<ClearHotspots />
-    <ClearMonsterFilter/>
-    <SetTargetingMode Mode="Around Points" />
-	<SetMonsterFilterMode Mode="None"/>
-	<AddBlackspot X="-5379.1342773438" Y="-2725.1926269531" Z="361.84707641602" Range="45" />
-	<AddHotspot X="-5396.7392578125" Y="-2839.0715332031" Z="352.73486328125" Range="100" />
-	<AddHotspot X="-5324.7885742188" Y="-2829.4536132813" Z="337.59381103516" Range="100" />
-	<AddHotspot X="-5244.490234375" Y="-2931.7067871094" Z="340.57183837891" Range="100" />
-	<AddHotspot X="-5171.9326171875" Y="-2978.3479003906" Z="334.64340209961" Range="100" />
-	<AddHotspot X="-5069.9204101563" Y="-3040.3015136719" Z="320.45712280273" Range="100" />
- <While Condition="UnitLevel('player') &lt; 12 or UnitXP('player') &lt;= 4000 and UnitXPMax('player') == 10100" >
-        <Wait Value="100" />
-    </While>
 
 	<!-- Pickup -->
     <If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 224) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 224) == false">
@@ -179,7 +215,7 @@
         <TakeQuest NpcName="Captain Rugelfuss" QuestId="267" QuestName="The Trogg Threat" />
     </If>
 	<If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == false and Data.HasCompletedQuest('Thelsamar Blood Sausages') == false">
-		<MoveTo X="-5381.0874023438" Y="-2968.3381347656" Z="322.05776977539" />
+		<NPCInteract NpcName="Thorgrum Borrelson" />
         <TakeQuest NpcName="Vidra Hearthstove" QuestId="418" QuestName="Thelsamar Blood Sausages" />
     </If>
 	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false and Data.MyRace() == WoWRace.Dwarf">

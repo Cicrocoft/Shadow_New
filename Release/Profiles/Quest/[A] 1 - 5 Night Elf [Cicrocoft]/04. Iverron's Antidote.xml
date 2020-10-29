@@ -33,6 +33,24 @@
     <If Condition="Data.HasActiveQuest('A Good Friend') == false and Data.HasCompletedQuest('A Good Friend') == false">
         <TakeQuest NpcName="Dirania Silvershine" QuestId="4495" QuestName="A Good Friend" />
     </If>
+	
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="10693.69921875" Y="936.26910400391" Z="1325.1311035156" Range="100" />
+		<AddHotspot X="10686.756835938" Y="887.96337890625" Z="1321.6857910156" Range="100" />
+		<AddHotspot X="10703.78515625" Y="824.38952636719" Z="1323.7492675781" Range="100" />
+
+		<While Condition="UnitLevel('player') &lt; 4 or UnitXP('player') &lt;= 1600 and UnitXPMax('player') == 2100" >
+				<Wait Value="100" />
+		</While>		
+	
+	
 	<If Condition="Data.HasActiveQuest('A Good Friend') == true">
 		<ReturnQuest NpcName="Iverron" QuestId="4495" QuestName="A Good Friend" />
 	</If>
@@ -46,7 +64,7 @@
         <TakeQuest NpcName="Dirania Silvershine" QuestId="3521" QuestName="Iverron\'s Antidote" />
     </If>	
 	
-	<If Condition="Data.HasActiveQuest('Iverron\'s Antidote', 3521) == true">
+	<If Condition="Data.HasActiveQuest('Iverron\'s Antidote', 3521) == true and Data.AllQuestObjectivesAreComplete('Iverron\'s Antidote', 3521) == false">
 		<SetTargetingMode Mode="Gather Only" />
 		<SetHotspotTraverseMode Mode="Circular"/>
 		<SetEnableAutoHerb Value="true" />
@@ -93,12 +111,12 @@
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />
 		<AddMonsterFilterName Value="Webwood Spider" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('Iverron\'s Antidote', 3, 3521) == false" >
+		<While Condition="Data.AllQuestObjectivesAreComplete('Iverron\'s Antidote', 3521) == false" >
 			<Wait Value="100" />
 		</While>			
 		
 	</If>
-	<If Condition="Data.HasActiveQuest('Webwood Venom') == true">
+	<If Condition="Data.HasActiveQuest('Webwood Venom', 916) == true and Data.AllQuestObjectivesAreComplete('Webwood Venom', 916) == false">
 		<ClearHotspots />
 		<SetEnableAutoHerb Value="false" />
 		<AddHotspot X="10722.55859375" Y="919.80035400391" Z="1328.8210449219" Range="50" />
@@ -109,20 +127,11 @@
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="Whitelist" />
 		<AddMonsterFilterName Value="Webwood Spider" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('Webwood Venom') == false" >
+		<While Condition="Data.AllQuestObjectivesAreComplete('Webwood Venom', 916) == false" >
 			<Wait Value="100" />
 		</While>
 	</If>
 	<ClearHotspots />
-	<!-- Vendor Settiings -->
-	<SetBaseSettings />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Keina"/>
-    <SetVendorSlotsCount Value="2" />
-    <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Keina"/>
-    <SetRepairPercent Value="35" />
-	<SetEnableAutoHerb Value="false" />
     <If Condition="Data.HasActiveQuest('Webwood Venom') == true and Data.AllQuestObjectivesAreComplete('Webwood Venom') == true">
         <ReturnQuest NpcName="Gilshalan Windwalker" QuestId="916" QuestName="Webwood Venom" />
     </If>
@@ -139,6 +148,7 @@
 		<ReturnQuest NpcName="Iverron" QuestId="3522" QuestName="Iverron\'s Antidote" />
 	</If>	
 	<If Condition="Data.HasActiveQuest('Webwood Egg') == true">
+		<Lua>QuestNodes[4406]=0</Lua>
 		<SetTargetingMode Mode="Gather Only" />
 		<SetHotspotTraverseMode Mode="Straight"/>
 		<SetEnableAutoHerb Value="true" />
@@ -150,6 +160,30 @@
 			<Wait Value="100" />
 		</While>		
 	</If>
+	
+		<ClearHotspots />
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<SetMaxZDifference Value="7" />		
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />	
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="10940.999023438" Y="957.38922119141" Z="1325.541015625" Range="100" />
+		<AddHotspot X="10899.677734375" Y="915.23858642578" Z="1324.2263183594" Range="100" />
+		<AddHotspot X="10864.065429688" Y="871.16101074219" Z="1328.2026367188" Range="100" />
+		<AddHotspot X="10839.447265625" Y="909.8427734375" Z="1335.4265136719" Range="100" />
+		<AddHotspot X="10838.802734375" Y="952.59564208984" Z="1335.7578125" Range="100" />
+		<AddHotspot X="10878.438476563" Y="984.53155517578" Z="1337.2126464844" Range="100" />
+		<AddHotspot X="10916.678710938" Y="958.80102539063" Z="1339.5979003906" Range="100" />
+
+
+		<While Condition="UnitLevel('player') &lt; 5" >
+				<Wait Value="100" />
+		</While>	
+	
+	
 	<!-- <If Condition="Nav.RangeFromMeXYZ(10937.553710938, 924.31591796875, 1340.4597167969) &lt; 10 and Data.AllQuestObjectivesAreComplete('Webwood Egg') == true">
 		<MoveTo NoNav="true" X="10901.72265625" Y="917.34027099609" Z="1324.2884521484" />
 	</If> Needs MoveTo with nav before jump and after, maybe also a waittimer -->

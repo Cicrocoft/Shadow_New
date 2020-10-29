@@ -1,29 +1,34 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Return to Brock') == false and Data.MyRace() == WoWRace.Gnome or Data.HasCompletedQuest('Return to Brock') == false and Data.MyRace() == WoWRace.Dwarf">
+<ShadowProfile Condition="((Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Return to Brock') == false) or Data.HasCompletedQuest('Deeprun Rat Roundup') == false or UnlAPI.GetMapId() == WoWMaps.DeeprunTram">
 	<SetBaseSettings />
-	<!-- Initial Pickup -->
-	<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false">
-        <TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
-    </If>
-	<!-- TurnIn Part 1 + Pickup Part 2 -->
-    <If Condition="Data.HasActiveQuest('Honor Students') == true">
-        <ReturnQuest NpcName="Thorgrum Borrelson" QuestName="Honor Students" />
+	<SetEnableVendoring Value="false"/>
+	<SetEnableRepairing Value="false"/>
+	<SetEnableRestockItems Value="false"/>
+
+	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Ride to Ironforge') == false">
+		<!-- Initial Pickup -->
+		<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false">
+			<TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
+		</If>
+		<!-- TurnIn Part 1 + Pickup Part 2 -->
+		<If Condition="Data.HasActiveQuest('Honor Students') == true">
+			<ReturnQuest NpcName="Thorgrum Borrelson" QuestName="Honor Students" />
+		</If>	
+		<If Condition="Data.HasActiveQuest('Ride to Ironforge') == false and Data.HasCompletedQuest('Ride to Ironforge') == false">	
+			<TakeQuest NpcName="Thorgrum Borrelson" QuestName="Ride to Ironforge" />
+			<NPCInteract NpcName="Thorgrum Borrelson" />
+		</If>	
+		<!-- TurnIn Part 2 + Pickup Part 3 -->
+		<If Condition="Data.HasActiveQuest('Ride to Ironforge') == true">
+			<ReturnQuest NpcName="Golnir Bouldertoe" QuestName="Ride to Ironforge" />
+		</If>	
+		<If Condition="Data.HasActiveQuest('Gryth Thurden') == false and Data.HasCompletedQuest('Gryth Thurden') == false">
+			<TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
+		</If>	
 	</If>	
-	<If Condition="Data.HasActiveQuest('Ride to Ironforge') == false and Data.HasCompletedQuest('Ride to Ironforge') == false">	
-        <TakeQuest NpcName="Thorgrum Borrelson" QuestName="Ride to Ironforge" />
-		<NPCInteract NpcName="Thorgrum Borrelson" />
-    </If>	
-	<!-- TurnIn Part 2 + Pickup Part 3 -->
-	<If Condition="Data.HasActiveQuest('Ride to Ironforge') == true">
-		<ReturnQuest NpcName="Golnir Bouldertoe" QuestName="Ride to Ironforge" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('Gryth Thurden') == false and Data.HasCompletedQuest('Gryth Thurden') == false">
-        <TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
-    </If>	
     <If Condition="Data.HasActiveQuest('Find Bingles') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
         <TakeQuest NpcName="Gnoarn" QuestName="Find Bingles" />
 	</If>	
-	
-    <If Condition="Data.HasCompletedQuest('Me Brother, Nipsy') == false">	
+    <If Condition="Data.HasCompletedQuest('Deeprun Rat Roundup') == false">	
 		<If Condition="GetZoneText() == 'City of Ironforge'">
 			<MoveTo X="-4839.357421875" Y="-1320.4995117188" Z="501.86849975586" />
 			<MoveTo NoNav="true" X="-4840.181640625" Y="-1324.6179199219" Z="501.86849975586" />
@@ -38,36 +43,36 @@
 			</While>
 			<If Condition="Data.HasActiveQuest('Deeprun Rat Roundup') == true and Data.AllQuestObjectivesAreComplete('Deeprun Rat Roundup') == true">
 				<ReturnQuest NpcName="Monty" QuestId="6661" QuestName="Deeprun Rat Roundup" />
-			</If>
-			 <If Condition="Data.HasActiveQuest('Me Brother, Nipsy') == false and Data.HasCompletedQuest('Me Brother, Nipsy') == false">
-				<TakeQuest NpcName="Monty" QuestId="6662" QuestName="Me Brother\, Nipsy" />
-			</If>			
-			<If Condition="Data.HasActiveQuest('Me Brother, Nipsy') == true and Data.AllQuestObjectivesAreComplete('Me Brother, Nipsy') == true">
-				<MoveTo X="8.2618465423584" Y="2458.0192871094" Z="-13.862893104553" />
-				<ReturnQuest NpcName="Nipsy" QuestId="6662" QuestName="Me Brother, Nipsy" />
-			</If>			
-			
+			</If>					
 		</While>
 	</If>
-	<If Condition="Data.HasCompletedQuest('Me Brother, Nipsy') == true and GetZoneText() == 'Deeprun Tram'">
-		<MoveTo X="66.878005981445" Y="2490.4765625" Z="-4.2968587875366" />
-		<MoveTo NoNav="true" X="72.047904968262" Y="2491.09765625" Z="-4.2964901924133" />
-		<Lua> BotSleep(5000) return true </Lua>
+    <If Condition="Data.HasCompletedQuest('Deeprun Rat Roundup') == true and UnlAPI.GetMapId() == WoWMaps.DeeprunTram">	
+		<MoveTo X="69.799560546875" Y="10.21715927124" Z="-4.2967839241028" Range="1" />
+		<MoveTo NoNav="true" X="73.019554138184" Y="10.210012435913" Z="-4.2967839241028" Range="1" />
+	</If>
+
+	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Return to Brock') == false">	
+		<If Condition="Data.HasCompletedQuest('Gryth Thurden') == false and GetZoneText() == 'City of Ironforge'">
+			<IFtoSWTram />
+		</If>
+		<If Condition="GetZoneText() == 'Stormwind City'">	
+			<NPCInteract NpcName="Dungar Longdrink" />
+		</If>
+		<!-- TurnIn Part 3 + Pickup Part 4 -->
+		<If Condition="Data.HasActiveQuest('Gryth Thurden') == false and Data.HasCompletedQuest('Gryth Thurden') == false">
+			<TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
+		</If>
+		<If Condition="Data.HasActiveQuest('Gryth Thurden') == true">
+			<ReturnQuest NpcName="Gryth Thurden" QuestName="Gryth Thurden" />
+		</If>
+		<If Condition="Data.HasActiveQuest('Return to Brock') == false and Data.HasCompletedQuest('Return to Brock') == false">
+			<TakeQuest NpcName="Gryth Thurden" QuestName="Return to Brock" />
+		</If>	
+		<!-- Final Turnin -->
+		<If Condition="Data.HasActiveQuest('Return to Brock') == true">
+			<ReturnQuest NpcName="Brock Stoneseeker" QuestName="Return to Brock" />
+		</If>	
 	</If>	
-	<If Condition="GetZoneText() == 'Stormwind City' and Data.HasActiveQuest('Gryth Thurden') == true">	
-		<NPCInteract NpcName="Dungar Longdrink" />
-	</If>
-	<!-- TurnIn Part 3 + Pickup Part 4 -->
-    <If Condition="Data.HasActiveQuest('Gryth Thurden') == true">
-        <ReturnQuest NpcName="Gryth Thurden" QuestName="Gryth Thurden" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Return to Brock') == false and Data.HasCompletedQuest('Return to Brock') == false">
-        <TakeQuest NpcName="Gryth Thurden" QuestName="Return to Brock" />
-    </If>	
-	<!-- Final Turnin -->
-	<If Condition="Data.HasActiveQuest('Return to Brock') == true">
-		<ReturnQuest NpcName="Brock Stoneseeker" QuestName="Return to Brock" />
-	</If>		
 	
 	
 </ShadowProfile>

@@ -132,16 +132,35 @@
 	</If>
 	<!-- Bullets/Arrows -->
 	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
-		<AddRestockItem ItemName="Light Shot" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="600"/>
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="600"/>
 	</If>
 	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
-		<AddRestockItem ItemName="Rough Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="600"/>
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="600"/>
 	</If>
 	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
-		<AddRestockItem ItemName="Rough Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="600"/>
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Yanni Stoutheart" UnderAmount="100" BuyAmount="600"/>
 	</If>
-	<!-- End Restock -->		
-	
+	<!-- End Restock -->	
+	<!-- Ammo Auto Equip -->
+	<If Condition="IsEquippedItemType('Gun') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2519 and Data.GetItemCountByName('Heavy Shot') &gt;= 1" >
+		<UseItem ItemId="2519" />
+		<While Condition="Data.GetItemCountByName('Light Shot') &gt;= 1">
+			<Lua>Data.DeleteItemStackById(2516)</Lua>
+		</While>	
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2515 and Data.GetItemCountByName('Sharp Arrow') &gt;= 1" >
+		<UseItem ItemId="2515" />
+		<While Condition="Data.GetItemCountByName('Rough Arrow') &gt;= 1">
+			<Lua>Data.DeleteItemStackById(2512)</Lua>
+		</While>	
+	</If>	
+	<If Condition="IsEquippedItemType('Crossbow') == true and UnitLevel('player') &gt;= 10 and UnitLevel('player') &lt; 25 and GetInventoryItemID('player', 0) ~= 2515 and Data.GetItemCountByName('Sharp Arrow') &gt;= 1" >
+		<UseItem ItemId="2515" />
+		<While Condition="Data.GetItemCountByName('Rough Arrow') &gt;= 1">
+			<Lua>Data.DeleteItemStackById(2512)</Lua>
+		</While>	
+	</If>		
+	<!-- End Auto Equip -->
 	<!-- Pickup -->
     <If Condition="Data.HasActiveQuest('Thelsamar Blood Sausages') == false">
         <TakeQuest NpcName="Vidra Hearthstove" QuestName="Thelsamar Blood Sausages" />

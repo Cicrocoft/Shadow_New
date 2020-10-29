@@ -1,5 +1,5 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Mage-tastic Gizmonitor') == false and Data.PlayerClass() == WoWClass.Mage and UnitLevel('player') &gt;= 10">
-<Lua>QuestNodes[102984]=0</Lua> 
+
 <!-- Mage -->
 
     <If Condition="Data.HasActiveQuest('Speak with Bink') == false and Data.HasCompletedQuest('Speak with Bink') == false">
@@ -27,7 +27,7 @@
     <SetEnableAutoHerb Value="true" />
 
 	<AddHotspot X="-5072.419921875" Y="437.97259521484" Z="410.96682739258" Range="50" />
-
+    <Lua>QuestNodes[102984]=0</Lua> 
     <AllowQuestNode NodeName="Bink\'s Toolbox" />
 
     <While Condition="Data.AllQuestObjectivesAreComplete('Mage-tastic Gizmonitor') == false" >
@@ -40,7 +40,7 @@
 
 	
 
-    <If Condition="Data.HasActiveQuest('Mage-tastic Gizmonitor') == true and "> 
+    <If Condition="Data.HasActiveQuest('Mage-tastic Gizmonitor') == true and Data.AllQuestObjectivesAreComplete('Mage-tastic Gizmonitor') == true"> 
 
 		<ReturnQuest NpcName="Bink" QuestName="Mage-tastic Gizmonitor" />
 
@@ -48,4 +48,4 @@
 
     <ClearBlackspots />	
 
-</While>
+</ShadowProfile>

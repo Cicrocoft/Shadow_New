@@ -176,5 +176,6 @@
  <While Condition="UnitLevel('player') &lt; 18" >
         <Wait Value="100" />
     </While>
-	
+	<SetBaseSettings />
+	<ClearRestockItems/>	
 </ShadowProfile>

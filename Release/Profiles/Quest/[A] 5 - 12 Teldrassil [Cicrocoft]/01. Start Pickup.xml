@@ -25,7 +25,7 @@
     <SetEnableIgnoreLootAroundMobs Value="true"/>
     <SetEnablePreemptiveMonsterAttack Value="true"/>
 	<SetEnableAutoLoot Value="true" />
-	<ClearRestockItems />
+
 
 	<!-- Rest Settings -->
 	<!-- Rogue -->	
@@ -102,8 +102,8 @@
     </If>	
 	<!-- Rest Settings End -->
 	<!-- Vendors to use -->
-    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
-    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorNpc NpcName="Keina"/>
+    <SetRepairNpc NpcName="Keina"/>
 
 	
     <If Condition="Data.HasActiveQuest('Denalan\'s Earth') == false and Data.HasCompletedQuest('Denalan\'s Earth') == false">

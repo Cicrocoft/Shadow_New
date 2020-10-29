@@ -1,0 +1,283 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Inquire at the Inn', 266) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Bliztik" />
+	<SetRepairNpc NpcName="Morg Gnarltree" />
+
+	<!-- Restock Darkshire 27+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin or Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Dwarven Mild" NpcName="Innkeeper Trelayne" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Dwarven Mild" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Dwarven Mild" NpcName="Innkeeper Trelayne" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Dwarven Mild" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Dwarven Mild" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Melon Juice" NpcName="Innkeeper Trelayne" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Melon Juice" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Melon Juice" NpcName="Innkeeper Trelayne" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Melon Juice" />
+	</If>	
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Solid Shot" NpcName="Mabel Solaj" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Razor Arrow" NpcName="Mabel Solaj" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Razor Arrow" NpcName="Mabel Solaj" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Raven Hill', 163) == false and Data.HasCompletedQuest('Raven Hill', 163) == false">
+		<TakeQuest NpcName="Elaine Carevin" QuestId="163" QuestName="Raven Hill" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Night Watch', 57) == false and Data.HasCompletedQuest('The Night Watch', 57) == false">
+		<TakeQuest NpcName="Commander Althea Ebonlocke" QuestId="57" QuestName="The Night Watch" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Sven\'s Revenge', 95) == false and Data.HasCompletedQuest('Sven\'s Revenge', 95) == false">
+		<TakeQuest NpcName="Sven Yorgen" QuestId="95" QuestName="Sven\'s Revenge" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Sven\'s Revenge', 95) == true and Data.AllQuestObjectivesAreComplete('Sven\'s Revenge', 95) == true">
+		<AddBlackspot X="-11040.419921875" Y="-541.43707275391" Z="33.071479797363" Range="25" />
+		<AddBlackspot X="-11070.03515625" Y="-538.01959228516" Z="32.884544372559" Range="25" />
+		<AddBlackspot X="-11101.967773438" Y="-533.03839111328" Z="33.20804977417" Range="25" />
+		<AddBlackspot X="-11094.471679688" Y="-525.61126708984" Z="32.385646820068" Range="25" />
+		<ReturnQuestToObject QuestId="95" QuestName="Sven\'s Revenge" X="-11117.229492188" Y="-516.37530517578" Z="32.823799133301" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Sven\'s Camp', 230) == false and Data.HasCompletedQuest('Sven\'s Revenge', 230) == false">
+		<AddBlackspot X="-11040.419921875" Y="-541.43707275391" Z="33.071479797363" Range="25" />
+		<AddBlackspot X="-11070.03515625" Y="-538.01959228516" Z="32.884544372559" Range="25" />
+		<AddBlackspot X="-11101.967773438" Y="-533.03839111328" Z="33.20804977417" Range="25" />
+		<AddBlackspot X="-11094.471679688" Y="-525.61126708984" Z="32.385646820068" Range="25" />
+		<TakeQuestFromObject QuestId="230" QuestName="Sven\'s Camp" X="-11117.229492188" Y="-516.37530517578" Z="32.823799133301" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Raven Hill', 163) == true and Data.AllQuestObjectivesAreComplete('Raven Hill', 163) == true">
+		<ReturnQuest NpcName="Jitters" QuestId="163" QuestName="Raven Hill" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Jitters\' Growling Gut', 5) == false and Data.HasCompletedQuest('Jitters\' Growling Gut', 5) == false">
+		<TakeQuest NpcName="Jitters" QuestId="5" QuestName="Jitters\' Growling Gut" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Night Watch', 57) == true and Data.AllQuestObjectivesAreComplete('The Night Watch', 57) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<ClearBlackspots />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Mor'Ladim" />		
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-10562.9296875" Y="325.71295166016" Z="29.848588943481" Range="100" />
+		<AddHotspot X="-10538.524414063" Y="393.25604248047" Z="31.255456924438" Range="100" />
+		<AddHotspot X="-10505.338867188" Y="220.81379699707" Z="32.925361633301" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Night Watch', 57) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<ClearBlackspots />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />		
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-10562.9296875" Y="325.71295166016" Z="29.848588943481" Range="100" />
+		<AddHotspot X="-10538.524414063" Y="393.25604248047" Z="31.255456924438" Range="100" />
+		<AddHotspot X="-10505.338867188" Y="220.81379699707" Z="32.925361633301" Range="100" />
+		<While Condition="UnitLevel('player') &lt; 28 or UnitXP('player') &lt;= 10000 and UnitXPMax('player') == 41400" >
+				<Wait Value="100" />
+		</While>
+	<If Condition="Data.HasActiveQuest('The Totem of Infliction', 101) == true and Data.AllQuestObjectivesAreComplete('The Totem of Infliction', 101) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<ClearBlackspots />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Mor'Ladim" />			
+		<!-- Blackspots -->
+		<AddBlackspot X="-10546.802734375" Y="229.1388092041" Z="31.646213531494" Range="50" />
+		<AddBlackspot X="-10598.604492188" Y="271.34014892578" Z="33.474033355713" Range="50" />
+		<!-- Hotspots -->
+		<AddHotspot X="-10411.348632813" Y="222.51672363281" Z="33.49633026123" Range="100" />
+		<AddHotspot X="-10356.1796875" Y="169.06594848633" Z="34.656509399414" Range="100" />
+		<While Condition="Data.QuestObjectiveIsComplete('The Totem of Infliction', 1, 101) == false" >
+			<Wait Value="100" />			
+		</While>		
+	</If>
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<ClearBlackspots />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Mor'Ladim" />			
+		<!-- Blackspots -->
+		<AddBlackspot X="-10546.802734375" Y="229.1388092041" Z="31.646213531494" Range="50" />
+		<AddBlackspot X="-10598.604492188" Y="271.34014892578" Z="33.474033355713" Range="50" />
+		<!-- Hotspots -->
+		<AddHotspot X="-10411.348632813" Y="222.51672363281" Z="33.49633026123" Range="100" />
+		<AddHotspot X="-10356.1796875" Y="169.06594848633" Z="34.656509399414" Range="100" />
+		<While Condition="UnitLevel('player') &lt; 28 or UnitXP('player') &lt;= 15000 and UnitXPMax('player') == 41400" >
+				<Wait Value="100" />
+		</While>	
+	<If Condition="Data.HasActiveQuest('Sven\'s Camp', 230) == true and Data.AllQuestObjectivesAreComplete('Sven\'s Camp', 230) == true">
+		<ReturnQuest NpcName="Sven Yorgen" QuestId="230" QuestName="Sven\'s Camp" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Shadowy Figure', 262) == false and Data.HasCompletedQuest('The Shadowy Figure', 262) == false">
+		<TakeQuest NpcName="Sven Yorgen" QuestId="262" QuestName="The Shadowy Figure" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Jitters\' Growling Gut', 5) == true and Data.AllQuestObjectivesAreComplete('Jitters\' Growling Gut', 5) == true">
+		<SetEnablePreemptiveMonsterAttack Value="false"/>	
+		<AddBlackspot X="-10431.016601563" Y="178.59965515137" Z="35.795894622803" Range="50" />
+		<AddBlackspot X="-10546.802734375" Y="229.1388092041" Z="31.646213531494" Range="50" />
+		<AddBlackspot X="-10598.604492188" Y="271.34014892578" Z="33.474033355713" Range="50" />
+		<AddBlackspot X="-10373.774414063" Y="-841.85034179688" Z="43.701061248779" Range="70" />
+		<AddBlackspot X="-10381.754882813" Y="-909.92712402344" Z="46.859466552734" Range="70" />
+		<AddBlackspot X="-10432.913085938" Y="-950.57641601563" Z="44.073383331299" Range="70" />
+		<AddBlackspot X="-10381.421875" Y="-1033.849609375" Z="43.889553070068" Range="35" />
+		<AddBlackspot X="-10245.069335938" Y="-750.21337890625" Z="45.859325408936" Range="50" />
+		<ReturnQuest NpcName="Chef Grual" QuestId="5" QuestName="Jitters\' Growling Gut" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Dusky Crab Cakes', 93) == false and Data.HasCompletedQuest('Dusky Crab Cakes', 93) == false">
+		<TakeQuest NpcName="Chef Grual" QuestId="93" QuestName="Dusky Crab Cakes" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('The Night Watch', 57) == true and Data.AllQuestObjectivesAreComplete('The Night Watch', 57) == true">
+		<ReturnQuest NpcName="Commander Althea Ebonlocke" QuestId="57" QuestName="The Night Watch" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Night Watch', 58) == false and Data.HasCompletedQuest('The Night Watch', 58) == false">
+		<TakeQuest NpcName="Commander Althea Ebonlocke" QuestId="58" QuestName="The Night Watch" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Shadowy Figure', 262) == true and Data.AllQuestObjectivesAreComplete('The Shadowy Figure', 262) == true">
+		<ReturnQuest NpcName="Madame Eva" QuestId="262" QuestName="The Shadowy Figure" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Shadowy Search Continues', 265) == false and Data.HasCompletedQuest('The Shadowy Search Continues', 265) == false">
+		<TakeQuest NpcName="Madame Eva" QuestId="265" QuestName="The Shadowy Search Continues" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Totem of Infliction', 101) == true and Data.AllQuestObjectivesAreComplete('The Totem of Infliction', 101) == true">
+		<ReturnQuest NpcName="Madame Eva" QuestId="101" QuestName="The Totem of Infliction" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Shadowy Search Continues', 265) == true and Data.AllQuestObjectivesAreComplete('The Shadowy Search Continues', 265) == true">
+		<ReturnQuest NpcName="Clerk Daltry" QuestId="265" QuestName="The Shadowy Search Continues" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Inquire at the Inn', 266) == false and Data.HasCompletedQuest('Inquire at the Inn', 266) == false">
+		<TakeQuest NpcName="Clerk Daltry" QuestId="266" QuestName="Inquire at the Inn" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Inquire at the Inn', 266) == true and Data.AllQuestObjectivesAreComplete('Inquire at the Inn', 266) == true">
+		<ReturnQuest NpcName="Tavernkeep Smitts" QuestId="266" QuestName="Inquire at the Inn" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Finding the Shadowy Figure', 453) == false and Data.HasCompletedQuest('Finding the Shadowy Figure', 453) == false">
+		<TakeQuest NpcName="Tavernkeep Smitts" QuestId="453" QuestName="Finding the Shadowy Figure" />
+	</If>	
+</ShadowProfile>

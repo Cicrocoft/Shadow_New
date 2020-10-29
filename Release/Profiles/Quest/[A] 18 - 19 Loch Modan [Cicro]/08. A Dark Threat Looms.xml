@@ -150,6 +150,9 @@
 	<AddBlackspot X="-5092.8178710938" Y="-4040.8405761719" Z="316.13803100586" Range="50" />
 	<AddBlackspot X="-5070.3217773438" Y="-4113.771484375" Z="313.14889526367" Range="50" />	
 	<AddBlackspot X="-5052.5288085938" Y="-3610.4299316406" Z="299.85919189453" Range="40" />	
+	<AddBlackspot X="-5244.6772460938" Y="-3666.5148925781" Z="301.94979858398" Range="40" />
+	<AddBlackspot X="-5218.35546875" Y="-3651.3278808594" Z="301.10440063477" Range="40" />
+	<AddBlackspot X="-5185.5034179688" Y="-3642.1279296875" Z="303.17102050781" Range="40" />
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('A Dark Threat Looms', 250) == false and Data.HasCompletedQuest('A Dark Threat Looms', 250) == false">	
 		<TakeQuest NpcName="Chief Engineer Hinderweir VII" QuestId="250" QuestName="A Dark Threat Looms" />
@@ -177,6 +180,9 @@
 <AddHotspot X="-4946.8955078125" Y="-3638.6259765625" Z="303.66452026367" Range="100" />
 <AddHotspot X="-4872.1298828125" Y="-3593.1508789063" Z="304.29025268555" Range="100" />	
 <AddBlackspot X="-5068.40234375" Y="-3622.3803710938" Z="303.51644897461" Range="50" />
+<AddBlackspot X="-5244.6772460938" Y="-3666.5148925781" Z="301.94979858398" Range="40" />
+<AddBlackspot X="-5218.35546875" Y="-3651.3278808594" Z="301.10440063477" Range="40" />
+<AddBlackspot X="-5185.5034179688" Y="-3642.1279296875" Z="303.17102050781" Range="40" />
     <SetTargetingMode Mode="Around Points" />	
 	<SetHotspotTraverseMode Mode="Circular"/>
     <ClearMonsterFilter/>
@@ -196,5 +202,19 @@
 		<TakeQuest NpcName="Chief Engineer Hinderweir VII" QuestId="161" QuestName="A Dark Threat Looms" />
 	</If>
 
+	<SetBaseSettings />
+	<ClearRestockItems/>
+	<If Condition="Data.GetMyProfessionLevel('Skinning')  ~= nil and GetMoney() &gt; 5000">	
+		<If Condition="Data.GetMyProfessionLevel('Skinning') &gt;= 125 and MaxSkill('Skinning') == 150" >
+			<NPCInteract NpcName="Balthus Stoneflayer" />
+			<Lua> return TrainSkill("Expert Skinning")</Lua>
+		</If>
+	</If>	
+	<If Condition="Data.GetMyProfessionLevel('Herbalism')  ~= nil and GetMoney() &gt; 5000">		
+		<If Condition="Data.GetMyProfessionLevel('Herbalism') &gt;= 125 and MaxSkill('Herbalism') == 150" >
+			<NPCInteract NpcName="Reyna Stonebranch" />
+			<Lua> return TrainSkill("Expert Herbalist")</Lua>
+		</If>	
+	</If>
 	
 </ShadowProfile>

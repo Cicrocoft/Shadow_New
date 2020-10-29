@@ -1,22 +1,120 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('After the Ambush') == false">
 
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
     <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Gothor Brumn"/>
-    <SetVendorSlotsCount Value="2" />
     <SetEnableRepairing Value="true"/>
-    <SetRepairNpc NpcName="Gothor Brumn"/>
-    <SetRepairPercent Value="40" />
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Gothor Brumn"/>
+    <SetRepairNpc NpcName="Gothor Brumn"/>	
+
 	
-	<!-- Restock Loch Modan 18 - 20 (Thelsmar)-->
+	<!-- Restock Loch Modan 18-19 (Thelsmar)-->
 	<SetEnableRestockItems Value="true"/>
 	<ClearRestockItems/>
 	<!-- Food -->
 	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
-		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
-		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
 	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
+	</If>	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
 		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Hearthstove" UnderAmount="5" BuyAmount="40"/>
@@ -66,6 +164,18 @@
 	<If Condition="Data.HasActiveQuest('Report to Ironforge') == false and Data.HasCompletedQuest('Report to Ironforge') == false and Data.HasCompletedQuest('Excavation Progress Report') == true">
 		<TakeQuest NpcName="Jern Hornhelm" QuestId="301" QuestName="Report to Ironforge" />
 	</If> 
+	<If Condition="Data.GetMyProfessionLevel('Skinning')  ~= nil and GetMoney() &gt; 5000">	
+		<If Condition="Data.GetMyProfessionLevel('Skinning') &gt;= 125 and MaxSkill('Skinning') == 150" >
+			<NPCInteract NpcName="Balthus Stoneflayer" />
+			<Lua> return TrainSkill("Expert Skinning")</Lua>
+		</If>
+	</If>	
+	<If Condition="Data.GetMyProfessionLevel('Herbalism')  ~= nil and GetMoney() &gt; 5000">		
+		<If Condition="Data.GetMyProfessionLevel('Herbalism') &gt;= 125 and MaxSkill('Herbalism') == 150" >
+			<NPCInteract NpcName="Reyna Stonebranch" />
+			<Lua> return TrainSkill("Expert Herbalist")</Lua>
+		</If>	
+	</If>	
 	<If Condition="Data.HasActiveQuest('Report to Ironforge') == true">
         <ReturnQuest NpcName="Prospector Stormpike" QuestId="301" QuestName="Report to Ironforge" />
     </If>	

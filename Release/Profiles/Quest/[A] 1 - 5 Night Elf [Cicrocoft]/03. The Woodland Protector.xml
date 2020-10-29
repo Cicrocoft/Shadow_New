@@ -56,6 +56,9 @@
 		<While Condition="Data.AllQuestObjectivesAreComplete('The Woodland Protector', 459) == false" >
 			<Wait Value="100" />
 		</While>
+		<While Condition="UnitLevel('player') &lt; 4 or UnitXP('player') &lt;= 400 and UnitXPMax('player') == 2100" >
+			<Wait Value="100" />
+		</While>			
 		<While Condition="Data.HasActiveQuest('The Woodland Protector', 459) == true and Data.AllQuestObjectivesAreComplete('The Woodland Protector', 459) == true">
 			<ReturnQuest NpcName="Tarindrella" QuestId="459" QuestName="The Woodland Protector" />
 		</While>

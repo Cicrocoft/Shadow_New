@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('The Tome of Divinity', 1785) == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('The Tome of Divinity', 1785) == false and Data.PlayerClass() == WoWClass.Paladin">
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />

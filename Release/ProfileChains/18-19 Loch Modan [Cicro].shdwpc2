@@ -1,4 +1,5 @@
-[{"Enabled":true,
+{"NextChainFile":"19-21 Darkshore [Cicro]",
+"Profiles":[{"Enabled":true,
 "ModeDir":"Quest",
 "Extension":".xml",
 "ProfileName":"01. Pickup quests",
@@ -30,4 +31,4 @@
 "ModeDir":"Quest",
 "Extension":".xml",
 "ProfileName":"08. A Dark Threat Looms",
-"SubDir":"[A] 18 - 19 Loch Modan [Cicro]"}]
+"SubDir":"[A] 18 - 19 Loch Modan [Cicro]"}]}

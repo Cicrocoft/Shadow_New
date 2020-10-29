@@ -1,0 +1,28 @@
+<ShadowProfile Condition="Data.PlayerClass() == WoWClass.Rogue">
+<If Condition="Data.GetMyProfessionLevel('LockPicking') &lt; 100">
+    <SetEnableRestockItems Value="true"/>
+    <AddRestockItem ItemName="Thieves\' Tools" NpcName="Jasper Fel" UnderAmount="0" BuyAmount="1"/>
+    <AddBlackspot X="-9225.8359375" Y="-2376.8044433594" Z="91.395843505859" Range="25" />
+    <AddBlackspot X="-9172.333984375" Y="-2403.2573242188" Z="104.48064422607" Range="25" />
+    <AddBlackspot X="-9161.947265625" Y="-2444.2312011719" Z="110.54765319824" Range="25" />
+    <AddBlackspot X="-9167.8427734375" Y="-2451.9362792969" Z="117.26661682129" Range="25" />
+
+    <While Condition="Data.GetMyProfessionLevel('LockPicking') &lt; 100">
+        <If Condition="Nav.RangeFromMeXYZ(-9230.87109375, -2701.82421875, 89.086380004883) &gt; 5" >
+            <SetEnablePreemptiveMonsterAttack Value="true"/>
+            <MoveTo X="-9230.87109375" Y="-2701.82421875" Z="89.086380004883" Range="3" />
+            <Wait Value="100" />
+        </If>
+        <If Condition="Nav.RangeFromMeXYZ(-9230.87109375, -2701.82421875, 89.086380004883) &lt; 5" >
+            <SetEnablePreemptiveMonsterAttack Value="false"/>	    
+        	<InteractWithClosestGameObject />      
+            <Wait Value="200" />
+        </If> 
+    </While>
+	<If Condition="Nav.RangeFromMeXYZ(-9230.87109375, -2701.82421875, 89.086380004883) &lt; 100 and UnlAPI.GetMapId() == 0 and GetBindLocation() == 'Astranaar' and select(3, GetItemCooldown(6948)) == 1 and Data.HasCompletedQuest('A Baying of Gnolls') == true" >
+		<UseItem ItemId="6948" />
+		<Wait Value="100" />
+		<BotSleep Value="10000" />
+	</If>	
+</If>
+</ShadowProfile>

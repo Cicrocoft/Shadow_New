@@ -168,8 +168,8 @@
 		<SetTargetingMode Mode="Around Points" />
 		<!-- Mob Whitelist -->
 		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Blacklist" />
-		<AddMonsterFilterName Value="Foreststrider" />
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Rabid Thistle Bear" />
 		<While Condition="Data.AllQuestObjectivesAreComplete('Cleansing of the Infected') == false" >
 			<Wait Value="100" />
 		</While>

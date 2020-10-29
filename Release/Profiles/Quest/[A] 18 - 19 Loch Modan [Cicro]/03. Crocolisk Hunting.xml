@@ -99,7 +99,7 @@
 	<!-- Vendors to use -->
     <SetVendorNpc NpcName="Kat Sampson"/>
     <SetRepairNpc NpcName="Kat Sampson"/>
-
+	<AddDoNotSellItem ItemName="Crocolisk Meat" />
 	
 	<!-- Restock Loch Modan 18-19 (The Farstrider Lodge)-->
 	<SetEnableRestockItems Value="true"/>

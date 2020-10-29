@@ -52,7 +52,7 @@
 	</If>
 	<Lua>PetDismiss()</Lua>		
 	</If>
-	
+		<While Condition="select(3, GetStablePetInfo(0)) == 0">			<MoveTo X="-5553.53125" Y="-723.28295898438" Z="409.59033203125" />					<Lua>TargetUnit(Data.GetClosestNpcById(1126))</Lua>				<If Condition="UnitName('target') == 'Large Crag Boar'">				<Lua>Nav.MoveToOBJ(PVE.Enemy)</Lua>				<Lua>CastSpellByName('Tame Beast')</Lua>				<Lua> BotSleep(10000) return true </Lua>			</If>		</While>
 	<If Condition="Data.HasActiveQuest('Training the Beast', 6086) == false and Data.HasCompletedQuest('Taming the Beast', 6086) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
         <TakeQuest NpcName="Grif Wildheart" QuestId="6086" QuestName="Training the Beast" />
     </If>	

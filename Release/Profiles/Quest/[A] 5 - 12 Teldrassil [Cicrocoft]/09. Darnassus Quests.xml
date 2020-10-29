@@ -97,12 +97,11 @@
     </If>	
 	<!-- Rest Settings End -->
 	<!-- Vendors to use -->
-    <SetVendorNpc NpcName="Brannol Eaglemoon"/>
-    <SetRepairNpc NpcName="Brannol Eaglemoon"/>
+    <SetVendorNpc NpcName="Keina"/>
+    <SetRepairNpc NpcName="Keina"/>
 
 	<!-- Restock Teldrassil 5-12 -->
 	<SetEnableRestockItems Value="true"/>
-	<ClearRestockItems />
 	<!-- Food -->
 	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
 		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Keldamyr" UnderAmount="5" BuyAmount="40"/>

@@ -47,17 +47,16 @@
 	<!-- Objective Completion -->
 	
 	
-	<If Condition="Data.HasActiveQuest('The Lost Tools') == true and Data.AllQuestObjectivesAreComplete('The Lost Tools') == false" >
-		<SetTargetingMode Mode="Gather Only" />
-		<ClearHotspots />
-		<SetEnableAutoHerb Value="true" />
-		<AllowQuestNode NodeName="Sunken Chest" />	
-		<AddHotspot X="-9367.9111328125" Y="-2473.1682128906" Z="18.363132476807" Range="100" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('The Lost Tools') == false" >
-			<Wait Value="100" />
-		</While>
-	</If>
-    <If Condition="Data.HasActiveQuest('The Lost Tools') == true">
+	<While Condition="Data.HasActiveQuest('The Lost Tools') == true and Data.AllQuestObjectivesAreComplete('The Lost Tools') == false" >
+		<MoveTo X="-9297.0859375" Y="-2350.8703613281" Z="56.122638702393" Range="5" />
+		<MoveTo NoNav="true" X="-9365.275390625" Y="-2469.1325683594" Z="55.236095428467" Range="3" />
+		<MoveTo NoNav="true" X="-9365.79296875" Y="-2473.5524902344" Z="18.848030090332" Range="3" />
+		<Wait Value="100" />
+		<InteractWithClosestGameObject />
+		<Wait Value="100" />		
+	</While>
+    <If Condition="Data.HasActiveQuest('The Lost Tools') == true and Data.AllQuestObjectivesAreComplete('The Lost Tools') == true">
+		<MoveTo NoNav="true" X="-9300.34375" Y="-2390.4633789063" Z="56.35599899292" Range="5" />
         <ReturnQuest NpcName="Foreman Oslow" QuestId="125" QuestName="The Lost Tools" />
 		<TakeQuest NpcName="Foreman Oslow" QuestId="89" QuestName="The Everstill Bridge" />
     </If>	

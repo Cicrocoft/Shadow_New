@@ -1,4 +1,5 @@
-[{"Enabled":true,
+{"NextChainFile":"21-22 Redridge Mountains [Cicro]",
+"Profiles":[{"Enabled":true,
 "ModeDir":"Quest",
 "Extension":".xml",
 "ProfileName":"01. Buzzbox 525+A Lost Master",
@@ -6,4 +7,4 @@
 "ModeDir":"Quest",
 "Extension":".xml",
 "ProfileName":"02. The Tower of Althalaxx",
-"SubDir":"[A] 19 - 21 Darkshore [Cicro]"}]
+"SubDir":"[A] 19 - 21 Darkshore [Cicro]"}]}

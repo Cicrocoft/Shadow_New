@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Cave Mushrooms') == false or Data.HasCompletedQuest('The Tower of Althalaxx', 967) == false or UnitLevel('player') &lt; 21">
+<ShadowProfile Condition="Data.HasCompletedQuest('The Tower of Althalaxx', 967) == false or UnitLevel('player') &lt; 21">
 <Lua>QuestNodes[11713]=0</Lua>
 <Lua>QuestNodes[5270]=0</Lua>
 	<!-- Bot Settings -->
@@ -139,7 +139,7 @@
 	
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 965) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 965) == false">
-        <TakeQuest NpcName="Sentinel Elissa Starbreeze" QuestId="965" QuestName="The Tower of Althalaxx" />
+        <TakeQuest NpcName="Sentinel Elissa Starbreeze" QuestId="965" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 
 	<!-- QuestObjective -->
@@ -170,7 +170,7 @@
         <ReturnQuest NpcName="Balthule Shadowstrike" QuestId="965" QuestName="The Tower of Althalaxx" />
     </If>
 	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 966) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 966) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 965) == true">
-        <TakeQuest NpcName="Balthule Shadowstrike" QuestId="966" QuestName="The Tower of Althalaxx" />
+        <TakeQuest NpcName="Balthule Shadowstrike" QuestId="966" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 
     <If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 966) == true and Data.AllQuestObjectivesAreComplete('The Tower of Althalaxx', 966) == false">
@@ -194,17 +194,18 @@
 	
 	<!-- TurnIn -->
     <If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 966) == true">
-        <ReturnQuest NpcName="Balthule Shadowstrike" QuestId="966" QuestName="The Tower of Althalaxx" />
+        <ReturnQuest NpcName="Balthule Shadowstrike" QuestId="966" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 967) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 967) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 966) == true">
-        <TakeQuest NpcName="Balthule Shadowstrike" QuestId="967" QuestName="The Tower of Althalaxx" />
+        <TakeQuest NpcName="Balthule Shadowstrike" QuestId="967" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 967) == true">
-        <ReturnQuest NpcName="Delgren the Purifier" QuestId="967" QuestName="The Tower of Althalaxx" />
+        <ReturnQuest NpcName="Delgren the Purifier" QuestId="967" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <SetVendorNpc NpcName="Xai\'ander"/>
     <SetRepairNpc NpcName="Xai\'ander"/>	
 	<ClearHotspots />
+	<AddBlackspot X="3264.7814941406" Y="310.64102172852" Z="9.5472459793091" Range="25" />
 	<AddHotspot X="3233.8176269531" Y="318.02758789063" Z="5.4033298492432" Range="100" />
 	<AddHotspot X="3305.5698242188" Y="370.87484741211" Z="5.4857015609741" Range="100" />
 	<AddHotspot X="3266.3786621094" Y="460.83059692383" Z="2.4196262359619" Range="100" />
@@ -220,5 +221,11 @@
 	<While Condition="UnitLevel('player') &lt; 21" >
         <Wait Value="100" />
     </While>	
-	<NPCInteract NpcName="Daelyshia" />
+	<NPCInteract NpcName="Daelyshia" DestinationMap="WoWMaps.Kalimdor" />
+	<If Condition="GetBindLocation() ~= 'Astranaar'" >
+		<SetInnkeeper NpcName="Innkeeper Kimlya" />
+	</If>
+
+	<SetBaseSettings />
+	<ClearRestockItems/>	
 </ShadowProfile>

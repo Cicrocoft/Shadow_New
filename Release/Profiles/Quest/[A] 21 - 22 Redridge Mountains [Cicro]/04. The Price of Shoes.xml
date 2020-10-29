@@ -1,5 +1,51 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Return to Verner') == false or Data.HasCompletedQuest('Delivering Daffodils') == false ">
-	<!-- Bot settings -->	<SetBaseSettings />    <SetEnableVendoring Value="true"/>    <SetVendorNpc NpcName="Kara Adams"/>    <SetVendorSlotsCount Value="1" />    <SetEnableRepairing Value="true"/>    <SetRepairNpc NpcName="Kara Adams"/>    <SetRepairPercent Value="40" />
+<ShadowProfile Condition="Data.HasCompletedQuest('Return to Verner') == false or Data.HasCompletedQuest('Delivering Daffodils') == false ">
+
+	<!-- Bot settings -->
+	<SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Kara Adams"/>
+    <SetVendorSlotsCount Value="1" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Kara Adams"/>
+    <SetRepairPercent Value="40" />
+
 	<!-- Pickup -->
-	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />    <If Condition="Data.HasActiveQuest('The Price of Shoes') == false and Data.HasCompletedQuest('The Price of Shoes') == false">        <TakeQuest NpcName="Verner Osgood" QuestId="118" QuestName="The Price of Shoes" />    </If>    <If Condition="Data.HasActiveQuest('A Free Lunch') == false and Data.HasCompletedQuest('A Free Lunch') == false">        <TakeQuest NpcName="Darcy Parker" QuestId="129" QuestName="A Free Lunch" />    </If>		    <If Condition="Data.HasActiveQuest('A Free Lunch') == true">        <ReturnQuest NpcName="Guard Parker" QuestId="129" QuestName="A Free Lunch" />    </If>     <If Condition="Data.HasActiveQuest('Visit the Herbalist') == false and Data.HasCompletedQuest('Visit the Herbalist') == false and Data.HasCompletedQuest('A Free Lunch') == true">        <TakeQuest NpcName="Guard Parker" QuestId="130" QuestName="Visit the Herbalist" />    </If>		    <If Condition="Data.HasActiveQuest('The Price of Shoes') == true">        <ReturnQuest NpcName="Smith Argus" QuestId="118" QuestName="The Price of Shoes" />    </If> 	<If Condition="Data.HasActiveQuest('Return to Verner') == false and Data.HasCompletedQuest('Return to Verner') == false and Data.HasCompletedQuest('The Price of Shoes') == true">        <TakeQuest NpcName="Smith Argus" QuestId="119" QuestName="Return to Verner" />    </If>    <If Condition="Data.HasActiveQuest('Return to Verner') == true">        <ReturnQuest NpcName="Verner Osgood" QuestId="119" QuestName="Return to Verner" />    </If> 		<If Condition="Data.HasActiveQuest('Underbelly Scales') == false and Data.HasCompletedQuest('Underbelly Scales') == false and Data.HasCompletedQuest('Return to Verner') == true">        <TakeQuest NpcName="Verner Osgood" QuestId="122" QuestName="Underbelly Scales" />    </If>	    <If Condition="Data.HasActiveQuest('Visit the Herbalist') == true">        <ReturnQuest NpcName="Martie Jainrose" QuestId="130" QuestName="Visit the Herbalist" />    </If>	<If Condition="Data.HasActiveQuest('Delivering Daffodils') == false and Data.HasCompletedQuest('Delivering Daffodils') == false and Data.HasCompletedQuest('Visit the Herbalist') == true">        <TakeQuest NpcName="Martie Jainrose" QuestId="131" QuestName="Delivering Daffodils" />    </If> 	    <If Condition="Data.HasActiveQuest('Delivering Daffodils') == true">        <ReturnQuest NpcName="Darcy Parker" QuestId="131" QuestName="Delivering Daffodils" />    </If>	
+	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />
+    <If Condition="Data.HasActiveQuest('The Price of Shoes') == false and Data.HasCompletedQuest('The Price of Shoes') == false">
+        <TakeQuest NpcName="Verner Osgood" QuestId="118" QuestName="The Price of Shoes" />
+    </If>
+    <If Condition="Data.HasActiveQuest('A Free Lunch') == false and Data.HasCompletedQuest('A Free Lunch') == false">
+        <TakeQuest NpcName="Darcy Parker" QuestId="129" QuestName="A Free Lunch" />
+    </If>		
+    <If Condition="Data.HasActiveQuest('A Free Lunch') == true">
+        <ReturnQuest NpcName="Guard Parker" QuestId="129" QuestName="A Free Lunch" />
+    </If> 
+    <If Condition="Data.HasActiveQuest('Visit the Herbalist') == false and Data.HasCompletedQuest('Visit the Herbalist') == false and Data.HasCompletedQuest('A Free Lunch') == true">
+        <TakeQuest NpcName="Guard Parker" QuestId="130" QuestName="Visit the Herbalist" />
+    </If>		
+    <If Condition="Data.HasActiveQuest('The Price of Shoes') == true">
+        <ReturnQuest NpcName="Smith Argus" QuestId="118" QuestName="The Price of Shoes" />
+    </If> 
+	<If Condition="Data.HasActiveQuest('Return to Verner') == false and Data.HasCompletedQuest('Return to Verner') == false and Data.HasCompletedQuest('The Price of Shoes') == true">
+        <TakeQuest NpcName="Smith Argus" QuestId="119" QuestName="Return to Verner" />
+    </If>
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	    <SetEnableRestockItems Value="true"/>
+        <AddRestockItem ItemName="Thieves\' Tools" NpcName="Jasper Fel" UnderAmount="0" BuyAmount="1"/>
+    </If>
+    <If Condition="Data.HasActiveQuest('Return to Verner') == true">
+        <ReturnQuest NpcName="Verner Osgood" QuestId="119" QuestName="Return to Verner" />
+    </If> 	
+	<If Condition="Data.HasActiveQuest('Underbelly Scales') == false and Data.HasCompletedQuest('Underbelly Scales') == false and Data.HasCompletedQuest('Return to Verner') == true">
+        <TakeQuest NpcName="Verner Osgood" QuestId="122" QuestName="Underbelly Scales" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Visit the Herbalist') == true">
+        <ReturnQuest NpcName="Martie Jainrose" QuestId="130" QuestName="Visit the Herbalist" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Delivering Daffodils') == false and Data.HasCompletedQuest('Delivering Daffodils') == false and Data.HasCompletedQuest('Visit the Herbalist') == true">
+        <TakeQuest NpcName="Martie Jainrose" QuestId="131" QuestName="Delivering Daffodils" />
+    </If> 	
+    <If Condition="Data.HasActiveQuest('Delivering Daffodils') == true">
+        <ReturnQuest NpcName="Darcy Parker" QuestId="131" QuestName="Delivering Daffodils" />
+    </If>	
 </ShadowProfile>
