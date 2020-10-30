@@ -97,8 +97,8 @@
     </If>	
 	<!-- Rest Settings End -->
 	<!-- Vendors to use -->
-    <SetVendorNpc NpcName="Keina"/>
-    <SetRepairNpc NpcName="Keina"/>
+    <SetVendorNpc NpcName="Jeena Featherbow"/>
+    <SetRepairNpc NpcName="Jeena Featherbow"/>
 
 	<!-- Pickup -->
     <If Condition="Data.HasActiveQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('Ferocitas the Dream Eater') == false and Data.HasCompletedQuest('The Emerald Dreamcatcher') == true">

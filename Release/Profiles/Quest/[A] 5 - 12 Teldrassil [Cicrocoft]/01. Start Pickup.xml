@@ -102,8 +102,8 @@
     </If>	
 	<!-- Rest Settings End -->
 	<!-- Vendors to use -->
-    <SetVendorNpc NpcName="Keina"/>
-    <SetRepairNpc NpcName="Keina"/>
+    <SetVendorNpc NpcName="Jeena Featherbow"/>
+    <SetRepairNpc NpcName="Jeena Featherbow"/>
 
 	
     <If Condition="Data.HasActiveQuest('Denalan\'s Earth') == false and Data.HasCompletedQuest('Denalan\'s Earth') == false">
