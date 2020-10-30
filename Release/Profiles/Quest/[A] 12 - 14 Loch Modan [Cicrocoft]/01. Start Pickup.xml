@@ -1,4 +1,4 @@
-<ShadowProfile Condition="UnitLevel('player') <= 12 and Data.HasActiveQuest('Mountaineer Stormpike\'s Task') == false and Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
+<ShadowProfile Condition="Data.HasActiveQuest('Mountaineer Stormpike\'s Task') == false and Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
 
 	<!-- Zone Check -->
 	<If Condition="Data.HasActiveQuest('The Lost Pilot') == false and Data.HasCompletedQuest('The Lost Pilot') == false and Data.MyRace() == WoWRace.Human" >
@@ -155,6 +155,7 @@
 	</If>
 	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == true">	
 		<ClearHotspots />
+		<SetMaxZDifference Value="20" />
 		<!-- Blackspots -->
 		<!-- Hotspots -->
 		<AddHotspot X="-5093.82421875" Y="-2082.7783203125" Z="417.57168579102" Range="100" />
