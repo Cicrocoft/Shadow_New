@@ -259,22 +259,12 @@
 	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 70) == false and Data.HasCompletedQuest('The Legend of Stalvan', 70) == false">
 		<TakeQuest NpcName="Innkeeper Farley" QuestId="70" QuestName="The Legend of Stalvan" />
 	</If>	
-	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 70) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 70) == false">
-		<!-- Objective Settings -->
-		<SetTargetingMode Mode="Gather Only" />
-		<SetEnableAutoHerb Value="true" />
-		<ClearHotspots />
-		<!-- QuestObjectsID -->
-		<Lua>QuestNodes[1560]=0</Lua>
-		<!-- QuestObjects -->
-		<AllowQuestNode NodeName="Storage Chest" />
-		<!-- Blackspots -->
-		<!-- Hotspots -->
-		<AddHotspot X="-9462.99609375" Y="-1.2560822963715" Z="63.820606231689" Range="30" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 70) == false" >
-			<Wait Value="100" />
-		</While>
-	</If>	
+
+	<While Condition="Data.HasActiveQuest('The Legend of Stalvan', 70) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 70) == false">
+        <MoveTo X="-9462.99609375" Y="-1.2560822963715" Z="63.820606231689" Range="15" />
+        <InteractWithClosestGameObject GameObjectId="1560" />
+    </While>
+
 	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 70) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 70) == true">
 		<ReturnQuest NpcName="Caretaker Folsom" QuestId="70" QuestName="The Legend of Stalvan" />
 	</If>		
@@ -296,22 +286,12 @@
 	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 75) == false and Data.HasCompletedQuest('The Legend of Stalvan', 75) == false">
 		<TakeQuest NpcName="Marshal Haggard" QuestId="75" QuestName="The Legend of Stalvan" />
 	</If>
-	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 75) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 75) == false">
-		<!-- Objective Settings -->
-		<SetTargetingMode Mode="Gather Only" />
-		<SetEnableAutoHerb Value="true" />
-		<ClearHotspots />
-		<!-- QuestObjectsID -->
-		<Lua>QuestNodes[1562]=0</Lua>
-		<!-- QuestObjects -->
-		<AllowQuestNode NodeName="Marshal Haggard\'s Chest" />
-		<!-- Blackspots -->
-		<!-- Hotspots -->
-		<AddHotspot X="-9549.86328125" Y="-1437.9398193359" Z="62.2956199646" Range="30" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 75) == false" >
-			<Wait Value="100" />
-		</While>
-	</If>	
+
+	<While Condition="Data.HasActiveQuest('The Legend of Stalvan', 75) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 75) == false">
+        <MoveTo X="-9549.86328125" Y="-1437.9398193359" Z="62.2956199646" Range="15" />
+        <InteractWithClosestGameObject GameObjectId="1562" />
+    </While>
+
 	<If Condition="Data.HasActiveQuest('The Legend of Stalvan', 75) == true and Data.AllQuestObjectivesAreComplete('The Legend of Stalvan', 75) == true">
 		<ReturnQuest NpcName="Marshal Haggard" QuestId="75" QuestName="The Legend of Stalvan" />
 	</If>
