@@ -1,10 +1,10 @@
-<ShadowProfile Condition="((Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Return to Brock') == false) or Data.HasCompletedQuest('Deeprun Rat Roundup') == false or UnlAPI.GetMapId() == WoWMaps.DeeprunTram">
+<ShadowProfile Condition="((Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Return to Brock') == false) or Data.HasCompletedQuest('Deeprun Rat Roundup') == false or UnlAPI.GetMapId() == WoWMaps.DeeprunTram or KnownFlyNodes[WoWMaps.EasternKingdoms]['Ironforge, Dun Morogh'] == nil or KnownFlyNodes[WoWMaps.EasternKingdoms]['Stormwind, Elwynn'] == nil">
 	<SetBaseSettings />
 	<SetEnableVendoring Value="false"/>
 	<SetEnableRepairing Value="false"/>
 	<SetEnableRestockItems Value="false"/>
 
-	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Ride to Ironforge') == false">
+	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and (Data.HasCompletedQuest('Ride to Ironforge') == false or Data.HasActiveQuest('Gryth Thurden') == false)">
 		<!-- Initial Pickup -->
 		<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false">
 			<TakeQuest NpcName="Brock Stoneseeker" QuestId="6387" QuestName="Honor Students" />
@@ -25,7 +25,7 @@
 			<TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
 		</If>	
 	</If>	
-	<If Condition="Data.MyRace() == WoWRace.NightElf and KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Ironforge, Dun Morogh'] ~= nil">
+	<If Condition="Data.MyRace() == WoWRace.NightElf and KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Ironforge, Dun Morogh'] == nil">
 		<NPCInteract NpcName="Gryth Thurden" />
 	</If>	
     <If Condition="Data.HasActiveQuest('Find Bingles') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
@@ -34,7 +34,7 @@
     <If Condition="Data.HasCompletedQuest('Deeprun Rat Roundup') == false">	
 		<If Condition="GetZoneText() == 'City of Ironforge'">
 			<MoveTo X="-4839.357421875" Y="-1320.4995117188" Z="501.86849975586" />
-			<MoveTo NoNav="true" X="-4840.181640625" Y="-1324.6179199219" Z="501.86849975586" />
+			<MoveTo NoNav="true" X="-4840.181640625" Y="-1328.6179199219" Z="501.86849975586" />
 			<Lua> BotSleep(10000) return true </Lua>
 		</If>
 		<While Condition="GetZoneText() == 'Deeprun Tram'">
@@ -51,27 +51,19 @@
 	</If>
     <If Condition="Data.HasCompletedQuest('Deeprun Rat Roundup') == true and UnlAPI.GetMapId() == WoWMaps.DeeprunTram">	
 		<MoveTo X="69.799560546875" Y="10.21715927124" Z="-4.2967839241028" Range="1" />
-		<MoveTo NoNav="true" X="73.019554138184" Y="10.210012435913" Z="-4.2967839241028" Range="1" />
+		<MoveTo NoNav="true" X="76.019554138184" Y="10.210012435913" Z="-4.2967839241028" Range="1" />
 	</If>
-		<If Condition="Data.MyRace() == WoWRace.NightElf and KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Stormwind, Elwynn'] ~= nil">
+		<If Condition="KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Stormwind, Elwynn'] == nil">
 			<IFtoSWTram />
 		</If>
-		<If Condition="GetZoneText() == 'Stormwind City' and Data.MyRace() == WoWRace.NightElf">	
-			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 12000" >
-				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
-			</If>
-			<NPCInteract NpcName="Dungar Longdrink" />
-		</If>
-	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Return to Brock') == false">	
-		<If Condition="Data.HasCompletedQuest('Gryth Thurden') == false and GetZoneText() == 'City of Ironforge'">
-			<IFtoSWTram />
-		</If>
+		<Wait Value="100" />
 		<If Condition="GetZoneText() == 'Stormwind City'">	
 			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 12000" >
 				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
 			</If>
 			<NPCInteract NpcName="Dungar Longdrink" />
 		</If>
+	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Return to Brock') == false">	
 		<!-- TurnIn Part 3 + Pickup Part 4 -->
 		<If Condition="Data.HasActiveQuest('Gryth Thurden') == false and Data.HasCompletedQuest('Gryth Thurden') == false">
 			<TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
