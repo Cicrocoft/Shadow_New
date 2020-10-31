@@ -56,6 +56,7 @@
 		<If Condition="KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Stormwind, Elwynn'] == nil">
 			<IFtoSWTram />
 		</If>
+		<Wait Value="100" />
 		<If Condition="GetZoneText() == 'Stormwind City'">	
 			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 12000" >
 				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
