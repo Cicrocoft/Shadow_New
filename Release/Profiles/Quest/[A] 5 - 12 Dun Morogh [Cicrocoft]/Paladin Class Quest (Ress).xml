@@ -160,7 +160,7 @@
 	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1647) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1647) == true">
 		<ReturnQuest NpcName="John Turner" QuestId="1647" QuestName="The Tome of Divinity" />
 	</If>
-	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1648) == false and Data.HasCompletedQuest('The Tome of Divinity', 1648) == false">
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1648) == false and Data.HasCompletedQuest('The Tome of Divinity', 1648) == false and Data.HasCompletedQuest('The Tome of Divinity', 1647) == true">
 		<TakeQuest NpcName="John Turner" QuestId="1648" QuestName="The Tome of Divinity" />
 	</If>
 	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1648) == true and Data.AllQuestObjectivesAreComplete('The Tome of Divinity', 1648) == false">
@@ -212,9 +212,12 @@
 		<AddBlackspot X="-5726.4946289063" Y="-1878.1983642578" Z="399.68515014648" Range="50" />
 		<AddBlackspot X="-5784.1435546875" Y="-1941.8024902344" Z="402.21179199219" Range="50" />
 	<While Condition="Data.HasActiveQuest('The Tome of Divinity', 1783) == true and Data.GetItemCountByName('Symbol of Life') == 1">	
+		<MoveTo X="-5780.85546875" Y="-2055.0788574219" Z="407.09155273438" Range="5" />	
+		<Wait Value="200" />
 		<UseItemOnNpc NpcId="6177" ItemId="6866" />
+		<Wait Value="1000" />
 	</While>
-	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1783) == true and  and Data.GetItemCountByName('Symbol of Life') == 0">
+	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1783) == true and Data.GetItemCountByName('Symbol of Life') == 0">
 		<ReturnQuest NpcName="Narm Faulk" QuestId="1783" QuestName="The Tome of Divinity" />
 	</If>
 	<If Condition="Data.HasActiveQuest('The Tome of Divinity', 1784) == false and Data.HasCompletedQuest('The Tome of Divinity', 1784) == false">
