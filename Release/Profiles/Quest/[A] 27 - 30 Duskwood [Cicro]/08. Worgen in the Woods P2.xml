@@ -136,23 +136,11 @@
 	<If Condition="Data.HasActiveQuest('Worgen in the Woods', 221) == false and Data.HasCompletedQuest('Worgen in the Woods', 221) == false">
 		<TakeQuest NpcName="Calor" QuestId="221" QuestName="Worgen in the Woods" />
 	</If>
-	<If Condition="Data.HasActiveQuest('A Noble Brew', 335) == true and Data.QuestObjectiveIsComplete('A Noble Brew', 1, 335) == false">
-		<!-- Objective Settings -->
-		<SetTargetingMode Mode="Gather Only" />
-		<SetEnableAutoHerb Value="true" />
-		<ClearHotspots />
-		<!-- QuestObjectsID -->
-		<Lua>QuestNodes[321]=0</Lua>
-		<!-- QuestObjects -->
-		<AllowQuestNode NodeName="Tear of Tilloa" />
-		<!-- Blackspots -->
-		<AddBlackspot X="-10375.330078125" Y="-1257.0374755859" Z="35.829116821289" Range="25" />
-		<!-- Hotspots -->
-		<AddHotspot X="-10364.06640625" Y="-1282.9187011719" Z="35.360061645508" Range="15" />
-		<While Condition="Data.QuestObjectiveIsComplete('A Noble Brew', 1, 335) == false" >
-			<Wait Value="100" />
-		</While>
-	</If>
+
+	<While Condition="Data.HasActiveQuest('A Noble Brew', 335) == true and Data.QuestObjectiveIsComplete('A Noble Brew', 1, 335) == false">
+        <MoveTo X="-10375.330078125" Y="-1257.0374755859" Z="35.829116821289" Range="15" />
+        <InteractWithClosestGameObject GameObjectId="321" />
+    </While>	
 		<!-- Objective Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<ClearHotspots />
