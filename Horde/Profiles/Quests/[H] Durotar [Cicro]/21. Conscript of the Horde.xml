@@ -1,7 +1,0 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Conscript of the Horde') == false">
-    <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Conscript of the Horde') == false">
-        <TakeQuest NpcName="Takrin Pathseeker" QuestName="Conscript of the Horde" />
-    </If>
-    <ReturnQuest NpcName="Kargal Battlescar" QuestName="Conscript of the Horde" />
-</ShadowProfile>

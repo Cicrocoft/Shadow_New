@@ -1,23 +1,0 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Garments of Spirituality') == false and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Troll">
-<!-- Settings -->
-	<SetBaseSettings />
-<!-- Pickup Quest -->
-    <If Condition="Data.HasActiveQuest('Garments of Spirituality') == false">
-        <TakeQuest NpcName="Tai\'jin" QuestName="Garments of Spirituality" />
-    </If>
-	
-<!-- Quest Completion -->
-	<If Condition="Data.HasActiveQuest('Garments of Spirituality') == true">	
-
-		<MoveTo X="167.90502929688" Y="-4768.451171875" Z="14.379506111145" />
-		<Wait Value="3000" />
-		<Lua>TargetUnit(Data.GetClosestNpcById(12430))</Lua>
-		<Lua>CastSpellByName('Lesser Heal(Rank 2)')</Lua>
-		<Wait Value="3000" />
-		<Lua>CastSpellByName('Power Word: Fortitude')</Lua>
-	</If>
-	
-<!-- TurnIn Quest -->
-    <If Condition="Data.HasActiveQuest('Garments of Spirituality') == true">
-        <ReturnQuest NpcName="Tai\'jin" QuestName="Garments of Spirituality" />
-    </If>	</ShadowProfile>

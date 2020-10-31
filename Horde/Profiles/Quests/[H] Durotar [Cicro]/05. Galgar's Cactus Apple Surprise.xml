@@ -1,24 +1,0 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Galgar\'s Cactus Apple Surprise') == false">
-    <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Galgar\'s Cactus Apple Surprise') == false">
-        <TakeQuest NpcName="Galgar" QuestName="Galgar's Cactus Apple Surprise" />
-    </If>
-    <SetBaseSettings />
-    <SetTargetingMode Mode="Gather Only" />
-    <ClearHotspots />
-    <SetEnableAutoHerb Value="true" />		<AddBlackspot X="-359.18157958984" Y="-4337.7553710938" Z="58.270084381104" Range="20" />
-    <AddHotspot X="-553.42004" Y="-4294.287" Z="37.28547" Range="150" />
-    <AddHotspot X="-696.48486" Y="-4358.5454" Z="54.485466" Range="150" />
-    <AddHotspot X="-673.7343" Y="-4296.821" Z="43.767395" Range="150" />
-    <AddHotspot X="-489.96985" Y="-4463.4873" Z="52.09632" Range="150" />
-    <AddHotspot X="-422.995" Y="-4177.963" Z="50.83911" Range="150" />
-    <AllowQuestNode NodeName="Cactus Apple" />
-    <SetEnableVendoring Value="true"/>
-    <SetVendorNpc NpcName="Duokna"/>
-    <SetVendorSlotsCount Value="3" />
-    <While Condition="Data.AllQuestObjectivesAreComplete('Galgar\'s Cactus Apple Surprise') == false" >
-        <Wait Value="100" />
-    </While>
-    <SetBaseSettings />
-    <ReturnQuest NpcName="Galgar" QuestName="Galgar\'s Cactus Apple Surprise" />
-</ShadowProfile>

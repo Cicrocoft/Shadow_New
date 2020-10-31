@@ -1,9 +1,0 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Simple Parchment') == false and Data.PlayerClass() == WoWClass.Warrior">
-    <SetBaseSettings />
-    <If Condition="Data.HasActiveQuest('Simple Parchment') == false">
-        <MoveTo X="-600.084" Y="-4188.32" Z="41.093" />
-        <TakeQuest NpcName="Gornek" QuestName="Simple Parchment" />
-    </If>
-    <MoveTo X="-638.052" Y="-4229.541" Z="38.134" />
-    <ReturnQuest NpcName="Frang" QuestName="Simple Parchment" />
-</ShadowProfile>
