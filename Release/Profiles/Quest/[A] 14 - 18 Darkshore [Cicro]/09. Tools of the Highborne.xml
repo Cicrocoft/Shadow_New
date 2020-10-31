@@ -160,36 +160,21 @@
 		<TakeQuest NpcName="Sentinel Tysha Moonblade" QuestId="953" QuestName="The Fall of Ameth\'Aran" />
     </If>
 
-	<If Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 957) == false" >
-		<SetTargetingMode Mode="Gather Only" />
-		<ClearHotspots />
-		<SetEnableAutoHerb Value="true" />
-		<AllowQuestNode NodeName="Ancient Flame" />	
-		<AddHotspot X="5636.6748046875" Y="167.64875793457" Z="32.149555206299" Range="30" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 957) == false" >
-			<Wait Value="100" />
-		</While>
-	</If>	
+	<While Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 957) == false">
+        <MoveTo X="5636.6748046875" Y="167.64875793457" Z="32.149555206299" Range="15" />
+        <InteractWithClosestGameObject GameObjectId="16393" />
+    </While>
 
-	<If Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == true and Data.AllQuestObjectivesAreComplete('The Fall of Ameth\'Aran') == false" >
-		<SetTargetingMode Mode="Gather Only" />
-		<ClearHotspots />
-		<SetEnableAutoHerb Value="true" />
-		<AllowQuestNode NodeName="The Fall of Ameth\'Aran" />	
-		<AddHotspot X="5577.720703125" Y="148.92169189453" Z="28.94506072998" Range="50" />
-		<While Condition="Data.QuestObjectiveIsComplete('The Fall of Ameth\'Aran', 2) == false" >
-			<Wait Value="100" />
-		</While>
-		<SetTargetingMode Mode="Gather Only" />
-		<ClearHotspots />
-		<SetEnableAutoHerb Value="true" />
-		<AllowQuestNode NodeName="The Lay of Ameth\'Aran" />	
-		<AddHotspot X="5768.1162109375" Y="103.87934112549" Z="34.84370803833" Range="50" />
-		<While Condition="Data.QuestObjectiveIsComplete('The Fall of Ameth\'Aran', 1) == false" >
-			<Wait Value="100" />
-		</While>		
-	</If>
-	
+	<While Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == true and Data.QuestObjectiveIsComplete('The Fall of Ameth\'Aran', 2) == false">
+        <MoveTo X="5577.720703125" Y="148.92169189453" Z="28.94506072998" Range="15" />
+        <InteractWithClosestGameObject GameObjectId="17189" />
+    </While>
+
+	<While Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == true and Data.QuestObjectiveIsComplete('The Fall of Ameth\'Aran', 1) == false">
+        <MoveTo X="5768.1162109375" Y="103.87934112549" Z="34.84370803833" Range="15" />
+        <InteractWithClosestGameObject GameObjectId="17188" />
+    </While>
+
 	<If Condition="Data.HasActiveQuest('Tools of the Highborne') == true and Data.AllQuestObjectivesAreComplete('Tools of the Highborne') == false or Data.HasActiveQuest('For Love Eternal') == true and Data.AllQuestObjectivesAreComplete('For Love Eternal') == false">
 		<ClearHotspots />
 		<!-- Blackspots -->
