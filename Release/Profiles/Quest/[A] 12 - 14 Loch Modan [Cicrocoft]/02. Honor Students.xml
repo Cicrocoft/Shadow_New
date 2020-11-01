@@ -4,6 +4,19 @@
 	<SetEnableRepairing Value="false"/>
 	<SetEnableRestockItems Value="false"/>
 
+	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf)">
+		<If Condition="Data.HasActiveQuest('Mountaineer Stormpike\'s Task') == false and Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
+			<TakeQuest NpcName="Mountaineer Kadrell" QuestId="1339" QuestName="Mountaineer Stormpike\'s Task" />
+		</If>	
+		
+		<If Condition="Data.HasActiveQuest('Mountaineer Stormpike\'s Task') == true">
+			<ReturnQuest NpcName="Mountaineer Stormpike" QuestId="1339" QuestName="Mountaineer Stormpike\'s Task" />
+		</If>		
+		<If Condition="Data.HasActiveQuest('Stormpike\'s Order') == false and Data.HasCompletedQuest('Stormpike\'s Order') == false">
+			<TakeQuest NpcName="Mountaineer Stormpike" QuestId="1338" QuestName="Stormpike\'s Order" />
+		</If>
+	</If>
+
 	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and (Data.HasCompletedQuest('Ride to Ironforge') == false or Data.HasActiveQuest('Gryth Thurden') == false)">
 		<!-- Initial Pickup -->
 		<If Condition="Data.HasActiveQuest('Honor Students') == false and Data.HasCompletedQuest('Honor Students') == false">
@@ -58,6 +71,9 @@
 		</If>
 		<Wait Value="100" />
 		<If Condition="GetZoneText() == 'Stormwind City'">	
+		<If Condition="Data.HasActiveQuest('Stormpike\'s Order') == true">
+			<ReturnQuest NpcName="Furen Longbeard" QuestId="1338" QuestName="Stormpike\'s Order" />
+		</If>		
 			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 12000" >
 				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
 			</If>
