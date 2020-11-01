@@ -1,54 +1,5 @@
 <ShadowProfile Condition="Data.GetMyProfessionLevel('Herbalism') ~= nil or Data.GetMyProfessionLevel('Skinning')  ~= nil">
-<Lua>
-function TrainSkill(skillName)
-if SelectVendorLink("trainer") then
-                    mainFrame.Sleep(2000)
-                    return true
-                end
-                if GetTrainerServiceTypeFilter("unavailable") then
-                    SetTrainerServiceTypeFilter("unavailable", 0)
-                    mainFrame.Sleep(200)
-                    return true
-                elseif GetTrainerServiceTypeFilter("used") then
-                    SetTrainerServiceTypeFilter("used", 0)
-                    mainFrame.Sleep(200)
-                    return true
-                elseif not GetTrainerServiceTypeFilter("available") then
-                    SetTrainerServiceTypeFilter("available", 1)
-                    mainFrame.Sleep(200)
-                    return true
-                end
-local serviceLines = GetNumTrainerServices()
-for j = 1, serviceLines do
-                            local name, rank, category, expanded = GetTrainerServiceInfo(j)
-        
-                            if expanded == nil then
-                                ExpandTrainerSkillLine(0)
-                                mainFrame.Sleep(500)
-                                return true
-                            end
-        
-                            if category == "available" and name == skillName then
-                                BuyTrainerService(j)
-                                mainFrame.Sleep(2000)
-                                return false
-                            end
-                        end
-return false
-end
-</Lua>
-<Lua>
-function MaxSkill(profName)
-for skillIndex = 1, GetNumSkillLines() do
-   local skillName, isHeader, isExpanded, skillRank, numTempPoints, skillModifier,
-   skillMaxRank, isAbandonable, stepCost, rankCost, minLevel, skillCostType,
-   skillDescription = GetSkillLineInfo(skillIndex)
-   if skillName == profName  then
-      return skillMaxRank
-      end
-    end
-end	
-</Lua>
+
 	<!-- Bot Settings -->
 	<SetBaseSettings />
 	<Lua>settings.DoNotSellItems = {}</Lua>
@@ -172,7 +123,7 @@ end
 			<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="3" BuyAmount="20"/>
 			<AddDoNotSellItem ItemName="Refreshing Spring Water" />
 		</If>
-	</If>		
+		
 		<!-- Bullets/Arrows -->
 	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
 		<AddRestockItem ItemName="Light Shot" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>
