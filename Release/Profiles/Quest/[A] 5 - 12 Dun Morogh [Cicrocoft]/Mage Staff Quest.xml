@@ -20,25 +20,11 @@
 
     </If>
 
-    <SetTargetingMode Mode="Gather Only" />
-
-    <ClearHotspots />
-
-    <SetEnableAutoHerb Value="true" />
-
-	<AddHotspot X="-5072.419921875" Y="437.97259521484" Z="410.96682739258" Range="50" />
-    <Lua>QuestNodes[102984]=0</Lua> 
-    <AllowQuestNode NodeName="Bink\'s Toolbox" />
-
-    <While Condition="Data.AllQuestObjectivesAreComplete('Mage-tastic Gizmonitor') == false" >
-
-        <Wait Value="100" />
-
+	<While Condition="Data.HasActiveQuest('Mage-tastic Gizmonitor') == true and Data.AllQuestObjectivesAreComplete('Mage-tastic Gizmonitor') == false">
+        <MoveTo X="-5072.419921875" Y="437.97259521484" Z="410.96682739258" Range="5" />
+        <InteractWithClosestGameObject GameObjectId="102984" />
     </While>
 
-
-
-	
 
     <If Condition="Data.HasActiveQuest('Mage-tastic Gizmonitor') == true and Data.AllQuestObjectivesAreComplete('Mage-tastic Gizmonitor') == true"> 
 
