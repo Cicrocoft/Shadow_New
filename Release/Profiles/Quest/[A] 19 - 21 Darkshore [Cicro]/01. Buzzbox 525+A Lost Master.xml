@@ -1,4 +1,17 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('A Lost Master', 986) == false or Data.HasCompletedQuest('The Absent Minded Prospector') == false or Data.HasCompletedQuest('Buzzbox 525') == false or UnitLevel('player') &lt; 20">
+<SetBaseSettings />
+<ClearRestockItems/>
+<SetEnableVendoring Value="false"/>
+<SetVendorSlotsCount Value="2" />
+<SetEnableRepairing Value="false"/>
+    <SetVendorNpc NpcName="Heldan Galesong"/>
+    <SetRepairNpc NpcName="Elisa Steelhand"/>
+     <If Condition="Data.HasActiveQuest('The Absent Minded Prospector') == false and Data.HasCompletedQuest('The Absent Minded Prospector') == false">
+        <TakeQuest  NpcName="Archaeologist Hollee" QuestId="729" QuestName="The Absent Minded Prospector" DestinationMap="WoWMaps.Kalimdor" />
+    </If>  
+     <If Condition="Data.HasActiveQuest('A Lost Master', 986) == false and Data.HasCompletedQuest('A Lost Master', 986) == false">
+        <TakeQuest  NpcName="Terenthis" QuestId="986" QuestName="A Lost Master" DestinationMap="WoWMaps.Kalimdor" />
+    </If>  
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
