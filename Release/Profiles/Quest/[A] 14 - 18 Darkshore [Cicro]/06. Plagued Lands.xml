@@ -153,7 +153,7 @@
 	<If Condition="Data.HasActiveQuest('Plagued Lands') == false and Data.HasCompletedQuest('Plagued Lands') == false">
 		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
 	</If> 
-	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.GetItemCountByName('Tharnariun\'s Hope') == 0 and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false">
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.GetItemCountByName('Tharnariun\'s Hope') == 0 and QuestFailure(2118) ~= 1">
 		<Lua>
 			local questId = 2118; 
 			for i=1,GetNumQuestLogEntries() do
@@ -167,23 +167,23 @@
 			BotSleep(2145) return true
 		</Lua>
 	</If>
-	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and Nav.RangeFromMeXYZ(7113.5703125, -236.44342041016, 35.597888946533) &gt; 50 and UnitName('target') ~= 'Rabid Thistle Bear'">
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and QuestFailure(2118) ~= 1 and Nav.RangeFromMeXYZ(7113.5703125, -236.44342041016, 35.597888946533) &gt; 50 and UnitName('target') ~= 'Rabid Thistle Bear'">
 		<Lua>PetDefensiveMode()</Lua>
 		<SetEnableProfileIgnoreCombat Value="false" />
 		<MoveTo X="7113.5703125" Y="-236.44342041016" Z="35.597888946533" />
 	</If>
-	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and UnitIsDead('target') == false and UnitName('target') ~= 'Rabid Thistle Bear'">
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and QuestFailure(2118) ~= 1 and UnitIsDead('target') == false and UnitName('target') ~= 'Rabid Thistle Bear'">
 		<SetEnableProfileIgnoreCombat Value="false" />
 		<Lua>PetDefensiveMode()</Lua>
 	</If>
-	<If Condition="UnitName('target') == 'Rabid Thistle Bear' and UnitIsDead('target') == false or Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == false and Nav.RangeFromMeXYZ(7113.5703125, -236.44342041016, 35.597888946533) &lt; 200">
+	<If Condition="UnitName('target') == 'Rabid Thistle Bear' and UnitIsDead('target') == false or Data.HasActiveQuest('Plagued Lands') == true and QuestFailure(2118) ~= 1 and Nav.RangeFromMeXYZ(7113.5703125, -236.44342041016, 35.597888946533) &lt; 200">
 		<SetEnableProfileIgnoreCombat Value="true" />
 		<SetEnablePreemptiveMonsterAttack Value="false" />
 		<Lua>PetPassiveMode()</Lua>
 		<UseItemOnNpc IsAlive="true" NpcId="2164" ItemId="7586" />
 		<BotSleep Value="10000"/>
 	</If>
-	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.AllQuestObjectivesAreComplete('Plagued Lands') == true">
+	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and QuestFailure(2118) == 1">
 		<SetEnableProfileIgnoreCombat Value="false" />
 		<SetEnablePreemptiveMonsterAttack Value="true" />
 		<ReturnQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
