@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('A Pilot\'s Revenge') == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('A Pilot\'s Revenge') == false and UnitLevel('player') &lt;= 11">
 	<!-- Bot Settings -->
 	<SetBaseSettings />
 	<Lua>settings.DoNotSellItems = {}</Lua>
@@ -152,7 +152,7 @@
 
 	<!-- Pickup -->
 
-    <If Condition="Data.HasActiveQuest('The Lost Pilot') == false and Data.HasCompletedQuest('The Lost Pilot') == false">
+    <If Condition="Data.HasActiveQuest('The Lost Pilot') == false and Data.HasCompletedQuest('The Lost Pilot') == false and UnitLevel('player') &gt;= 12">
 
         <TakeQuest NpcName="Pilot Hammerfoot" QuestName="The Lost Pilot" />
 
@@ -168,7 +168,7 @@
 
 	</If>
 
-	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == false and Data.HasCompletedQuest('The Lost Pilot') == true">
+	<If Condition="Data.HasActiveQuest('A Pilot\'s Revenge') == false and Data.HasCompletedQuest('The Lost Pilot') == true and Data.HasCompletedQuest('A Pilot\'s Revenge') == false">
 
 		<TakeQuestFromObject QuestName="A Pilot\'s Revenge" X="-5063.826171875" Y="-2122.1840820313" Z="404.26696777344" />
 
