@@ -1,4 +1,234 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Raene\'s Cleansing', 1023) == false or UnitLevel('player') &lt;= 23 or UnitXP('player') &lt;= 18000 and UnitXPMax('player') == 29400">
+<ShadowProfile Condition="Data.HasCompletedQuest('Raene\'s Cleansing', 1023) == false or UnitLevel('player') &lt;= 23 or UnitXP('player') &lt;= 18000 and UnitXPMax('player') == 29400">
 
-	<!-- Bot Settings -->	<SetBaseSettings />	<Lua>settings.DoNotSellItems = {}</Lua>	<SetEnableAutoHerb Value="true" />	<SetEnableAutoSkin Value="true" />	<SetEnableAutoMine Value="true" />	<SetEnableProfileIgnoreCombat Value="false"/>    <SetEnableUseFood Value="true" />    <SetEnableUseDrink Value="true" />    <SetEnableAutoDetectFood Value="true" />    <SetEnableAutoDetectDrink Value="true" />    <SetEnableVendoring Value="true"/>    <SetEnableRepairing Value="true"/>    <SetVendorSlotsCount Value="2"/>    <SetRepairPercent Value="40"/>    <SetEnableRest Value="true"/>    <SetEnableVendorGreens Value="true"/>    <SetEnableIgnoreLootAroundMobs Value="true"/>    <SetEnablePreemptiveMonsterAttack Value="true"/>	<SetEnableAutoLoot Value="true" /><SetEnableMonsterLevelFilter Value="true" />	<!-- Rest Settings -->	<!-- Rogue -->	    <If Condition="Data.PlayerClass() == WoWClass.Rogue">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Hunter -->		<If Condition="Data.PlayerClass() == WoWClass.Hunter">	<SetRestHPPercent Value="55" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="40" />	<SetUseFoodPercent Value="60" />    </If>	<!-- Mage -->		<If Condition="Data.PlayerClass() == WoWClass.Mage">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warrior -->	<If Condition="Data.PlayerClass() == WoWClass.Warrior">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warlock -->	<If Condition="Data.PlayerClass() == WoWClass.Warlock">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Priest -->		<If Condition="Data.PlayerClass() == WoWClass.Priest">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Paladin -->	<If Condition="Data.PlayerClass() == WoWClass.Paladin">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="25" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Rest Settings End -->	<!-- Vendors to use -->    <SetVendorNpc NpcName="Xai\'ander"/>    <SetRepairNpc NpcName="Xai\'ander"/>	<!-- Restock Ashenvale 22+ (Astranaar)-->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems/>	<!-- Food -->	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">		<AddRestockItem ItemName="Tel\'Abim Banana" NpcName="Maliynn" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Tel\'Abim Banana" />	</If>	<If Condition="Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Tel\'Abim Banana" NpcName="Maliynn" UnderAmount="5" BuyAmount="60"/>		<AddDoNotSellItem ItemName="Tel\'Abim Banana" />		<Lua>settings.ShouldFeedPet = true</Lua>		<Lua>settings.ShouldFeedPetFoodsStr = "Tel\'Abim Banana" </Lua>	</If>		<!-- Water -->	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Maliynn" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Ice Cold Milk" />	</If>	<If Condition="Data.PlayerClass() == WoWClass.Priest">		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Maliynn" UnderAmount="3" BuyAmount="20"/>		<AddDoNotSellItem ItemName="Ice Cold Milk" />	</If>	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Heavy Shot" NpcName="Haljan Oakheart" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Sharp Arrow" NpcName="Haljan Oakheart" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Sharp Arrow" NpcName="Haljan Oakheart" UnderAmount="100" BuyAmount="600"/>	</If>	<!-- End Restock -->	<!-- Pick up -->	<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 991) == false and Data.HasCompletedQuest('Raene\'s Cleansing', 991) == false">        <TakeQuest NpcName="Raene Wolfrunner" QuestId="991" QuestName="Raene\'s Cleansing" />    </If>		<SetTargetingMode Mode="Around Points" />		<ClearMonsterFilter/>		<SetMonsterFilterMode Mode="None" />		<!-- Blackspots -->		<!-- Hotspots -->		<AddHotspot X="3233.8176269531" Y="318.02758789063" Z="5.4033298492432" Range="100" />		<AddHotspot X="3305.5698242188" Y="370.87484741211" Z="5.4857015609741" Range="100" />		<AddHotspot X="3266.3786621094" Y="460.83059692383" Z="2.4196262359619" Range="100" />		<AddHotspot X="3271.6064453125" Y="540.02117919922" Z="-0.21290042996407" Range="100" />		<AddHotspot X="3341.5695800781" Y="587.22253417969" Z="3.07266497612" Range="100" />		<AddHotspot X="3465.1228027344" Y="526.96282958984" Z="5.4898800849915" Range="100" />		<AddHotspot X="3519.2114257813" Y="420.7548828125" Z="1.1410958766937" Range="100" />		<AddHotspot X="3580.4880371094" Y="327.48376464844" Z="6.5056281089783" Range="100" />			<While Condition="UnitLevel('player') &lt;= 22 or UnitXP('player') &lt;= 7000 and UnitXPMax('player') == 29400" >				<Wait Value="100" />		</While>	<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 991) == true">        <ReturnQuest NpcName="Teronis\' Corpse" QuestId="991" QuestName="Raene\'s Cleansing" />    </If> 		<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 1023) == false and Data.HasCompletedQuest('Raene\'s Cleansing', 1023) == false and Data.HasCompletedQuest('Raene\'s Cleansing', 991) == true">        <TakeQuest NpcName="Teronis\' Corpse" QuestId="1023" QuestName="Raene\'s Cleansing" />    </If>				<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 1023) == true and Data.AllQuestObjectivesAreComplete('Raene\'s Cleansing', 1023) == false" >		<ClearHotspots />		<!-- Settings -->		<SetTargetingMode Mode="Around Points" />		<!-- Blackspots -->		<!-- Hotspots -->		<AddHotspot X="3042.4113769531" Y="530.15747070313" Z="5.1063528060913" Range="100" />		<!-- Mob Whitelist -->		<ClearMonsterFilter/>		<While Condition="Data.AllQuestObjectivesAreComplete('Raene\'s Cleansing', 1023) == false" >				<Wait Value="100" />		</While>		</If>	<!-- ReturnQuest -->	<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 1023) == true and Data.AllQuestObjectivesAreComplete('Raene\'s Cleansing', 1023) == true">        <ReturnQuest NpcName="Raene Wolfrunner" QuestId="1023" QuestName="Raene\'s Cleansing" />    </If> 			<ClearHotspots />		<SetTargetingMode Mode="Around Points" />		<!-- Mob Whitelist -->		<ClearMonsterFilter/>		<SetMonsterFilterMode Mode="Whitelist" />		<AddMonsterFilterName Value="Ghostpaw Runner" />		<AddMonsterFilterName Value="Wildthorn Stalker" />		<!-- Blackspots -->		<!-- Hotspots -->		<AddHotspot X="2693.9343261719" Y="-72.353034973145" Z="93.427612304688" Range="100" />		<AddHotspot X="2602.875" Y="-36.489749908447" Z="90.2548828125" Range="100" />		<AddHotspot X="2563.3920898438" Y="9.6063280105591" Z="87.101684570313" Range="100" />		<AddHotspot X="2579.8115234375" Y="77.992919921875" Z="92.878326416016" Range="100" />		<AddHotspot X="2495.2590332031" Y="44.92892074585" Z="87.428230285645" Range="100" />		<AddHotspot X="2571.3142089844" Y="96.624984741211" Z="92.157104492188" Range="100" />		<AddHotspot X="2632.8452148438" Y="187.79718017578" Z="94.359687805176" Range="100" />		<AddHotspot X="2609.0339355469" Y="281.96838378906" Z="98.390937805176" Range="50" />		<AddHotspot X="2529.3115234375" Y="357.91470336914" Z="96.142623901367" Range="50" />		<AddHotspot X="2467.1994628906" Y="404.85504150391" Z="96.934303283691" Range="50" />		<AddHotspot X="2468.4990234375" Y="485.06127929688" Z="92.826545715332" Range="50" />		<AddHotspot X="2483.3610839844" Y="563.49694824219" Z="104.84180450439" Range="50" />		<AddHotspot X="2540.0415039063" Y="590.43487548828" Z="103.56299591064" Range="50" />		<AddHotspot X="2587.9482421875" Y="590.35559082031" Z="101.89973449707" Range="50" />		<AddHotspot X="2656.6315917969" Y="622.46875" Z="101.15623474121" Range="50" />		<AddHotspot X="2733.69921875" Y="636.10656738281" Z="95.72029876709" Range="50" />		<AddHotspot X="2774.9079589844" Y="592.97845458984" Z="91.127014160156" Range="50" />		<AddHotspot X="2765.0510253906" Y="517.15234375" Z="90.461532592773" Range="50" />		<AddHotspot X="2799.0581054688" Y="465.07788085938" Z="92.612991333008" Range="50" />		<AddHotspot X="2796.3486328125" Y="390.85403442383" Z="92.373779296875" Range="50" />		<AddHotspot X="2889.7668457031" Y="383.0090637207" Z="91.666687011719" Range="50" />		<While Condition="UnitLevel('player') &lt;= 22 or UnitXP('player') &lt;= 18000 and UnitXPMax('player') == 29400" >				<Wait Value="100" />		</While>					
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+	<SetEnableMonsterLevelFilter Value="true" />
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Xai\'ander"/>
+    <SetRepairNpc NpcName="Xai\'ander"/>
+
+	<!-- Restock Ashenvale 22+ (Astranaar)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Tel\'Abim Banana" NpcName="Maliynn" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Tel\'Abim Banana" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Tel\'Abim Banana" NpcName="Maliynn" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Tel\'Abim Banana" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Tel\'Abim Banana" </Lua>
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Maliynn" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Maliynn" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Haljan Oakheart" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Haljan Oakheart" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Haljan Oakheart" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+	<!-- Pick up -->
+	<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 991) == false and Data.HasCompletedQuest('Raene\'s Cleansing', 991) == false">
+        <TakeQuest NpcName="Raene Wolfrunner" QuestId="991" QuestName="Raene\'s Cleansing" DestinationMap="WoWMaps.Kalimdor" />
+    </If>
+
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="3233.8176269531" Y="318.02758789063" Z="5.4033298492432" Range="100" />
+		<AddHotspot X="3305.5698242188" Y="370.87484741211" Z="5.4857015609741" Range="100" />
+		<AddHotspot X="3266.3786621094" Y="460.83059692383" Z="2.4196262359619" Range="100" />
+		<AddHotspot X="3271.6064453125" Y="540.02117919922" Z="-0.21290042996407" Range="100" />
+		<AddHotspot X="3341.5695800781" Y="587.22253417969" Z="3.07266497612" Range="100" />
+		<AddHotspot X="3465.1228027344" Y="526.96282958984" Z="5.4898800849915" Range="100" />
+		<AddHotspot X="3519.2114257813" Y="420.7548828125" Z="1.1410958766937" Range="100" />
+		<AddHotspot X="3580.4880371094" Y="327.48376464844" Z="6.5056281089783" Range="100" />	
+
+		<While Condition="UnitLevel('player') &lt;= 22 or UnitXP('player') &lt;= 7000 and UnitXPMax('player') == 29400" >
+				<Wait Value="100" />
+		</While>
+
+	<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 991) == true">
+        <ReturnQuest NpcName="Teronis\' Corpse" QuestId="991" QuestName="Raene\'s Cleansing" DestinationMap="WoWMaps.Kalimdor" />
+    </If> 	
+	<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 1023) == false and Data.HasCompletedQuest('Raene\'s Cleansing', 1023) == false and Data.HasCompletedQuest('Raene\'s Cleansing', 991) == true">
+        <TakeQuest NpcName="Teronis\' Corpse" QuestId="1023" QuestName="Raene\'s Cleansing" DestinationMap="WoWMaps.Kalimdor" />
+    </If>	
+
+	
+
+
+	
+	<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 1023) == true and Data.AllQuestObjectivesAreComplete('Raene\'s Cleansing', 1023) == false" >
+		<ClearHotspots />
+		<!-- Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Blackspots -->
+
+
+		<!-- Hotspots -->
+		<AddHotspot X="3042.4113769531" Y="530.15747070313" Z="5.1063528060913" Range="100" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<While Condition="Data.AllQuestObjectivesAreComplete('Raene\'s Cleansing', 1023) == false" >
+				<Wait Value="100" />
+		</While>	
+	</If>
+
+	<!-- ReturnQuest -->
+	<If Condition="Data.HasActiveQuest('Raene\'s Cleansing', 1023) == true and Data.AllQuestObjectivesAreComplete('Raene\'s Cleansing', 1023) == true">
+        <ReturnQuest NpcName="Raene Wolfrunner" QuestId="1023" QuestName="Raene\'s Cleansing" DestinationMap="WoWMaps.Kalimdor" />
+    </If> 	
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Mob Whitelist -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Ghostpaw Runner" />
+		<AddMonsterFilterName Value="Wildthorn Stalker" />
+		<!-- Blackspots -->
+
+		<!-- Hotspots -->
+		<AddHotspot X="2693.9343261719" Y="-72.353034973145" Z="93.427612304688" Range="100" />
+		<AddHotspot X="2602.875" Y="-36.489749908447" Z="90.2548828125" Range="100" />
+		<AddHotspot X="2563.3920898438" Y="9.6063280105591" Z="87.101684570313" Range="100" />
+		<AddHotspot X="2579.8115234375" Y="77.992919921875" Z="92.878326416016" Range="100" />
+		<AddHotspot X="2495.2590332031" Y="44.92892074585" Z="87.428230285645" Range="100" />
+		<AddHotspot X="2571.3142089844" Y="96.624984741211" Z="92.157104492188" Range="100" />
+		<AddHotspot X="2632.8452148438" Y="187.79718017578" Z="94.359687805176" Range="100" />
+		<AddHotspot X="2609.0339355469" Y="281.96838378906" Z="98.390937805176" Range="50" />
+		<AddHotspot X="2529.3115234375" Y="357.91470336914" Z="96.142623901367" Range="50" />
+		<AddHotspot X="2467.1994628906" Y="404.85504150391" Z="96.934303283691" Range="50" />
+		<AddHotspot X="2468.4990234375" Y="485.06127929688" Z="92.826545715332" Range="50" />
+		<AddHotspot X="2483.3610839844" Y="563.49694824219" Z="104.84180450439" Range="50" />
+		<AddHotspot X="2540.0415039063" Y="590.43487548828" Z="103.56299591064" Range="50" />
+		<AddHotspot X="2587.9482421875" Y="590.35559082031" Z="101.89973449707" Range="50" />
+		<AddHotspot X="2656.6315917969" Y="622.46875" Z="101.15623474121" Range="50" />
+		<AddHotspot X="2733.69921875" Y="636.10656738281" Z="95.72029876709" Range="50" />
+		<AddHotspot X="2774.9079589844" Y="592.97845458984" Z="91.127014160156" Range="50" />
+		<AddHotspot X="2765.0510253906" Y="517.15234375" Z="90.461532592773" Range="50" />
+		<AddHotspot X="2799.0581054688" Y="465.07788085938" Z="92.612991333008" Range="50" />
+		<AddHotspot X="2796.3486328125" Y="390.85403442383" Z="92.373779296875" Range="50" />
+		<AddHotspot X="2889.7668457031" Y="383.0090637207" Z="91.666687011719" Range="50" />
+
+
+		<While Condition="UnitLevel('player') &lt;= 22 or UnitXP('player') &lt;= 18000 and UnitXPMax('player') == 29400" >
+				<Wait Value="100" />
+		</While>		
+	
+	
+	
 </ShadowProfile>

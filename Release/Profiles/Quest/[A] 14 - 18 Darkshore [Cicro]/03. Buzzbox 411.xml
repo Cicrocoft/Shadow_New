@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -138,10 +139,10 @@
 
 	<!-- Pickup -->	
 	<If Condition="Data.HasActiveQuest('Buzzbox 411') == false and Data.HasCompletedQuest('Buzzbox 827') == true">
-		<TakeQuestFromObject QuestName="Buzzbox 411" X="6312.8549804688" Y="540.16149902344" Z="13.60666179657" />
+		<TakeQuestFromObject QuestName="Buzzbox 411" X="6312.8549804688" Y="540.16149902344" Z="13.60666179657" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 
     <If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 3524) == true">
-        <TakeQuest  NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" />
+        <TakeQuest  NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" DestinationMap="WoWMaps.Kalimdor" />
     </If>
   
 	<!-- Objective Completion -->
@@ -149,7 +150,7 @@
 	<While Condition="Data.HasActiveQuest('Washed Ashore', 4681) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 4681) == false" >	
 		<ClearHotspots />
 		<If Condition="Nav.RangeFromMeXYZ(6309.4672851563, 858.53509521484, -13.563896179199) &gt; 1">
-			<MoveTo X="6298.2719726563" Y="858.97064208984" Z="-2.1566138267517" />
+			<MoveTo X="6298.2719726563" Y="858.97064208984" Z="-2.1566138267517" DestinationMap="WoWMaps.Kalimdor" />
 			<MoveTo NoNav="true" X="6309.4672851563" Y="858.53509521484" Z="-13.563896179199" />
 			<BotSleep Value="4500"/>
 		</If>
@@ -159,7 +160,7 @@
 		<BotSleep Value="8000"/>
 	</While>	
 	<If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 4681) == true and Nav.RangeFromMeXYZ(6309.4672851563, 858.53509521484, -13.563896179199) &lt; 2" >
-		<MoveTo NoNav="true" X="6298.2719726563" Y="858.97064208984" Z="-2.1566138267517" />
+		<MoveTo NoNav="true" X="6298.2719726563" Y="858.97064208984" Z="-2.1566138267517" DestinationMap="WoWMaps.Kalimdor" />
 		<BotSleep Value="2500"/>
 	</If>
 	<If Condition="Data.HasActiveQuest('Buzzbox 411') == true and Data.AllQuestObjectivesAreComplete('Buzzbox 411') == false">
@@ -194,7 +195,7 @@
 	<!-- TurnIn -->
 	
     <If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 4681) == true">
-        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" />
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
     <SetTargetingMode Mode="Around Points" />
     <ClearHotspots />
@@ -215,12 +216,12 @@
     <If Condition="Data.HasActiveQuest('Buzzbox 411') == true">
 		<ClearHotspots />	
 		<AddBlackspot X="6954.3193359375" Y="194.94247436523" Z="0.21656090021133" Range="35" />
-		<ReturnQuestToObject QuestName="Buzzbox 411" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" />
+		<ReturnQuestToObject QuestName="Buzzbox 411" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Buzzbox 323') == false and Data.HasCompletedQuest('Buzzbox 411') == true">
 		<ClearHotspots />	
 		<AddBlackspot X="6954.3193359375" Y="194.94247436523" Z="0.21656090021133" Range="35" />
-		<TakeQuestFromObject QuestName="Buzzbox 323" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" />
+		<TakeQuestFromObject QuestName="Buzzbox 323" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
 	
 </ShadowProfile>

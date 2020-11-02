@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -134,7 +135,7 @@
 	<If Condition="Data.HasActiveQuest('Buzzbox 323') == false and Data.HasCompletedQuest('Buzzbox 411') == true">
 		<ClearHotspots />	
 		<AddBlackspot X="6954.3193359375" Y="194.94247436523" Z="0.21656090021133" Range="35" />
-		<TakeQuestFromObject QuestName="Buzzbox 323" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" />
+		<TakeQuestFromObject QuestName="Buzzbox 323" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
  
   
@@ -190,10 +191,10 @@
 	
     <If Condition="Data.HasActiveQuest('Buzzbox 323') == true">
 		<ClearHotspots />	
-		<ReturnQuestToObject QuestName="Buzzbox 323" X="7258.3291015625" Y="-416.59912109375" Z="26.949256896973" />
+		<ReturnQuestToObject QuestName="Buzzbox 323" X="7258.3291015625" Y="-416.59912109375" Z="26.949256896973" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Buzzbox 525') == false and Data.HasCompletedQuest('Buzzbox 323') == true">
-		<TakeQuestFromObject QuestName="Buzzbox 525" X="7258.3291015625" Y="-416.59912109375" Z="26.949256896973" />
+		<TakeQuestFromObject QuestName="Buzzbox 525" X="7258.3291015625" Y="-416.59912109375" Z="26.949256896973" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
 	
 </ShadowProfile>

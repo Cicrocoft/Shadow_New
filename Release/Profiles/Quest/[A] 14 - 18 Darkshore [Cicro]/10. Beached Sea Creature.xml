@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -137,17 +138,17 @@
 	
 	<!-- TakeQuest --> 	
 	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4722) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4722) == false">
-		<MoveTo X="5644.06640625" Y="480.49157714844" Z="15.016500473022" />
+		<MoveTo X="5644.06640625" Y="480.49157714844" Z="15.016500473022" DestinationMap="WoWMaps.Kalimdor" />
 		<SetEnableAutoLoot Value="false"/>  
-		<TakeQuestFromObject QuestId="4722" QuestName="Beached Sea Turtle" X="5622.6186523438" Y="511.00469970703" Z="3.6274197101593" />
-		<MoveTo X="5644.06640625" Y="480.49157714844" Z="15.016500473022" />
+		<TakeQuestFromObject QuestId="4722" QuestName="Beached Sea Turtle" X="5622.6186523438" Y="511.00469970703" Z="3.6274197101593" DestinationMap="WoWMaps.Kalimdor" />
+		<MoveTo X="5644.06640625" Y="480.49157714844" Z="15.016500473022" DestinationMap="WoWMaps.Kalimdor" />
 		<SetEnableAutoLoot Value="true"/>  
 	</If>		
 	<If Condition="Data.HasActiveQuest('Beached Sea Creature', 4728) == false and Data.HasCompletedQuest('Beached Sea Creature', 4728) == false">
-		<MoveTo X="5271.927734375" Y="557.66552734375" Z="4.816828250885" />
+		<MoveTo X="5271.927734375" Y="557.66552734375" Z="4.816828250885" DestinationMap="WoWMaps.Kalimdor" />
 		<SetEnableAutoLoot Value="false"/>  
-		<TakeQuestFromObject QuestId="4728" QuestName="Beached Sea Creature" X="5239.3549804688" Y="581.296875" Z="0.43434768915176" />
-		<MoveTo X="5271.927734375" Y="557.66552734375" Z="4.816828250885" />
+		<TakeQuestFromObject QuestId="4728" QuestName="Beached Sea Creature" X="5239.3549804688" Y="581.296875" Z="0.43434768915176" DestinationMap="WoWMaps.Kalimdor" />
+		<MoveTo X="5271.927734375" Y="557.66552734375" Z="4.816828250885" DestinationMap="WoWMaps.Kalimdor" />
 		<SetEnableAutoLoot Value="true"/> 
 	</If>	
 
@@ -155,13 +156,13 @@
 	<!-- TurnIn -->
 	<AddBlackspot X="5624.5922851563" Y="513.72314453125" Z="3.3854539394379" Range="50" />
 	<If Condition="Data.HasActiveQuest('Grove of the Ancients') == true">
-        <ReturnQuest NpcName="Onu" QuestId="952" QuestName="Grove of the Ancients" />
+        <ReturnQuest NpcName="Onu" QuestId="952" QuestName="Grove of the Ancients" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
     <If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4722) == true">
-        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4722" QuestName="Beached Sea Turtle" />
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4722" QuestName="Beached Sea Turtle" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Beached Sea Creature', 4728) == true">
-        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4728" QuestName="Beached Sea Creature" />
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4728" QuestName="Beached Sea Creature" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 	
 </ShadowProfile>

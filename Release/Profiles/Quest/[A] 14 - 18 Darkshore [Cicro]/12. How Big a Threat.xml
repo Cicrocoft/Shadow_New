@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -140,7 +141,7 @@
 	
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('How Big a Threat?', 985) == false and Data.HasCompletedQuest('How Big a Threat?', 985) == false and Data.HasCompletedQuest('How Big a Threat?', 984) == true">
-        <TakeQuest NpcName="Terenthis" QuestId="985" QuestName="How Big a Threat?" />
+        <TakeQuest NpcName="Terenthis" QuestId="985" QuestName="How Big a Threat?" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 	
 
@@ -162,10 +163,10 @@
 	</If>
 
     <If Condition="Data.HasActiveQuest('How Big a Threat?', 985) == true and Data.AllQuestObjectivesAreComplete('How Big a Threat?', 985) == true">
-        <ReturnQuest NpcName="Terenthis" QuestId="985" QuestName="How Big a Threat?" />
+        <ReturnQuest NpcName="Terenthis" QuestId="985" QuestName="How Big a Threat?" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 	<If Condition="Data.HasActiveQuest('A Lost Master', 986) == false and Data.HasCompletedQuest('A Lost Master', 986) == false">
-		<TakeQuest NpcName="Terenthis" QuestId="986" QuestName="A Lost Master" />
+		<TakeQuest NpcName="Terenthis" QuestId="986" QuestName="A Lost Master" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 	
 </ShadowProfile>

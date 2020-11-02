@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -137,7 +138,7 @@
 
 	<!-- Pick up -->
     <If Condition="Data.HasActiveQuest('Pridewings of Stonetalon') == false and Data.HasCompletedQuest('Pridewings of Stonetalon') == false">
-        <TakeQuest NpcName="Shindrell Swiftfire" QuestId="1134" QuestName="Pridewings of Stonetalon" />
+        <TakeQuest NpcName="Shindrell Swiftfire" QuestId="1134" QuestName="Pridewings of Stonetalon" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 
 	<If Condition="Data.HasActiveQuest('Pridewings of Stonetalon') == true and Data.AllQuestObjectivesAreComplete('Pridewings of Stonetalon') == false" >
@@ -170,10 +171,10 @@
 
 	<!-- ReturnQuest -->
     <If Condition="Data.HasActiveQuest('Pridewings of Stonetalon') == true and Data.AllQuestObjectivesAreComplete('Pridewings of Stonetalon') == true">
-        <ReturnQuest NpcName="Shindrell Swiftfire" QuestId="1134" QuestName="Pridewings of Stonetalon" />
+        <ReturnQuest NpcName="Shindrell Swiftfire" QuestId="1134" QuestName="Pridewings of Stonetalon" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
     <If Condition="Data.HasActiveQuest('Castpipe\'s Task') == false and Data.HasCompletedQuest('Castpipe\'s Task') == false and Data.HasCompletedQuest('A Gnome\'s Respite') == true and UnitLevel('player') &gt;= 25">
-        <TakeQuest NpcName="Gaxim Rustfizzle" QuestId="2931" QuestName="Castpipe\'s Task" />
+        <TakeQuest NpcName="Gaxim Rustfizzle" QuestId="2931" QuestName="Castpipe\'s Task" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 		<SetVendorNpc NpcName="Xai\'ander"/>
 		<SetRepairNpc NpcName="Xai\'ander"/>

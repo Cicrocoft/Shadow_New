@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -137,7 +138,7 @@
 	
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('Bashal\'Aran', 954) == false and Data.HasCompletedQuest('Bashal\'Aran', 954) == false">
-        <TakeQuest NpcName="Thundris Windweaver" QuestId="954" QuestName="Bashal\'Aran" />
+        <TakeQuest NpcName="Thundris Windweaver" QuestId="954" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 
     <SetTargetingMode Mode="Around Points" />
@@ -167,10 +168,10 @@
     </While>
 
     <If Condition="Data.HasActiveQuest('Bashal\'Aran', 954) == true">
-        <ReturnQuest NpcName="Asterion" QuestId="954" QuestName="Bashal\'Aran" />
+        <ReturnQuest NpcName="Asterion" QuestId="954" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Bashal\'Aran', 955) == false and Data.HasCompletedQuest('Bashal\'Aran', 955) == false">
-        <TakeQuest NpcName="Asterion" QuestId="955" QuestName="Bashal\'Aran" />
+        <TakeQuest NpcName="Asterion" QuestId="955" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 	
 
@@ -201,10 +202,10 @@
 	</If>
 
     <If Condition="Data.HasActiveQuest('Bashal\'Aran', 955) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 955) == true">
-        <ReturnQuest NpcName="Asterion" QuestId="955" QuestName="Bashal\'Aran" />
+        <ReturnQuest NpcName="Asterion" QuestId="955" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Bashal\'Aran', 956) == false and Data.HasCompletedQuest('Bashal\'Aran', 956) == false">
-        <TakeQuest NpcName="Asterion" QuestId="956" QuestName="Bashal\'Aran" />
+        <TakeQuest NpcName="Asterion" QuestId="956" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 
 	<If Condition="Data.HasActiveQuest('Bashal\'Aran', 956) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 956) == false">
@@ -232,10 +233,10 @@
 	</If>
 
     <If Condition="Data.HasActiveQuest('Bashal\'Aran', 956) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 956) == true">
-        <ReturnQuest NpcName="Asterion" QuestId="956" QuestName="Bashal\'Aran" />
+        <ReturnQuest NpcName="Asterion" QuestId="956" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == false and Data.HasCompletedQuest('Bashal\'Aran', 957) == false">
-        <TakeQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" />
+        <TakeQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 	
 </ShadowProfile>

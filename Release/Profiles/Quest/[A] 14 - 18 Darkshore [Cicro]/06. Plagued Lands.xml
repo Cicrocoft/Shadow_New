@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -139,10 +140,10 @@
 	<!-- Pickup -->	
 	
 	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4727) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4727) == false">
-		<TakeQuestFromObject QuestName="Beached Sea Turtle" QuestId="4727" X="7540.24609375" Y="-540.40032958984" Z="1.4731357097626" />
+		<TakeQuestFromObject QuestName="Beached Sea Turtle" QuestId="4727" X="7540.24609375" Y="-540.40032958984" Z="1.4731357097626" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 		
 	<If Condition="Data.HasActiveQuest('Plagued Lands') == false and Data.HasCompletedQuest('Plagued Lands') == false">
-		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
+		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
 
  
@@ -151,7 +152,7 @@
 
 <While Condition="Data.HasCompletedQuest('Plagued Lands') == false">
 	<If Condition="Data.HasActiveQuest('Plagued Lands') == false and Data.HasCompletedQuest('Plagued Lands') == false">
-		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
+		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 
 	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and Data.GetItemCountByName('Tharnariun\'s Hope') == 0 and QuestFailure(2118) ~= 1">
 		<Lua>
@@ -170,7 +171,7 @@
 	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and QuestFailure(2118) ~= 1 and Nav.RangeFromMeXYZ(7113.5703125, -236.44342041016, 35.597888946533) &gt; 50 and UnitName('target') ~= 'Rabid Thistle Bear'">
 		<Lua>PetDefensiveMode()</Lua>
 		<SetEnableProfileIgnoreCombat Value="false" />
-		<MoveTo X="7113.5703125" Y="-236.44342041016" Z="35.597888946533" />
+		<MoveTo X="7113.5703125" Y="-236.44342041016" Z="35.597888946533" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and QuestFailure(2118) ~= 1 and UnitIsDead('target') == false and UnitName('target') ~= 'Rabid Thistle Bear'">
 		<SetEnableProfileIgnoreCombat Value="false" />
@@ -186,17 +187,17 @@
 	<If Condition="Data.HasActiveQuest('Plagued Lands') == true and QuestFailure(2118) == 1">
 		<SetEnableProfileIgnoreCombat Value="false" />
 		<SetEnablePreemptiveMonsterAttack Value="true" />
-		<ReturnQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
+		<ReturnQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 </While>
 	
 	
 	<!-- TurnIn -->
 	<If Condition="Data.HasActiveQuest('Cleansing of the Infected') == false and Data.HasCompletedQuest('Cleansing of the Infected') == false and Data.HasCompletedQuest('Plagued Lands') == true">
-		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2138" QuestName="Cleansing of the Infected" />
+		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2138" QuestName="Cleansing of the Infected" DestinationMap="WoWMaps.Kalimdor" />
 	</If>		
 	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4727) == true and Data.AllQuestObjectivesAreComplete('Beached Sea Turtle', 4727) == true">
-		<ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4727" QuestName="Beached Sea Turtle" />
+		<ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4727" QuestName="Beached Sea Turtle" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 			
 
 </ShadowProfile>

@@ -57,20 +57,21 @@
 	<If Condition="GetSubZoneText() == 'Menethil Harbor'">
 		<NPCInteract NpcName="Shellei Brondir" Range="5" />	
 	</If>
+
 			<SetEnableVendoring Value="false"/>
 			<SetEnableRepairing Value="false"/>
-
+		<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<!-- Pickup -->
 <If Condition="Data.HasActiveQuest('Tools of the Highborne') == false and Data.HasCompletedQuest('Tools of the Highborne') == false">
 	<TakeQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="3524" QuestName="Washed Ashore" DestinationMap="WoWMaps.Kalimdor" />
-	<NPCInteract NpcName="Caylais Moonfeather" Range="5" />
-	<TakeQuest NpcName="Wizbang Cranktoggle" QuestId="983" QuestName="Buzzbox 827" />
-	<TakeQuest NpcName="Cerellean Whiteclaw" QuestId="963" QuestName="For Love Eternal" />
-	<TakeQuest NpcName="Sentinel Glynda Nal'Shea" QuestId="4811" QuestName="The Red Crystal" />
-	<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" />
-	<TakeQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" />
-	<TakeQuest NpcName="Thundris Windweaver" QuestId="954" QuestName="Bashal\'Aran" />
-	<TakeQuest NpcName="Thundris Windweaver" QuestId="958" QuestName="Tools of the Highborne" />
+	<NPCInteract NpcName="Caylais Moonfeather" Range="5" DestinationMap="WoWMaps.Kalimdor" />
+	<TakeQuest NpcName="Wizbang Cranktoggle" QuestId="983" QuestName="Buzzbox 827" DestinationMap="WoWMaps.Kalimdor" />
+	<TakeQuest NpcName="Cerellean Whiteclaw" QuestId="963" QuestName="For Love Eternal" DestinationMap="WoWMaps.Kalimdor" />
+	<TakeQuest NpcName="Sentinel Glynda Nal'Shea" QuestId="4811" QuestName="The Red Crystal" DestinationMap="WoWMaps.Kalimdor" />
+	<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" DestinationMap="WoWMaps.Kalimdor" />
+	<TakeQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" DestinationMap="WoWMaps.Kalimdor" />
+	<TakeQuest NpcName="Thundris Windweaver" QuestId="954" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
+	<TakeQuest NpcName="Thundris Windweaver" QuestId="958" QuestName="Tools of the Highborne" DestinationMap="WoWMaps.Kalimdor" />
 
 </If>
 

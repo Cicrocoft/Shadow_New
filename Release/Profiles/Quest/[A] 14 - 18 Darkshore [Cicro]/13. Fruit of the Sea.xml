@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -137,7 +138,7 @@
 
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('Fruit of the Sea') == false and Data.HasCompletedQuest('Fruit of the Sea') == false">
-        <TakeQuest NpcName="Gubber Blump" QuestId="1138" QuestName="Fruit of the Sea" />
+        <TakeQuest NpcName="Gubber Blump" QuestId="1138" QuestName="Fruit of the Sea" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 	
 	<!-- QuestObjective -->
@@ -163,7 +164,7 @@
 	</If>	
 	
     <If Condition="Data.HasActiveQuest('Fruit of the Sea') == true and Data.AllQuestObjectivesAreComplete('Fruit of the Sea') == true">
-        <ReturnQuest NpcName="Gubber Blump" QuestId="1138" QuestName="Fruit of the Sea" />
+        <ReturnQuest NpcName="Gubber Blump" QuestId="1138" QuestName="Fruit of the Sea" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 		<SetTargetingMode Mode="Around Points" />	
 		<ClearHotspots />

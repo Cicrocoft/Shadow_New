@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -139,13 +140,13 @@
 	<!-- Pickup (Mangler object quests) -->	
 	
     <If Condition="Data.HasActiveQuest('Thundris Windweaver') == false and Data.HasCompletedQuest('How Big a Threat?', 984) == true and Data.HasCompletedQuest('Thundris Windweaver') == false">
-		<TakeQuest NpcName="Terenthis" QuestId="4761" QuestName="Thundris Windweaver" />
+		<TakeQuest NpcName="Terenthis" QuestId="4761" QuestName="Thundris Windweaver" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Thundris Windweaver') == true">
-        <ReturnQuest NpcName="Thundris Windweaver" QuestId="4761" QuestName="Thundris Windweaver" />
+        <ReturnQuest NpcName="Thundris Windweaver" QuestId="4761" QuestName="Thundris Windweaver" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 	<If Condition="Data.HasActiveQuest('The Cliffspring River') == false and Data.HasCompletedQuest('The Cliffspring River') == false and Data.HasCompletedQuest('Thundris Windweaver') == true">
-		<TakeQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" />
+		<TakeQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
  
 	<!-- Objective Completion -->
@@ -155,19 +156,19 @@
 
 	<!-- This quest is dedicated to VV aka Vlad -->
 	<If Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == false">
-		<MoveTo X="7315.28125" Y="-396.5627746582" Z="0.83316838741302" Range="1" />
+		<MoveTo X="7315.28125" Y="-396.5627746582" Z="0.83316838741302" Range="1" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 	<While Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == false" >
 	<If Condition="Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &gt; 99" >
-		<MoveTo X="7315.28125" Y="-396.5627746582" Z="0.83316838741302" Range="1" />
+		<MoveTo X="7315.28125" Y="-396.5627746582" Z="0.83316838741302" Range="1" DestinationMap="WoWMaps.Kalimdor" />
 		<Wait Value="145" />
 	</If>
 	<If Condition="Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &lt;= 101 and Nav.RangeFromMeXYZ(7267.0229492188, -377.46853637695, -0.041654016822577) &lt; 53 and Nav.RangeFromMeXYZ(7315.28125, -387.01043701172, -2.7243022918701) &lt; 53" >
-		<MoveTo NoNav="true" X="7267.0229492188" Y="-377.46853637695" Z="-0.041654016822577" Range="1" />
+		<MoveTo NoNav="true" X="7267.0229492188" Y="-377.46853637695" Z="-0.041654016822577" Range="1" DestinationMap="WoWMaps.Kalimdor" />
 		<Wait Value="145" />
 	</If>
 	<If Condition="Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &gt; 2 and Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &lt;= 53" >
-		<MoveTo NoNav="true" X="7217.013671875" Y="-387.01043701172" Z="-2.7243022918701" />
+		<MoveTo NoNav="true" X="7217.013671875" Y="-387.01043701172" Z="-2.7243022918701" DestinationMap="WoWMaps.Kalimdor" />
 		<Wait Value="145" />
 	</If>
 	<If Condition="Nav.RangeFromMeXYZ(7217.013671875, -387.01043701172, -2.7243022918701) &lt;= 2 and Data.GetItemCountByName('Empty Sampling Tube') == 1" >
@@ -177,33 +178,33 @@
 	</If>
 	</While> 
 	<If Condition="Nav.RangeFromMeXYZ(7220.910156, -385.03491210, -3.9) &lt; 70 and Data.GetItemCountByName('Cliffspring River Sample') == 1" >
-		<MoveTo NoNav="true" X="7266.7905273438" Y="-377.52597045898" Z="-0.026679269969463" />
+		<MoveTo NoNav="true" X="7266.7905273438" Y="-377.52597045898" Z="-0.026679269969463" DestinationMap="WoWMaps.Kalimdor" />
 		<BotSleep Value="1247"/>
-		<MoveTo X="7308.1772460938" Y="-364.5244140625" Z="0.95011913776398" />
+		<MoveTo X="7308.1772460938" Y="-364.5244140625" Z="0.95011913776398" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4725) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4725) == false">
 		<SetEnableAutoLoot Value="false"/>  
-		<TakeQuestFromObject QuestId="4725" QuestName="Beached Sea Turtle" X="7434.4814453125" Y="43.90470123291" Z="2.1896209716797" />
-		<MoveTo X="7285.7734375" Y="77.737854003906" Z="14.601586341858" />
+		<TakeQuestFromObject QuestId="4725" QuestName="Beached Sea Turtle" X="7434.4814453125" Y="43.90470123291" Z="2.1896209716797" DestinationMap="WoWMaps.Kalimdor" />
+		<MoveTo X="7285.7734375" Y="77.737854003906" Z="14.601586341858" DestinationMap="WoWMaps.Kalimdor" />
 		<SetEnableAutoLoot Value="true"/>  
 	</If>	
 	<If Condition="Data.HasActiveQuest('Beached Sea Creature', 4723) == false and Data.HasCompletedQuest('Beached Sea Creature', 4723) == false">
 		<SetEnableAutoLoot Value="false"/>  
-		<TakeQuestFromObject QuestId="4723" QuestName="Beached Sea Creature" X="6956.4750976563" Y="195.52613830566" Z="0.13002036511898" />
-		<MoveTo X="6883.15625" Y="182.55332946777" Z="10.341988563538" />
+		<TakeQuestFromObject QuestId="4723" QuestName="Beached Sea Creature" X="6956.4750976563" Y="195.52613830566" Z="0.13002036511898" DestinationMap="WoWMaps.Kalimdor" />
+		<MoveTo X="6883.15625" Y="182.55332946777" Z="10.341988563538" DestinationMap="WoWMaps.Kalimdor" />
 		<SetEnableAutoLoot Value="true"/> 
 	</If>	
 	
 	<!-- TurnIn -->
 	<SetEnableAutoLoot Value="true"/> 
     <If Condition="Data.HasActiveQuest('The Cliffspring River') == true and Data.AllQuestObjectivesAreComplete('The Cliffspring River') == true">
-		<ReturnQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" />
+		<ReturnQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" DestinationMap="WoWMaps.Kalimdor" />
 	</If>			
     <If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4725) == true">
-        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4725" QuestName="Beached Sea Turtle" />
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4725" QuestName="Beached Sea Turtle" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Beached Sea Creature', 4723) == true">
-        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4723" QuestName="Beached Sea Creature" />
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="4723" QuestName="Beached Sea Creature" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 		
 </ShadowProfile>

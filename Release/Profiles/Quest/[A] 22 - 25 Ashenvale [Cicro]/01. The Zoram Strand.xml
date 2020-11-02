@@ -23,6 +23,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -215,7 +216,7 @@
 
 
 	<If Condition="Data.HasActiveQuest('The Ancient Statuette') == false and Data.HasCompletedQuest('The Ancient Statuette') == false">
-        <TakeQuest NpcName="Talen" QuestId="1007" QuestName="The Ancient Statuette" />
+        <TakeQuest NpcName="Talen" QuestId="1007" QuestName="The Ancient Statuette" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 
 
@@ -324,7 +325,7 @@
 		</While>
 	<!-- ReturnQuest -->
 	<If Condition="Data.HasActiveQuest('The Ancient Statuette') == true and Data.AllQuestObjectivesAreComplete('The Ancient Statuette') == true">
-        <ReturnQuest NpcName="Talen" QuestId="1007" QuestName="The Ancient Statuette" />
+        <ReturnQuest NpcName="Talen" QuestId="1007" QuestName="The Ancient Statuette" DestinationMap="WoWMaps.Kalimdor" />
     </If> 	
 
 
@@ -346,10 +347,10 @@
     </While>	
 
 	<If Condition="Data.HasActiveQuest('The Zoram Strand') == true and Data.AllQuestObjectivesAreComplete('The Zoram Strand') == true">
-        <ReturnQuest NpcName="Shindrell Swiftfire" QuestId="1008" QuestName="The Zoram Strand" />
+        <ReturnQuest NpcName="Shindrell Swiftfire" QuestId="1008" QuestName="The Zoram Strand" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Pridewings of Stonetalon') == false and Data.HasCompletedQuest('Pridewings of Stonetalon') == false and Data.HasCompletedQuest('The Zoram Strand') == true">
-        <TakeQuest NpcName="Shindrell Swiftfire" QuestId="1134" QuestName="Pridewings of Stonetalon" />
+        <TakeQuest NpcName="Shindrell Swiftfire" QuestId="1134" QuestName="Pridewings of Stonetalon" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 
 </ShadowProfile>

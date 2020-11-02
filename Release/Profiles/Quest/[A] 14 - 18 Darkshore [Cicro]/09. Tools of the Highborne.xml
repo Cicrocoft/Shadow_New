@@ -1,9 +1,8 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Tools of the Highborne') == false or Data.HasCompletedQuest('Bashal\'Aran', 957) == false">
-<Lua>QuestNodes[16393]=0</Lua>
-<Lua>QuestNodes[17189]=0</Lua>
-<Lua>QuestNodes[17188]=0</Lua>
+
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -139,39 +138,39 @@
 	
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('Tools of the Highborne') == false and Data.HasCompletedQuest('Tools of the Highborne') == false">
-        <TakeQuest NpcName="Thundris Windweaver" QuestId="958" QuestName="Tools of the Highborne" />
+        <TakeQuest NpcName="Thundris Windweaver" QuestId="958" QuestName="Tools of the Highborne" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('For Love Eternal') == false and Data.HasCompletedQuest('For Love Eternal') == false">
-        <TakeQuest NpcName="Cerellean Whiteclaw" QuestId="963" QuestName="For Love Eternal" />
+        <TakeQuest NpcName="Cerellean Whiteclaw" QuestId="963" QuestName="For Love Eternal" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
     <If Condition="Data.HasActiveQuest('How Big a Threat?', 984) == false and Data.HasCompletedQuest('How Big a Threat?', 984) == false">
-		<TakeQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" />
+		<TakeQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == false and Data.HasCompletedQuest('Bashal\'Aran', 957) == false and Data.HasCompletedQuest('Bashal\'Aran', 956) == true">
-        <TakeQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" />
+        <TakeQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 	
 	<!-- QuestObjective -->
 	<While Condition="Nav.RangeFromMeXYZ(6022.658203125, 346.67980957031, 28.425586700439) &gt; 3 and Data.AllQuestObjectivesAreComplete('How Big a Threat?') == false and Data.HasActiveQuest('How Big a Threat?') == true">
-		<MoveTo X="6022.658203125" Y="346.67980957031" Z="28.425586700439" />
+		<MoveTo X="6022.658203125" Y="346.67980957031" Z="28.425586700439" DestinationMap="WoWMaps.Kalimdor" />
 	</While>		
 	<AddBlackspot X="5982.0795898438" Y="333.58480834961" Z="22.405843734741" Range="40" />
     <If Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == false and Data.HasCompletedQuest('The Fall of Ameth\'Aran') == false">
-		<TakeQuest NpcName="Sentinel Tysha Moonblade" QuestId="953" QuestName="The Fall of Ameth\'Aran" />
+		<TakeQuest NpcName="Sentinel Tysha Moonblade" QuestId="953" QuestName="The Fall of Ameth\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 
 	<While Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 957) == false">
-        <MoveTo X="5636.6748046875" Y="167.64875793457" Z="32.149555206299" Range="15" />
+        <MoveTo X="5636.6748046875" Y="167.64875793457" Z="32.149555206299" Range="15" DestinationMap="WoWMaps.Kalimdor" />
         <InteractWithClosestGameObject GameObjectId="16393" />
     </While>
 
 	<While Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == true and Data.QuestObjectiveIsComplete('The Fall of Ameth\'Aran', 2) == false">
-        <MoveTo X="5577.720703125" Y="148.92169189453" Z="28.94506072998" Range="15" />
+        <MoveTo X="5577.720703125" Y="148.92169189453" Z="28.94506072998" Range="15" DestinationMap="WoWMaps.Kalimdor" />
         <InteractWithClosestGameObject GameObjectId="17189" />
     </While>
 
 	<While Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == true and Data.QuestObjectiveIsComplete('The Fall of Ameth\'Aran', 1) == false">
-        <MoveTo X="5768.1162109375" Y="103.87934112549" Z="34.84370803833" Range="15" />
+        <MoveTo X="5768.1162109375" Y="103.87934112549" Z="34.84370803833" Range="15" DestinationMap="WoWMaps.Kalimdor" />
         <InteractWithClosestGameObject GameObjectId="17188" />
     </While>
 
@@ -212,27 +211,27 @@
 	<!-- TurnIn -->
 	<AddBlackspot X="5982.0795898438" Y="333.58480834961" Z="22.405843734741" Range="70" />
     <If Condition="Data.HasActiveQuest('The Fall of Ameth\'Aran') == true and Data.AllQuestObjectivesAreComplete('The Fall of Ameth\'Aran') == true">
-        <ReturnQuest NpcName="Sentinel Tysha Moonblade" QuestId="953" QuestName="The Fall of Ameth\'Aran" />
+        <ReturnQuest NpcName="Sentinel Tysha Moonblade" QuestId="953" QuestName="The Fall of Ameth\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('How Big a Threat?', 984) == true and Data.AllQuestObjectivesAreComplete('How Big a Threat?', 984) == true">
-        <ReturnQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" />
+        <ReturnQuest NpcName="Terenthis" QuestId="984" QuestName="How Big a Threat?" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('How Big a Threat?', 985) == false and Data.HasCompletedQuest('How Big a Threat?', 985) == false and Data.HasCompletedQuest('How Big a Threat?', 984) == true">
-		<TakeQuest NpcName="Terenthis" QuestId="985" QuestName="How Big a Threat?" />
-		<TakeQuest NpcName="Terenthis" QuestId="4761" QuestName="Thundris Windweaver" />
+		<TakeQuest NpcName="Terenthis" QuestId="985" QuestName="How Big a Threat?" DestinationMap="WoWMaps.Kalimdor" />
+		<TakeQuest NpcName="Terenthis" QuestId="4761" QuestName="Thundris Windweaver" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('For Love Eternal') == true and Data.AllQuestObjectivesAreComplete('For Love Eternal') == true">
-        <ReturnQuest NpcName="Cerellean Whiteclaw" QuestId="963" QuestName="For Love Eternal" />
+        <ReturnQuest NpcName="Cerellean Whiteclaw" QuestId="963" QuestName="For Love Eternal" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Thundris Windweaver') == true and Data.AllQuestObjectivesAreComplete('Thundris Windweaver') == true">
-		<ReturnQuest NpcName="Thundris Windweaver" QuestId="4761" QuestName="Thundris Windweaver" />
-		<TakeQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" />
+		<ReturnQuest NpcName="Thundris Windweaver" QuestId="4761" QuestName="Thundris Windweaver" DestinationMap="WoWMaps.Kalimdor" />
+		<TakeQuest NpcName="Thundris Windweaver" QuestId="4762" QuestName="The Cliffspring River" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Tools of the Highborne') == true and Data.AllQuestObjectivesAreComplete('Tools of the Highborne') == true">
-        <ReturnQuest NpcName="Thundris Windweaver" QuestId="958" QuestName="Tools of the Highborne" />
+        <ReturnQuest NpcName="Thundris Windweaver" QuestId="958" QuestName="Tools of the Highborne" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('Bashal\'Aran', 957) == true and Data.AllQuestObjectivesAreComplete('Bashal\'Aran', 957) == true">
-        <ReturnQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" />
+        <ReturnQuest NpcName="Asterion" QuestId="957" QuestName="Bashal\'Aran" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 	
 </ShadowProfile>

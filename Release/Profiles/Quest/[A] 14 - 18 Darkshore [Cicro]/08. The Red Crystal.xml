@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -140,7 +141,7 @@
 	
 
 	<If Condition="Data.HasActiveQuest('The Red Crystal') == false and Data.HasCompletedQuest('The Red Crystal') == false">
-		<TakeQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4811" QuestName="The Red Crystal" />
+		<TakeQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4811" QuestName="The Red Crystal" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
 
  
@@ -169,7 +170,7 @@
 	<!-- TurnIn -->
 	
 	<If Condition="Data.HasActiveQuest('The Red Crystal') == true and Data.AllQuestObjectivesAreComplete('The Red Crystal') == true">
-		<ReturnQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4811" QuestName="The Red Crystal" />
+		<ReturnQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4811" QuestName="The Red Crystal" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
 
 	<!-- Part 2 -->
@@ -177,7 +178,7 @@
 	
 
 	<If Condition="Data.HasActiveQuest('As Water Cascades') == false and Data.HasCompletedQuest('The Red Crystal') == true and Data.HasCompletedQuest('As Water Cascades') == false">
-		<TakeQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4812" QuestName="As Water Cascades" />
+		<TakeQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4812" QuestName="As Water Cascades" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
 
  
@@ -187,7 +188,7 @@
 	<If Condition="Data.HasActiveQuest('As Water Cascades') == true and Data.AllQuestObjectivesAreComplete('As Water Cascades') == false">
 		<ClearHotspots />
 		<While Condition="Data.GetItemCountByName('Moonwell Water Tube') == 0 and Data.GetItemCountByName('Empty Water Tube') == 1">
-			<MoveTo X="6412.5239257813" Y="467.12496948242" Z="8.1258535385132" />
+			<MoveTo X="6412.5239257813" Y="467.12496948242" Z="8.1258535385132" DestinationMap="WoWMaps.Kalimdor" />
 			<UseItem ItemName="Empty Water Tube" />
 		</While>
 	</If>
@@ -196,14 +197,14 @@
 	<!-- TurnIn -->
 	
     <If Condition="Data.HasActiveQuest('As Water Cascades') == true and Data.AllQuestObjectivesAreComplete('As Water Cascades') == true">
-		<ReturnQuestToObject QuestName="As Water Cascades" X="6206.390625" Y="-157.69007873535" Z="80.934577941895" />
+		<ReturnQuestToObject QuestName="As Water Cascades" X="6206.390625" Y="-157.69007873535" Z="80.934577941895" DestinationMap="WoWMaps.Kalimdor" />
 	</If>			
 
 	<If Condition="Data.HasActiveQuest('The Fragments Within') == false and Data.HasCompletedQuest('The Fragments Within') == false and Data.HasCompletedQuest('As Water Cascades') == true">
-		<TakeQuestFromObject QuestName="The Fragments Within" X="6206.390625" Y="-157.69007873535" Z="80.934577941895" />
+		<TakeQuestFromObject QuestName="The Fragments Within" X="6206.390625" Y="-157.69007873535" Z="80.934577941895" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 
     <If Condition="Data.HasActiveQuest('The Fragments Within') == true">
-        <ReturnQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4813" QuestName="The Fragments Within" />
+        <ReturnQuest NpcName="Sentinel Glynda Nal\'Shea" QuestId="4813" QuestName="The Fragments Within" DestinationMap="WoWMaps.Kalimdor" />
     </If>		
 </ShadowProfile>

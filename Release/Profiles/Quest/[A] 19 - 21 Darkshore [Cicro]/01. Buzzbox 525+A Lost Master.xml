@@ -15,6 +15,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -273,16 +274,16 @@
 	</If> 	-->
     <If Condition="Data.HasActiveQuest('Buzzbox 525') == true">
 		<ClearHotspots />	
-		<ReturnQuestToObject QuestName="Buzzbox 525" X="4816.35546875" Y="229.48596191406" Z="49.210327148438" />
+		<ReturnQuestToObject QuestName="Buzzbox 525" X="4816.35546875" Y="229.48596191406" Z="49.210327148438" DestinationMap="WoWMaps.Kalimdor" />
 	</If>	
  <!-- Stupid mesh isssue    <If Condition="Data.HasActiveQuest('Beached Sea Creature', 4730) == true">
         <ReturnQuest  NpcName="Gwennyth Bly\'Leggonde" QuestId="4730" QuestName="Beached Sea Creature" />
     </If>  	-->
      <If Condition="Data.HasActiveQuest('A Lost Master', 986) == true and Data.AllQuestObjectivesAreComplete('A Lost Master', 986) == true">
-        <ReturnQuest  NpcName="Terenthis" QuestId="986" QuestName="A Lost Master" />
+        <ReturnQuest  NpcName="Terenthis" QuestId="986" QuestName="A Lost Master" DestinationMap="WoWMaps.Kalimdor" />
     </If>  	
      <If Condition="Data.HasActiveQuest('A Lost Master', 993) == false and Data.HasCompletedQuest('A Lost Master', 993) == false and Data.HasCompletedQuest('A Lost Master', 986) == true">
-        <TakeQuest  NpcName="Terenthis" QuestId="993" QuestName="A Lost Master" />
+        <TakeQuest  NpcName="Terenthis" QuestId="993" QuestName="A Lost Master" DestinationMap="WoWMaps.Kalimdor" />
     </If> 	
 
 	

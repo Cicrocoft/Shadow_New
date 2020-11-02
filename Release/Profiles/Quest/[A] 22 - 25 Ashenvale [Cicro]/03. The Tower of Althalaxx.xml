@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -20,7 +21,7 @@
     <SetEnableIgnoreLootAroundMobs Value="true"/>
     <SetEnablePreemptiveMonsterAttack Value="true"/>
 	<SetEnableAutoLoot Value="true" />
-<SetEnableMonsterLevelFilter Value="true" />
+	<SetEnableMonsterLevelFilter Value="true" />
 
 	<!-- Rest Settings -->
 	<!-- Rogue -->	
@@ -137,7 +138,7 @@
 
 	<!-- Pick up -->
     <If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 970) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 970) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 967) == true">
-        <TakeQuest NpcName="Delgren the Purifier" QuestId="970" QuestName="The Tower of Althalaxx" />
+        <TakeQuest NpcName="Delgren the Purifier" QuestId="970" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 
 
@@ -165,9 +166,9 @@
 
 	<!-- ReturnQuest -->
 	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 970) == true and Data.AllQuestObjectivesAreComplete('The Tower of Althalaxx', 970) == true">
-        <ReturnQuest NpcName="Delgren the Purifier" QuestId="970" QuestName="The Tower of Althalaxx" />
+        <ReturnQuest NpcName="Delgren the Purifier" QuestId="970" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
     </If> 	
     <If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 973) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 973) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 970) == true">
-        <TakeQuest NpcName="Delgren the Purifier" QuestId="973" QuestName="The Tower of Althalaxx" />
+        <TakeQuest NpcName="Delgren the Purifier" QuestId="973" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
 </ShadowProfile>

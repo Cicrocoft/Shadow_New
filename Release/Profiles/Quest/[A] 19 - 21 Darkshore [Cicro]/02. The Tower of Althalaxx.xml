@@ -3,6 +3,7 @@
 <Lua>QuestNodes[5270]=0</Lua>
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -167,7 +168,7 @@
 		<AddBlackspot X="6712.0625" Y="-209.3385925293" Z="39.246662139893" Range="100" />
 
     <If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 965) == true">
-        <ReturnQuest NpcName="Balthule Shadowstrike" QuestId="965" QuestName="The Tower of Althalaxx" />
+        <ReturnQuest NpcName="Balthule Shadowstrike" QuestId="965" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 	<If Condition="Data.HasActiveQuest('The Tower of Althalaxx', 966) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 966) == false and Data.HasCompletedQuest('The Tower of Althalaxx', 965) == true">
         <TakeQuest NpcName="Balthule Shadowstrike" QuestId="966" QuestName="The Tower of Althalaxx" DestinationMap="WoWMaps.Kalimdor" />
@@ -223,7 +224,7 @@
     </While>	
 	<NPCInteract NpcName="Daelyshia" DestinationMap="WoWMaps.Kalimdor" />
 	<If Condition="GetBindLocation() ~= 'Astranaar'" >
-		<SetInnkeeper NpcName="Innkeeper Kimlya" />
+		<SetInnkeeper NpcName="Innkeeper Kimlya" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 
 	<SetBaseSettings />

@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -137,7 +138,7 @@
 	
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('Cleansing of the Infected') == false and Data.HasCompletedQuest('Cleansing of the Infected') == false and Data.HasCompletedQuest('Plagued Lands') == true">
-		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2138" QuestName="Cleansing of the Infected" />
+		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2138" QuestName="Cleansing of the Infected" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
 	
 
@@ -157,7 +158,6 @@
 		<AddBlackspot X="6949.7036132813" Y="14.920105934143" Z="17.211923599243" Range="15" />
 		<AddBlackspot X="7046.0971679688" Y="-283.98764038086" Z="42.862331390381" Range="15" />
 		<AddBlackspot X="7080.0141601563" Y="15.890189170837" Z="16.414686203003" Range="15" />		
-		<AddBlackspot X="6815.0224609375" Y="-391.84893798828" Z="40.040439605713" Range="45" />
 		<!-- Hotspots -->
 		<AddHotspot X="7223.59765625" Y="43.389808654785" Z="9.385516166687" Range="100" />
 		<AddHotspot X="7218.06640625" Y="-98.212249755859" Z="13.272682189941" Range="100" />
@@ -178,7 +178,7 @@
 
 
     <If Condition="Data.HasActiveQuest('Cleansing of the Infected') == true and Data.AllQuestObjectivesAreComplete('Cleansing of the Infected') == true">
-        <ReturnQuest NpcName="Tharnariun Treetender" QuestId="2138" QuestName="Cleansing of the Infected" />
+        <ReturnQuest NpcName="Tharnariun Treetender" QuestId="2138" QuestName="Cleansing of the Infected" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 
 	

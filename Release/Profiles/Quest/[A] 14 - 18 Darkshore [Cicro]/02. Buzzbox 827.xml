@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -138,10 +139,10 @@
 
 	<!-- Pickup -->	
     <If Condition="Data.HasActiveQuest('Buzzbox 827') == false and Data.HasCompletedQuest('Washed Ashore', 3524) == false">
-        <TakeQuest NpcName="Wizbang Cranktoggle" QuestId="983" QuestName="Buzzbox 827" />
+        <TakeQuest NpcName="Wizbang Cranktoggle" QuestId="983" QuestName="Buzzbox 827" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 	<If Condition="Data.HasActiveQuest('Washed Ashore', 3524) == false and Data.HasCompletedQuest('Washed Ashore', 3524) == false">
-        <TakeQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="3524" QuestName="Washed Ashore" />
+        <TakeQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="3524" QuestName="Washed Ashore" DestinationMap="WoWMaps.Kalimdor" />
     </If>   
   
 	<!-- Objective Completion -->
@@ -216,15 +217,15 @@
 	
 	<!-- TurnIn -->
     <If Condition="Data.HasActiveQuest('Buzzbox 827') == true">
-		<ReturnQuestToObject QuestName="Buzzbox 827" X="6312.8549804688" Y="540.16149902344" Z="13.60666179657" />
+		<ReturnQuestToObject QuestName="Buzzbox 827" X="6312.8549804688" Y="540.16149902344" Z="13.60666179657" DestinationMap="WoWMaps.Kalimdor" />
 	</If>
 	<If Condition="Data.HasActiveQuest('Buzzbox 411') == false and Data.HasCompletedQuest('Buzzbox 827') == true">
-		<TakeQuestFromObject QuestName="Buzzbox 411" X="6312.8549804688" Y="540.16149902344" Z="13.60666179657" />
+		<TakeQuestFromObject QuestName="Buzzbox 411" X="6312.8549804688" Y="540.16149902344" Z="13.60666179657" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 	
     <If Condition="Data.HasActiveQuest('Washed Ashore', 3524) == true and Data.AllQuestObjectivesAreComplete('Washed Ashore', 3524) == true">
-        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="3524" QuestName="Washed Ashore" />
+        <ReturnQuest NpcName="Gwennyth Bly\'Leggonde" QuestId="3524" QuestName="Washed Ashore" DestinationMap="WoWMaps.Kalimdor" />
     </If>	
     <If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 3524) == true">
-        <TakeQuest  NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" />
+        <TakeQuest  NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" DestinationMap="WoWMaps.Kalimdor" />
     </If>
 </ShadowProfile>
