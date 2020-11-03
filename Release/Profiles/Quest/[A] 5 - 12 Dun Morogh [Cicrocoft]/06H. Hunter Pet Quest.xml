@@ -1,62 +1,122 @@
-<ShadowProfile Condition="UnitLevel('player') &gt;= 10 and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-<!-- Dwarf Hunter -->		<Lua>settings.ShouldFeedPet = false</Lua>
-	<If Condition="Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == false and Data.HasCompletedQuest('Taming the Beast', 6064) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-			<TakeQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
-		</If>
-		
-		<While Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6064) == false">
-			<MoveTo X="-5553.53125" Y="-723.28295898438" Z="409.59033203125" />
-			<UseItemOnNpc NpcId="1126" ItemId="15911" />
-			<Lua> BotSleep(10000) return true </Lua>
-		</While>	
-		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf"> 
-			<ReturnQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
-		</If>
-		<Lua>PetDismiss()</Lua>
-	
-
-	<If Condition="Data.HasActiveQuest('Taming the Beast', 6084) == false and Data.HasCompletedQuest('Taming the Beast', 6084) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-        <TakeQuest NpcName="Grif Wildheart" QuestId="6084" QuestName="Taming the Beast" />
-    </If>
-	
-	<If Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6084) == false">
-		<MoveTo X="-5761.8627929688" Y="-582.92413330078" Z="397.94772338867" />
-		<SetEnablePreemptiveMonsterAttack Value="false" />
-		<SetEnableProfileIgnoreCombat Value="true" />
-		<UseItemOnNpc NpcId="1201" ItemId="15913" />
-		<Lua> BotSleep(10000) return true </Lua>
-		<SetEnableProfileIgnoreCombat Value="false" />
-	</If>	
-    <If Condition="Data.HasActiveQuest('Taming the Beast', 6084) == true and Data.MyRace() == WoWClass.Hunter"> 
-		<ReturnQuest NpcName="Grif Wildheart" QuestId="6084" QuestName="Taming the Beast" />
-	</If>
-	<Lua>PetDismiss()</Lua>	
-	
-	
-	<If Condition="Data.HasActiveQuest('Taming the Beast', 6085) == false and Data.HasCompletedQuest('Taming the Beast', 6085) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-        <TakeQuest NpcName="Grif Wildheart" QuestId="6085" QuestName="Taming the Beast" />
-    </If>
-	
-	<If Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6085) == false">
-		<MoveTo X="-5800.9291992188" Y="-646.87725830078" Z="397.41033935547" />
-		<MoveTo X="-5816.5141601563" Y="-680.48217773438" Z="397.82537841797" />
-		<SetEnablePreemptiveMonsterAttack Value="false" />
-		<SetEnableProfileIgnoreCombat Value="true" />
-		<UseItemOnNpc NpcId="1196" ItemId="15908" />
-		<Lua> BotSleep(10000) return true </Lua>
-		<SetEnableProfileIgnoreCombat Value="false" />
-	</If>	
-    <If Condition="Data.HasActiveQuest('Taming the Beast', 6085) == true and Data.MyRace() == WoWClass.Hunter"> 
-		<ReturnQuest NpcName="Grif Wildheart" QuestId="6085" QuestName="Taming the Beast" />
-	</If>
-	<Lua>PetDismiss()</Lua>		
-	</If>
-		<While Condition="select(3, GetStablePetInfo(0)) == 0">			<MoveTo X="-5553.53125" Y="-723.28295898438" Z="409.59033203125" />					<Lua>TargetUnit(Data.GetClosestNpcById(1126))</Lua>				<If Condition="UnitName('target') == 'Large Crag Boar'">				<Lua>Nav.MoveToOBJ(PVE.Enemy)</Lua>				<Lua>CastSpellByName('Tame Beast')</Lua>				<Lua> BotSleep(10000) return true </Lua>			</If>		</While>
-	<If Condition="Data.HasActiveQuest('Training the Beast', 6086) == false and Data.HasCompletedQuest('Taming the Beast', 6086) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
-        <TakeQuest NpcName="Grif Wildheart" QuestId="6086" QuestName="Training the Beast" />
-    </If>	
-    <If Condition="Data.HasActiveQuest('Training the Beast', 6086) == true and Data.MyRace() == WoWClass.Hunter"> 
-		<ReturnQuest NpcName="Belia Thundergranite" QuestId="6086" QuestName="Training the Beast" />
-	</If>	
+<ShadowProfile Condition="Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+
+<!-- Dwarf Hunter -->
+		<Lua>settings.ShouldFeedPet = false</Lua>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+
+		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == false and Data.HasCompletedQuest('Taming the Beast', 6064) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+
+			<TakeQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
+
+		</If>
+
+		
+
+		<While Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6064) == false">
+
+			<MoveTo X="-5553.53125" Y="-723.28295898438" Z="409.59033203125" />
+
+			<UseItemOnNpc NpcId="1126" ItemId="15911" OnlyAlive="true" />
+
+			<Lua> BotSleep(10000) return true </Lua>
+
+		</While>	
+
+		<If Condition="Data.HasActiveQuest('Taming the Beast', 6064) == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf"> 
+
+			<ReturnQuest NpcName="Grif Wildheart" QuestId="6064" QuestName="Taming the Beast" />
+
+		</If>
+
+		<Lua>PetDismiss()</Lua>
+
+	
+
+
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6084) == false and Data.HasCompletedQuest('Taming the Beast', 6084) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+
+        <TakeQuest NpcName="Grif Wildheart" QuestId="6084" QuestName="Taming the Beast" />
+
+    </If>
+
+	
+
+	<If Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6084) == false">
+
+		<MoveTo X="-5761.8627929688" Y="-582.92413330078" Z="397.94772338867" />
+
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+
+		<SetEnableProfileIgnoreCombat Value="true" />
+
+		<UseItemOnNpc NpcId="1201" ItemId="15913" OnlyAlive="true" />
+
+		<Lua> BotSleep(10000) return true </Lua>
+
+		<SetEnableProfileIgnoreCombat Value="false" />
+
+	</If>	
+
+    <If Condition="Data.HasActiveQuest('Taming the Beast', 6084) == true and Data.MyRace() == WoWClass.Hunter"> 
+
+		<ReturnQuest NpcName="Grif Wildheart" QuestId="6084" QuestName="Taming the Beast" />
+
+	</If>
+
+	<Lua>PetDismiss()</Lua>	
+
+	
+
+	
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6085) == false and Data.HasCompletedQuest('Taming the Beast', 6085) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+
+        <TakeQuest NpcName="Grif Wildheart" QuestId="6085" QuestName="Taming the Beast" />
+
+    </If>
+
+	
+
+	<If Condition="Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6085) == false">
+
+		<MoveTo X="-5800.9291992188" Y="-646.87725830078" Z="397.41033935547" />
+
+		<MoveTo X="-5816.5141601563" Y="-680.48217773438" Z="397.82537841797" />
+
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+
+		<SetEnableProfileIgnoreCombat Value="true" />
+
+		<UseItemOnNpc NpcId="1196" ItemId="15908" OnlyAlive="true" />
+
+		<Lua> BotSleep(10000) return true </Lua>
+
+		<SetEnableProfileIgnoreCombat Value="false" />
+
+	</If>	
+
+    <If Condition="Data.HasActiveQuest('Taming the Beast', 6085) == true and Data.MyRace() == WoWClass.Hunter"> 
+
+		<ReturnQuest NpcName="Grif Wildheart" QuestId="6085" QuestName="Taming the Beast" />
+
+	</If>
+
+	<Lua>PetDismiss()</Lua>		
+
+	</If>
+
+
+	<If Condition="Data.HasActiveQuest('Training the Beast', 6086) == false and Data.HasCompletedQuest('Taming the Beast', 6086) == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Dwarf">
+
+        <TakeQuest NpcName="Grif Wildheart" QuestId="6086" QuestName="Training the Beast" />
+
+    </If>	
+
+    <If Condition="Data.HasActiveQuest('Training the Beast', 6086) == true and Data.MyRace() == WoWClass.Hunter"> 
+
+		<ReturnQuest NpcName="Belia Thundergranite" QuestId="6086" QuestName="Training the Beast" />
+
+	</If>	
+
 </ShadowProfile>
