@@ -12,10 +12,11 @@
 
     
 	<!-- Pickup -->
-	<NPCInteract NpcName="Ariena Stormfeather" DestinationMap="0" />	
+	
     <If Condition="Data.HasActiveQuest('Encroaching Gnolls') == false and Data.HasCompletedQuest('Encroaching Gnolls') == false">
         <TakeQuest NpcName="Guard Parker" QuestId="244" QuestName="Encroaching Gnolls" DestinationMap="0" />
     </If>	
+	<NPCInteract NpcName="Ariena Stormfeather" DestinationMap="0" />    
     <If Condition="Data.HasActiveQuest('Encroaching Gnolls') == true">
         <ReturnQuest NpcName="Deputy Feldon" QuestId="244" QuestName="Encroaching Gnolls" DestinationMap="0" />
     </If>
