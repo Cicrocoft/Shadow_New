@@ -138,9 +138,15 @@
 	</If>
 
 	<While Condition="Data.HasActiveQuest('A Noble Brew', 335) == true and Data.QuestObjectiveIsComplete('A Noble Brew', 1, 335) == false">
-        <MoveTo X="-10375.330078125" Y="-1257.0374755859" Z="35.829116821289" Range="15" />
-        <InteractWithClosestGameObject GameObjectId="321" />
+		<If Condition="Nav.RangeFromMeXYZ(-10363.745117188, -1282.1864013672, 35.395210266113) &gt; 25" >
+    	    <MoveTo X="-10363.745117188" Y="-1282.1864013672" Z="35.395210266113" Range="15" />
+		</If>
+ 		<If Condition="Nav.RangeFromMeXYZ(-10363.745117188, -1282.1864013672, 35.395210266113) &lt; 25" >
+     		<InteractWithClosestGameObject GameObjectId="321" />
+			<BotSleep Value="5500" />
+		</If>
     </While>	
+
 		<!-- Objective Settings -->
 		<SetTargetingMode Mode="Around Points" />
 		<ClearHotspots />
