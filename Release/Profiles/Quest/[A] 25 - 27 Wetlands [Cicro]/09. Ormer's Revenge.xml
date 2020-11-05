@@ -170,6 +170,9 @@
 		<SetTargetingMode Mode="Around Points" />
 		<ClearHotspots />
 		<ClearBlackspots />
+			<SetBaseSettings />
+	<SetVendorNpc NpcName="Murndan Derth" />
+	<SetRepairNpc NpcName="Murndan Derth" />			
 		<!-- Monsterfilter -->
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="None" />	
