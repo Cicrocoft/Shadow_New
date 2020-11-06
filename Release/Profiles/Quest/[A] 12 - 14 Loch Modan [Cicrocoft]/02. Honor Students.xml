@@ -38,7 +38,7 @@
 			<TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
 		</If>	
 	</If>	
-	<If Condition="Data.MyRace() == WoWRace.NightElf and KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Ironforge, Dun Morogh'] == nil">
+	<If Condition="KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Ironforge, Dun Morogh'] == nil">
 		<NPCInteract NpcName="Gryth Thurden" />
 	</If>	
     <If Condition="Data.HasActiveQuest('Find Bingles') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
