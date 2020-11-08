@@ -231,6 +231,9 @@
 	<If Condition="Data.HasActiveQuest('Juice Delivery', 159) == false and Data.HasCompletedQuest('Juice Delivery', 159) == false">
 		<TakeQuest NpcName="Tavernkeep Smitts" QuestId="159" QuestName="Juice Delivery" />
 	</If>	
+	<If Condition="Data.HasActiveQuest('The Night Watch', 58) == true and Data.AllQuestObjectivesAreComplete('The Night Watch', 58) == true">
+		<ReturnQuest NpcName="Commander Althea Ebonlocke" QuestId="58" QuestName="The Night Watch" />
+	</If>	
 	<If Condition="Data.HasActiveQuest('The Missing Diplomat', 1244) == true and Data.AllQuestObjectivesAreComplete('The Missing Diplomat', 1244) == true">
 		<ReturnQuest NpcName="Watcher Backus" QuestId="1244" QuestName="The Missing Diplomat" />
 	</If>
