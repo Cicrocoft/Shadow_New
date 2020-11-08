@@ -259,42 +259,44 @@
 				<Wait Value="100" />
 		</While>	
 	</If>	
-	<If Condition="Data.HasActiveQuest('The Zoram Strand') == true and Data.AllQuestObjectivesAreComplete('The Zoram Strand') == false and Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('LockPicking') &lt; 110" >
-		<ClearAllowedQuestNodes/>
-		<ClearHotspots />
-		<!-- Settings -->
-		<SetTargetingMode Mode="Gather Only" />
-		<SetEnableAutoHerb Value="true" />
-		<!-- QuestObjectsID -->
-		<Lua>QuestNodes[179487]=0</Lua>
-		<AllowQuestNode NodeName="Waterlogged Footlocker" />	
-		<!-- Blackspots -->
-		<AddBlackspot X="3739.2734375" Y="1079.4748535156" Z="-0.91041666269302" Range="25" />
-		<AddBlackspot X="3734.7314453125" Y="1031.0802001953" Z="-0.91142255067825" Range="25" />
+	<If Condition="Data.GetMyProfessionLevel('LockPicking') ~= nil" >
+		<If Condition="Data.HasActiveQuest('The Zoram Strand') == true and Data.AllQuestObjectivesAreComplete('The Zoram Strand') == false and Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('LockPicking') &lt; 110" >
+			<ClearAllowedQuestNodes/>
+			<ClearHotspots />
+			<!-- Settings -->
+			<SetTargetingMode Mode="Gather Only" />
+			<SetEnableAutoHerb Value="true" />
+			<!-- QuestObjectsID -->
+			<Lua>QuestNodes[179487]=0</Lua>
+			<AllowQuestNode NodeName="Waterlogged Footlocker" />	
+			<!-- Blackspots -->
+			<AddBlackspot X="3739.2734375" Y="1079.4748535156" Z="-0.91041666269302" Range="25" />
+			<AddBlackspot X="3734.7314453125" Y="1031.0802001953" Z="-0.91142255067825" Range="25" />
 
-		<!-- Hotspots -->
-		<AddHotspot X="3954.8737792969" Y="865.24499511719" Z="-0.01098713465035" Range="100" />
-		<AddHotspot X="3884.3857421875" Y="812.34771728516" Z="2.4046292304993" Range="100" />
-		<AddHotspot X="3776.599609375" Y="840.46282958984" Z="1.0632433891296" Range="100" />
-		<AddHotspot X="3700.4360351563" Y="898.18579101563" Z="0.96777123212814" Range="100" />
-		<AddHotspot X="3656.0004882813" Y="988.17724609375" Z="-0.076828859746456" Range="100" />
-		<AddHotspot X="3551.1159667969" Y="952.39617919922" Z="1.7394866943359" Range="100" />
-		<AddHotspot X="3526.181640625" Y="1056.8186035156" Z="7.0863590240479" Range="100" />
+			<!-- Hotspots -->
+			<AddHotspot X="3954.8737792969" Y="865.24499511719" Z="-0.01098713465035" Range="100" />
+			<AddHotspot X="3884.3857421875" Y="812.34771728516" Z="2.4046292304993" Range="100" />
+			<AddHotspot X="3776.599609375" Y="840.46282958984" Z="1.0632433891296" Range="100" />
+			<AddHotspot X="3700.4360351563" Y="898.18579101563" Z="0.96777123212814" Range="100" />
+			<AddHotspot X="3656.0004882813" Y="988.17724609375" Z="-0.076828859746456" Range="100" />
+			<AddHotspot X="3551.1159667969" Y="952.39617919922" Z="1.7394866943359" Range="100" />
+			<AddHotspot X="3526.181640625" Y="1056.8186035156" Z="7.0863590240479" Range="100" />
 
-		<!-- Mob Whitelist -->
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Wrathtail Wave Rider" />
-		<AddMonsterFilterName Value="Wrathtail Sorceress" />
-		<AddMonsterFilterName Value="Wrathtail Razortail" />				
-		<While Condition="Data.GetMyProfessionLevel('LockPicking') &lt; 110" >
-				<Wait Value="100" />
-		</While>
-		<ClearAllowedQuestNodes/>		
-		<SetTargetingMode Mode="Around Points" />			
-		<While Condition="Data.AllQuestObjectivesAreComplete('The Zoram Strand') == false" >
-				<Wait Value="100" />
-		</While>		
+			<!-- Mob Whitelist -->
+			<ClearMonsterFilter/>
+			<SetMonsterFilterMode Mode="Whitelist" />
+			<AddMonsterFilterName Value="Wrathtail Wave Rider" />
+			<AddMonsterFilterName Value="Wrathtail Sorceress" />
+			<AddMonsterFilterName Value="Wrathtail Razortail" />				
+			<While Condition="Data.GetMyProfessionLevel('LockPicking') &lt; 110" >
+					<Wait Value="100" />
+			</While>
+			<ClearAllowedQuestNodes/>		
+			<SetTargetingMode Mode="Around Points" />			
+			<While Condition="Data.AllQuestObjectivesAreComplete('The Zoram Strand') == false" >
+					<Wait Value="100" />
+			</While>		
+		</If>
 	</If>
 		<ClearAllowedQuestNodes/>
 		<ClearHotspots />
