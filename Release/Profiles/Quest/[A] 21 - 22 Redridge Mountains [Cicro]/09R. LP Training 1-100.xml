@@ -1,4 +1,4 @@
-<ShadowProfile Condition="Data.PlayerClass() == WoWClass.Rogue">
+<ShadowProfile Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('LockPicking') ~= nil">
 <If Condition="Data.GetMyProfessionLevel('LockPicking') &lt; 100">
     <SetEnableRestockItems Value="true"/>
     <AddRestockItem ItemName="Thieves\' Tools" NpcName="Jasper Fel" UnderAmount="0" BuyAmount="1"/>
