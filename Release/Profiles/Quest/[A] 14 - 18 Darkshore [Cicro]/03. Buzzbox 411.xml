@@ -138,9 +138,6 @@
 
 
 	<!-- Pickup -->	
-	<If Condition="Data.HasActiveQuest('Buzzbox 411') == false and Data.HasCompletedQuest('Buzzbox 827') == true">
-		<TakeQuestFromObject QuestName="Buzzbox 411" X="6312.8549804688" Y="540.16149902344" Z="13.60666179657" DestinationMap="WoWMaps.Kalimdor" />
-	</If> 
     <If Condition="Data.HasActiveQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 4681) == false and Data.HasCompletedQuest('Washed Ashore', 3524) == true">
         <TakeQuest  NpcName="Gwennyth Bly\'Leggonde" QuestId="4681" QuestName="Washed Ashore" DestinationMap="WoWMaps.Kalimdor" />
     </If>
@@ -163,34 +160,6 @@
 		<MoveTo NoNav="true" X="6298.2719726563" Y="858.97064208984" Z="-2.1566138267517" DestinationMap="WoWMaps.Kalimdor" />
 		<BotSleep Value="2500"/>
 	</If>
-	<If Condition="Data.HasActiveQuest('Buzzbox 411') == true and Data.AllQuestObjectivesAreComplete('Buzzbox 411') == false">
-		<ClearHotspots />
-		<!-- Settings -->
-		<SetTargetingMode Mode="Around Points" />
-		<SetMaxZDifference Value="30" />
-		<!-- Blackspots -->
-
-		<!-- Hotspots -->
-		<AddHotspot X="6320.0229492188" Y="910.560546875" Z="-1.89697265625" Range="150" />
-		<AddHotspot X="6382.09765625" Y="900.55529785156" Z="-1.89697265625" Range="150" />
-		<AddHotspot X="6601.0810546875" Y="722.04107666016" Z="-1.7186691761017" Range="150" />
-		<AddHotspot X="6690.1752929688" Y="632.22802734375" Z="-1.6879705190659" Range="150" />
-		<AddHotspot X="6782.2275390625" Y="713.09997558594" Z="-0.92679738998413" Range="150" />
-		<AddHotspot X="6864.2036132813" Y="726.61859130859" Z="-0.86903023719788" Range="150" />
-		<AddHotspot X="6978.392578125" Y="720.04193115234" Z="-0.87274760007858" Range="150" />
-		<AddHotspot X="7046.34765625" Y="677.27526855469" Z="-0.92999428510666" Range="150" />
-		<AddHotspot X="7018.212890625" Y="594.61444091797" Z="-0.92675775289536" Range="150" />
-		<AddHotspot X="6987.6713867188" Y="499.1242980957" Z="-0.92674124240875" Range="150" />
-		<AddHotspot X="6958.7919921875" Y="474.34698486328" Z="-0.86522221565247" Range="150" />		
-		<!-- Mob Whitelist -->
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Darkshore Thresher" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('Buzzbox 411') == false" >
-			<Wait Value="100" />
-		</While>
-    </If>
-	
 	
 	<!-- TurnIn -->
 	
@@ -213,15 +182,6 @@
  <While Condition="UnitLevel('player') &lt; 15" >
         <Wait Value="100" />
     </While>	
-    <If Condition="Data.HasActiveQuest('Buzzbox 411') == true">
-		<ClearHotspots />	
-		<AddBlackspot X="6954.3193359375" Y="194.94247436523" Z="0.21656090021133" Range="35" />
-		<ReturnQuestToObject QuestName="Buzzbox 411" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" DestinationMap="WoWMaps.Kalimdor" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Buzzbox 323') == false and Data.HasCompletedQuest('Buzzbox 411') == true">
-		<ClearHotspots />	
-		<AddBlackspot X="6954.3193359375" Y="194.94247436523" Z="0.21656090021133" Range="35" />
-		<TakeQuestFromObject QuestName="Buzzbox 323" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" DestinationMap="WoWMaps.Kalimdor" />
-	</If> 	
+
 	
 </ShadowProfile>

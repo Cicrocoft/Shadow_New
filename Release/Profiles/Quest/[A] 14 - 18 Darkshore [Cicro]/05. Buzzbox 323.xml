@@ -132,18 +132,13 @@
 
 
 	<!-- Pickup -->	
-	<If Condition="Data.HasActiveQuest('Buzzbox 323') == false and Data.HasCompletedQuest('Buzzbox 411') == true">
-		<ClearHotspots />	
-		<AddBlackspot X="6954.3193359375" Y="194.94247436523" Z="0.21656090021133" Range="35" />
-		<TakeQuestFromObject QuestName="Buzzbox 323" X="7082.2788085938" Y="192.72068786621" Z="0.89676052331924" DestinationMap="WoWMaps.Kalimdor" />
-	</If> 	
  
   
 	<!-- Objective Completion -->
 	
 
 	
-    <If Condition="Data.HasActiveQuest('Buzzbox 323') == true and Data.AllQuestObjectivesAreComplete('Buzzbox 323') == false">
+
 		<ClearHotspots />
 		<!-- Settings -->
 		<SetTargetingMode Mode="Around Points" />
@@ -171,30 +166,18 @@
 		<AddHotspot X="7017.255859375" Y="-603.14526367188" Z="52.025398254395" Range="100" />
 		<!-- Mob Whitelist -->
 
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Moonstalker" />
-		<AddMonsterFilterName Value="Moonstalker Runt" />		
-		<While Condition="Data.AllQuestObjectivesAreComplete('Buzzbox 323') == false" >
-			<Wait Value="100" />
-		</While>
+
     <ClearMonsterFilter/>
 	<SetMonsterFilterMode Mode="None"/>
 
 	<While Condition="UnitLevel('player') &lt; 16" >
         <Wait Value="100" />
     </While>			
-    </If>
+
 
 	
 	<!-- TurnIn -->
 	
-    <If Condition="Data.HasActiveQuest('Buzzbox 323') == true">
-		<ClearHotspots />	
-		<ReturnQuestToObject QuestName="Buzzbox 323" X="7258.3291015625" Y="-416.59912109375" Z="26.949256896973" DestinationMap="WoWMaps.Kalimdor" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Buzzbox 525') == false and Data.HasCompletedQuest('Buzzbox 323') == true">
-		<TakeQuestFromObject QuestName="Buzzbox 525" X="7258.3291015625" Y="-416.59912109375" Z="26.949256896973" DestinationMap="WoWMaps.Kalimdor" />
-	</If> 	
+
 	
 </ShadowProfile>
