@@ -1,32 +1,221 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Beer Basted Boar Ribs') == false">
-	<!-- Bot Settings -->	<SetBaseSettings />	<Lua>settings.DoNotSellItems = {}</Lua>	<SetEnableAutoHerb Value="true" />	<SetEnableAutoSkin Value="true" />	<SetEnableAutoMine Value="true" />	<SetEnableProfileIgnoreCombat Value="false"/>    <SetEnableUseFood Value="true" />    <SetEnableUseDrink Value="true" />    <SetEnableAutoDetectFood Value="true" />    <SetEnableAutoDetectDrink Value="true" />    <SetEnableVendoring Value="true"/>    <SetEnableRepairing Value="true"/>    <SetVendorSlotsCount Value="2"/>    <SetRepairPercent Value="40"/>    <SetEnableRest Value="true"/>    <SetEnableVendorGreens Value="true"/>    <SetEnableIgnoreLootAroundMobs Value="true"/>    <SetEnablePreemptiveMonsterAttack Value="true"/>	<SetEnableAutoLoot Value="true" />	<!-- Rest Settings -->	<!-- Rogue -->	    <If Condition="Data.PlayerClass() == WoWClass.Rogue">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Hunter -->		<If Condition="Data.PlayerClass() == WoWClass.Hunter">	<SetRestHPPercent Value="55" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="40" />	<SetUseFoodPercent Value="60" />    </If>	<!-- Mage -->		<If Condition="Data.PlayerClass() == WoWClass.Mage">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warrior -->	<If Condition="Data.PlayerClass() == WoWClass.Warrior">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warlock -->	<If Condition="Data.PlayerClass() == WoWClass.Warlock">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Priest -->		<If Condition="Data.PlayerClass() == WoWClass.Priest">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Paladin -->	<If Condition="Data.PlayerClass() == WoWClass.Paladin">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="25" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Rest Settings End -->	<!-- Vendors to use -->	<SetRepairNpc NpcName="Grawn Thromwyn"/>	<SetVendorNpc NpcName="Grawn Thromwyn"/>	<!-- Restock Dun Morogh 5-12 (Kharanos)-->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems/>	<!-- Food -->	<If Condition="GetMoney() &gt;= 700" >		<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">			<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>			<AddDoNotSellItem ItemName="Tough Hunk of Bread" />		</If>		<!-- Water -->		<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">			<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>			<AddDoNotSellItem ItemName="Refreshing Spring Water" />		</If>		<If Condition="Data.PlayerClass() == WoWClass.Priest">			<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="3" BuyAmount="20"/>			<AddDoNotSellItem ItemName="Refreshing Spring Water" />		</If>	</If>				<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Light Shot" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>	</If>	<!-- End Restock -->
-    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == false">
-        <TakeQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
-    </If>
-    	<SetEnableRestockItems Value="true"/>
-	<AddDoNotSellItem ItemName="Crag Boar Rib" />
-    <ClearHotspots />	<AddHotspot X="-5774.033203125" Y="-377.84387207031" Z="365.30908203125" Range="100" />	<AddHotspot X="-5821.5307617188" Y="-252.96669006348" Z="352.78833007813" Range="100" />	<AddHotspot X="-5836.3403320313" Y="-137.17565917969" Z="355.21325683594" Range="100" />	<AddHotspot X="-5987.9750976563" Y="-138.80838012695" Z="401.34506225586" Range="50" />	<AddHotspot X="-6028.8286132813" Y="-266.03848266602" Z="417.46395874023" Range="50" />	<AddHotspot X="-6010.6342773438" Y="-402.2731628418" Z="412.39492797852" Range="100" />
-    <SetTargetingMode Mode="Around Points" />
-    <ClearMonsterFilter/>
-    <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Crag Boar" />
-    <AddMonsterFilterName Value="Young Black Bear" />
-    <AddMonsterFilterName Value="Ice Claw Bear" />	
-    <AddMonsterFilterName Value="Large Crag Boar" />	
-    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 1) == false" >
-        <Wait Value="100" />
-    </While>	    <ClearHotspots />	<AddHotspot X="-5691.2768554688" Y="-592.34594726563" Z="401.88317871094" Range="100" />	<AddHotspot X="-5760.2685546875" Y="-580.83264160156" Z="398.34292602539" Range="100" />	<AddHotspot X="-5827.6235351563" Y="-596.93334960938" Z="397.0451965332" Range="100" />	<AddHotspot X="-5895.5424804688" Y="-641.82788085938" Z="399.20785522461" Range="100" />	<AddHotspot X="-5948.1411132813" Y="-565.21398925781" Z="405.71817016602" Range="100" />	    <ClearMonsterFilter/>	<SetMonsterFilterMode Mode="None"/> <While Condition="UnitLevel('player') &lt; 8 or UnitXP('player') &lt;= 4000 and UnitXPMax('player') == 5400" >        <Wait Value="100" />    </While>		
-    <ClearHotspots />
-	<ClearRestockItems/>
-		<AddRestockItem ItemName="Rhapsody Malt" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
-		<AddHotspot X="-5599.17578125" Y="-530.15808105469" Z="399.65188598633" Range="5" />
-    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 2) == false" >
-        <Wait Value="100" />
-    </While>	
-	<ClearRestockItems/>	
-    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == true">
-        <ReturnQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />		<Lua>settings.DoNotSellItems = {}</Lua>
-    </If>
-	
-
+<ShadowProfile Condition="Data.HasCompletedQuest('Beer Basted Boar Ribs') == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Grawn Thromwyn"/>
+	<SetVendorNpc NpcName="Grawn Thromwyn"/>
+
+	<!-- Restock Dun Morogh 5-12 (Kharanos)-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="GetMoney() &gt;= 700" >
+		<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+			<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>
+			<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+		</If>
+		<!-- Water -->
+		<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+			<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="5" BuyAmount="40"/>
+			<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		</If>
+		<If Condition="Data.PlayerClass() == WoWClass.Priest">
+			<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Belm" UnderAmount="3" BuyAmount="20"/>
+			<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		</If>
+	</If>		
+		<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Kreg Bilmn" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+
+    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == false">
+
+        <TakeQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
+
+    </If>
+
+    
+	<SetEnableRestockItems Value="true"/>
+
+	<AddDoNotSellItem ItemName="Crag Boar Rib" />
+
+    <ClearHotspots />
+	<AddHotspot X="-5774.033203125" Y="-377.84387207031" Z="365.30908203125" Range="100" />
+	<AddHotspot X="-5821.5307617188" Y="-252.96669006348" Z="352.78833007813" Range="100" />
+	<AddHotspot X="-5836.3403320313" Y="-137.17565917969" Z="355.21325683594" Range="100" />
+	<AddHotspot X="-5987.9750976563" Y="-138.80838012695" Z="401.34506225586" Range="50" />
+	<AddHotspot X="-6028.8286132813" Y="-266.03848266602" Z="417.46395874023" Range="50" />
+	<AddHotspot X="-6010.6342773438" Y="-402.2731628418" Z="412.39492797852" Range="100" />
+
+    <SetTargetingMode Mode="Around Points" />
+
+    <ClearMonsterFilter/>
+
+    <SetMonsterFilterMode Mode="Whitelist" />
+
+    <AddMonsterFilterName Value="Crag Boar" />
+
+    <AddMonsterFilterName Value="Young Black Bear" />
+
+    <AddMonsterFilterName Value="Ice Claw Bear" />	
+
+    <AddMonsterFilterName Value="Large Crag Boar" />	
+
+    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 1) == false" >
+
+        <Wait Value="100" />
+
+    </While>	
+    <ClearHotspots />
+	<AddHotspot X="-5691.2768554688" Y="-592.34594726563" Z="401.88317871094" Range="100" />
+	<AddHotspot X="-5760.2685546875" Y="-580.83264160156" Z="398.34292602539" Range="100" />
+	<AddHotspot X="-5827.6235351563" Y="-596.93334960938" Z="397.0451965332" Range="100" />
+	<AddHotspot X="-5895.5424804688" Y="-641.82788085938" Z="399.20785522461" Range="100" />
+	<AddHotspot X="-5948.1411132813" Y="-565.21398925781" Z="405.71817016602" Range="100" />
+	
+    <ClearMonsterFilter/>
+	<SetMonsterFilterMode Mode="None"/>
+
+ <While Condition="UnitLevel('player') &lt; 8 or UnitXP('player') &lt;= 4000 and UnitXPMax('player') == 5400" >
+        <Wait Value="100" />
+    </While>	
+	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter and GetMoney() &gt;= 1000 and Data.GetMyProfessionLevel('Two-Handed Axes') == nil" >
+        <NPCInteract NpcName="Buliwyf Stonehand" DestinationMap="0" />	
+        <LearnWeaponSkill NpcId="11865" NpcName="Buliwyf Stonehand" SkillName="Two-Handed Axes" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter and select(4, GetItemInfo(GetInventoryItemLink('player', 16))) &lt; 7 and GetMoney() &gt; 5000" >
+		<NPCInteract NpcName="Grawn Thromwyn" DestinationMap="0" />	
+		<BuyItem ItemId="2491" ItemName="Large Axe" NpcId="1273" NpcName="Grawn Thromwyn" Amount="1" />	
+	</If>
+    <ClearHotspots />
+
+	<ClearRestockItems/>
+
+		<AddRestockItem ItemName="Rhapsody Malt" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
+
+		<AddHotspot X="-5599.17578125" Y="-530.15808105469" Z="399.65188598633" Range="5" />
+
+    <While Condition="Data.QuestObjectiveIsComplete('Beer Basted Boar Ribs', 2) == false" >
+
+        <Wait Value="100" />
+
+    </While>	
+
+	<ClearRestockItems/>	
+
+    <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == true">
+
+        <ReturnQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
+		<Lua>settings.DoNotSellItems = {}</Lua>
+    </If>
+
+	
+
+
+
 </ShadowProfile>
