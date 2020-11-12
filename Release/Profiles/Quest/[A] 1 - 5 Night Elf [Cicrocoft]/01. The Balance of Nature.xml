@@ -1,5 +1,6 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('The Balance of Nature', 457) == false">
 <Lua>SetCVar("instantQuestText", "1"); print("Instant Quest Text On");</Lua> 
+<Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>
  <If Condition="Data.HasActiveQuest('The Balance of Nature', 456) == false and Data.HasCompletedQuest('The Balance of Nature', 456) == false">
         <TakeQuest NpcName="Ilthalaine" QuestId="456" QuestName="The Balance of Nature" />
     </If>

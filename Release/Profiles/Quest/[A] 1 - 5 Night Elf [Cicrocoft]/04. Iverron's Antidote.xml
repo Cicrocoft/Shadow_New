@@ -147,20 +147,16 @@
 	<If Condition="Data.HasActiveQuest('Iverron\'s Antidote', 3522) == true">
 		<ReturnQuest NpcName="Iverron" QuestId="3522" QuestName="Iverron\'s Antidote" />
 	</If>	
-	<If Condition="Data.HasActiveQuest('Webwood Egg') == true">
-		<Lua>QuestNodes[4406]=0</Lua>
-		<SetTargetingMode Mode="Gather Only" />
-		<SetHotspotTraverseMode Mode="Straight"/>
-		<SetEnableAutoHerb Value="true" />
-		<ClearHotspots />
-		<AllowQuestNode NodeName="Webwood Eggs" />		
-		<ClearMonsterFilter/>
-		<AddHotspot X="10937.553710938" Y="924.31591796875" Z="1340.4597167969" Range="20" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('Webwood Egg') == false" >
-			<Wait Value="100" />
-		</While>		
-	</If>
-	
+	<While Condition="Data.HasActiveQuest('Webwood Egg') == true and Data.AllQuestObjectivesAreComplete('Webwood Egg') == false">
+		<If Condition="Nav.RangeFromMeXYZ(10933.931640625, 924.25988769531, 1340.3719482422) &gt; 10">
+			<MoveTo X="10933.931640625" Y="924.25988769531" Z="1340.3719482422" Range="5" DestinationMap="1" />
+		</If>
+		<If Condition="Nav.RangeFromMeXYZ(10933.931640625, 924.25988769531, 1340.3719482422) &lt; 10">
+			<InteractWithClosestGameObject GameObjectId="4406" />
+			<BotSleep Value="5500" />
+		</If>
+	</While>
+
 		<ClearHotspots />
 		<!-- Objective Settings -->
 		<SetTargetingMode Mode="Around Points" />
