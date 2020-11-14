@@ -2,6 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
@@ -166,7 +167,7 @@
 		<While Condition="Data.AllQuestObjectivesAreComplete('Claws from the Deep', 279) == false" >
 			<Wait Value="100" />
 		</While>
-		<While Condition="UnitLevel('player') &lt; 25 or UnitXP('player') &lt;= 5000 and UnitXPMax('player') == 34000" >
+		<While Condition="UnitLevel('player') &lt;= 25 or UnitXP('player') &lt;= 5000 and UnitXPMax('player') == 34000" >
 				<Wait Value="100" />
 		</While>		
 		

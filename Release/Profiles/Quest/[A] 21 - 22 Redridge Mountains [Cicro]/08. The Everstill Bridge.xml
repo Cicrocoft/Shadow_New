@@ -1,7 +1,8 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('The Everstill Bridge') == false">
 
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Kara Adams"/>
     <SetVendorSlotsCount Value="2" />

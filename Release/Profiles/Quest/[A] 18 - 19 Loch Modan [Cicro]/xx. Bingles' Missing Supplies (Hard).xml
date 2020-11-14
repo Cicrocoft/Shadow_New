@@ -5,8 +5,9 @@
 <Lua>QuestNodes[104574]=0</Lua>
 <Lua>QuestNodes[104565]=0</Lua> 
 <Lua>QuestNodes[104566]=0</Lua>  
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Morhan Coppertongue"/>
     <SetVendorSlotsCount Value="2" />

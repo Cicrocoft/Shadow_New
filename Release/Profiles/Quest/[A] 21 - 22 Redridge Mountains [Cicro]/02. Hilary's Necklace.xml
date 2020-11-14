@@ -5,8 +5,9 @@
         <TakeQuest NpcName="Shawn" QuestId="3741" QuestName="Hilary\'s Necklace" />
     </If>
   
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Kara Adams"/>
     <SetVendorSlotsCount Value="1" />

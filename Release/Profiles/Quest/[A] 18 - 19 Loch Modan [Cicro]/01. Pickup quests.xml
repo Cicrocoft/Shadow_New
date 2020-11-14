@@ -1,11 +1,11 @@
 <ShadowProfile Condition="Data.HasActiveQuest('Ironband\'s Excavation') == false and Data.HasCompletedQuest('Ironband\'s Excavation') == false">
 
 	<!-- Pickup -->
-	<SetDestinationMap Value="0"/>
 	<TakeQuest NpcName="Jern Hornhelm" QuestId="436" QuestName="Ironband\'s Excavation" DestinationMap="0"/>
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />

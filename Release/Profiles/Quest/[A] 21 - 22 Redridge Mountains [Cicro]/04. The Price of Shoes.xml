@@ -1,7 +1,8 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Return to Verner') == false or Data.HasCompletedQuest('Delivering Daffodils') == false ">
 
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Kara Adams"/>
     <SetVendorSlotsCount Value="1" />

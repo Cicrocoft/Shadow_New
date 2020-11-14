@@ -1,8 +1,75 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Assessing the Threat') == false and Data.HasCompletedQuest('Encroaching Gnolls') == true">
-	<!-- Bot settings -->	<SetBaseSettings />    <SetEnableVendoring Value="true"/>    <SetVendorNpc NpcName="Kara Adams"/>    <SetVendorSlotsCount Value="2" />    <SetEnableRepairing Value="true"/>    <SetRepairNpc NpcName="Kara Adams"/>    <SetRepairPercent Value="40" />	<!-- Restock Lakeshire 21+ -->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems />	<!-- Food -->	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />	</If>	<!-- Water -->	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Ice Cold Milk" />	</If>	<If Condition="Data.PlayerClass() == WoWClass.Priest">		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="3" BuyAmount="20"/>		<AddDoNotSellItem ItemName="Ice Cold Milk" />	</If>	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Heavy Shot" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>	</If>	<!-- End Restock -->			<!-- Pickup -->    <If Condition="Data.HasActiveQuest('Encroaching Gnolls') == false and Data.HasCompletedQuest('Encroaching Gnolls') == false">        <TakeQuest NpcName="Guard Parker" QuestId="244" QuestName="Encroaching Gnolls" />    </If>	    <If Condition="Data.HasActiveQuest('Encroaching Gnolls') == true">        <ReturnQuest NpcName="Deputy Feldon" QuestId="244" QuestName="Encroaching Gnolls" />    </If>    <If Condition="Data.HasActiveQuest('Assessing the Threat') == false and Data.HasCompletedQuest('Assessing the Threat') == false and Data.HasCompletedQuest('Encroaching Gnolls') == true">        <TakeQuest NpcName="Deputy Feldon" QuestId="246" QuestName="Assessing the Threat" />    </If>		
-    <If Condition="Data.HasActiveQuest('Assessing the Threat') == true and Data.AllQuestObjectivesAreComplete('Assessing the Threat') == false">
-		<ClearHotspots />		<AddHotspot X="-9724.1494140625" Y="-2246.3864746094" Z="61.255214691162" Range="100" />		<AddHotspot X="-9724.4892578125" Y="-2178.1064453125" Z="60.486763000488" Range="100" />
-		<SetTargetingMode Mode="Around Points" />		<ClearMonsterFilter/>		<SetMonsterFilterMode Mode="Whitelist" />		<AddMonsterFilterName Value="Redridge Mongrel" />			<AddMonsterFilterName Value="Redridge Poacher" />		<AddMonsterFilterName Value="Redridge Thrasher" />		
-		<While Condition="Data.AllQuestObjectivesAreComplete('Assessing the Threat') == false" >			<Wait Value="100" />		</While>	</If>
-    <If Condition="Data.HasActiveQuest('Assessing the Threat') == true and Data.AllQuestObjectivesAreComplete('Assessing the Threat') == true">        <ReturnQuest NpcName="Deputy Feldon" QuestId="246" QuestName="Assessing the Threat" />    </If>	
+<ShadowProfile Condition="Data.HasCompletedQuest('Assessing the Threat') == false and Data.HasCompletedQuest('Encroaching Gnolls') == true">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Kara Adams"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Kara Adams"/>
+    <SetRepairPercent Value="40" />
+
+
+	<!-- Restock Lakeshire 21+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->	
+	
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('Encroaching Gnolls') == false and Data.HasCompletedQuest('Encroaching Gnolls') == false">
+        <TakeQuest NpcName="Guard Parker" QuestId="244" QuestName="Encroaching Gnolls" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Encroaching Gnolls') == true">
+        <ReturnQuest NpcName="Deputy Feldon" QuestId="244" QuestName="Encroaching Gnolls" />
+    </If>
+    <If Condition="Data.HasActiveQuest('Assessing the Threat') == false and Data.HasCompletedQuest('Assessing the Threat') == false and Data.HasCompletedQuest('Encroaching Gnolls') == true">
+        <TakeQuest NpcName="Deputy Feldon" QuestId="246" QuestName="Assessing the Threat" />
+    </If>		
+
+
+    <If Condition="Data.HasActiveQuest('Assessing the Threat') == true and Data.AllQuestObjectivesAreComplete('Assessing the Threat') == false">
+
+		<ClearHotspots />
+		<AddHotspot X="-9724.1494140625" Y="-2246.3864746094" Z="61.255214691162" Range="100" />
+		<AddHotspot X="-9724.4892578125" Y="-2178.1064453125" Z="60.486763000488" Range="100" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Redridge Mongrel" />	
+		<AddMonsterFilterName Value="Redridge Poacher" />
+		<AddMonsterFilterName Value="Redridge Thrasher" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Assessing the Threat') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+    <If Condition="Data.HasActiveQuest('Assessing the Threat') == true and Data.AllQuestObjectivesAreComplete('Assessing the Threat') == true">
+        <ReturnQuest NpcName="Deputy Feldon" QuestId="246" QuestName="Assessing the Threat" />
+    </If>	
+
 </ShadowProfile>

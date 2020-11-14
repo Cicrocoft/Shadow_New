@@ -1,7 +1,8 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Gathering Idols') == false">
 
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Aldren Cordon"/>
     <SetVendorSlotsCount Value="2" />

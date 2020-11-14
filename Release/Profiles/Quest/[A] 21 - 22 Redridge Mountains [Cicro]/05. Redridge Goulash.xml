@@ -1,19 +1,145 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Redridge Goulash') == false or Data.HasCompletedQuest('Underbelly Scales') == false">
-	<!-- Bot settings -->	<SetBaseSettings />    <SetEnableVendoring Value="true"/>    <SetVendorNpc NpcName="Kara Adams"/>    <SetVendorSlotsCount Value="2" />    <SetEnableRepairing Value="true"/>    <SetRepairNpc NpcName="Kara Adams"/>    <SetRepairPercent Value="40" />	<AddDoNotSellItem ItemName="Crisp Spider Meat" />	<AddDoNotSellItem ItemName="Tough Condor Meat" />	<AddDoNotSellItem ItemName="Great Goretusk Snout" />		<!-- Restock Lakeshire 21+ -->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems />	<!-- Food -->	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />	</If>	<!-- Water -->	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Ice Cold Milk" />	</If>	<If Condition="Data.PlayerClass() == WoWClass.Priest">		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="3" BuyAmount="20"/>		<AddDoNotSellItem ItemName="Ice Cold Milk" />	</If>	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Heavy Shot" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>	</If>	<!-- End Restock -->			<!-- Pickup -->	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />    <If Condition="Data.HasActiveQuest('Redridge Goulash') == false and Data.HasCompletedQuest('Redridge Goulash') == false">        <TakeQuest NpcName="Chef Breanna" QuestId="92" QuestName="Redridge Goulash" />    </If>			<If Condition="Data.HasActiveQuest('Underbelly Scales') == false and Data.HasCompletedQuest('Underbelly Scales') == false and Data.HasCompletedQuest('Return to Verner') == true">        <TakeQuest NpcName="Verner Osgood" QuestId="122" QuestName="Underbelly Scales" />    </If>	
-    <If Condition="Data.HasActiveQuest('Redridge Goulash') == true and Data.AllQuestObjectivesAreComplete('Redridge Goulash') == false">
-    <ClearHotspots />	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />	<AddBlackspot X="-9594.3583984375" Y="-2632.5759277344" Z="57.866199493408" Range="50" />	<AddBlackspot X="-9607.7958984375" Y="-2511.5588378906" Z="59.34984588623" Range="50" />	<AddHotspot X="-9653.76953125" Y="-1935.0335693359" Z="57.887798309326" Range="100" />	<AddHotspot X="-9702.51953125" Y="-1823.1098632813" Z="55.219417572021" Range="100" />	<AddHotspot X="-9607.7607421875" Y="-2061.8056640625" Z="63.126510620117" Range="100" />	<AddHotspot X="-9669.533203125" Y="-2211.3981933594" Z="59.702983856201" Range="100" />	<AddHotspot X="-9613.16015625" Y="-2306.2626953125" Z="72.723930358887" Range="100" />	<AddHotspot X="-9625.9912109375" Y="-2404.8833007813" Z="60.470989227295" Range="100" />	<AddHotspot X="-9686.4775390625" Y="-2635.2019042969" Z="64.342681884766" Range="100" />	<AddHotspot X="-9660.931640625" Y="-2782.0283203125" Z="56.004894256592" Range="100" />	<AddHotspot X="-9679.92578125" Y="-2891.8510742188" Z="51.355094909668" Range="100" />
-    <SetTargetingMode Mode="Around Points" />    <ClearMonsterFilter/>    <SetMonsterFilterMode Mode="Whitelist" />    <AddMonsterFilterName Value="Tarantula" />	    <AddMonsterFilterName Value="Great Goretusk" />    <AddMonsterFilterName Value="Dire Condor" />	
-    <While Condition="Data.QuestObjectiveIsComplete('Redridge Goulash', 1) == false" >        <Wait Value="100" />    </While>    <ClearHotspots />	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />	<AddBlackspot X="-9594.3583984375" Y="-2632.5759277344" Z="57.866199493408" Range="50" />	<AddBlackspot X="-9607.7958984375" Y="-2511.5588378906" Z="59.34984588623" Range="50" />	<AddHotspot X="-9669.533203125" Y="-2211.3981933594" Z="59.702983856201" Range="100" />	<AddHotspot X="-9613.16015625" Y="-2306.2626953125" Z="72.723930358887" Range="100" />	<AddHotspot X="-9625.9912109375" Y="-2404.8833007813" Z="60.470989227295" Range="100" />	<AddHotspot X="-9686.4775390625" Y="-2635.2019042969" Z="64.342681884766" Range="100" />	<AddHotspot X="-9660.931640625" Y="-2782.0283203125" Z="56.004894256592" Range="100" />	<AddHotspot X="-9679.92578125" Y="-2891.8510742188" Z="51.355094909668" Range="100" />    <SetTargetingMode Mode="Around Points" />    <ClearMonsterFilter/>    <SetMonsterFilterMode Mode="Whitelist" />    <AddMonsterFilterName Value="Great Goretusk" />    <AddMonsterFilterName Value="Dire Condor" />	    <While Condition="Data.QuestObjectiveIsComplete('Redridge Goulash', 2) == false" >        <Wait Value="100" />    </While>    <ClearHotspots />	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />	<AddBlackspot X="-9594.3583984375" Y="-2632.5759277344" Z="57.866199493408" Range="50" />		<AddBlackspot X="-9607.7958984375" Y="-2511.5588378906" Z="59.34984588623" Range="50" />	<AddHotspot X="-9653.76953125" Y="-1935.0335693359" Z="57.887798309326" Range="100" />	<AddHotspot X="-9702.51953125" Y="-1823.1098632813" Z="55.219417572021" Range="100" />	<AddHotspot X="-9607.7607421875" Y="-2061.8056640625" Z="63.126510620117" Range="100" />    <SetTargetingMode Mode="Around Points" />    <ClearMonsterFilter/>    <SetMonsterFilterMode Mode="Whitelist" />    <AddMonsterFilterName Value="Tarantula" />		    <While Condition="Data.QuestObjectiveIsComplete('Redridge Goulash', 3) == false" >        <Wait Value="100" />    </While>	    </If>
-    <If Condition="Data.HasActiveQuest('Underbelly Scales') == true and Data.AllQuestObjectivesAreComplete('Underbelly Scales') == false">	
-    <ClearHotspots />	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />		<AddBlackspot X="-9594.3583984375" Y="-2632.5759277344" Z="57.866199493408" Range="50" />
-	<AddBlackspot X="-9607.7958984375" Y="-2511.5588378906" Z="59.34984588623" Range="50" />	<AddHotspot X="-9607.7607421875" Y="-2061.8056640625" Z="63.126510620117" Range="100" />	<AddHotspot X="-9669.533203125" Y="-2211.3981933594" Z="59.702983856201" Range="100" />	<AddHotspot X="-9613.16015625" Y="-2306.2626953125" Z="72.723930358887" Range="100" />	<AddHotspot X="-9625.9912109375" Y="-2404.8833007813" Z="60.470989227295" Range="100" />	<AddHotspot X="-9686.4775390625" Y="-2635.2019042969" Z="64.342681884766" Range="100" />	<AddHotspot X="-9660.931640625" Y="-2782.0283203125" Z="56.004894256592" Range="100" />	<AddHotspot X="-9679.92578125" Y="-2891.8510742188" Z="51.355094909668" Range="100" />
+<ShadowProfile Condition="Data.HasCompletedQuest('Redridge Goulash') == false or Data.HasCompletedQuest('Underbelly Scales') == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Kara Adams"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Kara Adams"/>
+    <SetRepairPercent Value="40" />
+	<AddDoNotSellItem ItemName="Crisp Spider Meat" />
+	<AddDoNotSellItem ItemName="Tough Condor Meat" />
+	<AddDoNotSellItem ItemName="Great Goretusk Snout" />	
+
+	<!-- Restock Lakeshire 21+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->	
+	
+	<!-- Pickup -->
+	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />
+    <If Condition="Data.HasActiveQuest('Redridge Goulash') == false and Data.HasCompletedQuest('Redridge Goulash') == false">
+        <TakeQuest NpcName="Chef Breanna" QuestId="92" QuestName="Redridge Goulash" />
+    </If>		
+	<If Condition="Data.HasActiveQuest('Underbelly Scales') == false and Data.HasCompletedQuest('Underbelly Scales') == false and Data.HasCompletedQuest('Return to Verner') == true">
+        <TakeQuest NpcName="Verner Osgood" QuestId="122" QuestName="Underbelly Scales" />
+    </If>	
+
+
+    <If Condition="Data.HasActiveQuest('Redridge Goulash') == true and Data.AllQuestObjectivesAreComplete('Redridge Goulash') == false">
+
+    <ClearHotspots />
+	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />
+	<AddBlackspot X="-9594.3583984375" Y="-2632.5759277344" Z="57.866199493408" Range="50" />
+	<AddBlackspot X="-9607.7958984375" Y="-2511.5588378906" Z="59.34984588623" Range="50" />
+	<AddHotspot X="-9653.76953125" Y="-1935.0335693359" Z="57.887798309326" Range="100" />
+	<AddHotspot X="-9702.51953125" Y="-1823.1098632813" Z="55.219417572021" Range="100" />
+	<AddHotspot X="-9607.7607421875" Y="-2061.8056640625" Z="63.126510620117" Range="100" />
+	<AddHotspot X="-9669.533203125" Y="-2211.3981933594" Z="59.702983856201" Range="100" />
+	<AddHotspot X="-9613.16015625" Y="-2306.2626953125" Z="72.723930358887" Range="100" />
+	<AddHotspot X="-9625.9912109375" Y="-2404.8833007813" Z="60.470989227295" Range="100" />
+	<AddHotspot X="-9686.4775390625" Y="-2635.2019042969" Z="64.342681884766" Range="100" />
+	<AddHotspot X="-9660.931640625" Y="-2782.0283203125" Z="56.004894256592" Range="100" />
+	<AddHotspot X="-9679.92578125" Y="-2891.8510742188" Z="51.355094909668" Range="100" />
     <SetTargetingMode Mode="Around Points" />
     <ClearMonsterFilter/>
     <SetMonsterFilterMode Mode="Whitelist" />
-    <AddMonsterFilterName Value="Black Dragon Whelp" />	
+    <AddMonsterFilterName Value="Tarantula" />	
+    <AddMonsterFilterName Value="Great Goretusk" />
+    <AddMonsterFilterName Value="Dire Condor" />	
+    <While Condition="Data.QuestObjectiveIsComplete('Redridge Goulash', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearHotspots />
+	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />
+	<AddBlackspot X="-9594.3583984375" Y="-2632.5759277344" Z="57.866199493408" Range="50" />
+	<AddBlackspot X="-9607.7958984375" Y="-2511.5588378906" Z="59.34984588623" Range="50" />
+	<AddHotspot X="-9669.533203125" Y="-2211.3981933594" Z="59.702983856201" Range="100" />
+	<AddHotspot X="-9613.16015625" Y="-2306.2626953125" Z="72.723930358887" Range="100" />
+	<AddHotspot X="-9625.9912109375" Y="-2404.8833007813" Z="60.470989227295" Range="100" />
+	<AddHotspot X="-9686.4775390625" Y="-2635.2019042969" Z="64.342681884766" Range="100" />
+	<AddHotspot X="-9660.931640625" Y="-2782.0283203125" Z="56.004894256592" Range="100" />
+	<AddHotspot X="-9679.92578125" Y="-2891.8510742188" Z="51.355094909668" Range="100" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Great Goretusk" />
+    <AddMonsterFilterName Value="Dire Condor" />	
+    <While Condition="Data.QuestObjectiveIsComplete('Redridge Goulash', 2) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearHotspots />
+	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />
+	<AddBlackspot X="-9594.3583984375" Y="-2632.5759277344" Z="57.866199493408" Range="50" />	
+	<AddBlackspot X="-9607.7958984375" Y="-2511.5588378906" Z="59.34984588623" Range="50" />
+	<AddHotspot X="-9653.76953125" Y="-1935.0335693359" Z="57.887798309326" Range="100" />
+	<AddHotspot X="-9702.51953125" Y="-1823.1098632813" Z="55.219417572021" Range="100" />
+	<AddHotspot X="-9607.7607421875" Y="-2061.8056640625" Z="63.126510620117" Range="100" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Tarantula" />		
+    <While Condition="Data.QuestObjectiveIsComplete('Redridge Goulash', 3) == false" >
+        <Wait Value="100" />
+    </While>	
+
+    </If>
+
+    <If Condition="Data.HasActiveQuest('Underbelly Scales') == true and Data.AllQuestObjectivesAreComplete('Underbelly Scales') == false">	
+
+    <ClearHotspots />
+	<AddBlackspot X="-9481.0146484375" Y="-1908.7902832031" Z="80.940010070801" Range="100" />	
+	<AddBlackspot X="-9594.3583984375" Y="-2632.5759277344" Z="57.866199493408" Range="50" />
+	<AddBlackspot X="-9607.7958984375" Y="-2511.5588378906" Z="59.34984588623" Range="50" />
+	<AddHotspot X="-9607.7607421875" Y="-2061.8056640625" Z="63.126510620117" Range="100" />
+	<AddHotspot X="-9669.533203125" Y="-2211.3981933594" Z="59.702983856201" Range="100" />
+	<AddHotspot X="-9613.16015625" Y="-2306.2626953125" Z="72.723930358887" Range="100" />
+	<AddHotspot X="-9625.9912109375" Y="-2404.8833007813" Z="60.470989227295" Range="100" />
+	<AddHotspot X="-9686.4775390625" Y="-2635.2019042969" Z="64.342681884766" Range="100" />
+	<AddHotspot X="-9660.931640625" Y="-2782.0283203125" Z="56.004894256592" Range="100" />
+	<AddHotspot X="-9679.92578125" Y="-2891.8510742188" Z="51.355094909668" Range="100" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Black Dragon Whelp" />	
+
 	<While Condition="Data.AllQuestObjectivesAreComplete('Underbelly Scales') == false" >
         <Wait Value="100" />
-    </While>	
-    </If>	
-    <If Condition="Data.HasActiveQuest('Underbelly Scales') == true and Data.AllQuestObjectivesAreComplete('Underbelly Scales') == true">        <ReturnQuest NpcName="Verner Osgood" QuestId="122" QuestName="Underbelly Scales" />    </If>	    <If Condition="Data.HasActiveQuest('Redridge Goulash') == true and Data.AllQuestObjectivesAreComplete('Redridge Goulash') == true">        <ReturnQuest NpcName="Chef Breanna" QuestId="92" QuestName="Redridge Goulash" />    </If>
+    </While>	
+
+    </If>	
+
+    <If Condition="Data.HasActiveQuest('Underbelly Scales') == true and Data.AllQuestObjectivesAreComplete('Underbelly Scales') == true">
+        <ReturnQuest NpcName="Verner Osgood" QuestId="122" QuestName="Underbelly Scales" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Redridge Goulash') == true and Data.AllQuestObjectivesAreComplete('Redridge Goulash') == true">
+        <ReturnQuest NpcName="Chef Breanna" QuestId="92" QuestName="Redridge Goulash" />
+    </If>
+
 </ShadowProfile>

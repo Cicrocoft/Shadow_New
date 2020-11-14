@@ -1,7 +1,8 @@
 <ShadowProfile Condition="Data.HasCompletedQuest('Rat Catching') == false">
 
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Morhan Coppertongue"/>
     <SetVendorSlotsCount Value="2" />

@@ -1,5 +1,101 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Selling Fish') == false or Data.HasCompletedQuest('Murloc Poachers') == false">
-	<!-- Bot settings -->	<SetBaseSettings />    <SetEnableVendoring Value="true"/>    <SetVendorNpc NpcName="Kara Adams"/>    <SetVendorSlotsCount Value="2" />    <SetEnableRepairing Value="true"/>    <SetRepairNpc NpcName="Kara Adams"/>    <SetRepairPercent Value="40" />	<AddDoNotSellItem ItemName="Murloc Fin" />	<!-- Restock Lakeshire 21+ -->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems />	<!-- Food -->	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />	</If>	<!-- Water -->	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Ice Cold Milk" />	</If>	<If Condition="Data.PlayerClass() == WoWClass.Priest">		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="3" BuyAmount="20"/>		<AddDoNotSellItem ItemName="Ice Cold Milk" />	</If>	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Heavy Shot" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>	</If>	<!-- End Restock -->			<!-- Pickup -->    <If Condition="Data.HasActiveQuest('Selling Fish') == false and Data.HasCompletedQuest('Selling Fish') == false">        <TakeQuest NpcName="Dockmaster Baren" QuestId="127" QuestName="Selling Fish" />    </If>	    <If Condition="Data.HasActiveQuest('Murloc Poachers') == false and Data.HasCompletedQuest('Murloc Poachers') == false">        <TakeQuest NpcName="Dockmaster Baren" QuestId="150" QuestName="Murloc Poachers" />    </If>		
-    <If Condition="Data.HasActiveQuest('Selling Fish') == true and Data.AllQuestObjectivesAreComplete('Selling Fish') == false">		<ClearHotspots />		<AddBlackspot X="-9602.99609375" Y="-2509.9658203125" Z="59.304740905762" Range="40" />				<AddBlackspot X="-9170.240234375" Y="-2440.6625976563" Z="111.85657501221" Range="30" />		<AddBlackspot X="-9177.048828125" Y="-2401.1892089844" Z="103.40917205811" Range="30" />		<AddBlackspot X="-9629.0078125" Y="-2635.6689453125" Z="56.918937683105" Range="70" />		<AddHotspot X="-9368.0458984375" Y="-2444.1997070313" Z="52.410514831543" Range="100" />		<AddHotspot X="-9471.37109375" Y="-2462.6452636719" Z="52.131660461426" Range="100" />		<AddHotspot X="-9472.3583984375" Y="-2607.6921386719" Z="51.5947265625" Range="100" />		<AddHotspot X="-9423.3720703125" Y="-2692.3586425781" Z="52.187515258789" Range="100" />		<AddHotspot X="-9333.0771484375" Y="-2541.7028808594" Z="52.681522369385" Range="100" />		<SetTargetingMode Mode="Around Points" />		<ClearMonsterFilter/>		<SetMonsterFilterMode Mode="Blacklist" />		<AddMonsterFilterName Value="Lake Thresher" />					<While Condition="Data.AllQuestObjectivesAreComplete('Selling Fish') == false" >			<Wait Value="100" />		</While>	</If>    <If Condition="Data.HasActiveQuest('Murloc Poachers') == true and Data.AllQuestObjectivesAreComplete('Murloc Poachers') == false"> 		<ClearHotspots />		<AddBlackspot X="-9602.99609375" Y="-2509.9658203125" Z="59.304740905762" Range="40" />			<AddBlackspot X="-9170.240234375" Y="-2440.6625976563" Z="111.85657501221" Range="30" />		<AddBlackspot X="-9177.048828125" Y="-2401.1892089844" Z="103.40917205811" Range="30" />			<AddBlackspot X="-9629.0078125" Y="-2635.6689453125" Z="56.918937683105" Range="70" />				<AddHotspot X="-9368.0458984375" Y="-2444.1997070313" Z="52.410514831543" Range="100" />		<AddHotspot X="-9471.37109375" Y="-2462.6452636719" Z="52.131660461426" Range="100" />		<AddHotspot X="-9472.3583984375" Y="-2607.6921386719" Z="51.5947265625" Range="100" />		<AddHotspot X="-9423.3720703125" Y="-2692.3586425781" Z="52.187515258789" Range="100" />		<AddHotspot X="-9333.0771484375" Y="-2541.7028808594" Z="52.681522369385" Range="100" />		<SetTargetingMode Mode="Around Points" />		<ClearMonsterFilter/>		<SetMonsterFilterMode Mode="Blacklist" />		<AddMonsterFilterName Value="Lake Thresher" />			<While Condition="Data.AllQuestObjectivesAreComplete('Murloc Poachers') == false" >			<Wait Value="100" />		</While>	</If>	
-    <If Condition="Data.HasActiveQuest('Murloc Poachers') == true and Data.AllQuestObjectivesAreComplete('Murloc Poachers') == true">        <ReturnQuest NpcName="Dockmaster Baren" QuestId="150" QuestName="Murloc Poachers" />    </If>	    <If Condition="Data.HasActiveQuest('Selling Fish') == true and Data.AllQuestObjectivesAreComplete('Selling Fish') == true">        <ReturnQuest NpcName="Dockmaster Baren" QuestId="127" QuestName="Selling Fish" />    </If>		
+<ShadowProfile Condition="Data.HasCompletedQuest('Selling Fish') == false or Data.HasCompletedQuest('Murloc Poachers') == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Kara Adams"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Kara Adams"/>
+    <SetRepairPercent Value="40" />
+	<AddDoNotSellItem ItemName="Murloc Fin" />
+
+	<!-- Restock Lakeshire 21+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Brianna" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Lindsay Ashlock" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->	
+	
+	<!-- Pickup -->
+    <If Condition="Data.HasActiveQuest('Selling Fish') == false and Data.HasCompletedQuest('Selling Fish') == false">
+        <TakeQuest NpcName="Dockmaster Baren" QuestId="127" QuestName="Selling Fish" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Murloc Poachers') == false and Data.HasCompletedQuest('Murloc Poachers') == false">
+        <TakeQuest NpcName="Dockmaster Baren" QuestId="150" QuestName="Murloc Poachers" />
+    </If>		
+
+
+    <If Condition="Data.HasActiveQuest('Selling Fish') == true and Data.AllQuestObjectivesAreComplete('Selling Fish') == false">
+
+		<ClearHotspots />
+		<AddBlackspot X="-9602.99609375" Y="-2509.9658203125" Z="59.304740905762" Range="40" />		
+		<AddBlackspot X="-9170.240234375" Y="-2440.6625976563" Z="111.85657501221" Range="30" />
+		<AddBlackspot X="-9177.048828125" Y="-2401.1892089844" Z="103.40917205811" Range="30" />
+		<AddBlackspot X="-9629.0078125" Y="-2635.6689453125" Z="56.918937683105" Range="70" />
+		<AddHotspot X="-9368.0458984375" Y="-2444.1997070313" Z="52.410514831543" Range="100" />
+		<AddHotspot X="-9471.37109375" Y="-2462.6452636719" Z="52.131660461426" Range="100" />
+		<AddHotspot X="-9472.3583984375" Y="-2607.6921386719" Z="51.5947265625" Range="100" />
+		<AddHotspot X="-9423.3720703125" Y="-2692.3586425781" Z="52.187515258789" Range="100" />
+		<AddHotspot X="-9333.0771484375" Y="-2541.7028808594" Z="52.681522369385" Range="100" />
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Lake Thresher" />			
+		<While Condition="Data.AllQuestObjectivesAreComplete('Selling Fish') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+    <If Condition="Data.HasActiveQuest('Murloc Poachers') == true and Data.AllQuestObjectivesAreComplete('Murloc Poachers') == false">
+ 
+		<ClearHotspots />
+		<AddBlackspot X="-9602.99609375" Y="-2509.9658203125" Z="59.304740905762" Range="40" />	
+		<AddBlackspot X="-9170.240234375" Y="-2440.6625976563" Z="111.85657501221" Range="30" />
+		<AddBlackspot X="-9177.048828125" Y="-2401.1892089844" Z="103.40917205811" Range="30" />	
+		<AddBlackspot X="-9629.0078125" Y="-2635.6689453125" Z="56.918937683105" Range="70" />		
+		<AddHotspot X="-9368.0458984375" Y="-2444.1997070313" Z="52.410514831543" Range="100" />
+		<AddHotspot X="-9471.37109375" Y="-2462.6452636719" Z="52.131660461426" Range="100" />
+		<AddHotspot X="-9472.3583984375" Y="-2607.6921386719" Z="51.5947265625" Range="100" />
+		<AddHotspot X="-9423.3720703125" Y="-2692.3586425781" Z="52.187515258789" Range="100" />
+		<AddHotspot X="-9333.0771484375" Y="-2541.7028808594" Z="52.681522369385" Range="100" />
+
+		<SetTargetingMode Mode="Around Points" />
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Lake Thresher" />	
+		<While Condition="Data.AllQuestObjectivesAreComplete('Murloc Poachers') == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+
+    <If Condition="Data.HasActiveQuest('Murloc Poachers') == true and Data.AllQuestObjectivesAreComplete('Murloc Poachers') == true">
+        <ReturnQuest NpcName="Dockmaster Baren" QuestId="150" QuestName="Murloc Poachers" />
+    </If>	
+    <If Condition="Data.HasActiveQuest('Selling Fish') == true and Data.AllQuestObjectivesAreComplete('Selling Fish') == true">
+        <ReturnQuest NpcName="Dockmaster Baren" QuestId="127" QuestName="Selling Fish" />
+    </If>		
+
 </ShadowProfile>

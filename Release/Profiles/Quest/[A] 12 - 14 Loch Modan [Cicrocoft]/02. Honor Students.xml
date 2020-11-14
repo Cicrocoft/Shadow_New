@@ -1,5 +1,8 @@
 <ShadowProfile Condition="((Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Return to Brock') == false) or Data.HasCompletedQuest('Deeprun Rat Roundup') == false or UnlAPI.GetMapId() == WoWMaps.DeeprunTram or KnownFlyNodes[WoWMaps.EasternKingdoms]['Ironforge, Dun Morogh'] == nil or KnownFlyNodes[WoWMaps.EasternKingdoms]['Stormwind, Elwynn'] == nil">
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+
 	<SetEnableVendoring Value="false"/>
 	<SetEnableRepairing Value="false"/>
 	<SetEnableRestockItems Value="false"/>

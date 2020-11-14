@@ -5,8 +5,9 @@
         <TakeQuest NpcName="Foreman Oslow" QuestId="125" QuestName="The Lost Tools" />
     </If>	
   
-	<!-- Bot settings -->
+	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
     <SetEnableVendoring Value="true"/>
     <SetVendorNpc NpcName="Kara Adams"/>
     <SetVendorSlotsCount Value="1" />

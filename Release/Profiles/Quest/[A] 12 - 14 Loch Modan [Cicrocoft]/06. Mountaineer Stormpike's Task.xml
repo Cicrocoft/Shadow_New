@@ -1,7 +1,8 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false">
+<ShadowProfile Condition="Data.HasCompletedQuest('Mountaineer Stormpike\'s Task') == false or UnitXP('player') &lt;= 3000 and UnitXPMax('player') == 12900">
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
 	<Lua>settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
