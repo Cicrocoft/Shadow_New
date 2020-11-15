@@ -184,7 +184,7 @@
 			<AbandonQuest QuestId="258" />
 		</If>
 
-		<If Condition="Data.HasActiveQuest('A Hunter\'s Challenge') == true and Data.AllQuestObjectivesAreComplete('A Hunter\'s Challenge') == true and QuestFailure(258) == 1">
+		<If Condition="Data.HasActiveQuest('A Hunter\'s Challenge') == true and Data.AllQuestObjectivesAreComplete('A Hunter\'s Challenge') == true and QuestFailure(258) ~= -1">
 			<SetEnableProfileIgnoreCombat Value="true"/>
 			<SetEnableUseFood Value="false" />
 			<SetEnableUseDrink Value="false" />

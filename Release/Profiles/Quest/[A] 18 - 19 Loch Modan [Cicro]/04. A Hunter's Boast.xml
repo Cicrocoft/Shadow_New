@@ -159,7 +159,7 @@
 			<TakeQuest NpcName="Daryl the Youngling" QuestId="257" QuestName="A Hunter\'s Boast" />
 		</If>
 		<!-- QuestObjective -->
-		<If Condition="Data.HasActiveQuest('A Hunter\'s Boast') == true and Data.AllQuestObjectivesAreComplete('A Hunter\'s Boast') == false">
+		<If Condition="Data.HasActiveQuest('A Hunter\'s Boast') == true and Data.AllQuestObjectivesAreComplete('A Hunter\'s Boast') == false and QuestFailure(257) ~= -1">
 			<ClearHotspots />
 			<!-- Blackspots -->
 
@@ -178,7 +178,7 @@
 			<ClearMonsterFilter/>
 			<SetMonsterFilterMode Mode="Whitelist" />
 			<AddMonsterFilterName Value="Mountain Buzzard" />		
-			<While Condition="Data.AllQuestObjectivesAreComplete('A Hunter\'s Boast') == false" >
+			<While Condition="Data.AllQuestObjectivesAreComplete('A Hunter\'s Boast') == false and QuestFailure(257) ~= -1" >
 				<Wait Value="100" />
 			</While>
 		</If>
@@ -186,7 +186,7 @@
 			<AbandonQuest QuestId="257" />
 		</If>
 
-		<If Condition="Data.HasActiveQuest('A Hunter\'s Boast') == true and Data.AllQuestObjectivesAreComplete('A Hunter\'s Boast') == true">
+		<If Condition="Data.HasActiveQuest('A Hunter\'s Boast') == true and Data.AllQuestObjectivesAreComplete('A Hunter\'s Boast') == true and QuestFailure(257) ~= -1">
 			<SetEnableProfileIgnoreCombat Value="true"/>
 			<SetEnableUseFood Value="false" />
 			<SetEnableUseDrink Value="false" />
