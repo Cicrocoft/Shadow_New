@@ -145,7 +145,7 @@
         <TakeQuest NpcName="Shindrell Swiftfire" QuestId="1134" QuestName="Pridewings of Stonetalon" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <If Condition="Data.HasActiveQuest('On Guard in Stonetalon', 1070) == false and Data.HasCompletedQuest('On Guard in Stonetalon', 1070) == false">
-        <TakeQuest NpcName="Sentinel Thenysil" QuestId="1070" QuestName="On Guard in Stonetalon" DestinationMap="WoWMaps.Kalimdor" DestinationMap="WoWMaps.Kalimdor" />
+        <TakeQuest NpcName="Sentinel Thenysil" QuestId="1070" QuestName="On Guard in Stonetalon" DestinationMap="WoWMaps.Kalimdor" />
     </If>
     <SetVendorNpc NpcName="Veenix"/>
     <SetRepairNpc NpcName="Veenix"/>		
