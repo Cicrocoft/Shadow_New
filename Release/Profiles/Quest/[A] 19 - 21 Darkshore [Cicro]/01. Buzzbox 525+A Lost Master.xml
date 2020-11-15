@@ -7,7 +7,7 @@
     <SetVendorNpc NpcName="Heldan Galesong"/>
     <SetRepairNpc NpcName="Elisa Steelhand"/>
 
-	<If Condition="KnownFlyNodes[WoWMaps.Kalimdor] ~= nil and KnownFlyNodes[WoWMaps.Kalimdor]['Theramore, Dustwallow Marsh'] == nil">
+	<If Condition="KnownFlyNodes[WoWMaps.Kalimdor] ~= nil and KnownFlyNodes[WoWMaps.Kalimdor]['Theramore, Dustwallow Marsh'] == nil or KnownFlyNodes[WoWMaps.Kalimdor] == nil">
 		<NPCInteract NpcName="Baldruc" Range="5" DestinationMap="WoWMaps.Kalimdor" />
 	</If>	
      <If Condition="Data.HasActiveQuest('The Absent Minded Prospector') == false and Data.HasCompletedQuest('The Absent Minded Prospector') == false">
