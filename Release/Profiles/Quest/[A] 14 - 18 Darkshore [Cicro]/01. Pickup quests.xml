@@ -57,7 +57,7 @@
 	<If Condition="GetSubZoneText() == 'Menethil Harbor'">
 		<NPCInteract NpcName="Shellei Brondir" Range="5" />	
 	</If>
-	<If Condition="GetBindLocation() ~= 'Deepwater Tavern' and GetSubZoneText() == 'Menethil Harbor'">
+	<If Condition="GetBindLocation() ~= 'Deepwater Tavern' and GetZoneText() == 'Wetlands'">
 		<SetInnkeeper NpcName="Innkeeper Helbrek" DestinationMap="0" />
 	</If>
 			<SetEnableVendoring Value="false"/>
