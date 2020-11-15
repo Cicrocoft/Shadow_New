@@ -6,16 +6,21 @@
 		<SetEnableRepairing Value="false"/>
 		<SetEnableRestockItems Value="false"/>
 		<If Condition="GetZoneText() == 'Stormwind City'">	
-			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 12000" >
+			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 1000" >
 				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
 			</If>		
-			<NPCInteract NpcName="Dungar Longdrink" />
-		</If>
+			<If Condition="Data.PlayerClass() == WoWClass.Rogue and select(4, GetItemInfo(GetInventoryItemLink('player', 16))) &lt; 9 and GetMoney() &gt;= 2200" >
+				<NPCInteract NpcName="Shoma" DestinationMap="1" />	
+				<BuyItem ItemId="851" ItemName="Cutlass" NpcId="1289" NpcName="Gunther Weller" Amount="1" />	
+			</If>
+			<NPCInteract NpcName="Dungar Longdrink" />			
+	</If>	
 		<SWtoIFTram />
 		<If Condition="GetZoneText() == 'City of Ironforge'">
 			<NPCInteract NpcName="Gryth Thurden" />
 			<Wait Value="100" />
 		</If>
+
 	</If>
 	<If Condition="GetSubZoneText() == 'Menethil Harbor' or UnlAPI.GetMapId() == 1">
 		<NPCInteract NpcName="Shellei Brondir" Range="5" DestinationMap="0" />	
