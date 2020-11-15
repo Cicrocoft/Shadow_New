@@ -40,11 +40,11 @@
 	<If Condition="Data.HasActiveQuest('Hallowed Letter') == false and Data.HasCompletedQuest('Hallowed Letter') == false and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Human">
         <TakeQuest NpcName="Marshal McBride" QuestId="3103" QuestName="Hallowed Letter" />
     </If>
-    <If Condition="Data.HasActiveQuest('Hallowed Letter') == true and Data.PlayerClass() == WoWClass.Paladin and Data.MyRace() == WoWRace.Human"> 
+    <If Condition="Data.HasActiveQuest('Hallowed Letter') == true and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Human"> 
 		<ReturnQuest NpcName="Priestess Anetta" QuestName="Hallowed Letter" />
 	</If>	
 <!-- Human Paladin -->
-	<If Condition="Data.HasActiveQuest('Consecrated Letter') == false and Data.HasCompletedQuest('Consecrated Letter') == false and Data.PlayerClass() == WoWClass.Priest and Data.MyRace() == WoWRace.Human">
+	<If Condition="Data.HasActiveQuest('Consecrated Letter') == false and Data.HasCompletedQuest('Consecrated Letter') == false and Data.PlayerClass() == WoWClass.Paladin and Data.MyRace() == WoWRace.Human">
         <TakeQuest NpcName="Marshal McBride" QuestId="3101" QuestName="Consecrated Letter" />
     </If>
     <If Condition="Data.HasActiveQuest('Consecrated Letter') == true and Data.PlayerClass() == WoWClass.Paladin and Data.MyRace() == WoWRace.Human"> 
