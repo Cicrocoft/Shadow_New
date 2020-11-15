@@ -184,7 +184,7 @@
 	</If>
 	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4725) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4725) == false">
 		<SetEnableAutoLoot Value="false"/>  
-		<TakeQuestFromObject QuestId="4725" QuestName="Beached Sea Turtle" X="7434.4814453125" Y="43.90470123291" Z="2.1896209716797" DestinationMap="WoWMaps.Kalimdor" />
+		<TakeQuestFromObject QuestId="4725" QuestName="Beached Sea Turtle" X="7434.3349609375" Y="45.585163116455" Z="2.3291530609131" DestinationMap="WoWMaps.Kalimdor" />
 		<MoveTo X="7285.7734375" Y="77.737854003906" Z="14.601586341858" DestinationMap="WoWMaps.Kalimdor" />
 		<SetEnableAutoLoot Value="true"/>  
 	</If>	

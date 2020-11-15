@@ -140,7 +140,7 @@
 	<!-- Pickup -->	
 	
 	<If Condition="Data.HasActiveQuest('Beached Sea Turtle', 4727) == false and Data.HasCompletedQuest('Beached Sea Turtle', 4727) == false">
-		<TakeQuestFromObject QuestName="Beached Sea Turtle" QuestId="4727" X="7540.24609375" Y="-540.40032958984" Z="1.4731357097626" DestinationMap="WoWMaps.Kalimdor" />
+		<TakeQuestFromObject QuestName="Beached Sea Turtle" QuestId="4727" X="7540.8984375" Y="-539.58917236328" Z="1.3839197158813" DestinationMap="WoWMaps.Kalimdor" />
 	</If> 		
 	<If Condition="Data.HasActiveQuest('Plagued Lands') == false and Data.HasCompletedQuest('Plagued Lands') == false">
 		<TakeQuest NpcName="Tharnariun Treetender" QuestId="2118" QuestName="Plagued Lands" DestinationMap="WoWMaps.Kalimdor" />
