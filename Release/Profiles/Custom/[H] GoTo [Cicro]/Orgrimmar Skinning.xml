@@ -1,0 +1,11 @@
+<ShadowProfile>
+        <If Condition="Data.GetMyProfessionLevel('Skinning') == nil" >
+            <AddRestockItem ItemName="Skinning Knife" NpcName="Tamar" UnderAmount="0" BuyAmount="1"/>	
+            <NPCInteract NpcName="Thuwd" DestinationMap="1" />	
+            <Lua> return TrainSkill("Apprentice Skinning")</Lua>
+        </If>
+ <If Condition="Data.GetMyProfessionLevel('Skinning')  ~= nil and Data.GetMyProfessionLevel('Skinning') &gt;= 55 and MaxSkill('Skinning') == 75">	
+		<NPCInteract NpcName="Thuwd" DestinationMap="1" />	
+		<Lua> return TrainSkill("Journeyman Skinning")</Lua>
+</If>
+</ShadowProfile>
