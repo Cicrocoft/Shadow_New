@@ -41,7 +41,7 @@
 			<TakeQuest NpcName="Golnir Bouldertoe" QuestName="Gryth Thurden" />
 		</If>	
 	</If>	
-	<If Condition="KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Ironforge, Dun Morogh'] == nil or KnownFlyNodes[WoWMaps.EasternKingdoms] == nil and Data.HasActiveQuest('Find Bingles') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
+	<If Condition="KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Ironforge, Dun Morogh'] == nil or KnownFlyNodes[WoWMaps.EasternKingdoms] == nil">
 		<NPCInteract NpcName="Gryth Thurden" />
 	</If>	
     <If Condition="Data.HasActiveQuest('Find Bingles') == false and Data.HasCompletedQuest('Bingles\' Missing Supplies') == false">
