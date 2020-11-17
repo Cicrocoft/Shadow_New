@@ -148,7 +148,7 @@
 		<While Condition="UnitLevel('player') &lt;= 11" >
 				<Wait Value="100" />
 		</While>	
-
+		<SetMaxZDifference Value="25" />
 
 	<!-- Pickup -->
 

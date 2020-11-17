@@ -34,11 +34,16 @@
 		<SetEnableProfileIgnoreCombat Value="true"/>	
 		<SetEnablePreemptiveMonsterAttack Value="false"/>		
 		<SetEnableVendoring Value="false"/>
-		<SetEnableRepairing Value="false"/>		
+		<SetEnableRepairing Value="false"/>	
+		<SetEnableRestockItems Value="false"/>			
 		<If Condition="Data.HasCompletedQuest('The Lost Pilot') == false">
 			<TakeQuest NpcName="Pilot Hammerfoot" QuestName="The Lost Pilot" DestinationMap="0" />
 		</If>		
 	</If>
+
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Morhan Coppertongue"/>
+    <SetRepairNpc NpcName="Morhan Coppertongue"/>
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
@@ -138,9 +143,7 @@
 	<SetUseFoodPercent Value="69" />
     </If>	
 	<!-- Rest Settings End -->
-	<!-- Vendors to use -->
-    <SetVendorNpc NpcName="Morhan Coppertongue"/>
-    <SetRepairNpc NpcName="Morhan Coppertongue"/>
+
 
 	
 	
@@ -182,8 +185,8 @@
 	</If>
 
 <!-- Restock Loch Modan 12 - 15 (Thelsmar)-->
-	<SetEnableRestockItems Value="true"/>
 	<ClearRestockItems/>
+	<SetEnableRestockItems Value="true"/>
 	<!-- Food -->
 	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
 		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Khara Deepwater" UnderAmount="5" BuyAmount="40"/>
@@ -217,7 +220,7 @@
 	<!-- End Restock -->	
 
 	<!-- Pickup -->
-		<If Condition="(Data.MyRace() ~= WoWRace.Gnome or Data.MyRace() ~= WoWRace.NightElf) and KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Thelsamar, Loch Modan'] ~= nil">	
+		<If Condition="(Data.MyRace() ~= WoWRace.Gnome or Data.MyRace() ~= WoWRace.Dwarf) and KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Thelsamar, Loch Modan'] ~= nil">	
 			<NPCInteract NpcName="Thorgrum Borrelson" />
 		</If>	
     <If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 224) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 224) == false">

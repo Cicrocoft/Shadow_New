@@ -69,19 +69,19 @@
 		<MoveTo X="69.799560546875" Y="10.21715927124" Z="-4.2967839241028" Range="1" />
 		<MoveTo NoNav="true" X="76.019554138184" Y="10.210012435913" Z="-4.2967839241028" Range="1" />
 	</If>
-		<If Condition="KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Stormwind, Elwynn'] == nil or KnownFlyNodes[WoWMaps.EasternKingdoms] == nil">
-			<IFtoSWTram />
-		</If>
-		<Wait Value="100" />
-		<If Condition="GetZoneText() == 'Stormwind City'">	
+	<If Condition="KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Stormwind, Elwynn'] == nil or KnownFlyNodes[WoWMaps.EasternKingdoms] == nil">
+		<IFtoSWTram />
+	</If>
+	<Wait Value="100" />
+	<If Condition="GetZoneText() == 'Stormwind City'">	
 		<If Condition="Data.HasActiveQuest('Stormpike\'s Order') == true">
 			<ReturnQuest NpcName="Furen Longbeard" QuestId="1338" QuestName="Stormpike\'s Order" />
 		</If>		
-			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 12000" >
-				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
-			</If>
-			<NPCInteract NpcName="Dungar Longdrink" />
+		<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 1000" >
+			<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
 		</If>
+		<NPCInteract NpcName="Dungar Longdrink" />
+	</If>
 	<If Condition="(Data.MyRace() == WoWRace.Gnome or Data.MyRace() == WoWRace.Dwarf) and Data.HasCompletedQuest('Return to Brock') == false">	
 		<!-- TurnIn Part 3 + Pickup Part 4 -->
 		<If Condition="Data.HasActiveQuest('Gryth Thurden') == false and Data.HasCompletedQuest('Gryth Thurden') == false">
