@@ -71,8 +71,11 @@
 	</If>
 	<If Condition="KnownFlyNodes[WoWMaps.EasternKingdoms] ~= nil and KnownFlyNodes[WoWMaps.EasternKingdoms]['Stormwind, Elwynn'] == nil or KnownFlyNodes[WoWMaps.EasternKingdoms] == nil">
 		<IFtoSWTram />
+		
 	</If>
 	<Wait Value="100" />
+	<BotSleep Value="2100" />
+	<Wait Value="100" />	
 	<If Condition="GetZoneText() == 'Stormwind City'">	
 		<If Condition="Data.HasActiveQuest('Stormpike\'s Order') == true">
 			<ReturnQuest NpcName="Furen Longbeard" QuestId="1338" QuestName="Stormpike\'s Order" />
