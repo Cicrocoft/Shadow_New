@@ -169,6 +169,7 @@
 
     <ClearMonsterFilter/>
 	<SetMonsterFilterMode Mode="None"/>
+	<SetEnableAutoLearnSkills Value="false" />
 
 	<While Condition="UnitLevel('player') &lt; 16" >
         <Wait Value="100" />
