@@ -1,0 +1,23 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Sting of the Scorpid') == false and UnitLevel('player') <= 3">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Sting of the Scorpid') == false">
+        <MoveTo X="-600.084" Y="-4188.32" Z="41.093" />
+        <TakeQuest NpcName="Gornek" QuestName="Sting of the Scorpid" />
+    </If>
+    <SetBaseSettings />
+    <ClearHotspots />
+    <AddHotspot X="-437.75" Y="-4199.591" Z="51.99" Range="200" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Scorpid Worker"/>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Duokna"/>
+    <SetVendorSlotsCount Value="3" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('Sting of the Scorpid') == false" >
+        <Wait Value="100" />
+    </While>
+    <SetBaseSettings />
+    <MoveTo X="-600.084" Y="-4188.32" Z="41.093" />
+    <ReturnQuest NpcName="Gornek" QuestName="Sting of the Scorpid" />
+</ShadowProfile>

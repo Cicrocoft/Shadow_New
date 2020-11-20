@@ -1,0 +1,28 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Dwarven Outfitters') == false">
+    <If Condition="Data.HasActiveQuest('Dwarven Outfitters') == false">
+        <MoveTo X="-6215.7978" Y="329.5882" Z="383.3584" />
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Dwarven Outfitters" />
+    </If>
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Adlin Pridedrift"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rybrad Coldbank"/>
+    <SetRepairPercent Value="35" />
+
+    <ClearHotspots />
+    <AddHotspot X="-6322.3017" Y="297.5596" Z="379.5429" Range="150" />
+    <AddHotspot X="-6332.7768" Y="399.6272" Z="379.1054" Range="180" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Ragged Young Wolf"/>
+
+    <While Condition="Data.AllQuestObjectivesAreComplete('Dwarven Outfitters') == false" >
+        <Wait Value="100" />
+    </While>
+    
+    <MoveTo X="-6215.7978" Y="329.5882" Z="383.3584" />
+    <ReturnQuest NpcName="Sten Stoutarm" QuestName="Dwarven Outfitters" />
+</ShadowProfile>

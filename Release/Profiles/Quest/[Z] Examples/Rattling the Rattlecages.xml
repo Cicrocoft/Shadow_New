@@ -1,0 +1,22 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Rattling the Rattlecages')">
+
+    <SetBaseSettings />
+    <AddHotspot X="2000.8184814453" Y="1676.9357910156" Z="78.91300201416" Range="250" />
+    <AddHotspot X="2090.5756835938" Y="1572.6375732422" Z="73.724098205566" Range="250" />
+    <AddHotspot X="2009.1534423828" Y="1543.2009277344" Z="77.943641662598" Range="250" />
+    <AddHotspot X="2084.8732910156" Y="1474.3594970703" Z="65.02075958252" Range="250" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Harold Raims"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Harold Raims"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rattlecage Skeleton"/>
+    <While Condition="not Data.QuestObjectiveIsComplete('Rattling the Rattlecages', 1)" >
+        <Wait Value="100" />
+    </While>
+
+   <ReturnQuest NpcName="Shadow Priest Sarvis" QuestName="Rattling the Rattlecages" />
+   <ReturnQuest NpcName="Novice Elreth" QuestName="The Damned" />
+</ShadowProfile>

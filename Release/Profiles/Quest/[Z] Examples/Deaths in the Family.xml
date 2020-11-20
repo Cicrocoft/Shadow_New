@@ -1,0 +1,56 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Deaths in the Family') and not Data.AllQuestObjectivesAreComplete('Deaths in the Family')">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Nissa Agamand"/>
+    
+    <ClearHotspots />
+    <AddHotspot X="2751.5087890625" Y="793.90386962891" Z="114.36695098877" Range="150" />
+
+    <While Condition="Data.GetItemCountByName('Nissa\'s Remains') == 0" >
+        <Wait Value="100" />
+    </While>
+
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Gregor Agamand"/>
+
+    <ClearHotspots />
+    <AddHotspot X="2898.1623535156" Y="907.87951660156" Z="115.08913421631" Range="150" />
+    <AddHotspot X="2831.2055664063" Y="1045.0550537109" Z="111.33544921875" Range="150" />
+
+    <While Condition="Data.GetItemCountByName('Gregor\'s Remains') == 0" >
+        <Wait Value="100" />
+    </While>
+
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Thurman Agamand"/>
+
+    <ClearHotspots />
+    <AddHotspot X="2898.1623535156" Y="907.87951660156" Z="115.08913421631" Range="150" />
+    <AddHotspot X="2831.2055664063" Y="1045.0550537109" Z="111.33544921875" Range="150" />
+    
+    <While Condition="Data.GetItemCountByName('Thurman\'s Remains') == 0" >
+        <Wait Value="100" />
+    </While>
+    
+</ShadowProfile>

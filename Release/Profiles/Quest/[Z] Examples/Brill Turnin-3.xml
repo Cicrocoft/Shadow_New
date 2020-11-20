@@ -1,0 +1,24 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest(nil, 427)">
+    <SetBaseSettings />
+
+    <ReturnQuest NpcName="Deathguard Dillinger" QuestName="A Putrid Task" />
+    <If Condition="not Data.HasActiveQuest('The Mills Overrun')">
+        <TakeQuest NpcName="Deathguard Dillinger" QuestName="The Mills Overrun" />
+    </If>
+
+    <ReturnQuest NpcName="Junior Apothecary Holland" QuestName="Gordo's Task" />
+    <If Condition="not Data.HasActiveQuest('Doom Weed')">
+        <TakeQuest NpcName="Junior Apothecary Holland" QuestName="Doom Weed" />
+    </If>
+
+    <ReturnQuest NpcName="Apothecary Johaan" QuestId="367" QuestName="A New Plague" />
+    <If Condition="not Data.HasActiveQuest(nil, 368)">
+        <TakeQuest NpcName="Apothecary Johaan" QuestId="368" />
+    </If>
+
+    <ReturnQuest NpcName="Executor Zygand" QuestId="427" QuestName="At War With The Scarlet Crusade" />
+    <If Condition="not Data.HasActiveQuest(nil, 370)">
+        <TakeQuest NpcName="Executor Zygand" QuestId="370" />
+    </If>
+
+</ShadowProfile>

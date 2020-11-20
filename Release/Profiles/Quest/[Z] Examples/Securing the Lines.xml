@@ -1,0 +1,38 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Securing the Lines') == false">
+    <SetBaseSettings />
+    <If Condition="Nav.RangeFromMeXYZ(1152.147, -4158.191, 20.06) &lt; 10" >
+        <MoveTo X="1146.84" Y="-4189.495" Z="22.75" />
+        <MoveTo X="1123.01" Y="-4186.889" Z="21.62"/>
+    </If>
+    <If Condition="Data.HasActiveQuest('Securing the Lines') == false">
+        <TakeQuest NpcName="Rezlak" QuestName="Securing the Lines" />
+    </If>
+    <SetBaseSettings />
+    <AddHotspot X="1089.23" Y="-4669.7" Z="16.635845" Range="150" />
+    <AddHotspot X="983.48" Y="-4680.275" Z="27.34096" Range="150" />
+    <AddHotspot X="940.3632" Y="-4776.925" Z="22.97527" Range="150" />
+    <AddHotspot X="920.02997" Y="-4817.75" Z="15.287693" Range="150" />
+    <AddHotspot X="828.37994" Y="-4786.0254" Z="11.112428" Range="150" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <AddBlackspot X="390.88" Y="-4705.42" Z="13.52" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Wuark"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Wuark"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Dustwind Savage"/>
+    <SetMaxZDifference Value="10"/>
+    <SetRestHPPercent Value="90"/>
+    <SetUseFoodPercent Value="90"/>
+    <While Condition="Data.QuestObjectiveIsComplete('Securing the Lines', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/>
+    <AddMonsterFilterName Value="Dustwind Storm Witch"/>
+    <While Condition="Data.QuestObjectiveIsComplete('Securing the Lines', 2) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Rezlak" QuestName="Securing the Lines" />
+</ShadowProfile>

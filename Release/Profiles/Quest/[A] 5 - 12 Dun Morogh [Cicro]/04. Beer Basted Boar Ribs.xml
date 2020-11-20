@@ -2,7 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
-	<Lua>settings.DoNotSellItems = {}</Lua>
+	<Lua>_G.settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
 	<SetEnableAutoMine Value="true" />
@@ -211,7 +211,7 @@
     <If Condition="Data.HasActiveQuest('Beer Basted Boar Ribs') == true">
 
         <ReturnQuest NpcName="Ragnar Thunderbrew" QuestName="Beer Basted Boar Ribs" />
-		<Lua>settings.DoNotSellItems = {}</Lua>
+		<Lua>_G.settings.DoNotSellItems = {}</Lua>
     </If>
 
 	

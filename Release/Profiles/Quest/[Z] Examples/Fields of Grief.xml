@@ -1,0 +1,50 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest(nil, 365)">
+    <SetBaseSettings />
+    <If Condition="not Data.HasActiveQuest(nil, 365)">
+        <TakeQuest NpcName="Deathguard Simmer" QuestId="365" QuestName="Fields of Grief" />
+    </If>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Harold Raims"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Harold Raims"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Blacklist" />
+    <AddMonsterFilterName Value="Farmer Solliden"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <ClearHotspots />
+
+    <If Condition="Data.HasActiveQuest(nil, 365)">
+        <SetEnableAutoHerb Value="true" />
+        <AllowQuestNode NodeName="Tirisfal Pumpkin" />
+        <AddHotspot X="2332.228515625" Y="1378.0885009766" Z="33.334854125977" Range="250" />
+        <AddHotspot X="2314.5490722656" Y="1452.6584472656" Z="33.334854125977" Range="250" />
+        <While Condition="not Data.AllQuestObjectivesAreComplete(nil, 365)" >
+            <Wait Value="100" />
+        </While>
+    </If>
+
+    <If Condition="not Data.HasActiveQuest('Gordo\'s Task')">
+        <TakeQuest NpcName="Gordo" QuestName="Gordo's Task" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('A Putrid Task')">
+        <TakeQuest NpcName="Deathguard Dillinger" QuestName="A Putrid Task" />
+    </If>
+
+    <SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+
+    <ReturnQuest NpcName="Apothecary Johaan" QuestId="365" />
+</ShadowProfile>

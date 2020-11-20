@@ -1,0 +1,21 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('The Red Messenger') and Data.HasCompletedQuest('The Scarlet Crusade')">
+    <SetBaseSettings />
+    <If Condition="not Data.HasActiveQuest('The Red Messenger')">
+        <TakeQuest NpcName="Executor Arren" QuestName="The Red Messenger" />
+    </If>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Harold Raims"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Harold Raims"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+    <AddHotspot X="1756.3929443359" Y="1369.6213378906" Z="92.468818664551" Range="250" />
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Meven Korgal"/>
+    <While Condition="Data.GetItemCountByName('Scarlet Crusade Documents') == 0" >
+        <Wait Value="100" />
+    </While>				
+    
+    <ReturnQuest NpcName="Executor Arren" QuestName="The Red Messenger" />
+</ShadowProfile>

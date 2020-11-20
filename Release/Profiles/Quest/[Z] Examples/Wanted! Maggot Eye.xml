@@ -1,0 +1,26 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest(nil, 398) and not Data.QuestObjectiveIsComplete('Wanted: Maggot Eye', 1, 398)">
+    <SetBaseSettings />
+    
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Maggot Eye"/>
+
+    <ClearHotspots />
+    <AddHotspot X="2907.47265625" Y="381.59619140625" Z="31.482646942139" Range="150" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('Wanted: Maggot Eye', 1, 398)" >
+        <Wait Value="100" />
+    </While>
+    
+</ShadowProfile>

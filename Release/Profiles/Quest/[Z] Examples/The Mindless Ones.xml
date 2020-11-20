@@ -1,0 +1,52 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Mindless Ones') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Rude Awakening') == false">
+        <TakeQuest NpcName="Shadow Priest Sarvis" QuestName="The Mindless Ones" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('Piercing the Veil') and Data.PlayerClass() == WoWClass.Warlock">
+        <TakeQuest NpcName="Venya Marthand" QuestName="Piercing the Veil" />
+    </If>
+    <SetBaseSettings />
+    <AddHotspot X="1891.425" Y="1587.3301" Z="88.902214" Range="250" />
+    <AddHotspot X="1927.575" Y="1596.3677" Z="84.62694" Range="250" />
+    <AddHotspot X="1867.3248" Y="1533.105" Z="88.80308" Range="250" />
+    <AddHotspot X="1903.4751" Y="1496.9551" Z="89.20308" Range="250" />
+    <AddHotspot X="1957.9857" Y="1605.9768" Z="83.7948" Range="250" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Harold Raims"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Harold Raims"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Mindless Zombie"/>
+    <While Condition="Data.QuestObjectiveIsComplete('The Mindless Ones', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/>
+    <AddMonsterFilterName Value="Wretched Zombie"/>
+     <While Condition="Data.QuestObjectiveIsComplete('The Mindless Ones', 2) == false" >
+        <Wait Value="100" />
+    </While>
+
+    <If Condition="Data.HasActiveQuest('Piercing the Veil') and Data.PlayerClass() == WoWClass.Warlock">
+        <SetBaseSettings />
+        <AddHotspot X="2006.869140625" Y="1550.0568847656" Z="78.430068969727" Range="250" />
+        <SetEnableVendoring Value="true"/>
+        <SetVendorNpc NpcName="Harold Raims"/>
+        <SetEnableRepairing Value="true"/>
+        <SetRepairNpc NpcName="Harold Raims"/>
+        <SetTargetingMode Mode="Around Points" />
+        <ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="Whitelist" />
+        <AddMonsterFilterName Value="Rattlecage Skeleton"/>
+        <While Condition="Data.QuestObjectiveIsComplete('Piercing the Veil', 1) == false" >
+            <Wait Value="100" />
+        </While>
+    </If>
+
+   <ReturnQuest NpcName="Shadow Priest Sarvis" QuestName="The Mindless Ones" />
+    <If Condition="Data.PlayerClass() == WoWClass.Warlock and Data.HasActiveQuest('Piercing the Veil') and Data.QuestObjectiveIsComplete('Piercing the Veil', 1)">
+        <ReturnQuest NpcName="Venya Marthand" QuestName="Piercing the Veil" />
+    </If>
+</ShadowProfile>

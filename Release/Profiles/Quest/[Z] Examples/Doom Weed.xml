@@ -1,0 +1,30 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Doom Weed') and not Data.QuestObjectiveIsComplete('Doom Weed', 1)">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <ClearMonsterFilter/>
+    <SetTargetingMode Mode="Gather Only" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Doom Weed" />
+    <ClearHotspots />
+    <AddHotspot X="2813.1655273438" Y="435.71603393555" Z="18.751384735107" Range="150" />
+    <AddHotspot X="2744.5197753906" Y="448.00665283203" Z="21.216367721558" Range="150" />
+    <AddHotspot X="2664.1520996094" Y="466.78887939453" Z="15.639089584351" Range="150" />
+    <AddHotspot X="2564.3488769531" Y="467.66073608398" Z="27.210716247559" Range="150" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('Doom Weed', 1)" >
+        <Wait Value="100" />
+    </While>
+
+</ShadowProfile>

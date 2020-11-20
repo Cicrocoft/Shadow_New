@@ -1,0 +1,27 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Thazz\'ril\'s Pick') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Thazz\'ril\'s Pick') == false">
+        <TakeQuest NpcName="Foreman Thazz\'ril" QuestName="Thazz\'ril\'s Pick" />
+    </If>
+    <SetBaseSettings />
+    <AddBlackspot X="-72.28" Y="-4321.11" Z="64.96" Range="1" />
+    <AddBlackspot X="-248.31" Y="-4358.31" Z="62.42" Range="1" />
+    <SetTargetingMode Mode="Gather Only" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Thazz\'ril\'s Pick" />
+    <ClearHotspots />
+    <AddHotspot X="-87.46" Y="-4274.787" Z="65.852" Range="20" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Duokna"/>
+    <SetVendorSlotsCount Value="3" />
+    <SetEnableRestockItems Value="true"/>
+    <ClearRestockItems/>
+    <AddRestockItem ItemName="Rough Arrow" NpcName="Duokna" UnderAmount="50" BuyAmount="200" DisableMage="true"  DisableWarrior="true" DisableWarlock="true" DisablePriest="true" DisableShaman="true" DisableDruid="true" DisableRogue="true" DisablePaladin="true" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('Thazz\'ril\'s Pick') == false" >
+        <Wait Value="100" />
+    </While>
+    <SetBaseSettings />
+    <AddBlackspot X="-72.28" Y="-4321.11" Z="64.96" Range="1" />
+    <AddBlackspot X="-248.31" Y="-4358.31" Z="62.42" Range="1" />
+    <ReturnQuest NpcName="Foreman Thazz\'ril" QuestName="Thazz\'ril\'s Pick" />
+</ShadowProfile>

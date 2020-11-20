@@ -1,0 +1,27 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Practical Prey') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Practical Prey') == false">
+        <TakeQuest NpcName="Vel\'rin Fang" QuestName="Practical Prey" />
+    </If>
+    <SetBaseSettings />
+    <AddHotspot X="-1061.0201" Y="-5156.1504" Z="0.20403433" Range="250" />
+    <AddHotspot X="-1110.4099" Y="-5187.8706" Z="0.29077023" Range="250" />
+    <AddHotspot X="-1159.7198" Y="-5135" Z="4.3938847" Range="250" />
+    <AddHotspot X="-1173.82" Y="-5103.2754" Z="4.1651464" Range="250" />
+    <AddHotspot X="-1350.07" Y="-5092.7" Z="1.6517904" Range="250" />
+    <AddHotspot X="-1406.4698" Y="-5209.0254" Z="4.8520246" Range="250" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <AddBlackspot X="-1010.714" Y="-5147.952" Z="2.188" Range="20" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Trayexir"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Trayexir"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Durotar Tiger"/>
+    <While Condition="Data.AllQuestObjectivesAreComplete('Practical Prey') == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Vel\'rin Fang" QuestName="Practical Prey" />
+</ShadowProfile>

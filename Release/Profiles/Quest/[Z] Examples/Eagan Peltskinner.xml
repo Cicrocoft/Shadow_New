@@ -1,0 +1,8 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Eagan Peltskinner') == false">
+    <If Condition="Data.HasActiveQuest('Eagan Peltskinner') == false">
+        <MoveTo X="-8934.9667" Y="-136.4334" Z="83.3795" />
+        <TakeQuest NpcName="Deputy Willem" QuestName="Eagan Peltskinner" />
+    </If>
+    <MoveTo X="-8868.8603" Y="-162.6833" Z="80.1700" />
+    <ReturnQuest NpcName="Eagan Peltskinner" QuestName="Eagan Peltskinner" />
+</ShadowProfile>

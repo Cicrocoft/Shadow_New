@@ -1,0 +1,42 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Vanquish the Betrayers') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Vanquish the Betrayers') == false">
+        <TakeQuest NpcName="Gar\'Thok" QuestName="Vanquish the Betrayers" />
+    </If>
+    <SetBaseSettings />
+    <AddHotspot X="-17.620117" Y="-4949.9375" Z="17.569572" Range="250" />
+    <AddHotspot X="-81.07007" Y="-5076.8374" Z="17.346636" Range="250" />
+    <AddHotspot X="-176.24487" Y="-5013.3877" Z="22.040867" Range="250" />
+    <AddHotspot X="-246.745" Y="-4934.075" Z="24.418726" Range="250" />
+    <AddHotspot X="-278.4701" Y="-5124.425" Z="21.532255" Range="250" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Wuark"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Wuark"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Kul Tiras Sailor"/>
+    <ClearRestockItems/>
+    <AddRestockItem ItemName="Rough Arrow" NpcName="Ghrawt" UnderAmount="50" BuyAmount="200" DisableMage="true"  DisableWarrior="true" DisableWarlock="true" DisablePriest="true" DisableShaman="true" DisableDruid="true" DisableRogue="true" DisablePaladin="true" />
+    <While Condition="Data.QuestObjectiveIsComplete('Vanquish the Betrayers', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/>
+    <AddMonsterFilterName Value="Kul Tiras Marine"/>
+    <While Condition="Data.QuestObjectiveIsComplete('Vanquish the Betrayers', 2) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearHotspots/>
+    <AddHotspot X="-246.21" Y="-5111" Z="41.347" Range="250" />
+    <ClearMonsterFilter/>
+    <AddMonsterFilterName Value="Lieutenant Benedict"/>    
+    <SetRestHPPercent Value="95"/>
+    <SetUseFoodPercent Value="95"/>
+    <While Condition="Data.AllQuestObjectivesAreComplete('Vanquish the Betrayers') == false" >
+        <Wait Value="100" />
+    </While>
+    <SetMaxZDifference Value="5"/>
+    <ReturnQuest NpcName="Gar\'Thok" QuestName="Vanquish the Betrayers" />
+</ShadowProfile>

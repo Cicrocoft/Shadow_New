@@ -1,0 +1,19 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Investigate Echo Ridge') == false">
+    <If Condition="Data.HasActiveQuest('Investigate Echo Ridge') == false">
+        <MoveTo X="-8902.3232" Y="-162.5951" Z="81.9390" />
+        <TakeQuest NpcName="Marshal McBride" QuestName="Investigate Echo Ridge" />
+    </If>
+    <ClearHotspots />
+    <AddHotspot X="-8786.3183" Y="-108.1373" Z="83.1863" Range="150" />
+    <AddHotspot X="-8779.0136" Y="-196.7891" Z="84.2769" Range="180" />
+    <AddHotspot X="-8699.3730" Y="-107.1791" Z="89.7534" Range="150" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Kobold Worker"/>
+     <While Condition="Data.AllQuestObjectivesAreComplete('Investigate Echo Ridge') == false" >
+        <Wait Value="100" />
+    </While>
+    <MoveTo X="-8902.3232" Y="-162.5951" Z="81.9390" />
+    <ReturnQuest NpcName="Marshal McBride" QuestName="Investigate Echo Ridge" />
+</ShadowProfile>

@@ -1,0 +1,28 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('The Scarlet Crusade') and Data.HasCompletedQuest('Night Web\'s Hollow')">
+    <SetBaseSettings />
+    <If Condition="not Data.HasActiveQuest('The Scarlet Crusade')">
+        <TakeQuest NpcName="Executor Arren" QuestName="The Scarlet Crusade" />
+    </If>
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Harold Raims"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Harold Raims"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+    <AddHotspot X="1806.5601806641" Y="1404.623046875" Z="81.094528198242" Range="40" />
+    <AddHotspot X="1857.0903320313" Y="1349.0050048828" Z="72.668983459473" Range="40" />
+    <AddHotspot X="1854.6081542969" Y="1310.4523925781" Z="83.70149230957" Range="40" />
+    <AddHotspot X="1817.2620849609" Y="1296.2474365234" Z="97.069595336914" Range="40" />
+    <AddHotspot X="1750.6486816406" Y="1314.3475341797" Z="103.02249908447" Range="40" />
+    <AddHotspot X="1714.7550048828" Y="1348.2436523438" Z="111.5671081543" Range="40" />
+    <AddHotspot X="1793.5677490234" Y="1420.4488525391" Z="87.227867126465" Range="40" />
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Scarlet Converts"/>
+    <AddMonsterFilterName Value="Scarlet Initiates"/>
+    <While Condition="not Data.AllQuestObjectivesAreComplete('The Scarlet Crusade')" >
+        <Wait Value="100" />
+    </While>
+    
+    <ReturnQuest NpcName="Executor Arren" QuestName="The Scarlet Crusade" />
+</ShadowProfile>

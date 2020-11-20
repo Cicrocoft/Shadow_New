@@ -1,0 +1,7 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Report to Orgnil') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Report to Orgnil') == false">
+        <TakeQuest NpcName="Master Gadrin" QuestName="Report to Orgnil" />
+    </If>
+    <ReturnQuest NpcName="Orgnil Soulscar" QuestName="Report to Orgnil" />
+</ShadowProfile>

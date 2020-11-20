@@ -1,0 +1,19 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Wolves Across the Border') == false">
+    <If Condition="Data.HasActiveQuest('Wolves Across the Border') == false">
+        <MoveTo X="-8868.8603" Y="-162.6833" Z="80.1700" />
+        <TakeQuest NpcName="Eagan Peltskinner" QuestName="Wolves Across the Border" />
+    </If>
+    <ClearHotspots />
+    <AddHotspot X="-8875.4912" Y="-75.7441" Z="83.2601" Range="150" />
+    <AddHotspot X="-8805.5517" Y="-99.5766" Z="83.1250" Range="180" />
+    <AddHotspot X="-8996.1406" Y="-172.6794" Z="78.4112" Range="180" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Young Wolf"/>
+    <AddMonsterFilterName Value="Timber Wolf"/>
+     <While Condition="Data.AllQuestObjectivesAreComplete('Wolves Across the Border') == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Eagan Peltskinner" QuestName="Wolves Across the Border" />
+</ShadowProfile>

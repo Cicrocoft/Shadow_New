@@ -1,0 +1,30 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Forged Steel') == false and Data.PlayerClass() == WoWClass.Warrior">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Forged Steel') == false">
+        <TakeQuest NpcName="Thun\'grim Firegaze" QuestName="Forged Steel" />
+    </If>
+    <SetBaseSettings />
+    <ClearRestockItems/>
+    <AddRestockItem ItemName="Freshly Baked Bread" NpcName="Moorane Hearthgrain" UnderAmount="3" BuyAmount="20" DisableMage="true" />
+    <SetTargetingMode Mode="Around Points" />
+    <AddHotspot X="-188.768" Y="-2952.764" Z="91.745" Range="30" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Halija Whitestrider"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Halija Whitestrider"/>
+    <SetRestHPPercent Value="95"/>
+    <SetUseFoodPercent Value="95"/>
+    <AllowQuestNode NodeName="Stolen Iron Chest" />
+    <While Condition="Data.AllQuestObjectivesAreComplete('Forged Steel') == false" >
+        <Wait Value="500" />
+        <If Condition="Nav.RangeFromMeXYZ(-194.37, -2951.1252, 92.07304) &lt; 10 ">            
+            <SetEnableAutoHerb Value="true" />
+        </If>
+        <If Condition="Nav.RangeFromMeXYZ(-194.37, -2951.1252, 92.07304) &gt;= 10 or Data.AllQuestObjectivesAreComplete('Forged Steel')">>            
+            <SetEnableAutoHerb Value="false" />
+        </If>
+    </While>
+    <SetBaseSettings />   
+    <ReturnQuest NpcName="Thun\'grim Firegaze" QuestName="Forged Steel" />
+</ShadowProfile>

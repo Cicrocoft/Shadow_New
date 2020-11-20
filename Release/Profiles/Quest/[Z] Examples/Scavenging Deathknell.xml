@@ -1,0 +1,32 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Scavenging Deathknell')">
+    <SetBaseSettings />
+    <If Condition="not Data.HasActiveQuest('Marla\'s Last Wish')">
+        <TakeQuest NpcName="Novice Elreth" QuestName="Marla's Last Wish" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('Night Web\'s Hollow')">
+        <TakeQuest NpcName="Executor Arren" QuestName="Night Web's Hollow" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('Scavenging Deathknell')">
+        <TakeQuest NpcName="Deathguard Saltain" QuestName="Scavenging Deathknell" />
+    </If>
+
+    <Lua>HerbNodes[11127] = 0</Lua>
+    <SetTargetingMode Mode="Gather Only" />
+    <SetEnableAutoHerb Value="true" />
+    <SetEnableQuestNodes Value="true" />
+    <AllowQuestNode NodeName="Equipment Boxes" />
+    <AddHotspot X="1963.1849365234" Y="1600.5074462891" Z="88.178619384766" Range="50" />
+    <AddHotspot X="1961.7434082031" Y="1602.0662841797" Z="83.433670043945" Range="50" />
+    <AddHotspot X="1943.6253662109" Y="1543.2956542969" Z="90.148429870605" Range="50" />
+    <AddHotspot X="1901.6979980469" Y="1502.0938720703" Z="93.93376159668" Range="50" />
+    <AddHotspot X="1903.8328857422" Y="1501.384765625" Z="89.185180664063" Range="50" />
+    <AddHotspot X="1886.3471679688" Y="1533.7973632813" Z="88.077812194824" Range="50" />
+    <AddHotspot X="1902.7740478516" Y="1549.390625" Z="88.964317321777" Range="50" />
+    <AddHotspot X="1912.6320800781" Y="1561.2336425781" Z="86.917915344238" Range="50" />
+    <AddHotspot X="1904.0953369141" Y="1569.7651367188" Z="89.073699951172" Range="50" />
+    <While Condition="not Data.AllQuestObjectivesAreComplete('Scavenging Deathknell')" >
+        <Wait Value="100" />
+    </While>
+
+   <ReturnQuest NpcName="Deathguard Saltain" QuestName="Scavenging Deathknell" />
+</ShadowProfile>

@@ -1,0 +1,25 @@
+<ShadowProfile Condition="Data.HasActiveQuest(nil, 427) and not Data.AllQuestObjectivesAreComplete(nil, 427)">
+    <SetBaseSettings />
+
+    <AddHotspot X="2445.5422363281" Y="1508.5412597656" Z="35.420707702637" Range="150" />
+    <AddHotspot X="2402.3623046875" Y="1541.1397705078" Z="31.507856369019" Range="150" />
+    <AddHotspot X="2336.2155761719" Y="1563.2446289063" Z="33.663967132568" Range="150" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Scarlet Warrior"/>
+    <While Condition="not Data.AllQuestObjectivesAreComplete(nil, 427)" >
+        <Wait Value="100" />
+    </While>
+</ShadowProfile>

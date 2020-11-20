@@ -2,7 +2,7 @@
 
 	<!-- Bot Settings -->
 	<SetBaseSettings />
-	<Lua>settings.DoNotSellItems = {}</Lua>
+	<Lua>_G.settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
 	<SetEnableAutoMine Value="true" />
@@ -114,8 +114,8 @@
 	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
 		<AddRestockItem ItemName="Tough Jerky" NpcName="Innkeeper Firebrew" UnderAmount="5" BuyAmount="60"/>
 		<AddDoNotSellItem ItemName="Tough Jerky" />
-		<Lua>settings.ShouldFeedPet = true</Lua>
-		<Lua>settings.ShouldFeedPetFoodsStr = "Tough Jerky" </Lua>
+		<Lua>_G.settings.ShouldFeedPet = true</Lua>
+		<Lua>_G.settings.ShouldFeedPetFoodsStr = "Tough Jerky" </Lua>
 	</If>	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">

@@ -1,0 +1,8 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A Threat Within') == false">
+    <If Condition="Data.HasActiveQuest('A Threat Within') == false">
+        <MoveTo X="-8934.9667" Y="-136.4334" Z="83.3795" />
+        <TakeQuest NpcName="Deputy Willem" QuestName="A Threat Within" />
+    </If>
+    <MoveTo X="-8902.3232" Y="-162.5951" Z="81.9390" />
+    <ReturnQuest NpcName="Marshal McBride" QuestName="A Threat Within" />
+</ShadowProfile>

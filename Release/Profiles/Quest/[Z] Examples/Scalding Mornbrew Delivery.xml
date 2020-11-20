@@ -1,0 +1,6 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Scalding Mornbrew Delivery') == false">
+    <If Condition="Data.HasActiveQuest('Scalding Mornbrew Delivery') == false">
+        <TakeQuest NpcName="Nori Pridedrift" QuestName="Scalding Mornbrew Delivery" />
+    </If>
+    <ReturnQuest NpcName="Durnan Furcutter" QuestName="Scalding Mornbrew Delivery" />
+</ShadowProfile>

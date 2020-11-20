@@ -1,0 +1,14 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Forsaken Duties') ">
+    <SetBaseSettings />
+
+    <If Condition="not Data.HasActiveQuest('Forsaken Duties')">
+        <TakeQuest NpcName="Magistrate Sevren" QuestName="Forsaken Duties" />
+    </If>
+
+    <If Condition="not Data.HasActiveQuest('The Prodigal Lich')">
+        <TakeQuest NpcName="Magistrate Sevren" QuestName="The Prodigal Lich" />
+    </If>
+
+    <ReturnQuest NpcName="Deathguard Linnea" QuestName="Forsaken Duties" />
+
+</ShadowProfile>

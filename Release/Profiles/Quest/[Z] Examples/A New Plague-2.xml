@@ -1,0 +1,29 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest(nil, 368) and not Data.QuestObjectiveIsComplete('A New Plague', 1, 368)">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Vile Fin Puddlejumper"/>
+    <AddMonsterFilterName Value="Vile Fin Minor Oracle"/>
+    <AddMonsterFilterName Value="Vile Fin Muckdweller"/>
+    <ClearHotspots />
+    <AddHotspot X="2989.2263183594" Y="326.75946044922" Z="6.0602741241455" Range="150" />
+    <AddHotspot X="2959.6931152344" Y="268.76498413086" Z="7.4274687767029" Range="150" />
+    <AddHotspot X="2928.9658203125" Y="182.33605957031" Z="4.0402450561523" Range="150" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('A New Plague', 1, 368)" >
+        <Wait Value="100" />
+    </While>
+    
+</ShadowProfile>

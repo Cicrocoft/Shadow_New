@@ -3,7 +3,7 @@
 	<!-- Bot Settings -->
 	<SetBaseSettings />
 	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
-	<Lua>settings.DoNotSellItems = {}</Lua>
+	<Lua>_G.settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
 	<SetEnableAutoMine Value="true" />
@@ -113,8 +113,8 @@
 	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
 		<AddRestockItem ItemName="Longjaw Mud Snapper" NpcName="Innkeeper Wiley" UnderAmount="5" BuyAmount="60"/>
 		<AddDoNotSellItem ItemName="Longjaw Mud Snapper" />
-		<Lua>settings.ShouldFeedPet = true</Lua>
-		<Lua>settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
+		<Lua>_G.settings.ShouldFeedPet = true</Lua>
+		<Lua>_G.settings.ShouldFeedPetFoodsStr = "Longjaw Mud Snapper" </Lua>		
 	</If>	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">

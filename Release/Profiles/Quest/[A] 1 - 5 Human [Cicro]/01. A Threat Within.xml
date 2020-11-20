@@ -2,7 +2,7 @@
 <Lua>SetCVar("instantQuestText", "1"); print("Instant Quest Text On");</Lua>
 	<!-- Bot Settings -->
 	<SetBaseSettings />
-	<Lua>settings.DoNotSellItems = {}</Lua>
+	<Lua>_G.settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
 	<SetEnableAutoMine Value="true" />

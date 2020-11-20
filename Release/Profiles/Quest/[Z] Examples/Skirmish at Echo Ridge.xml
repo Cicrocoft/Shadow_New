@@ -1,0 +1,20 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Skirmish at Echo Ridge') == false">
+    <If Condition="Data.HasActiveQuest('Skirmish at Echo Ridge') == false">
+        <MoveTo X="-8902.3232" Y="-162.5951" Z="81.9390" />
+        <TakeQuest NpcName="Marshal McBride" QuestName="Skirmish at Echo Ridge" />
+    </If>
+    <ClearHotspots />
+    <AddHotspot X="-8699.3730" Y="-107.1791" Z="89.7534" Range="150" />
+    <AddHotspot X="-8640.0996" Y="-140.6802" Z="86.8630" Range="80" />
+    <AddHotspot X="-8581.4931" Y="-153.0799" Z="90.5719" Range="80" />
+    <AddHotspot X="-8547.1083" Y="-166.6309" Z="86.2705" Range="120" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Kobold Laborer"/>
+     <While Condition="Data.AllQuestObjectivesAreComplete('Skirmish at Echo Ridge') == false" >
+        <Wait Value="100" />
+    </While>
+    <MoveTo X="-8902.3232" Y="-162.5951" Z="81.9390" />
+    <ReturnQuest NpcName="Marshal McBride" QuestName="Skirmish at Echo Ridge" />
+</ShadowProfile>

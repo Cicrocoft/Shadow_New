@@ -1,0 +1,16 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Encrypted Memorandum') == false">
+    <If Condition="Data.HasActiveQuest('Encrypted Memorandum') == false">
+        <MoveTo X="-6215.7978" Y="329.5882" Z="383.3584" />
+        <TakeQuest NpcName="Sten Stoutarm" QuestName="Encrypted Memorandum" />
+    </If>
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Adlin Pridedrift"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Rybrad Coldbank"/>
+    <SetRepairPercent Value="35" />
+    
+    <MoveTo X="-6093.6801" Y="404.2078" Z="395.5372" />
+    <ReturnQuest NpcName="Solm Hargrin" QuestName="Encrypted Memorandum" />
+</ShadowProfile>

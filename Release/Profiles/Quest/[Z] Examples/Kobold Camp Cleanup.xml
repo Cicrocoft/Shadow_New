@@ -1,0 +1,18 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Kobold Camp Cleanup') == false">
+    <If Condition="Data.HasActiveQuest('Kobold Camp Cleanup') == false">
+        <MoveTo X="-8902.3232" Y="-162.5951" Z="81.9390" />
+        <TakeQuest NpcName="Marshal McBride" QuestName="Kobold Camp Cleanup" />
+    </If>
+    <ClearHotspots />
+    <AddHotspot X="-8786.3183" Y="-108.1373" Z="83.1863" Range="150" />
+    <AddHotspot X="-8779.0136" Y="-196.7891" Z="84.2769" Range="180" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Kobold Vermin"/>
+    <While Condition="Data.AllQuestObjectivesAreComplete('Kobold Camp Cleanup') == false" >
+        <Wait Value="100" />
+    </While>
+    <MoveTo X="-8902.3232" Y="-162.5951" Z="81.9390" />
+    <ReturnQuest NpcName="Marshal McBride" QuestName="Kobold Camp Cleanup" />
+</ShadowProfile>

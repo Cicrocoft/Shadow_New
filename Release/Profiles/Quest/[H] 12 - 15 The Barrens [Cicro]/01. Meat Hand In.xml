@@ -28,7 +28,7 @@
 		<BuyItem ItemId="851" ItemName="Cutlass" NpcId="3361" NpcName="Shoma" Amount="1" />	
 	</If>
 
-	<Lua>settings.DoNotSellItems = {}</Lua>
+	<Lua>_G.settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
 	<SetEnableAutoMine Value="true" />
@@ -138,8 +138,8 @@
 	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
 		<AddRestockItem ItemName="Shiny Red Apple" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="60"/>
 		<AddDoNotSellItem ItemName="Shiny Red Apple" />
-		<Lua>settings.ShouldFeedPet = true</Lua>
-		<Lua>settings.ShouldFeedPetFoodsStr = "Shiny Red Apple" </Lua>		
+		<Lua>_G.settings.ShouldFeedPet = true</Lua>
+		<Lua>_G.settings.ShouldFeedPetFoodsStr = "Shiny Red Apple" </Lua>		
 	</If>	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">

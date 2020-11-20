@@ -1,0 +1,30 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('The Chill of Death') and not Data.QuestObjectiveIsComplete('The Chill of Death', 1)">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <ClearMonsterFilter/>
+
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Greater Duskbat"/>
+    <AddMonsterFilterName Value="Vampiric Duskbat"/>
+    <ClearHotspots />
+    <AddHotspot X="2173.4260253906" Y="907.39904785156" Z="40.87585067749" Range="150" />
+    <AddHotspot X="2239.1970214844" Y="944.88427734375" Z="46.256603240967" Range="150" />
+    <AddHotspot X="2313.0947265625" Y="994.41461181641" Z="50.760807037354" Range="150" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('The Chill of Death', 1)" >
+        <Wait Value="100" />
+    </While>
+
+</ShadowProfile>

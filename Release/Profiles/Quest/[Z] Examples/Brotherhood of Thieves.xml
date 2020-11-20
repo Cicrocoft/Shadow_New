@@ -1,0 +1,20 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Brotherhood of Thieves') == false">
+    <If Condition="Data.HasActiveQuest('Brotherhood of Thieves') == false">
+        <MoveTo X="-8934.9667" Y="-136.4334" Z="83.3795" />
+        <TakeQuest NpcName="Deputy Willem" QuestName="Brotherhood of Thieves" />
+    </If>
+    <ClearHotspots />
+    <AddHotspot X="-8891.7236" Y="-404.0429" Z="67.3131" Range="150" />
+    <AddHotspot X="-8988.7304" Y="-383.8467" Z="71.7018" Range="60" />
+    <AddHotspot X="-9022.1201" Y="-295.2469" Z="75.4961" Range="40" />
+    <AddHotspot X="-9120.5927" Y="-260.5963" Z="74.0711" Range="80" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Defias Thug"/>
+     <While Condition="Data.AllQuestObjectivesAreComplete('Brotherhood of Thieves') == false" >
+        <Wait Value="100" />
+    </While>
+    <MoveTo X="-8934.9667" Y="-136.4334" Z="83.3795" />
+    <ReturnQuest NpcName="Deputy Willem" QuestName="Brotherhood of Thieves" />
+</ShadowProfile>

@@ -1,0 +1,38 @@
+<ShadowProfile Condition="not Data.HasActiveQuest('Graverobbers')">
+    <SetBaseSettings />
+
+    <While Condition="UnitLevel('player') < 10" >
+        <SetEnableVendoring Value="true"/>
+        <SetVendorNpc NpcName="Eliza Callen"/>
+        <SetVendorSlotsCount Value="2" />
+        <SetEnableRepairing Value="true"/>
+        <SetRepairNpc NpcName="Eliza Callen"/>
+        <SetRepairPercent Value="35" />
+        <SetTargetingMode Mode="Around Points" />
+        <SetEnablePreemptiveMonsterAttack Value="true"/>
+        <ClearMonsterFilter/>
+        <SetEnableMonsterLevelFilter Value="true"/>
+        <SetMonsterAboveMyLevel Value="2"/>
+        <SetMonsterBelowMyLevel Value="2"/>
+        <AddHotspot X="2569.1801757813" Y="958.89758300781" Z="99.255836486816" Range="150" />
+        <AddHotspot X="2611.5808105469" Y="926.03594970703" Z="107.08287811279" Range="150" />
+        <AddHotspot X="2681.9689941406" Y="853.68347167969" Z="109.15953826904" Range="150" />
+    </While>
+
+    <ReturnQuest NpcName="Deathguard Dillinger" QuestName="The Mills Overrun" />
+
+    <ReturnQuest NpcName="Coleman Farthing" QuestId="354" QuestName="Deaths in the Family" />
+
+    <ReturnQuest NpcName="Coleman Farthing" QuestName="The Haunted Mills" />
+
+    <If Condition="not Data.HasActiveQuest('Speak with Sevren')">
+        <TakeQuest NpcName="Coleman Farthing" QuestName="Speak with Sevren" />
+    </If>
+
+    <ReturnQuest NpcName="Magistrate Sevren" QuestName="Speak with Sevren" />
+
+    <If Condition="not Data.HasActiveQuest('Graverobbers')">
+        <TakeQuest NpcName="Magistrate Sevren" QuestName="Graverobbers" />
+    </If>
+
+</ShadowProfile>

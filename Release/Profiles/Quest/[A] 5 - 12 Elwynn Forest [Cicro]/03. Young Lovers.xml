@@ -1,58 +1,271 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('The Escape') == false">	<!-- Bot Settings -->	<SetBaseSettings />	<Lua>settings.DoNotSellItems = {}</Lua>	<SetEnableAutoHerb Value="true" />	<SetEnableAutoSkin Value="true" />	<SetEnableAutoMine Value="true" />	<SetEnableProfileIgnoreCombat Value="false"/>    <SetEnableUseFood Value="true" />    <SetEnableUseDrink Value="true" />    <SetEnableAutoDetectFood Value="true" />    <SetEnableAutoDetectDrink Value="true" />    <SetEnableVendoring Value="true"/>    <SetEnableRepairing Value="true"/>    <SetVendorSlotsCount Value="2"/>    <SetRepairPercent Value="40"/>    <SetEnableRest Value="true"/>    <SetEnableVendorGreens Value="true"/>    <SetEnableIgnoreLootAroundMobs Value="true"/>    <SetEnablePreemptiveMonsterAttack Value="true"/>	<SetEnableAutoLoot Value="true" />	<!-- Rest Settings -->	<!-- Rogue -->	    <If Condition="Data.PlayerClass() == WoWClass.Rogue">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Hunter -->		<If Condition="Data.PlayerClass() == WoWClass.Hunter">	<SetRestHPPercent Value="55" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="40" />	<SetUseFoodPercent Value="60" />    </If>	<!-- Mage -->		<If Condition="Data.PlayerClass() == WoWClass.Mage">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warrior -->	<If Condition="Data.PlayerClass() == WoWClass.Warrior">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warlock -->	<If Condition="Data.PlayerClass() == WoWClass.Warlock">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Priest -->		<If Condition="Data.PlayerClass() == WoWClass.Priest">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Paladin -->	<If Condition="Data.PlayerClass() == WoWClass.Paladin">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="25" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Rest Settings End -->	<!-- Vendors to use -->    <SetVendorNpc NpcName="Andrew Krighton"/>    <SetRepairNpc NpcName="Andrew Krighton"/>
-	<!-- Restock Elwynn Forest 5-12 Goldshire -->	<SetEnableRestockItems Value="true"/>	<ClearRestockItems/>	<!-- Food -->	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">		<AddRestockItem ItemName="Darnassian Bleu" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Darnassian Bleu" />	</If>	<!-- Water -->	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>		<AddDoNotSellItem ItemName="Refreshing Spring Water" />	</If>	<If Condition="Data.PlayerClass() == WoWClass.Priest">		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="3" BuyAmount="20"/>		<AddDoNotSellItem ItemName="Refreshing Spring Water" />	</If>	<!-- Bullets/Arrows -->	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Light Shot" NpcName="Brog Hamfist" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Brog Hamfist" UnderAmount="100" BuyAmount="600"/>	</If>	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">		<AddRestockItem ItemName="Rough Arrow" NpcName="Brog Hamfist" UnderAmount="100" BuyAmount="600"/>	</If>	<!-- End Restock -->		<AddBlackspot X="-9682.568359375" Y="-23.023031234741" Z="41.80973815918" Range="35" />	<AddBlackspot X="-9687.4150390625" Y="-81.274520874023" Z="39.78638458252" Range="50" />
-	<!-- Pickup -->
-	<If Condition="Data.HasActiveQuest('Young Lovers') == false and Data.HasCompletedQuest('Young Lovers') == false">		<TakeQuest NpcName="Maybell Maclure" QuestId="106" QuestName="Young Lovers" />	</If>				<SetMaxZDifference Value="5" />		<ClearHotspots />		<SetTargetingMode Mode="Around Points" />				<!-- Blackspots -->		<!-- Hotspots -->		<AddHotspot X="-9929.970703125" Y="371.29321289063" Z="35.148513793945" Range="100" />		<AddHotspot X="-9897.2119140625" Y="444.33319091797" Z="34.56763458252" Range="50" />		<AddHotspot X="-9799.5107421875" Y="384.83206176758" Z="39.520359039307" Range="100" />		<AddHotspot X="-9752.345703125" Y="299.75598144531" Z="45.412776947021" Range="100" />		<AddHotspot X="-9713.4501953125" Y="210.86582946777" Z="49.903003692627" Range="100" />		<AddHotspot X="-9651.2890625" Y="146.28271484375" Z="46.234272003174" Range="100" />		<!-- Monster Filter -->		<ClearMonsterFilter/>		<SetMonsterFilterMode Mode="None" />		<While Condition="UnitLevel('player') &lt; 7 or UnitXP('player') &lt;= 3500 and UnitXPMax('player') == 4500" >			<Wait Value="100" />		</While>				<If Condition="Data.HasActiveQuest('Young Lovers') == true">		<ReturnQuest NpcName="Tommy Joe Stonefield" QuestId="106" QuestName="Young Lovers" />	</If>	
-	<If Condition="Data.HasActiveQuest('Speak with Gramma') == false and Data.HasCompletedQuest('Speak with Gramma') == false and Data.HasCompletedQuest('Young Lovers') == true">
-		<TakeQuest NpcName="Tommy Joe Stonefield" QuestId="111" QuestName="Speak with Gramma" />
-	</If>
-	<If Condition="Data.HasActiveQuest('Speak with Gramma') == true">
-		<ReturnQuest NpcName="Gramma Stonefield" QuestId="111" QuestName="Speak with Gramma" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('Note to William') == false and Data.HasCompletedQuest('Note to William') == false and Data.HasCompletedQuest('Speak with Gramma') == true">
-		<TakeQuest NpcName="Gramma Stonefield" QuestId="107" QuestName="Note to William" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('Note to William') == true">
-		<ReturnQuest NpcName="William Pestle" QuestId="107" QuestName="Note to William" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('Collecting Kelp') == false and Data.HasCompletedQuest('Collecting Kelp') == false and Data.HasCompletedQuest('Note to William') == true">
-		<TakeQuest NpcName="William Pestle" QuestId="112" QuestName="Collecting Kelp" />
-	</If>
-
-	<!-- Quset Completion -->
-	<If Condition="Data.HasActiveQuest('Collecting Kelp') == true">
-		<ClearHotspots />		<SetTargetingMode Mode="Around Points" />	
-		<!-- Blackspots -->
-		<AddBlackspot X="-9468.9755859375" Y="-357.41949462891" Z="60.144378662109" Range="35" />		<AddBlackspot X="-9489.6337890625" Y="-402.89010620117" Z="59.606990814209" Range="20" />		<AddBlackspot X="-9478.0234375" Y="-427.57690429688" Z="59.104644775391" Range="20" />
-		<!-- Hotspots -->
-		<AddHotspot X="-9555.7421875" Y="-272.41171264648" Z="61.717155456543" Range="35" />
-		<AddHotspot X="-9556.24609375" Y="-318.19842529297" Z="61.852882385254" Range="35" />
-		<AddHotspot X="-9548.1298828125" Y="-400.86553955078" Z="63.292945861816" Range="35" />
-		<AddHotspot X="-9500.15234375" Y="-494.91622924805" Z="62.629516601563" Range="35" />
-		<AddHotspot X="-9436.482421875" Y="-483.87628173828" Z="63.415237426758" Range="35" />
-		<AddHotspot X="-9391.5458984375" Y="-446.88674926758" Z="61.644023895264" Range="35" />
-		<AddHotspot X="-9372.5556640625" Y="-326.73782348633" Z="63.981426239014" Range="35" />
-		<AddHotspot X="-9412.0927734375" Y="-309.01724243164" Z="60.642024993896" Range="20" />
-		<AddHotspot X="-9436.1611328125" Y="-254.06312561035" Z="61.388935089111" Range="35" />
-		<!-- Monster Filter -->
-		<ClearMonsterFilter/>
-		<SetMonsterFilterMode Mode="Whitelist" />
-		<AddMonsterFilterName Value="Murloc Streamrunner" />
-		<AddMonsterFilterName Value="Murloc" />		
-		<While Condition="Data.AllQuestObjectivesAreComplete('Collecting Kelp') == false" >
-			<Wait Value="100" />
-		</While>	
-	</If>
-
-	
-	<!-- ReturnQuest -->
-	<If Condition="Data.HasActiveQuest('Collecting Kelp') == true and Data.AllQuestObjectivesAreComplete('Collecting Kelp') == true">
-		<ReturnQuest NpcName="William Pestle" QuestId="112" QuestName="Collecting Kelp" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('The Escape') == false and Data.HasCompletedQuest('The Escape') == false and Data.HasCompletedQuest('Collecting Kelp') == true">
-		<TakeQuest NpcName="William Pestle" QuestId="114" QuestName="The Escape" />
-	</If>	
-	<If Condition="Data.HasActiveQuest('The Escape') == true and Data.AllQuestObjectivesAreComplete('The Escape') == true">
-		<AddBlackspot X="-9664.11328125" Y="-10.671873092651" Z="45.46293258667" Range="50" />
-		<ReturnQuest NpcName="Maybell Maclure" QuestId="114" QuestName="The Escape" />
-	</If>		
+<ShadowProfile Condition="Data.HasCompletedQuest('The Escape') == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>_G.settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+    <SetVendorNpc NpcName="Andrew Krighton"/>
+    <SetRepairNpc NpcName="Andrew Krighton"/>
+
+	<!-- Restock Elwynn Forest 5-12 Goldshire -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Darnassian Bleu" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Darnassian Bleu" />
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Farley" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Brog Hamfist" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Brog Hamfist" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Brog Hamfist" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->	
+	<AddBlackspot X="-9682.568359375" Y="-23.023031234741" Z="41.80973815918" Range="35" />
+	<AddBlackspot X="-9687.4150390625" Y="-81.274520874023" Z="39.78638458252" Range="50" />
+	<!-- Pickup -->
+
+	<If Condition="Data.HasActiveQuest('Young Lovers') == false and Data.HasCompletedQuest('Young Lovers') == false">
+		<TakeQuest NpcName="Maybell Maclure" QuestId="106" QuestName="Young Lovers" />
+	</If>	
+	
+		<SetMaxZDifference Value="5" />
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />		
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-9929.970703125" Y="371.29321289063" Z="35.148513793945" Range="100" />
+		<AddHotspot X="-9897.2119140625" Y="444.33319091797" Z="34.56763458252" Range="50" />
+		<AddHotspot X="-9799.5107421875" Y="384.83206176758" Z="39.520359039307" Range="100" />
+		<AddHotspot X="-9752.345703125" Y="299.75598144531" Z="45.412776947021" Range="100" />
+		<AddHotspot X="-9713.4501953125" Y="210.86582946777" Z="49.903003692627" Range="100" />
+		<AddHotspot X="-9651.2890625" Y="146.28271484375" Z="46.234272003174" Range="100" />
+		<!-- Monster Filter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<While Condition="UnitLevel('player') &lt; 7 or UnitXP('player') &lt;= 3500 and UnitXPMax('player') == 4500" >
+			<Wait Value="100" />
+		</While>	
+	
+	
+	<If Condition="Data.HasActiveQuest('Young Lovers') == true">
+		<ReturnQuest NpcName="Tommy Joe Stonefield" QuestId="106" QuestName="Young Lovers" />
+	</If>	
+
+	<If Condition="Data.HasActiveQuest('Speak with Gramma') == false and Data.HasCompletedQuest('Speak with Gramma') == false and Data.HasCompletedQuest('Young Lovers') == true">
+
+		<TakeQuest NpcName="Tommy Joe Stonefield" QuestId="111" QuestName="Speak with Gramma" />
+
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Speak with Gramma') == true">
+
+		<ReturnQuest NpcName="Gramma Stonefield" QuestId="111" QuestName="Speak with Gramma" />
+
+	</If>	
+
+	<If Condition="Data.HasActiveQuest('Note to William') == false and Data.HasCompletedQuest('Note to William') == false and Data.HasCompletedQuest('Speak with Gramma') == true">
+
+		<TakeQuest NpcName="Gramma Stonefield" QuestId="107" QuestName="Note to William" />
+
+	</If>	
+
+	<If Condition="Data.HasActiveQuest('Note to William') == true">
+
+		<ReturnQuest NpcName="William Pestle" QuestId="107" QuestName="Note to William" />
+
+	</If>	
+
+	<If Condition="Data.HasActiveQuest('Collecting Kelp') == false and Data.HasCompletedQuest('Collecting Kelp') == false and Data.HasCompletedQuest('Note to William') == true">
+
+		<TakeQuest NpcName="William Pestle" QuestId="112" QuestName="Collecting Kelp" />
+
+	</If>
+
+
+
+	<!-- Quset Completion -->
+
+	<If Condition="Data.HasActiveQuest('Collecting Kelp') == true">
+
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />	
+
+		<!-- Blackspots -->
+
+		<AddBlackspot X="-9468.9755859375" Y="-357.41949462891" Z="60.144378662109" Range="35" />
+		<AddBlackspot X="-9489.6337890625" Y="-402.89010620117" Z="59.606990814209" Range="20" />
+		<AddBlackspot X="-9478.0234375" Y="-427.57690429688" Z="59.104644775391" Range="20" />
+
+		<!-- Hotspots -->
+
+		<AddHotspot X="-9555.7421875" Y="-272.41171264648" Z="61.717155456543" Range="35" />
+
+		<AddHotspot X="-9556.24609375" Y="-318.19842529297" Z="61.852882385254" Range="35" />
+
+		<AddHotspot X="-9548.1298828125" Y="-400.86553955078" Z="63.292945861816" Range="35" />
+
+		<AddHotspot X="-9500.15234375" Y="-494.91622924805" Z="62.629516601563" Range="35" />
+
+		<AddHotspot X="-9436.482421875" Y="-483.87628173828" Z="63.415237426758" Range="35" />
+
+		<AddHotspot X="-9391.5458984375" Y="-446.88674926758" Z="61.644023895264" Range="35" />
+
+		<AddHotspot X="-9372.5556640625" Y="-326.73782348633" Z="63.981426239014" Range="35" />
+
+		<AddHotspot X="-9412.0927734375" Y="-309.01724243164" Z="60.642024993896" Range="20" />
+
+		<AddHotspot X="-9436.1611328125" Y="-254.06312561035" Z="61.388935089111" Range="35" />
+
+		<!-- Monster Filter -->
+
+		<ClearMonsterFilter/>
+
+		<SetMonsterFilterMode Mode="Whitelist" />
+
+		<AddMonsterFilterName Value="Murloc Streamrunner" />
+
+		<AddMonsterFilterName Value="Murloc" />		
+
+		<While Condition="Data.AllQuestObjectivesAreComplete('Collecting Kelp') == false" >
+
+			<Wait Value="100" />
+
+		</While>	
+
+	</If>
+
+
+
+	
+
+	<!-- ReturnQuest -->
+
+	<If Condition="Data.HasActiveQuest('Collecting Kelp') == true and Data.AllQuestObjectivesAreComplete('Collecting Kelp') == true">
+
+		<ReturnQuest NpcName="William Pestle" QuestId="112" QuestName="Collecting Kelp" />
+
+	</If>	
+
+	<If Condition="Data.HasActiveQuest('The Escape') == false and Data.HasCompletedQuest('The Escape') == false and Data.HasCompletedQuest('Collecting Kelp') == true">
+
+		<TakeQuest NpcName="William Pestle" QuestId="114" QuestName="The Escape" />
+
+	</If>	
+
+	<If Condition="Data.HasActiveQuest('The Escape') == true and Data.AllQuestObjectivesAreComplete('The Escape') == true">
+
+		<AddBlackspot X="-9664.11328125" Y="-10.671873092651" Z="45.46293258667" Range="50" />
+
+		<ReturnQuest NpcName="Maybell Maclure" QuestId="114" QuestName="The Escape" />
+
+	</If>		
+
 </ShadowProfile>

@@ -1,0 +1,25 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Night Web\'s Hollow') and Data.HasCompletedQuest('The Damned')">
+
+    <SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Harold Raims"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Harold Raims"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+    <AddHotspot X="2095.1948242188" Y="1720.4921875" Z="67.457214355469" Range="250" />
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Young Night Web Spider"/>
+    <While Condition="not Data.QuestObjectiveIsComplete('Night Web\'s Hollow', 1)" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+    <AddHotspot X="2044.1739501953" Y="1837.2211914063" Z="107.25289916992" Range="250" />
+    <AddMonsterFilterName Value="Night Web Spider"/>
+    <While Condition="not Data.QuestObjectiveIsComplete('Night Web\'s Hollow', 2)" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Executor Arren" QuestName="Night Web's Hollow" />
+</ShadowProfile>

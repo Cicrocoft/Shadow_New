@@ -1,8 +1,127 @@
-<ShadowProfile Condition="Data.HasCompletedQuest('Evershine') == false and Data.HasCompletedQuest('The Grizzled Den') == true">	<ClearRestockItems/>
+<ShadowProfile Condition="Data.HasCompletedQuest('Evershine') == false and Data.HasCompletedQuest('The Grizzled Den') == true">
+	<ClearRestockItems/>
     <If Condition="Data.HasActiveQuest('Evershine') == false">
         <TakeQuest NpcName="Pilot Stonegear" QuestName="Evershine" />
-    </If>  
-    <If Condition="Data.HasActiveQuest('Frostmane Hold') == false">        <TakeQuest NpcName="Senir Whitebeard" QuestName="Frostmane Hold" />    </If>  		<!-- Bot Settings -->	<SetBaseSettings />	<Lua>settings.DoNotSellItems = {}</Lua>	<SetEnableAutoHerb Value="true" />	<SetEnableAutoSkin Value="true" />	<SetEnableAutoMine Value="true" />	<SetEnableProfileIgnoreCombat Value="false"/>    <SetEnableUseFood Value="true" />    <SetEnableUseDrink Value="true" />    <SetEnableAutoDetectFood Value="true" />    <SetEnableAutoDetectDrink Value="true" />    <SetEnableVendoring Value="true"/>    <SetEnableRepairing Value="true"/>    <SetVendorSlotsCount Value="2"/>    <SetRepairPercent Value="40"/>    <SetEnableRest Value="true"/>    <SetEnableVendorGreens Value="true"/>    <SetEnableIgnoreLootAroundMobs Value="true"/>    <SetEnablePreemptiveMonsterAttack Value="true"/>	<SetEnableAutoLoot Value="true" />	<!-- Rest Settings -->	<!-- Rogue -->	    <If Condition="Data.PlayerClass() == WoWClass.Rogue">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Hunter -->		<If Condition="Data.PlayerClass() == WoWClass.Hunter">	<SetRestHPPercent Value="55" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="40" />	<SetUseFoodPercent Value="60" />    </If>	<!-- Mage -->		<If Condition="Data.PlayerClass() == WoWClass.Mage">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warrior -->	<If Condition="Data.PlayerClass() == WoWClass.Warrior">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="0" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="0" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Warlock -->	<If Condition="Data.PlayerClass() == WoWClass.Warlock">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="60" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Priest -->		<If Condition="Data.PlayerClass() == WoWClass.Priest">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Paladin -->	<If Condition="Data.PlayerClass() == WoWClass.Paladin">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>	<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="25" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="50" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Druid -->	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">	<SetRestHPPercent Value="65" />	<SetRestPWPercent Value="15" />	<SetRestPetHPPercent Value="0" />	<SetUseDrinkPercent Value="25" />	<SetUseFoodPercent Value="69" />    </If>		<!-- Rest Settings End -->	<!-- Vendors to use -->	<SetRepairNpc NpcName="Burdrak Harglhelm"/>	<SetVendorNpc NpcName="Burdrak Harglhelm"/>		    <SetTargetingMode Mode="Around Points" />    <ClearHotspots />		<AddHotspot X="-5359.6684570313" Y="-422.76486206055" Z="398.03472900391" Range="100" />		<AddHotspot X="-5416.9819335938" Y="-343.88171386719" Z="401.28298950195" Range="100" />		<AddHotspot X="-5431.7319335938" Y="-265.62265014648" Z="403.29849243164" Range="50" />	    <ClearMonsterFilter/>	<SetMonsterFilterMode Mode="None"/> <While Condition="UnitLevel('player') &lt; 9 or UnitXP('player') &lt;= 2000 and UnitXPMax('player') == 6500" >        <Wait Value="100" />    </While>
- 
-    <ReturnQuest NpcName="Rejold Barleybrew" QuestName="Evershine" />
+    </If>  
+
+    <If Condition="Data.HasActiveQuest('Frostmane Hold') == false">
+        <TakeQuest NpcName="Senir Whitebeard" QuestName="Frostmane Hold" />
+    </If>  
+	
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>_G.settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Burdrak Harglhelm"/>
+	<SetVendorNpc NpcName="Burdrak Harglhelm"/>	
+	
+    <SetTargetingMode Mode="Around Points" />
+    <ClearHotspots />
+		<AddHotspot X="-5359.6684570313" Y="-422.76486206055" Z="398.03472900391" Range="100" />
+		<AddHotspot X="-5416.9819335938" Y="-343.88171386719" Z="401.28298950195" Range="100" />
+		<AddHotspot X="-5431.7319335938" Y="-265.62265014648" Z="403.29849243164" Range="50" />
+	
+    <ClearMonsterFilter/>
+	<SetMonsterFilterMode Mode="None"/>
+
+ <While Condition="UnitLevel('player') &lt; 9 or UnitXP('player') &lt;= 2000 and UnitXPMax('player') == 6500" >
+        <Wait Value="100" />
+    </While>
+ 
+
+    <ReturnQuest NpcName="Rejold Barleybrew" QuestName="Evershine" />
+
 </ShadowProfile>

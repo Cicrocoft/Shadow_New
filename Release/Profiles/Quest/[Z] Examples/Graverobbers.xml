@@ -1,0 +1,59 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Graverobbers') and not Data.AllQuestObjectivesAreComplete('Graverobbers')">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rot Hide Graverobber"/>
+    <ClearHotspots />
+    <AddHotspot X="2610.3725585938" Y="449.71044921875" Z="28.736371994019" Range="150" />
+    <AddHotspot X="2616.556640625" Y="536.7470703125" Z="19.58055305481" Range="150" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('Graverobbers', 1)" >
+        <Wait Value="100" />
+    </While>
+
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rot Hide Mongrel"/>
+    <AddHotspot X="2723.2014160156" Y="374.76016235352" Z="26.269697189331" Range="150" />
+    <AddHotspot X="2718.1440429688" Y="337.02243041992" Z="29.164529800415" Range="150" />
+    <AddHotspot X="2761.4897460938" Y="332.20434570313" Z="28.569536209106" Range="150" />
+    <AddHotspot X="2809.6218261719" Y="358.56729125977" Z="23.689212799072" Range="150" />
+    <While Condition="not Data.QuestObjectiveIsComplete('Graverobbers', 2)" >
+        <Wait Value="100" />
+    </While>
+
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rot Hide Graverobber"/>
+    <AddMonsterFilterName Value="Rot Hide Gnoll"/>
+    <AddMonsterFilterName Value="Rot Hide Mongrel"/>
+    <AddHotspot X="2610.3725585938" Y="449.71044921875" Z="28.736371994019" Range="150" />
+    <AddHotspot X="2616.556640625" Y="536.7470703125" Z="19.58055305481" Range="150" />
+    <AddHotspot X="2723.2014160156" Y="374.76016235352" Z="26.269697189331" Range="150" />
+    <AddHotspot X="2718.1440429688" Y="337.02243041992" Z="29.164529800415" Range="150" />
+    <AddHotspot X="2761.4897460938" Y="332.20434570313" Z="28.569536209106" Range="150" />
+    <AddHotspot X="2809.6218261719" Y="358.56729125977" Z="23.689212799072" Range="150" />
+    <While Condition="not Data.QuestObjectiveIsComplete('Graverobbers', 3)" >
+        <Wait Value="100" />
+    </While>
+    
+</ShadowProfile>

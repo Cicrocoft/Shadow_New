@@ -1,6 +1,6 @@
 <ShadowProfile Condition="UnitLevel('player') &gt;= 10 and Data.PlayerClass() == WoWClass.Hunter and (Data.MyRace() == WoWRace.Troll or Data.MyRace() == WoWRace.Orc)">
 	
-		<Lua>settings.ShouldFeedPet = false</Lua>
+		<Lua>_G.settings.ShouldFeedPet = false</Lua>
 	<If Condition="Data.HasActiveQuest('Taming the Beast', 6062) == false and Data.HasCompletedQuest('Taming the Beast', 6062) == false">
 		<TakeQuest NpcName="Thotar" QuestId="6062" QuestName="Taming the Beast" DestinationMap="1" />
 	</If>

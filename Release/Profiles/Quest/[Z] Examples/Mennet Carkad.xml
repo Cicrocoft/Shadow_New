@@ -1,0 +1,14 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Mennet Carkad') ">
+    <SetBaseSettings />
+
+    <If Condition="not Data.HasActiveQuest('Return to the Magistrate')">
+        <TakeQuest NpcName="Deathguard Linnea" QuestName="Return to the Magistrate" />
+    </If>
+
+    <If Condition="not Data.HasActiveQuest('Rear Guard Patrol')">
+        <TakeQuest NpcName="Deathguard Linnea" QuestName="Rear Guard Patrol" />
+    </If>
+
+    <ReturnQuest NpcName="Mennet Carkad" QuestName="Mennet Carkad" />
+
+</ShadowProfile>

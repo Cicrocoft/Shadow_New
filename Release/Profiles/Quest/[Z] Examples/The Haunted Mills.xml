@@ -1,0 +1,29 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('The Haunted Mills') and not Data.QuestObjectiveIsComplete('The Haunted Mills', 1)">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Devlin Agamand"/>
+   
+    <ClearHotspots />
+
+    <AddHotspot X="2607.3271484375" Y="891.03723144531" Z="107.42764282227" Range="150" />
+
+
+    <While Condition="not Data.QuestObjectiveIsComplete('The Haunted Mills', 1) and Data.GetItemCountByName('Devlin\'s Remains') == 0" >
+        <Wait Value="100" />
+    </While>
+
+</ShadowProfile>

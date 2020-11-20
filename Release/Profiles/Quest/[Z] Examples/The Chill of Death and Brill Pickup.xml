@@ -1,0 +1,17 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('The Chill of Death')">
+    <SetBaseSettings />
+
+    <If Condition="not Data.HasActiveQuest(nil, 398)" >
+        <TakeQuestFromObject QuestName="Wanted: Maggot Eye" X="2284.8542480469" Y="289.02151489258" Z="35.182540893555" />
+    </If>
+    
+    <If Condition="not Data.HasActiveQuest('Proof of Demise')">
+        <TakeQuest NpcName="Deathguard Burgess" QuestName="Proof of Demise" />
+    </If>
+    
+    <SetEnableRestockItems Value="true"/>
+    <AddRestockItem ItemName="Coarse Thread" NpcName="Abigail Shiel" UnderAmount="0" BuyAmount="1"/>
+    <ReturnQuest NpcName="Gretchen Dedmar" QuestName="The Chill of Death" />
+    <ClearRestockItems/>
+    <SetEnableRestockItems Value="false"/>
+</ShadowProfile>

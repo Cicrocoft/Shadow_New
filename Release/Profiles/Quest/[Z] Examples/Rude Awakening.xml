@@ -1,0 +1,8 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Rude Awakening') == false and UnitLevel('player') <= 1">
+    <SetBaseSettings />
+
+    <If Condition="Data.HasActiveQuest('Rude Awakening') == false">
+        <TakeQuest NpcName="Undertaker Mordo" QuestName="Rude Awakening" />
+    </If>
+    <ReturnQuest NpcName="Shadow Priest Sarvis" QuestName="Rude Awakening" />
+</ShadowProfile>

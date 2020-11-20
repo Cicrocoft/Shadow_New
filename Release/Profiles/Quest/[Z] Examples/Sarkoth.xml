@@ -1,0 +1,31 @@
+<ShadowProfile Condition="Data.HasCompletedQuest(nil, 804) == false and UnitLevel('player') <= 5">
+    <SetBaseSettings />
+    <If Condition="Data.HasCompletedQuest(nil, 790) == false and Data.HasActiveQuest('Sarkoth') == false">
+        <MoveTo X="-397.715" Y="-4108.856" Z="50.2" />
+        <TakeQuest NpcName="Hana'zua" QuestId="790"  />
+    </If>
+    <If Condition="Data.HasActiveQuest(nil, 790)">
+        <ClearHotspots />
+        <AddHotspot X="-531.05" Y="-4111.544" Z="64.04" Range="100" />
+        <SetTargetingMode Mode="Around Points" />
+        <ClearMonsterFilter/>
+        <SetEnableVendoring Value="true"/>
+        <SetVendorNpc NpcName="Duokna"/>
+        <SetVendorSlotsCount Value="3" />
+        <SetMonsterFilterMode Mode="Whitelist" />
+        <AddMonsterFilterName Value="Sarkoth"/>
+        <While Condition="Data.AllQuestObjectivesAreComplete('Sarkoth') == false" >
+            <Wait Value="100" />
+        </While>
+        <SetBaseSettings />
+        <MoveTo X="-397.715" Y="-4108.856" Z="50.2" />
+        <ReturnQuest NpcName="Hana'zua" QuestId="790" />
+    </If>
+    <If Condition="Data.HasCompletedQuest(nil, 790) == true and Data.HasActiveQuest(nil, 804) == false">
+        <MoveTo X="-397.715" Y="-4108.856" Z="50.2" />
+        <TakeQuest NpcName="Hana'zua" QuestId="804" />
+    </If>
+    <SetBaseSettings />
+    <MoveTo X="-600.084" Y="-4188.32" Z="41.093" />
+    <ReturnQuest NpcName="Gornek" QuestId="804" /> <!-- Second part quest id is 804 (name collision)  -->
+</ShadowProfile>

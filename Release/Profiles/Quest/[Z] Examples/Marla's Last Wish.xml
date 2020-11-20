@@ -1,0 +1,21 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Marla\'s Last Wish') and Data.HasCompletedQuest('The Damned')">
+
+    <SetBaseSettings />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Harold Raims"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Harold Raims"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+    <AddHotspot X="1991.212890625" Y="1375.4876708984" Z="62.652282714844" Range="150" />
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Samuel Fipps"/>
+    <While Condition="not Data.QuestObjectiveIsComplete('Marla\'s Last Wish', 1) and Data.GetItemCountByName('Samuel\'s Remains') == 0" >
+        <Wait Value="100" />
+    </While>
+    <While Condition="not Data.QuestObjectiveIsComplete('Marla\'s Last Wish', 1)" >			
+        <ReturnQuestToObject QuestName="Marla's Last Wish" X="1877.1307373047" Y="1624.9421386719" Z="95.309745788574" />
+    </While>
+    <ReturnQuest NpcName="Novice Elreth" QuestName="Marla's Last Wish" />
+</ShadowProfile>

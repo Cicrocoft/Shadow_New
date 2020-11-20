@@ -1,0 +1,8 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Simple Letter') == false">
+    <If Condition="Data.HasActiveQuest('Simple Letter') == false">
+        <MoveTo X="-8902.3232" Y="-162.5951" Z="81.9390" />
+        <TakeQuest NpcName="Marshal McBride" QuestName="Simple Letter" />
+    </If>
+    <MoveTo X="-8917.9345" Y="-208.6440" Z="82.1113" />
+    <ReturnQuest NpcName="Marshal McBride" QuestName="Simple Letter" />
+</ShadowProfile>

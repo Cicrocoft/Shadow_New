@@ -1,0 +1,32 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Gordo\'s Task') and not Data.QuestObjectiveIsComplete('Gordo\'s Task', 1)">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <ClearMonsterFilter/>
+    <SetTargetingMode Mode="Gather Only" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Gloom Weed" />
+    <ClearHotspots />
+    <AddHotspot X="2311.27734375" Y="614.42358398438" Z="28.793079376221" Range="250" />
+    <AddHotspot X="2261.0063476563" Y="692.28485107422" Z="33.889125823975" Range="250" />
+    <AddHotspot X="2354.8227539063" Y="850.478515625" Z="50.939708709717" Range="250" />
+    <AddHotspot X="2378.6779785156" Y="943.20190429688" Z="66.028465270996" Range="250" />
+    <AddHotspot X="2317.6962890625" Y="1010.0465087891" Z="50.003265380859" Range="250" />
+    <AddHotspot X="2175.1999511719" Y="904.27307128906" Z="42.068881988525" Range="250" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('Gordo\'s Task', 1)" >
+        <Wait Value="100" />
+    </While>
+
+</ShadowProfile>

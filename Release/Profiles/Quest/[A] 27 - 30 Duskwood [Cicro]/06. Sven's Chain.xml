@@ -3,7 +3,7 @@
 	<!-- Bot Settings -->
 	<SetBaseSettings />
 	<SetDestinationMap Value="0"/>
-	<Lua>settings.DoNotSellItems = {}</Lua>
+	<Lua>_G.settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
 	<SetEnableAutoMine Value="true" />
@@ -112,8 +112,8 @@
 	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
 		<AddRestockItem ItemName="Dwarven Mild" NpcName="Innkeeper Trelayne" UnderAmount="5" BuyAmount="60"/>
 		<AddDoNotSellItem ItemName="Dwarven Mild" />
-		<Lua>settings.ShouldFeedPet = true</Lua>
-		<Lua>settings.ShouldFeedPetFoodsStr = "Dwarven Mild" </Lua>		
+		<Lua>_G.settings.ShouldFeedPet = true</Lua>
+		<Lua>_G.settings.ShouldFeedPetFoodsStr = "Dwarven Mild" </Lua>		
 	</If>	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
@@ -180,7 +180,7 @@
 	</If>
 	<If Condition="Data.HasActiveQuest('Dusky Crab Cakes', 93) == true and Data.AllQuestObjectivesAreComplete('Dusky Crab Cakes', 93) == true">
 		<ReturnQuest NpcName="Chef Grual" QuestId="93" QuestName="Dusky Crab Cakes" />
-		<Lua>settings.DoNotSellItems = {}</Lua>
+		<Lua>_G.settings.DoNotSellItems = {}</Lua>
 	</If>
 	<If Condition="Data.HasActiveQuest('Return to Jitters', 240) == false and Data.HasCompletedQuest('Return to Jitters', 240) == false">
 		<TakeQuest NpcName="Chef Grual" QuestId="240" QuestName="Return to Jitters" />

@@ -1,0 +1,28 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('A Putrid Task') and not Data.QuestObjectiveIsComplete('A Putrid Task', 1)">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rotting Dead"/>
+    <AddMonsterFilterName Value="Ravaged Corpse"/>
+    <ClearHotspots />
+    <AddHotspot X="2311.27734375" Y="614.42358398438" Z="28.793079376221" Range="250" />
+    <AddHotspot X="2261.0063476563" Y="692.28485107422" Z="33.889125823975" Range="250" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('A Putrid Task', 1)" >
+        <Wait Value="100" />
+    </While>
+
+</ShadowProfile>

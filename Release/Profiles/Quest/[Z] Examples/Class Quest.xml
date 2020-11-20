@@ -1,0 +1,39 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Mindless Ones') and (Data.PlayerClass() == WoWClass.Rogue and not Data.HasCompletedQuest('Encrypted Scroll')) or (Data.PlayerClass() == WoWClass.Mage and not Data.HasCompletedQuest('Glyphic Scroll')) or (Data.PlayerClass() == WoWClass.Priest and not Data.HasCompletedQuest('Hallowed Scroll')) or (Data.PlayerClass() == WoWClass.Warlock and not Data.HasCompletedQuest('Tainted Scroll')) or (Data.PlayerClass() == WoWClass.Warrior and not Data.HasCompletedQuest('Simple Scroll'))">
+    <SetBaseSettings />
+    <!-- pick up quests local while we grab class quest -->    
+    <If Condition="not Data.HasActiveQuest('Rattling the Rattlecages') and not Data.HasCompletedQuest('Rattling the Rattlecages')">
+        <TakeQuest NpcName="Shadow Priest Sarvis" QuestName="Rattling the Rattlecages" />
+    </If>
+
+    <If Condition="not Data.HasActiveQuest('Encypted Scroll') and not Data.HasCompletedQuest('Encrypted Scroll') and Data.PlayerClass() == WoWClass.Rogue">
+        <TakeQuest NpcName="Shadow Priest Sarvis" QuestName="Encrypted Scroll" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('Glyphic Scroll') and not Data.HasCompletedQuest('Glyphic Scroll') and Data.PlayerClass() == WoWClass.Mage">
+        <TakeQuest NpcName="Shadow Priest Sarvis" QuestName="Glyphic Scroll" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('Hallowed Scroll') and not Data.HasCompletedQuest('Hallowed Scroll') and Data.PlayerClass() == WoWClass.Priest">
+        <TakeQuest NpcName="Shadow Priest Sarvis" QuestName="Hallowed Scroll" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('Tainted Scroll') and not Data.HasCompletedQuest('Tainted Scroll') and Data.PlayerClass() == WoWClass.Warlock">
+        <TakeQuest NpcName="Shadow Priest Sarvis" QuestName="Tainted Scroll" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('Simple Scroll') and not Data.HasCompletedQuest('Simple Scroll') and Data.PlayerClass() == WoWClass.Warrior">
+        <TakeQuest NpcName="Shadow Priest Sarvis" QuestName="Simple Scroll" />
+    </If>
+
+    <If Condition="Data.QuestObjectiveIsComplete('Encrypted Scroll', 1) and Data.PlayerClass() == WoWClass.Rogue">
+        <ReturnQuest NpcName="David Trias" QuestName="Encrypted Scroll" />
+    </If>
+    <If Condition="Data.QuestObjectiveIsComplete('Glyphic Scroll', 1) and Data.PlayerClass() == WoWClass.Mage">
+        <ReturnQuest NpcName="Isabella" QuestName="Glyphic Scroll" />
+    </If>
+    <If Condition="Data.QuestObjectiveIsComplete('Hallowed Scroll', 1) and Data.PlayerClass() == WoWClass.Priest">
+        <ReturnQuest NpcName="Dark Cleric Duesten" QuestName="Hallowed Scroll" />
+    </If>
+    <If Condition="Data.QuestObjectiveIsComplete('Tainted Scroll', 1) and Data.PlayerClass() == WoWClass.Warlock">
+        <ReturnQuest NpcName="Maximillion" QuestName="Tainted Scroll" />
+    </If>
+        <If Condition="Data.QuestObjectiveIsComplete('Simple Scroll', 1) and Data.PlayerClass() == WoWClass.Warrior">
+        <ReturnQuest NpcName="Dannal Stern" QuestName="Simple Scroll" />
+    </If>	
+</ShadowProfile>

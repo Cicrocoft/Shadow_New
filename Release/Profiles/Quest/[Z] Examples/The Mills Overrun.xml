@@ -1,0 +1,39 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('The Mills Overrun') and not Data.AllQuestObjectivesAreComplete('The Mills Overrun')">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rattlecage Soldier"/>
+    <AddMonsterFilterName Value="Cracked Skull Soldier"/>
+    <ClearHotspots />
+    <AddHotspot X="2569.1801757813" Y="958.89758300781" Z="99.255836486816" Range="150" />
+    <AddHotspot X="2611.5808105469" Y="926.03594970703" Z="107.08287811279" Range="150" />
+    <AddHotspot X="2681.9689941406" Y="853.68347167969" Z="109.15953826904" Range="150" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('The Mills Overrun', 1)" >
+        <Wait Value="100" />
+    </While>
+
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Darkeye Bonecaster"/>
+
+    <While Condition="not Data.QuestObjectiveIsComplete('The Mills Overrun', 2)" >
+        <Wait Value="100" />
+    </While>
+
+</ShadowProfile>

@@ -3,7 +3,7 @@
 	<!-- Bot Settings -->
 	<SetBaseSettings />
 	<SetDestinationMap Value="0"/>
-	<Lua>settings.DoNotSellItems = {}</Lua>
+	<Lua>_G.settings.DoNotSellItems = {}</Lua>
 	<SetEnableAutoHerb Value="true" />
 	<SetEnableAutoSkin Value="true" />
 	<SetEnableAutoMine Value="true" />
@@ -117,8 +117,8 @@
 		<AddDoNotSellItem ItemName="Red-speckled Mushroom" />		
 		<AddDoNotSellItem ItemName="Shiny Red Apple" />	
 		<AddRestockItem ItemName="Forest Mushroom Cap" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="60"/>	
-		<Lua>settings.ShouldFeedPet = true</Lua>
-		<Lua>settings.ShouldFeedPetFoodsStr = "Forest Mushroom Cap" </Lua>		
+		<Lua>_G.settings.ShouldFeedPet = true</Lua>
+		<Lua>_G.settings.ShouldFeedPetFoodsStr = "Forest Mushroom Cap" </Lua>		
 	</If>	
 	<!-- Water -->
 	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">

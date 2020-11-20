@@ -1,0 +1,28 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest(nil, 367) and not Data.QuestObjectiveIsComplete('A New Plague', 1, 367)">
+    <SetBaseSettings />
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Eliza Callen"/>
+    <SetVendorSlotsCount Value="2" />
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Eliza Callen"/>
+    <SetRepairPercent Value="35" />
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="2"/>
+
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Decrepit Darkhound"/>
+    <AddMonsterFilterName Value="Cursed Darkhound"/>
+    <ClearHotspots />
+    <AddHotspot X="2354.8227539063" Y="850.478515625" Z="50.939708709717" Range="250" />
+    <AddHotspot X="2378.6779785156" Y="943.20190429688" Z="66.028465270996" Range="250" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('A New Plague', 1, 367)" >
+        <Wait Value="100" />
+    </While>
+
+</ShadowProfile>
