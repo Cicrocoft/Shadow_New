@@ -1,0 +1,22 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Minshina\'s Skull') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Minshina\'s Skull') == false">
+        <TakeQuest NpcName="Master Gadrin" QuestName="Minshina\'s Skull" />
+    </If>
+    <SetBaseSettings />
+    <SetTargetingMode Mode="Around Points" />
+    <AddHotspot X="-1280.9312" Y="-5524.783" Z="13.902293" Range="70" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Imprisoned Darkspear" />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Trayexir"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Trayexir"/>
+    <SetRestHPPercent Value="70"/>
+    <SetUseFoodPercent Value="70"/>
+    <While Condition="Data.AllQuestObjectivesAreComplete('Minshina\'s Skull') == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Master Gadrin" QuestName="Minshina\'s Skull" />
+</ShadowProfile>

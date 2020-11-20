@@ -1,0 +1,410 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Mazzranache', 766) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Harant Ironbrace" />
+	<SetRepairNpc NpcName="Harant Ironbrace" />
+
+	<!-- Restock Mulgore 1-5 -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+
+	<!-- Water -->
+
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Moorat Longstride" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Moorat Longstride" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Moorat Longstride" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Rite of Vision', 771) == false and Data.HasCompletedQuest('Rite of Vision', 771) == false">
+		<TakeQuest NpcName="Zarlman Two-Moons" QuestId="771" QuestName="Rite of Vision" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rite of Vision', 771) == true and Data.QuestObjectiveIsComplete('Rite of Vision', 2, 771) == false">
+		<!-- Objective Settings -->
+		<SetBaseSettings />
+		<SetVendorNpc NpcName="Harant Ironbrace" />
+		<SetRepairNpc NpcName="Harant Ironbrace" />		
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[2912]=0</Lua>
+		<!-- QuestObjects -->
+		<AllowQuestNode NodeName="Ambercorn" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-2198.2265625" Y="-455.14990234375" Z="-6.869460105896" Range="100" />
+		<AddHotspot X="-2303.5349121094" Y="-663.46447753906" Z="-5.5820288658142" Range="100" />
+		<AddHotspot X="-2407.1145019531" Y="-630.16998291016" Z="-7.5129437446594" Range="100" />
+		<AddHotspot X="-2490.7856445313" Y="-602.21478271484" Z="-8.4448585510254" Range="100" />
+		<AddHotspot X="-2542.4841308594" Y="-550.29931640625" Z="-5.7743015289307" Range="100" />
+		<AddHotspot X="-2630.0625" Y="-423.47067260742" Z="-7.3793978691101" Range="100" />
+		<AddHotspot X="-2716.6259765625" Y="-347.34939575195" Z="0.30641156435013" Range="100" />
+		<AddHotspot X="-2667.7412109375" Y="-257.9792175293" Z="1.856711268425" Range="100" />
+		<AddHotspot X="-2678.1608886719" Y="-164.86592102051" Z="0.044201601296663" Range="100" />
+		<AddHotspot X="-2751.822265625" Y="-157.76577758789" Z="10.013034820557" Range="100" />
+		<While Condition="Data.QuestObjectiveIsComplete('Rite of Vision', 2, 771) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Rite of Vision', 771) == true and Data.QuestObjectiveIsComplete('Rite of Vision', 1, 771) == false">
+		<!-- Objective Settings -->
+		<SetBaseSettings />
+		<SetVendorNpc NpcName="Harant Ironbrace" />
+		<SetRepairNpc NpcName="Harant Ironbrace" />		
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[2910]=0</Lua>
+		<!-- QuestObjects -->
+		<AllowQuestNode NodeName="Well Stone" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-2508.3791503906" Y="-696.15435791016" Z="-4.929801940918" Range="100" />		
+		<While Condition="Data.QuestObjectiveIsComplete('Rite of Vision', 1, 771) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+	<If Condition="Data.HasActiveQuest('Poison Water', 748) == true and Data.AllQuestObjectivesAreComplete('Poison Water', 748) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Flatland Cougar" />
+		<!-- Blackspots -->
+		<AddBlackspot X="-2739.4602050781" Y="-433.77651977539" Z="-4.7284536361694" Range="25" />
+		<AddBlackspot X="-2538.4641113281" Y="-712.31127929688" Z="-9.0523996353149" Range="50" />
+		<AddBlackspot X="-2538.5349121094" Y="-708.4833984375" Z="-8.7811594009399" Range="25" />
+		<!-- Hotspots -->
+		<AddHotspot X="-2711.2114257813" Y="-175.77969360352" Z="7.1971096992493" Range="100" />
+		<AddHotspot X="-2694.2072753906" Y="-263.41494750977" Z="4.2089719772339" Range="100" />
+		<AddHotspot X="-2677.619140625" Y="-332.27648925781" Z="-6.7697110176086" Range="100" />
+		<AddHotspot X="-2697.0776367188" Y="-384.56756591797" Z="-9.764612197876" Range="100" />
+		<AddHotspot X="-2650.8781738281" Y="-455.11373901367" Z="-9.0466270446777" Range="100" />
+		<AddHotspot X="-2631.7475585938" Y="-529.7587890625" Z="-4.6932110786438" Range="100" />
+		<AddHotspot X="-2611.8779296875" Y="-595.80194091797" Z="-8.2638750076294" Range="100" />
+		<AddHotspot X="-2490.5903320313" Y="-654.42114257813" Z="-3.2288234233856" Range="100" />
+		<AddHotspot X="-2427.0603027344" Y="-738.43927001953" Z="-5.3005037307739" Range="100" />
+		<AddHotspot X="-2452.1245117188" Y="-829.00885009766" Z="-4.4841938018799" Range="100" />
+		<AddHotspot X="-2512.6430664063" Y="-872.86749267578" Z="-7.2157673835754" Range="100" />
+		<AddHotspot X="-2581.5236816406" Y="-898.01593017578" Z="-4.8732357025146" Range="100" />
+		<AddHotspot X="-2656.9477539063" Y="-903.60723876953" Z="-8.7930679321289" Range="100" />
+		<AddHotspot X="-2694.4221191406" Y="-832.81140136719" Z="-2.3617699146271" Range="100" />
+		<AddHotspot X="-2662.2421875" Y="-728.88928222656" Z="-5.8907113075256" Range="100" />
+		<AddHotspot X="-2646.62890625" Y="-623.95141601563" Z="-3.3413181304932" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Poison Water', 748) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Mazzranache', 766) == true and Data.AllQuestObjectivesAreComplete('Mazzranache', 766) == false">
+		<If Condition="Data.QuestObjectiveIsComplete('Mazzranache', 1, 766) == false" >
+			<!-- Objective Settings -->
+			<ClearHotspots />
+			<SetTargetingMode Mode="Around Points" />
+			<!-- Monsterfilter -->
+			<ClearMonsterFilter/>
+			<!-- Blackspots -->
+			<AddBlackspot X="-2739.4602050781" Y="-433.77651977539" Z="-4.7284536361694" Range="25" />
+			<AddBlackspot X="-2538.5349121094" Y="-708.4833984375" Z="-8.7811594009399" Range="25" />	
+			<!-- Hotspots -->
+			<AddHotspot X="-2711.2114257813" Y="-175.77969360352" Z="7.1971096992493" Range="100" />
+			<AddHotspot X="-2694.2072753906" Y="-263.41494750977" Z="4.2089719772339" Range="100" />
+			<AddHotspot X="-2677.619140625" Y="-332.27648925781" Z="-6.7697110176086" Range="100" />
+			<AddHotspot X="-2697.0776367188" Y="-384.56756591797" Z="-9.764612197876" Range="100" />
+			<AddHotspot X="-2650.8781738281" Y="-455.11373901367" Z="-9.0466270446777" Range="100" />
+			<AddHotspot X="-2631.7475585938" Y="-529.7587890625" Z="-4.6932110786438" Range="100" />
+			<AddHotspot X="-2611.8779296875" Y="-595.80194091797" Z="-8.2638750076294" Range="100" />
+			<AddHotspot X="-2490.5903320313" Y="-654.42114257813" Z="-3.2288234233856" Range="100" />
+			<AddHotspot X="-2427.0603027344" Y="-738.43927001953" Z="-5.3005037307739" Range="100" />
+			<AddHotspot X="-2452.1245117188" Y="-829.00885009766" Z="-4.4841938018799" Range="100" />
+			<AddHotspot X="-2512.6430664063" Y="-872.86749267578" Z="-7.2157673835754" Range="100" />
+			<AddHotspot X="-2581.5236816406" Y="-898.01593017578" Z="-4.8732357025146" Range="100" />
+			<AddHotspot X="-2656.9477539063" Y="-903.60723876953" Z="-8.7930679321289" Range="100" />
+			<AddHotspot X="-2694.4221191406" Y="-832.81140136719" Z="-2.3617699146271" Range="100" />
+			<AddHotspot X="-2662.2421875" Y="-728.88928222656" Z="-5.8907113075256" Range="100" />
+			<AddHotspot X="-2646.62890625" Y="-623.95141601563" Z="-3.3413181304932" Range="100" />
+			<While Condition="Data.QuestObjectiveIsComplete('Mazzranache', 1, 766) == false" >
+				<Wait Value="100" />
+			</While>
+		</If>
+		<If Condition="Data.QuestObjectiveIsComplete('Mazzranache', 3, 766) == false" >
+			<!-- Objective Settings -->
+			<ClearHotspots />
+			<SetTargetingMode Mode="Around Points" />
+			<!-- Monsterfilter -->
+			<ClearMonsterFilter/>
+			<!-- Blackspots -->
+			<AddBlackspot X="-2739.4602050781" Y="-433.77651977539" Z="-4.7284536361694" Range="35" />
+			<AddBlackspot X="-2538.5349121094" Y="-708.4833984375" Z="-8.7811594009399" Range="35" />
+			<!-- Hotspots -->
+			<AddHotspot X="-2711.2114257813" Y="-175.77969360352" Z="7.1971096992493" Range="100" />
+			<AddHotspot X="-2694.2072753906" Y="-263.41494750977" Z="4.2089719772339" Range="100" />
+			<AddHotspot X="-2677.619140625" Y="-332.27648925781" Z="-6.7697110176086" Range="100" />
+			<AddHotspot X="-2697.0776367188" Y="-384.56756591797" Z="-9.764612197876" Range="100" />
+			<AddHotspot X="-2650.8781738281" Y="-455.11373901367" Z="-9.0466270446777" Range="100" />
+			<AddHotspot X="-2631.7475585938" Y="-529.7587890625" Z="-4.6932110786438" Range="100" />
+			<AddHotspot X="-2611.8779296875" Y="-595.80194091797" Z="-8.2638750076294" Range="100" />
+			<AddHotspot X="-2490.5903320313" Y="-654.42114257813" Z="-3.2288234233856" Range="100" />
+			<AddHotspot X="-2427.0603027344" Y="-738.43927001953" Z="-5.3005037307739" Range="100" />
+			<AddHotspot X="-2452.1245117188" Y="-829.00885009766" Z="-4.4841938018799" Range="100" />
+			<AddHotspot X="-2512.6430664063" Y="-872.86749267578" Z="-7.2157673835754" Range="100" />
+			<AddHotspot X="-2581.5236816406" Y="-898.01593017578" Z="-4.8732357025146" Range="100" />
+			<AddHotspot X="-2656.9477539063" Y="-903.60723876953" Z="-8.7930679321289" Range="100" />
+			<AddHotspot X="-2694.4221191406" Y="-832.81140136719" Z="-2.3617699146271" Range="100" />
+			<AddHotspot X="-2662.2421875" Y="-728.88928222656" Z="-5.8907113075256" Range="100" />
+			<AddHotspot X="-2646.62890625" Y="-623.95141601563" Z="-3.3413181304932" Range="100" />
+			<While Condition="Data.QuestObjectiveIsComplete('Mazzranache', 3, 766) == false" >
+				<Wait Value="100" />
+			</While>
+		</If>	
+		<If Condition="Data.QuestObjectiveIsComplete('Mazzranache', 4, 766) == false" >
+			<!-- Objective Settings -->
+			<ClearHotspots />
+			<SetTargetingMode Mode="Around Points" />
+			<!-- Monsterfilter -->
+			<ClearMonsterFilter/>
+			<!-- Blackspots -->
+			<AddBlackspot X="-2739.4602050781" Y="-433.77651977539" Z="-4.7284536361694" Range="25" />
+			<AddBlackspot X="-2538.5349121094" Y="-708.4833984375" Z="-8.7811594009399" Range="25" />	
+			<!-- Hotspots -->
+			<AddHotspot X="-2711.2114257813" Y="-175.77969360352" Z="7.1971096992493" Range="100" />
+			<AddHotspot X="-2694.2072753906" Y="-263.41494750977" Z="4.2089719772339" Range="100" />
+			<AddHotspot X="-2677.619140625" Y="-332.27648925781" Z="-6.7697110176086" Range="100" />
+			<AddHotspot X="-2697.0776367188" Y="-384.56756591797" Z="-9.764612197876" Range="100" />
+			<AddHotspot X="-2650.8781738281" Y="-455.11373901367" Z="-9.0466270446777" Range="100" />
+			<AddHotspot X="-2631.7475585938" Y="-529.7587890625" Z="-4.6932110786438" Range="100" />
+			<AddHotspot X="-2611.8779296875" Y="-595.80194091797" Z="-8.2638750076294" Range="100" />
+			<AddHotspot X="-2490.5903320313" Y="-654.42114257813" Z="-3.2288234233856" Range="100" />
+			<AddHotspot X="-2427.0603027344" Y="-738.43927001953" Z="-5.3005037307739" Range="100" />
+			<AddHotspot X="-2452.1245117188" Y="-829.00885009766" Z="-4.4841938018799" Range="100" />
+			<AddHotspot X="-2512.6430664063" Y="-872.86749267578" Z="-7.2157673835754" Range="100" />
+			<AddHotspot X="-2581.5236816406" Y="-898.01593017578" Z="-4.8732357025146" Range="100" />
+			<AddHotspot X="-2656.9477539063" Y="-903.60723876953" Z="-8.7930679321289" Range="100" />
+			<AddHotspot X="-2694.4221191406" Y="-832.81140136719" Z="-2.3617699146271" Range="100" />
+			<AddHotspot X="-2662.2421875" Y="-728.88928222656" Z="-5.8907113075256" Range="100" />
+			<AddHotspot X="-2646.62890625" Y="-623.95141601563" Z="-3.3413181304932" Range="100" />
+			<While Condition="Data.QuestObjectiveIsComplete('Mazzranache', 4, 766) == false" >
+				<Wait Value="100" />
+			</While>
+		</If>		
+	</If>
+		<If Condition="Data.HasActiveQuest('Swoop Hunting', 761) == true and Data.AllQuestObjectivesAreComplete('Swoop Hunting', 761) == false">
+			<!-- Objective Settings -->
+			<ClearHotspots />
+			<ClearBlackspots />
+			<SetTargetingMode Mode="Around Points" />
+			<!-- Monsterfilter -->
+			<ClearMonsterFilter/>
+			<SetMonsterFilterMode Mode="Whitelist" />
+			<AddMonsterFilterName Value="Wiry Swoop" />
+			<!-- Blackspots -->
+			<AddBlackspot X="-2773.771484375" Y="-706.3720703125" Z="5.7095098495483" Range="25" />
+			<AddBlackspot X="-2538.5349121094" Y="-708.4833984375" Z="-8.7811594009399" Range="25" />
+			<!-- Hotspots -->
+			<AddHotspot X="-2522.9875488281" Y="-6.4532065391541" Z="6.5737891197205" Range="100" />
+			<AddHotspot X="-2570.2731933594" Y="94.134094238281" Z="42.536636352539" Range="100" />
+			<AddHotspot X="-2594.6630859375" Y="199.01672363281" Z="71.390975952148" Range="100" />
+			<AddHotspot X="-2677.564453125" Y="161.11778259277" Z="53.467113494873" Range="100" />
+			<AddHotspot X="-2429.4790039063" Y="116.62929534912" Z="41.786502838135" Range="100" />
+			<AddHotspot X="-2292.2531738281" Y="149.45373535156" Z="53.362659454346" Range="100" />
+			<AddHotspot X="-2234.158203125" Y="50.583110809326" Z="29.362451553345" Range="100" />
+			<AddHotspot X="-2121.333984375" Y="7.0443696975708" Z="22.974285125732" Range="100" />
+			<While Condition="Data.AllQuestObjectivesAreComplete('Swoop Hunting', 761) == false" >
+				<Wait Value="100" />
+			</While>
+		</If>	
+		<If Condition="Data.HasActiveQuest('Sharing the Land', 745) == true and Data.AllQuestObjectivesAreComplete('Sharing the Land', 745) == false">
+			<!-- Objective Settings -->
+			<ClearHotspots />
+			<ClearBlackspots />
+			<SetTargetingMode Mode="Around Points" />
+			<!-- Monsterfilter -->
+			<ClearMonsterFilter/>
+			<SetMonsterFilterMode Mode="Blacklist" />
+			<AddMonsterFilterName Value="Kodo Matriarch" />
+			<AddMonsterFilterName Value="Kodo Bull" />
+			<AddMonsterFilterName Value="Kodo Calf" />
+			<!-- Blackspots -->
+			<AddBlackspot X="-2773.771484375" Y="-706.3720703125" Z="5.7095098495483" Range="25" />
+			<!-- Hotspots -->
+			<AddHotspot X="-2751.6137695313" Y="-744.54754638672" Z="-0.89378714561462" Range="150" />
+			<While Condition="Data.AllQuestObjectivesAreComplete('Sharing the Land', 745) == false" >
+				<Wait Value="100" />
+			</While>
+		</If>
+			<!-- Objective Settings -->
+			<ClearHotspots />
+			<SetTargetingMode Mode="Around Points" />
+			<!-- Monsterfilter -->
+			<ClearMonsterFilter/>
+			<!-- Blackspots -->
+			<AddBlackspot X="-2538.5349121094" Y="-708.4833984375" Z="-8.7811594009399" Range="25" />	
+			<!-- Hotspots -->
+			<AddHotspot X="-2711.2114257813" Y="-175.77969360352" Z="7.1971096992493" Range="100" />
+			<AddHotspot X="-2694.2072753906" Y="-263.41494750977" Z="4.2089719772339" Range="100" />
+			<AddHotspot X="-2677.619140625" Y="-332.27648925781" Z="-6.7697110176086" Range="100" />
+			<AddHotspot X="-2697.0776367188" Y="-384.56756591797" Z="-9.764612197876" Range="100" />
+			<AddHotspot X="-2650.8781738281" Y="-455.11373901367" Z="-9.0466270446777" Range="100" />
+			<AddHotspot X="-2631.7475585938" Y="-529.7587890625" Z="-4.6932110786438" Range="100" />
+			<AddHotspot X="-2611.8779296875" Y="-595.80194091797" Z="-8.2638750076294" Range="100" />
+			<AddHotspot X="-2490.5903320313" Y="-654.42114257813" Z="-3.2288234233856" Range="100" />
+			<AddHotspot X="-2427.0603027344" Y="-738.43927001953" Z="-5.3005037307739" Range="100" />
+			<AddHotspot X="-2452.1245117188" Y="-829.00885009766" Z="-4.4841938018799" Range="100" />
+			<AddHotspot X="-2512.6430664063" Y="-872.86749267578" Z="-7.2157673835754" Range="100" />
+			<AddHotspot X="-2581.5236816406" Y="-898.01593017578" Z="-4.8732357025146" Range="100" />
+			<AddHotspot X="-2656.9477539063" Y="-903.60723876953" Z="-8.7930679321289" Range="100" />
+			<AddHotspot X="-2694.4221191406" Y="-832.81140136719" Z="-2.3617699146271" Range="100" />
+			<AddHotspot X="-2662.2421875" Y="-728.88928222656" Z="-5.8907113075256" Range="100" />
+			<AddHotspot X="-2646.62890625" Y="-623.95141601563" Z="-3.3413181304932" Range="100" />
+			<While Condition="UnitLevel('player') &lt; 8" >
+				<Wait Value="100" />
+			</While>
+		<If Condition="Data.HasActiveQuest('Mazzranache', 766) == true and Data.QuestObjectiveIsComplete('Mazzranache', 2, 766) == false" >
+			<!-- Objective Settings -->
+			<ClearHotspots />
+			<SetTargetingMode Mode="Around Points" />
+			<!-- Monsterfilter -->
+			<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Kodo Matriarch" />
+		<AddMonsterFilterName Value="Kodo Bull" />
+		<AddMonsterFilterName Value="Kodo Calf" />
+			<!-- Blackspots -->
+		<AddBlackspot X="-2538.5349121094" Y="-708.4833984375" Z="-8.7811594009399" Range="25" />
+		<AddBlackspot X="-1923.4549560547" Y="-710.03985595703" Z="3.628696680069" Range="50" />
+			<!-- Hotspots -->
+		<AddHotspot X="-1994.8619384766" Y="-878.32995605469" Z="-8.7695827484131" Range="100" />
+		<AddHotspot X="-1840.6268310547" Y="-752.40246582031" Z="-8.5744285583496" Range="100" />
+		<AddHotspot X="-1778.8337402344" Y="-813.81976318359" Z="18.097175598145" Range="100" />
+		<AddHotspot X="-1605.8232421875" Y="-780.58306884766" Z="-13.084328651428" Range="100" />
+		<AddHotspot X="-1494.9927978516" Y="-773.97503662109" Z="-32.786396026611" Range="100" />
+			<While Condition="Data.QuestObjectiveIsComplete('Mazzranache', 2, 766) == false" >
+				<Wait Value="100" />
+			</While>
+		</If>				
+	<If Condition="Data.HasActiveQuest('Poison Water', 748) == true and Data.AllQuestObjectivesAreComplete('Poison Water', 748) == true">
+		<ReturnQuest NpcName="Mull Thunderhorn" QuestId="748" QuestName="Poison Water" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Winterhoof Cleansing', 754) == false and Data.HasCompletedQuest('Winterhoof Cleansing', 754) == false">
+		<TakeQuest NpcName="Mull Thunderhorn" QuestId="754" QuestName="Winterhoof Cleansing" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Sharing the Land', 745) == true and Data.AllQuestObjectivesAreComplete('Sharing the Land', 745) == true">
+		<ReturnQuest NpcName="Baine Bloodhoof" QuestId="745" QuestName="Sharing the Land" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Swoop Hunting', 761) == true and Data.AllQuestObjectivesAreComplete('Swoop Hunting', 761) == true">
+		<ReturnQuest NpcName="Harken Windtotem" QuestId="761" QuestName="Swoop Hunting" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rite of Vision', 771) == true and Data.AllQuestObjectivesAreComplete('Rite of Vision', 771) == true">
+		<ReturnQuest NpcName="Zarlman Two-Moons" QuestId="771" QuestName="Rite of Vision" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rite of Vision', 772) == false and Data.HasCompletedQuest('Rite of Vision', 772) == false">
+		<TakeQuest NpcName="Zarlman Two-Moons" QuestId="772" QuestName="Rite of Vision" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Mazzranache', 766) == true and Data.AllQuestObjectivesAreComplete('Mazzranache', 766) == true">
+		<ReturnQuest NpcName="Maur Raincaller" QuestId="766" QuestName="Mazzranache" />
+	</If>
+</ShadowProfile>

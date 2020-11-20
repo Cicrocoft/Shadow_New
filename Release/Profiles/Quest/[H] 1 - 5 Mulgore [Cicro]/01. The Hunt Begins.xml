@@ -1,0 +1,183 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Hunt Begins', 747) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+	<Lua>SetCVar("instantQuestText", "1"); print("Instant Quest Text On");</Lua>
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Bronk Steelrage" />
+	<SetRepairNpc NpcName="Bronk Steelrage" />
+
+	<!-- Restock Mulgore 1-5 -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+
+	<!-- Water -->
+
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Kawnie Softbreeze" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Kawnie Softbreeze" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Kawnie Softbreeze" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('The Hunt Begins', 747) == false and Data.HasCompletedQuest('The Hunt Begins', 747) == false">
+		<TakeQuest NpcName="Grull Hawkwind" QuestId="747" QuestName="The Hunt Begins" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Humble Task', 752) == false and Data.HasCompletedQuest('A Humble Task', 752) == false">
+		<TakeQuest NpcName="Chief Hawkwind" QuestId="752" QuestName="A Humble Task" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Hunt Begins', 747) == true and Data.AllQuestObjectivesAreComplete('The Hunt Begins', 747) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-3047.4765625" Y="-403.12359619141" Z="37.805587768555" Range="200" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Hunt Begins', 747) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-3047.4765625" Y="-403.12359619141" Z="37.805587768555" Range="200" />
+		<While Condition="UnitLevel('player') &lt; 2 or UnitXP('player') &lt;= 400 and UnitXPMax('player') == 900" >
+			<Wait Value="100" />
+		</While>
+
+
+	<If Condition="Data.HasActiveQuest('A Humble Task', 752) == true and Data.AllQuestObjectivesAreComplete('A Humble Task', 752) == true">
+		<ReturnQuest NpcName="Greatmother Hawkwind" QuestId="752" QuestName="A Humble Task" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Humble Task', 753) == false and Data.HasCompletedQuest('A Humble Task', 753) == false">
+		<TakeQuest NpcName="Greatmother Hawkwind" QuestId="753" QuestName="A Humble Task" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Humble Task', 753) == true and Data.AllQuestObjectivesAreComplete('A Humble Task', 753) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[2907]=0</Lua>
+		<!-- QuestObjects -->
+		<AllowQuestNode NodeName="Water Pitcher" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-3055.2412109375" Y="-533.23034667969" Z="26.899082183838" Range="25" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('A Humble Task', 753) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('The Hunt Begins', 747) == true and Data.AllQuestObjectivesAreComplete('The Hunt Begins', 747) == true">
+		<ReturnQuest NpcName="Grull Hawkwind" QuestId="747" QuestName="The Hunt Begins" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('A Humble Task', 753) == true and Data.AllQuestObjectivesAreComplete('A Humble Task', 753) == true">
+		<ReturnQuest NpcName="Chief Hawkwind" QuestId="753" QuestName="A Humble Task" />
+	</If>
+	
+</ShadowProfile>

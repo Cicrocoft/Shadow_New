@@ -1,0 +1,26 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Consumed by Hatred') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Consumed by Hatred') == false">
+        <TakeQuest NpcName="Mankrik" QuestName="Consumed by Hatred" />
+
+    </If>
+    <SetBaseSettings />
+<AddHotspot X="-1449.2634277344" Y="-1578.7762451172" Z="92.294036865234" Range="150" />
+<AddHotspot X="-1490.0522460938" Y="-1767.1586914063" Z="91.666572570801" Range="150" />
+<AddHotspot X="-1616.6560058594" Y="-1725.6000976563" Z="93.025695800781" Range="150" />
+<AddHotspot X="-1736.9530029297" Y="-1806.8176269531" Z="91.667861938477" Range="150" />
+<AddHotspot X="-1884.3402099609" Y="-1817.8933105469" Z="92.171043395996" Range="150" />
+<AddHotspot X="-2015.6378173828" Y="-1882.6823730469" Z="95.117904663086" Range="150" />
+<AddHotspot X="-2006.228515625" Y="-2090.8713378906" Z="93.261558532715" Range="150" />   
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Uthrok"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Uthrok"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+        <While Condition="Data.QuestObjectiveIsComplete('Consumed by Hatred', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Mankrik" QuestName="Consumed by Hatred" />
+</ShadowProfile>

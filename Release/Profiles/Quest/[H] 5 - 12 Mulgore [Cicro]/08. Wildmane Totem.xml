@@ -1,0 +1,279 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Hunter\'s Way', 8651) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Harant Ironbrace" />
+	<SetRepairNpc NpcName="Harant Ironbrace" />
+
+	<!-- Restock Mulgore 1-5 -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Kauth" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Kauth" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Tough Jerky" </Lua>
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Kauth" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Kauth" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Moorat Longstride" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Moorat Longstride" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Moorat Longstride" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Wildmane Totem', 759) == false and Data.HasCompletedQuest('Wildmane Totem', 759) == false">
+		<TakeQuest NpcName="Mull Thunderhorn" QuestId="759" QuestName="Wildmane Totem" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Hunter\'s Way', 861) == false and Data.HasCompletedQuest('The Hunter\'s Way', 861) == false">
+		<TakeQuest NpcName="Skorn Whitecloud" QuestId="861" QuestName="The Hunter\'s Way" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Wildmane Totem', 759) == true and Data.AllQuestObjectivesAreComplete('Wildmane Totem', 759) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Flatland Prowler" />
+		<AddMonsterFilterName Value="Prairie Wolf Alpha" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-2336.3188476563" Y="-1199.4688720703" Z="-1.2282527685165" Range="150" />
+		<AddHotspot X="-2320.8278808594" Y="-1278.3395996094" Z="2.2695927619934" Range="150" />
+		<AddHotspot X="-2301.927734375" Y="-1366.2580566406" Z="17.630380630493" Range="150" />
+		<AddHotspot X="-2502.7182617188" Y="-1335.3819580078" Z="-3.4737102985382" Range="150" />
+		<AddHotspot X="-2571.4169921875" Y="-1250.5245361328" Z="0.15864649415016" Range="150" />
+		<AddHotspot X="-2576.1872558594" Y="-1154.3715820313" Z="-8.7526292800903" Range="150" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Wildmane Totem', 759) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	
+
+	<If Condition="Data.HasActiveQuest('Wildmane Totem', 759) == true and Data.AllQuestObjectivesAreComplete('Wildmane Totem', 759) == true">
+		<ReturnQuest NpcName="Mull Thunderhorn" QuestId="759" QuestName="Wildmane Totem" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Wildmane Cleansing', 760) == false and Data.HasCompletedQuest('Wildmane Cleansing', 760) == false">
+		<TakeQuest NpcName="Mull Thunderhorn" QuestId="760" QuestName="Wildmane Cleansing" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Hunter\'s Way', 861) == true and Data.AllQuestObjectivesAreComplete('The Hunter\'s Way', 861) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Flatland Prowler" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-1215.9080810547" Y="-778.42724609375" Z="-46.610363006592" Range="100" />
+		<AddHotspot X="-1092.6142578125" Y="-772.11926269531" Z="-40.27721786499" Range="100" />
+		<AddHotspot X="-951.53247070313" Y="-746.11291503906" Z="-21.035942077637" Range="100" />
+		<AddHotspot X="-841.76953125" Y="-701.51287841797" Z="-23.474817276001" Range="100" />
+		<AddHotspot X="-716.41741943359" Y="-627.50335693359" Z="-21.959728240967" Range="100" />
+		<AddHotspot X="-727.97424316406" Y="-536.12048339844" Z="-24.198455810547" Range="100" />
+		<AddHotspot X="-663.03631591797" Y="-441.67779541016" Z="-12.946858406067" Range="100" />
+		<AddHotspot X="-626.71862792969" Y="-250.50442504883" Z="2.0025033950806" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Hunter\'s Way', 861) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<While Condition="Data.HasActiveQuest('Wildmane Cleansing', 760) == true and QuestFailure(760) ~= 1">
+		<ClearHotspots />
+		<If Condition="Nav.RangeFromMeXYZ(-2537.5065917969, -707.89581298828, -8.6658668518066) &gt; 3">
+			<MoveTo X="-756.80859375" Y="-155.66676330566" Z="-27.830778121948" Range="3" />
+		</If>
+		<UseItem ItemName="Wildmane Cleansing Totem" />
+	</While>
+	<If Condition="Data.HasActiveQuest('The Hunter\'s Way', 861) == true and Data.AllQuestObjectivesAreComplete('The Hunter\'s Way', 861) == true">
+		<ReturnQuest NpcName="Melor Stonehoof" QuestId="861" QuestName="The Hunter\'s Way" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Sergra Darkthorn', 860) == false and Data.HasCompletedQuest('Sergra Darkthorn', 860) == false">
+		<TakeQuest NpcName="Melor Stonehoof" QuestId="860" QuestName="Sergra Darkthorn" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Barrens Oases', 886) == false and Data.HasCompletedQuest('The Barrens Oases', 886) == false">
+		<TakeQuest NpcName="Archdruid Hamuul Runetotem" QuestId="886" QuestName="The Barrens Oases" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Preparation for Ceremony', 744) == false and Data.HasCompletedQuest('Preparation for Ceremony', 744) == false">
+		<TakeQuest NpcName="Eyahn Eagletalon" QuestId="744" QuestName="Preparation for Ceremony" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Rite of Vision', 772) == true and Data.AllQuestObjectivesAreComplete('Rite of Vision', 772) == true">
+		<ReturnQuest NpcName="Seer Wiserunner" QuestId="772" QuestName="Rite of Vision" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rite of Wisdom', 773) == false and Data.HasCompletedQuest('Rite of Wisdom', 773) == false">
+		<TakeQuest NpcName="Seer Wiserunner" QuestId="773" QuestName="Rite of Wisdom" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Wildmane Cleansing', 760) == true and QuestFailure(760) == 1">
+		<ReturnQuest NpcName="Mull Thunderhorn" QuestId="760" QuestName="Wildmane Cleansing" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Venture Co.', 764) == false and Data.HasCompletedQuest('The Venture Co.', 764) == false">
+		<TakeQuest NpcName="Morin Cloudstalker" QuestId="764" QuestName="The Venture Co." DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Supervisor Fizsprocket', 765) == false and Data.HasCompletedQuest('Supervisor Fizsprocket', 765) == false">
+		<TakeQuest NpcName="Morin Cloudstalker" QuestId="765" QuestName="Supervisor Fizsprocket" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Supervisor Fizsprocket', 765) == true and Data.AllQuestObjectivesAreComplete('Supervisor Fizsprocket', 765) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<SetMaxZDifference Value="7" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Supervisor Fizsprocket" />
+		<!-- Blackspots -->
+		<AddBlackspot X="-1933.5788574219" Y="-1037.3129882813" Z="43.867767333984" Range="35" />
+		<!-- Hotspots -->
+		<AddHotspot X="-1756.3508300781" Y="-1288.31640625" Z="113.45936584473" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Supervisor Fizsprocket', 765) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Venture Co.', 764) == true and Data.AllQuestObjectivesAreComplete('The Venture Co.', 764) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<SetMaxZDifference Value="7" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Venture Co. Supervisor" />
+		<AddMonsterFilterName Value="Venture Co. Worker" />
+		<!-- Blackspots -->
+		<AddBlackspot X="-1933.5788574219" Y="-1037.3129882813" Z="43.867767333984" Range="35" />
+		<!-- Hotspots -->
+		<AddHotspot X="-1876.1389160156" Y="-1116.5543212891" Z="95.216461181641" Range="50" />
+		<AddHotspot X="-1852.6878662109" Y="-1130.1507568359" Z="96.637771606445" Range="50" />
+		<AddHotspot X="-1839.7347412109" Y="-1157.5489501953" Z="100.12670135498" Range="50" />
+		<AddHotspot X="-1818.5532226563" Y="-1183.7810058594" Z="106.88426971436" Range="50" />
+		<AddHotspot X="-1791.2805175781" Y="-1196.2525634766" Z="114.02416229248" Range="50" />
+		<AddHotspot X="-1773.201171875" Y="-1266.7344970703" Z="112.89916229248" Range="50" />
+		<AddHotspot X="-1771.3265380859" Y="-1152.3138427734" Z="117.34499359131" Range="50" />
+		<AddHotspot X="-1710.6639404297" Y="-1096.0883789063" Z="119.55702209473" Range="50" />
+		<AddHotspot X="-1692.5961914063" Y="-1172.5301513672" Z="109.92391204834" Range="50" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Venture Co.', 764) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('The Venture Co.', 764) == true and Data.AllQuestObjectivesAreComplete('The Venture Co.', 764) == true">
+		<ReturnQuest NpcName="Morin Cloudstalker" QuestId="764" QuestName="The Venture Co." DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Supervisor Fizsprocket', 765) == true and Data.AllQuestObjectivesAreComplete('Supervisor Fizsprocket', 765) == true">
+		<ReturnQuest NpcName="Morin Cloudstalker" QuestId="765" QuestName="Supervisor Fizsprocket" DestinationMap="1" />
+	</If>		
+</ShadowProfile>

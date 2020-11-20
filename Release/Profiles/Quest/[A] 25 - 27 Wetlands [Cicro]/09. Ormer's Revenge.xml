@@ -169,6 +169,7 @@
 	<If Condition="Data.HasActiveQuest('Ormer\'s Revenge', 294) == true and Data.AllQuestObjectivesAreComplete('Ormer\'s Revenge', 294) == false">
 		<!-- Objective Settings -->
 		<SetTargetingMode Mode="Around Points" />
+		<SetEnableIgnoreIfAgroAround Value="false" />
 		<ClearHotspots />
 		<ClearBlackspots />
 			<SetBaseSettings />
@@ -207,6 +208,7 @@
 	</If>	
 	<If Condition="Data.HasActiveQuest('In Search of The Excavation Team', 306) == true and Data.AllQuestObjectivesAreComplete('In Search of The Excavation Team', 306) == true">
 		<ClearHotspots />
+		<SetEnableIgnoreIfAgroAround Value="true" />
 		<AddBlackspot X="-3355.8095703125" Y="-1590.3544921875" Z="9.9569292068481" Range="100" />
 		<AddBlackspot X="-3383.7919921875" Y="-1509.9903564453" Z="12.763855934143" Range="100" />
 		<AddBlackspot X="-3463.7250976563" Y="-1442.0322265625" Z="9.1462001800537" Range="100" />

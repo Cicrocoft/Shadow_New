@@ -1,0 +1,238 @@
+<ShadowProfile Condition="Data.AllQuestObjectivesAreComplete('Speak with Sevren', 355) == false or Data.HasCompletedQuest('At War With The Scarlet Crusade', 427) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Eliza Callen"/>
+	<SetVendorNpc NpcName="Eliza Callen"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Mrs. Winters" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Mrs. Winters" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Mrs. Winters" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+	<If Condition="Data.HasActiveQuest('A New Plague', 368) == false and Data.HasCompletedQuest('A New Plague', 368) == false and Data.HasCompletedQuest('A New Plague', 367) == true">
+		<TakeQuest NpcName="Apothecary Johaan" QuestId="368" QuestName="A New Plague" DestinationMap="0" />
+	</If>			
+	<If Condition="Data.HasActiveQuest('At War With The Scarlet Crusade', 427) == false and Data.HasCompletedQuest('At War With The Scarlet Crusade', 427) == false">
+		<TakeQuest NpcName="Executor Zygand" QuestId="427" QuestName="At War With The Scarlet Crusade" DestinationMap="0" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Deaths in the Family') == true and Data.AllQuestObjectivesAreComplete('Deaths in the Family') == false">
+        <ClearHotspots />
+     <SetTargetingMode Mode="Around Points" />
+       <AddHotspot X="2751.5087890625" Y="793.90386962891" Z="114.36695098877" Range="150" />
+        <ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Nissa Agamand" />
+        <While Condition="Data.GetItemCountByName('Nissa\'s Remains') == 0" >
+            <Wait Value="100" />
+        </While>
+
+        <ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Gregor Agamand" />
+    <SetTargetingMode Mode="Around Points" />
+        <ClearHotspots />
+         <AddBlackspot X="2751.5087890625" Y="793.90386962891" Z="114.36695098877" Range="35" />
+		<AddHotspot X="2943.7211914063" Y="918.43988037109" Z="115.35106658936" Range="150" />
+
+        <While Condition="Data.GetItemCountByName('Gregor\'s Remains') == 0" >
+            <Wait Value="100" />
+        </While>
+
+        <ClearMonsterFilter/>
+        <SetEnableMonsterLevelFilter Value="false"/>
+        <SetMonsterFilterMode Mode="Whitelist" />
+        <AddMonsterFilterName Value="Thurman Agamand"/>
+    <SetTargetingMode Mode="Around Points" />
+        <ClearHotspots />
+        <AddHotspot X="2898.1623535156" Y="907.87951660156" Z="115.08913421631" Range="150" />
+        <AddHotspot X="2831.2055664063" Y="1045.0550537109" Z="111.33544921875" Range="150" />
+        
+        <While Condition="Data.GetItemCountByName('Thurman\'s Remains') == 0" >
+            <Wait Value="100" />
+        </While>
+    </If>
+	<If Condition="Data.HasActiveQuest('A New Plague', 368) == true and Data.AllQuestObjectivesAreComplete('A New Plague', 368) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Vile Fin Puddlejumper" />
+		<AddMonsterFilterName Value="Vile Fin Muckdweller" />		
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="2509.3681640625" Y="1409.4398193359" Z="3.7512104511261" Range="150" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('A New Plague', 368) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('At War With The Scarlet Crusade', 427) == true and Data.AllQuestObjectivesAreComplete('At War With The Scarlet Crusade', 427) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+        <SetMonsterAboveMyLevel Value="1"/>
+        <SetMonsterBelowMyLevel Value="2"/>       
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="Whitelist" />
+        <AddMonsterFilterName Value="Scarlet Warrior"/>        
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+        <AddHotspot X="2445.5422363281" Y="1508.5412597656" Z="35.420707702637" Range="150" />
+        <AddHotspot X="2402.3623046875" Y="1541.1397705078" Z="31.507856369019" Range="150" />
+        <AddHotspot X="2336.2155761719" Y="1563.2446289063" Z="33.663967132568" Range="150" />        
+		<While Condition="Data.AllQuestObjectivesAreComplete('At War With The Scarlet Crusade', 427) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('At War With The Scarlet Crusade', 427) == true and Data.AllQuestObjectivesAreComplete('At War With The Scarlet Crusade', 427) == true">
+		<ReturnQuest NpcName="Executor Zygand" QuestId="427" QuestName="At War With The Scarlet Crusade" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A New Plague', 368) == true and Data.AllQuestObjectivesAreComplete('A New Plague', 368) == true">
+		<ReturnQuest NpcName="Apothecary Johaan" QuestId="368" QuestName="A New Plague" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('A New Plague', 369) == false and Data.HasCompletedQuest('A New Plague', 369) == false">
+		<TakeQuest NpcName="Apothecary Johaan" QuestId="369" QuestName="A New Plague" DestinationMap="0" />
+	</If>	
+    <If Condition="not Data.HasActiveQuest('Proof of Demise') and not Data.HasCompletedQuest('Proof of Demise')">
+        <TakeQuest NpcName="Deathguard Burgess" QuestName="Proof of Demise" />
+    </If>
+ 	<If Condition="Data.HasActiveQuest('Proof of Demise') == true and Data.AllQuestObjectivesAreComplete('Proof of Demise') == false">
+        <ClearMonsterFilter/>
+     <SetTargetingMode Mode="Around Points" />
+        <SetEnableMonsterLevelFilter Value="true"/>
+        <SetMonsterAboveMyLevel Value="2"/>
+        <SetMonsterBelowMyLevel Value="9"/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Scarlet Warrior" />
+        <ClearHotspots />
+		<AddHotspot X="2381.9770507813" Y="1575.6907958984" Z="31.694198608398" Range="200" />
+
+        <While Condition="not Data.QuestObjectiveIsComplete('Proof of Demise', 1)" >
+            <Wait Value="100" />
+        </While>
+
+    </If> 
+	<If Condition="Data.HasActiveQuest('Proof of Demise', 374) == true and Data.AllQuestObjectivesAreComplete('Proof of Demise', 374) == true">
+		<ReturnQuest NpcName="Deathguard Burgess" QuestId="374" QuestName="Proof of Demise" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Deaths in the Family', 354) == true and Data.AllQuestObjectivesAreComplete('Deaths in the Family', 354) == true">
+		<ReturnQuest NpcName="Coleman Farthing" QuestId="354" QuestName="Deaths in the Family" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Speak with Sevren', 355) == false and Data.HasCompletedQuest('Speak with Sevren', 355) == false">
+		<TakeQuest NpcName="Coleman Farthing" QuestId="355" QuestName="Speak with Sevren" DestinationMap="0" />
+	</If>		
+		<If Condition="Data.HasActiveQuest('Speak with Sevren', 355) == true and Data.AllQuestObjectivesAreComplete('Speak with Sevren', 355) == true">
+		<ReturnQuest NpcName="Magistrate Sevren" QuestId="355" QuestName="Speak with Sevren" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Family Crypt', 408) == false and Data.HasCompletedQuest('The Family Crypt', 408) == false">
+		<TakeQuest NpcName="Magistrate Sevren" QuestId="408" QuestName="The Family Crypt" DestinationMap="0" />
+	</If>
+</ShadowProfile>

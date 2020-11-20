@@ -1,0 +1,140 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Night Web\'s Hollow') and Data.HasCompletedQuest('The Damned')">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Harold Raims"/>
+	<SetVendorNpc NpcName="Harold Raims"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Joshua Kien" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Joshua Kien" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Joshua Kien" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+ 	<SetMaxZDifference Value="30" />
+    <AddHotspot X="2095.1948242188" Y="1720.4921875" Z="67.457214355469" Range="250" />
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Young Night Web Spider"/>
+    <While Condition="not Data.QuestObjectiveIsComplete('Night Web\'s Hollow', 1)" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+    <AddHotspot X="2044.1739501953" Y="1837.2211914063" Z="107.25289916992" Range="250" />
+    <AddMonsterFilterName Value="Night Web Spider"/>
+    <While Condition="not Data.QuestObjectiveIsComplete('Night Web\'s Hollow', 2)" >
+        <Wait Value="100" />
+    </While>
+    <While Condition="UnitLevel('player') &lt; 5 or UnitXP('player') &lt;= 500 and UnitXPMax('player') == 2800" >
+        <Wait Value="100" />
+    </While>      
+    <ReturnQuest NpcName="Executor Arren" QuestName="Night Web's Hollow" />
+</ShadowProfile>

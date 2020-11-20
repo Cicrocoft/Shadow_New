@@ -1,0 +1,108 @@
+<ShadowProfile Condition="UnitLevel('player') &gt;= 10 and Data.PlayerClass() == WoWClass.Hunter and (Data.MyRace() == WoWRace.Troll or Data.MyRace() == WoWRace.Orc)">
+	
+		<Lua>settings.ShouldFeedPet = false</Lua>
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6062) == false and Data.HasCompletedQuest('Taming the Beast', 6062) == false">
+		<TakeQuest NpcName="Thotar" QuestId="6062" QuestName="Taming the Beast" DestinationMap="1" />
+	</If>
+
+	<While Condition="QuestFailure(6062) ~= 1 and Data.HasActiveQuest('Taming the Beast', 6062) == true">
+		<MoveTo X="144.98561096191" Y="-4678.8110351563" Z="22.573871612549" />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<SetEnableProfileIgnoreCombat Value="true" />
+		<UseItemOnNpc NpcId="3099" ItemId="15917" OnlyAlive="true" />
+		<Lua> BotSleep(10000) return true </Lua>
+		<SetEnableProfileIgnoreCombat Value="false" />
+	</While>	
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6062) == true and QuestFailure(6062) == 1">
+		<SetEnableProfileIgnoreCombat Value="false" />
+		<ReturnQuest NpcName="Thotar" QuestId="6062" QuestName="Taming the Beast" DestinationMap="1" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6083) == false and Data.HasCompletedQuest('Taming the Beast', 6083) == false">
+		<Lua>PetDismiss()</Lua>
+		<TakeQuest NpcName="Thotar" QuestId="6083" QuestName="Taming the Beast" DestinationMap="1" />
+	</If>
+
+
+	<While Condition="Data.HasActiveQuest('Taming the Beast', 6083) == true and QuestFailure(6083) ~= 1">
+		<MoveTo X="781.34735107422" Y="-5081.4379882813" Z="0.37973684072495" />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<SetEnableProfileIgnoreCombat Value="true" />
+		<UseItemOnNpc NpcId="3107" ItemId="15919" OnlyAlive="true" />
+		<Lua> BotSleep(10000) return true </Lua>
+		<SetEnableProfileIgnoreCombat Value="false" />
+	</While>	
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6083) == true and QuestFailure(6083) == 1">
+		<SetEnableProfileIgnoreCombat Value="false" />
+		<ReturnQuest NpcName="Thotar" QuestId="6083" QuestName="Taming the Beast" DestinationMap="1" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6082) == false and Data.HasCompletedQuest('Taming the Beast', 6082) == false">
+		<Lua>PetDismiss()</Lua>	
+		<TakeQuest NpcName="Thotar" QuestId="6082" QuestName="Taming the Beast" DestinationMap="1" />
+	</If>
+
+	<While Condition="Data.HasActiveQuest('Taming the Beast', 6082) == true and QuestFailure(6082) ~= 1">
+		<MoveTo X="192.65675354004" Y="-4388.5546875" Z="38.365329742432" />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<SetEnableProfileIgnoreCombat Value="true" />
+		<UseItemOnNpc NpcId="3126" ItemId="15920" OnlyAlive="true" />
+		<Lua> BotSleep(10000) return true </Lua>
+		<SetEnableProfileIgnoreCombat Value="false" />
+	</While>	
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6082) == true and QuestFailure(6082) == 1">
+		<ReturnQuest NpcName="Thotar" QuestId="6082" QuestName="Taming the Beast" DestinationMap="1" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Training the Beast', 6081) == false and Data.HasCompletedQuest('Training the Beast', 6081) == false">
+		<!--<SetCRMode Mode="External"/> -->
+		<TakeQuest NpcName="Thotar" QuestId="6081" QuestName="Training the Beast" DestinationMap="1" />
+	</If>
+<!--	<If Condition="select(3, GetStablePetInfo(0)) == 0" >
+
+		<SetEnableIgnoreLootAroundMobs Value="false"/>
+		<SetEnablePreemptiveMonsterAttack Value="false"/>
+		<SetEnableProfileIgnoreCombat Value="true"/>
+		<SetEnableUseFood Value="false" />
+		<SetEnableUseDrink Value="false" />
+		<SetEnableVendoring Value="false"/>
+		<SetEnableRepairing Value="false"/>
+		<SetEnableRest Value="false"/>
+	</If>
+	<While Condition="select(3, GetStablePetInfo(0)) == 0" >
+	<If Condition="UnitName('target') ~= 'Dire Mottled Boar'">
+
+		<Lua>PetDismiss()</Lua>	
+		<MoveTo X="102.1580581665" Y="-4709.0434570313" Z="26.400255203247" Range="2" />	
+		<Wait Value="100" />
+		<Lua>TargetUnit('Dire Mottled Boar')</Lua>
+	</If>		
+	<If Condition="UnitName('target') == 'Dire Mottled Boar' and Nav.RangeFromMe('target') &gt;= 10 and Nav.RangeFromMe('target') &lt; 60" >
+	<Lua>Nav.MoveToOBJ("target")</Lua>
+	<Wait Value="100" />
+	</If>	
+	<Wait Value="2500" />	
+	<If Condition="UnitName('target') == 'Dire Mottled Boar' and Nav.RangeFromMe('target') &lt;= 10">
+	<Wait Value="100" />
+	<Lua>CastSpellByName("Tame Beast")
+		mainFrame.Sleep(10000)</Lua>
+	</If>	
+	</While>
+	<Wait Value="2500" />	
+	<If Condition="select(3, GetStablePetInfo(0)) ~= 0" >
+		<SetEnableIgnoreLootAroundMobs Value="true"/>
+		<SetEnablePreemptiveMonsterAttack Value="true"/>
+		<SetCRMode Mode="Internal"/>
+		<SetEnableProfileIgnoreCombat Value="false"/>
+		<SetEnableUseFood Value="true" />
+		<SetEnableUseDrink Value="true" />
+		<SetEnableVendoring Value="true"/>
+		<SetEnableRepairing Value="true"/>
+		<SetEnableRest Value="true"/>
+	</If>	-->
+	<If Condition="Data.HasActiveQuest('Training the Beast', 6081) == true">
+		<ReturnQuest NpcName="Ormak Grimshot" QuestId="6081" QuestName="Training the Beast" />
+	</If>
+</ShadowProfile>

@@ -1,0 +1,28 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Stagnant Oasis') == false">
+
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('The Stagnant Oasis') == false">
+        <TakeQuest NpcName="Tonga Runetotem" QuestName="The Stagnant Oasis" />
+    </If>
+
+<SetTargetingMode Mode="Gather Only" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Bubbling Fissure" />
+    <SetEnableQuestNodes Value="true" />
+	<MoveTo  X="-1275.5246582031" Y="-3011.8154296875" Z="73.094062805176" NoNav="true"/>
+    <AddHotspot X="-1275.5246582031" Y="-3011.8154296875" Z="73.094062805176" Range="50" />
+
+   
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Uthrok"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Uthrok"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+        <While Condition="Data.QuestObjectiveIsComplete('The Stagnant Oasis', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Tonga Runetotem" QuestName="The Stagnant Oasis" />
+</ShadowProfile>

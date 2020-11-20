@@ -1,0 +1,74 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Rites of the Earthmother', 755) == false">
+
+	<SetBaseSettings />
+	<If Condition="Data.HasActiveQuest('Rites of the Earthmother', 755) == false and Data.HasCompletedQuest('Rites of the Earthmother', 755) == false">
+		<TakeQuest NpcName="Chief Hawkwind" QuestId="755" QuestName="Rites of the Earthmother" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Hunt Continues', 750) == false and Data.HasCompletedQuest('The Hunt Continues', 750) == false">
+		<TakeQuest NpcName="Grull Hawkwind" QuestId="750" QuestName="The Hunt Continues" />
+	</If>
+
+
+<!-- Cow Hunter -->	
+
+	<If Condition="Data.HasActiveQuest('Etched Note') == false and Data.HasCompletedQuest('Etched Note') == false and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Tauren">
+
+        <TakeQuest NpcName="Grull Hawkwind" QuestName="Etched Note" />
+
+    </If>
+
+    <If Condition="Data.HasActiveQuest('Etched Note') == true and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Tauren"> 
+
+		<ReturnQuest NpcName="Lanka Farshot" QuestName="Etched Note" />
+
+	</If>	
+	
+	
+<!-- Cow Warrior -->
+
+	<If Condition="Data.HasActiveQuest('Simple Note') == false and Data.HasCompletedQuest('Simple Note') == false and Data.PlayerClass() == WoWClass.Warrior and Data.MyRace() == WoWRace.Tauren">
+
+        <TakeQuest NpcName="Grull Hawkwind" QuestName="Simple Note" />
+
+    </If>
+
+    <If Condition="Data.HasActiveQuest('Simple Note') == true and Data.PlayerClass() == WoWClass.Warrior and Data.MyRace() == WoWRace.Tauren"> 
+
+		<ReturnQuest NpcName="Harutt Thunderhorn" QuestName="Simple Note" />
+
+	</If>	
+
+
+<!-- Cow Druid -->
+
+	<If Condition="Data.HasActiveQuest('Verdant Note') == false and Data.HasCompletedQuest('Verdant Note') == false and Data.PlayerClass() == WoWClass.Druid and Data.MyRace() == WoWRace.Tauren">
+
+        <TakeQuest NpcName="Grull Hawkwind" QuestName="Verdant Note" />
+
+    </If>
+
+    <If Condition="Data.HasActiveQuest('Verdant Note') == true and Data.PlayerClass() == WoWClass.Druid and Data.MyRace() == WoWRace.Tauren"> 
+
+		<ReturnQuest NpcName="Gart Mistrunner" QuestName="Verdant Note" />
+
+	</If>		
+
+<!-- Cow Shaman -->	
+
+	<If Condition="Data.HasActiveQuest('Rune-Inscribed Note') == false and Data.HasCompletedQuest('Rune-Inscribed Note') == false and Data.PlayerClass() == WoWClass.Shaman and Data.MyRace() == WoWRace.Tauren">
+
+        <TakeQuest NpcName="Grull Hawkwind" QuestName="Rune-Inscribed Note" />
+
+    </If>
+
+    <If Condition="Data.HasActiveQuest('Rune-Inscribed Note') == true and Data.PlayerClass() == WoWClass.Shaman and Data.MyRace() == WoWRace.Tauren"> 
+
+		<ReturnQuest NpcName="Meela Dawnstrider" QuestName="Rune-Inscribed Note" />
+
+	</If>	
+	<If Condition="Data.HasActiveQuest('Break Sharptusk!', 3376) == false and Data.HasCompletedQuest('Break Sharptusk!', 3376) == false">
+		<TakeQuest NpcName="Brave Windfeather" QuestId="3376" QuestName="Break Sharptusk!" />
+	</If>
+
+
+</ShadowProfile>

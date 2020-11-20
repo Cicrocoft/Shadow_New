@@ -1,0 +1,162 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Translation to Ello', 252) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Morg Gnarltree" />
+	<SetRepairNpc NpcName="Morg Gnarltree" />
+
+	<If Condition="Data.HasActiveQuest('Ogre Thieves', 134) == false and Data.HasCompletedQuest('Ogre Thieves', 134) == false">
+		<TakeQuest NpcName="Abercrombie" QuestId="134" QuestName="Ogre Thieves" DestinationMap="0" />
+	</If>	
+	<While Condition="Data.HasActiveQuest('Ogre Thieves', 134) == true and Data.AllQuestObjectivesAreComplete('Ogre Thieves', 134) == false">
+		<AddBlackspot X="-10375.330078125" Y="-1257.0374755859" Z="35.829116821289" Range="25" />
+		<MoveTo X="-11090.579101563" Y="-67.973915100098" Z="14.796816825867" Range="15" DestinationMap="0" />
+		<InteractWithClosestGameObject GameObjectId="119" />
+	</While>
+
+
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />		
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-11033.471679688" Y="-103.14465332031" Z="16.213743209839" Range="100" />
+		<AddHotspot X="-10989.338867188" Y="-161.70999145508" Z="15.549485206604" Range="100" />
+		<While Condition="UnitLevel('player') &lt; 31 or UnitXP('player') &lt;= 5000 and UnitXPMax('player') == 50800" >
+            <If Condition="IsSpellKnown(604) and Data.HaveBuff('player', 'Dampen Magic') == false and Data.PlayerClass() == WoWClass.Mage">
+                <CastSpell SpellName="Dampen Magic"/>
+                <Wait Value="500"/>
+            </If> 			
+			<Wait Value="100" />
+		</While>
+	<If Condition="Data.HasActiveQuest('Ogre Thieves', 134) == true and Data.AllQuestObjectivesAreComplete('Ogre Thieves', 134) == true">
+		<ReturnQuest NpcName="Abercrombie" QuestId="134" QuestName="Ogre Thieves" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Note to the Mayor', 160) == false and Data.HasCompletedQuest('Note to the Mayor', 160) == false">
+		<TakeQuest NpcName="Abercrombie" QuestId="160" QuestName="Note to the Mayor" DestinationMap="0" />
+	</If>	
+		<AddBlackspot X="-10254.6640625" Y="-805.28161621094" Z="43.936904907227" Range="50" />
+		<AddBlackspot X="-10256.9609375" Y="-733.23168945313" Z="45.805068969727" Range="50" />	
+	<If Condition="Data.HasActiveQuest('Note to the Mayor', 160) == true">
+	    <SetEnablePreemptiveMonsterAttack Value="false"/>
+		<ReturnQuest NpcName="Lord Ello Ebonlocke" QuestId="160" QuestName="Note to the Mayor" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Translate Abercrombie\'s Note', 251) == false and Data.HasCompletedQuest('Translate Abercrombie\'s Note', 251) == false">
+		<TakeQuest NpcName="Lord Ello Ebonlocke" QuestId="251" QuestName="Translate Abercrombie\'s Note" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Translate Abercrombie\'s Note', 251) == true and Data.AllQuestObjectivesAreComplete('Translate Abercrombie\'s Note', 251) == true">
+		<ReturnQuest NpcName="Sirra Von'Indi" QuestId="251" QuestName="Translate Abercrombie\'s Note" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Wait for Sirra to Finish', 401) == false and Data.HasCompletedQuest('Wait for Sirra to Finish', 401) == false">
+		<TakeQuest NpcName="Sirra Von'Indi" QuestId="401" QuestName="Wait for Sirra to Finish" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Wait for Sirra to Finish', 401) == true and Data.AllQuestObjectivesAreComplete('Wait for Sirra to Finish', 401) == true">
+		<BotSleep Value="8000" />
+		<ReturnQuest NpcName="Sirra Von'Indi" QuestId="401" QuestName="Wait for Sirra to Finish" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Translation to Ello', 252) == false and Data.HasCompletedQuest('Translation to Ello', 252) == false">
+		<TakeQuest NpcName="Sirra Von'Indi" QuestId="252" QuestName="Translation to Ello" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Translation to Ello', 252) == true and Data.AllQuestObjectivesAreComplete('Translation to Ello', 252) == true">
+		<ReturnQuest NpcName="Lord Ello Ebonlocke" QuestId="252" QuestName="Translation to Ello" DestinationMap="0" />
+	</If>	
+</ShadowProfile>

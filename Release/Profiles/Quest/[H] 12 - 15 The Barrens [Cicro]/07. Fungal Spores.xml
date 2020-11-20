@@ -1,0 +1,284 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Fungal Spores', 848) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="1"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="10" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Nargal Deatheye" />
+	<SetRepairNpc NpcName="Nargal Deatheye" />	
+	<!-- Local Do not sell Items -->
+
+	<!-- Restock Crossroads 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Shiny Red Apple" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Shiny Red Apple" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Shiny Red Apple" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Boorand Plainswind" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Fungal Spores', 848) == false and Data.HasCompletedQuest('Fungal Spores', 848) == false">
+		<TakeQuest NpcName="Apothecary Helbrim" QuestId="848" QuestName="Fungal Spores" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Centaur Bracers', 855) == false and Data.HasCompletedQuest('Centaur Bracers', 855) == false">
+		<TakeQuest NpcName="Regthar Deathgate" QuestId="855" QuestName="Centaur Bracers" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Fungal Spores', 848) == true and Data.AllQuestObjectivesAreComplete('Fungal Spores', 848) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[3640]=0</Lua>
+		<!-- QuestObjects -->
+		<AllowQuestNode NodeName="Laden Mushroom" />
+		<!-- Blackspots -->
+        <AddBlackspot X="-983.06127929688" Y="-2217.2712402344" Z="97.868644714355" Range="25" />
+		<AddBlackspot X="-1077.5915527344" Y="-2009.5416259766" Z="80.576675415039" Range="25" />
+		<AddBlackspot X="-1103.1246337891" Y="-2035.0084228516" Z="80.331497192383" Range="25" />
+		<AddBlackspot X="-1118.2608642578" Y="-2058.0229492188" Z="81.281768798828" Range="25" />
+		<AddBlackspot X="-1130.3117675781" Y="-2085.4892578125" Z="82.342727661133" Range="25" />
+		<AddBlackspot X="-1126.4221191406" Y="-2117.2133789063" Z="80.877029418945" Range="25" />
+		<AddBlackspot X="-1123.7630615234" Y="-2147.2028808594" Z="81.940414428711" Range="25" />
+		<AddBlackspot X="-1129.8104248047" Y="-2176.564453125" Z="81.448928833008" Range="25" />
+		<AddBlackspot X="-1133.9420166016" Y="-2204.7526855469" Z="80.750495910645" Range="25" />
+		<AddBlackspot X="-1136.7868652344" Y="-2236.8793945313" Z="81.929466247559" Range="25" />
+		<AddBlackspot X="-1127.6569824219" Y="-2257.4104003906" Z="80.155212402344" Range="25" />
+		<AddBlackspot X="-1101.94140625" Y="-2267.4890136719" Z="81.382095336914" Range="25" />
+		<AddBlackspot X="-1071.9371337891" Y="-2241.9409179688" Z="80.816413879395" Range="25" />
+		<AddBlackspot X="-1058.9652099609" Y="-2199.3693847656" Z="81.559181213379" Range="25" />
+        <AddBlackspot X="-113.90196990967" Y="-2023.1209716797" Z="91.667152404785" Range="50" />
+		<AddBlackspot X="-41.389377593994" Y="-2213.7407226563" Z="91.666618347168" Range="25" />
+		<AddBlackspot X="50.120178222656" Y="-2099.3896484375" Z="91.666786193848" Range="25" />
+		<AddBlackspot X="70.159080505371" Y="-2097.4895019531" Z="91.667098999023" Range="25" />
+		<!-- Hotspots -->
+		<AddHotspot X="-118.17419433594" Y="-1894.9556884766" Z="92.441200256348" Range="50" />
+		<AddHotspot X="-22.155788421631" Y="-1838.3493652344" Z="98.835975646973" Range="50" />
+		<AddHotspot X="-14.174715042114" Y="-1896.1420898438" Z="92.900169372559" Range="100" />
+		<AddHotspot X="24.236392974854" Y="-1960.388671875" Z="90.67276763916" Range="100" />
+		<AddHotspot X="110.03479766846" Y="-1985.5631103516" Z="91.933982849121" Range="100" />
+		<AddHotspot X="111.76275634766" Y="-1914.0817871094" Z="91.20930480957" Range="100" />
+		<AddHotspot X="53.652381896973" Y="-1894.1409912109" Z="92.345863342285" Range="100" />
+		<AddHotspot X="-898.43090820313" Y="-2049.0520019531" Z="80.046546936035" Range="100" />
+		<AddHotspot X="-958.52923583984" Y="-2068.8566894531" Z="80.986259460449" Range="100" />
+		<AddHotspot X="-1004.4548950195" Y="-2108.423828125" Z="80.975578308105" Range="100" />
+		<AddHotspot X="-1054.1821289063" Y="-2166.1108398438" Z="80.941909790039" Range="100" />
+		<AddHotspot X="-1047.5528564453" Y="-2153.6137695313" Z="80.812599182129" Range="100" />
+		<AddHotspot X="-1001.1950073242" Y="-2106.3530273438" Z="80.936088562012" Range="100" />
+		<AddHotspot X="-969.72406005859" Y="-2066.7734375" Z="80.47550201416" Range="100" />
+		<AddHotspot X="-992.05352783203" Y="-2031.4631347656" Z="80.625938415527" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Fungal Spores', 848) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+
+	<If Condition="Data.HasActiveQuest('Centaur Bracers', 855) == true and Data.AllQuestObjectivesAreComplete('Centaur Bracers', 855) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+        <ClearAllowedQuestNodes/>
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Oasis Snapjaw" />
+		<!-- Blackspots -->
+        <AddBlackspot X="-983.06127929688" Y="-2217.2712402344" Z="97.868644714355" Range="25" />
+		<AddBlackspot X="-1077.5915527344" Y="-2009.5416259766" Z="80.576675415039" Range="25" />
+		<AddBlackspot X="-1103.1246337891" Y="-2035.0084228516" Z="80.331497192383" Range="25" />
+		<AddBlackspot X="-1118.2608642578" Y="-2058.0229492188" Z="81.281768798828" Range="25" />
+		<AddBlackspot X="-1130.3117675781" Y="-2085.4892578125" Z="82.342727661133" Range="25" />
+		<AddBlackspot X="-1126.4221191406" Y="-2117.2133789063" Z="80.877029418945" Range="25" />
+		<AddBlackspot X="-1123.7630615234" Y="-2147.2028808594" Z="81.940414428711" Range="25" />
+		<AddBlackspot X="-1129.8104248047" Y="-2176.564453125" Z="81.448928833008" Range="25" />
+		<AddBlackspot X="-1133.9420166016" Y="-2204.7526855469" Z="80.750495910645" Range="25" />
+		<AddBlackspot X="-1136.7868652344" Y="-2236.8793945313" Z="81.929466247559" Range="25" />
+		<AddBlackspot X="-1127.6569824219" Y="-2257.4104003906" Z="80.155212402344" Range="25" />
+		<AddBlackspot X="-1101.94140625" Y="-2267.4890136719" Z="81.382095336914" Range="25" />
+		<AddBlackspot X="-1071.9371337891" Y="-2241.9409179688" Z="80.816413879395" Range="25" />
+		<AddBlackspot X="-1058.9652099609" Y="-2199.3693847656" Z="81.559181213379" Range="25" />
+		<AddBlackspot X="-113.90196990967" Y="-2023.1209716797" Z="91.667152404785" Range="50" />
+		<AddBlackspot X="-41.389377593994" Y="-2213.7407226563" Z="91.666618347168" Range="25" />
+		<AddBlackspot X="50.120178222656" Y="-2099.3896484375" Z="91.666786193848" Range="25" />
+		<AddBlackspot X="70.159080505371" Y="-2097.4895019531" Z="91.667098999023" Range="25" />      
+		<AddBlackspot X="-85.081954956055" Y="-1839.2365722656" Z="95.791870117188" Range="25" />  
+		<AddBlackspot X="-81.587623596191" Y="-1927.1809082031" Z="103.07676696777" Range="25" />
+		<AddBlackspot X="-56.744728088379" Y="-1910.9169921875" Z="127.24435424805" Range="50" />
+		<!-- Hotspots -->
+		<AddBlackspot X="-118.17419433594" Y="-1894.9556884766" Z="92.441200256348" Range="40" />
+		<AddHotspot X="-22.155788421631" Y="-1838.3493652344" Z="98.835975646973" Range="50" />
+		<AddHotspot X="-14.174715042114" Y="-1896.1420898438" Z="92.900169372559" Range="100" />
+		<AddHotspot X="24.236392974854" Y="-1960.388671875" Z="90.67276763916" Range="100" />
+		<AddHotspot X="110.03479766846" Y="-1985.5631103516" Z="91.933982849121" Range="100" />
+		<AddHotspot X="111.76275634766" Y="-1914.0817871094" Z="91.20930480957" Range="100" />
+		<AddHotspot X="53.652381896973" Y="-1894.1409912109" Z="92.345863342285" Range="100" />
+		<AddHotspot X="-898.43090820313" Y="-2049.0520019531" Z="80.046546936035" Range="100" />
+		<AddHotspot X="-958.52923583984" Y="-2068.8566894531" Z="80.986259460449" Range="100" />
+		<AddHotspot X="-1004.4548950195" Y="-2108.423828125" Z="80.975578308105" Range="100" />
+		<AddHotspot X="-1054.1821289063" Y="-2166.1108398438" Z="80.941909790039" Range="100" />
+		<AddHotspot X="-1047.5528564453" Y="-2153.6137695313" Z="80.812599182129" Range="100" />
+		<AddHotspot X="-1001.1950073242" Y="-2106.3530273438" Z="80.936088562012" Range="100" />
+		<AddHotspot X="-969.72406005859" Y="-2066.7734375" Z="80.47550201416" Range="100" />
+		<AddHotspot X="-992.05352783203" Y="-2031.4631347656" Z="80.625938415527" Range="100" />
+
+		<While Condition="Data.AllQuestObjectivesAreComplete('Centaur Bracers', 855) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<SetEnableMonsterLevelFilter Value="true" />
+		<SetMonsterAboveMyLevel Value="1" />
+		<SetMonsterBelowMyLevel Value="5" />      
+        <ClearAllowedQuestNodes/>  
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+        <AddBlackspot X="-983.06127929688" Y="-2217.2712402344" Z="97.868644714355" Range="25" />
+		<AddBlackspot X="-598.37829589844" Y="-1824.7260742188" Z="91.67310333252" Range="25" />
+		<AddBlackspot X="-515.39172363281" Y="-1866.7592773438" Z="91.666801452637" Range="25" />
+		<!-- Hotspots -->
+		<AddHotspot X="-811.46051025391" Y="-1914.3742675781" Z="93.59822845459" Range="100" />
+		<AddHotspot X="-757.35791015625" Y="-1904.7678222656" Z="92.189086914063" Range="100" />
+		<AddHotspot X="-691.12414550781" Y="-1924.4743652344" Z="93.535820007324" Range="100" />
+		<AddHotspot X="-608.26184082031" Y="-1919.947265625" Z="91.702346801758" Range="100" />
+		<AddHotspot X="-545.51190185547" Y="-1940.0712890625" Z="92.227493286133" Range="100" />
+		<AddHotspot X="-505.72528076172" Y="-1978.3205566406" Z="95.146011352539" Range="100" />
+		<AddHotspot X="-441.91818237305" Y="-2039.1372070313" Z="91.666915893555" Range="100" />
+		<AddHotspot X="-378.74447631836" Y="-2024.2453613281" Z="92.374374389648" Range="100" />
+		<While Condition="UnitLevel('player') &lt; 15" >
+			<Wait Value="100" />
+		</While>   
+
+
+	<If Condition="Data.HasActiveQuest('Centaur Bracers', 855) == true and Data.AllQuestObjectivesAreComplete('Centaur Bracers', 855) == true">
+		<ReturnQuest NpcName="Regthar Deathgate" QuestId="855" QuestName="Centaur Bracers" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Fungal Spores', 848) == true and Data.AllQuestObjectivesAreComplete('Fungal Spores', 848) == true">
+		<ReturnQuest NpcName="Apothecary Helbrim" QuestId="848" QuestName="Fungal Spores" DestinationMap="1" />
+	</If>	
+
+
+
+</ShadowProfile>

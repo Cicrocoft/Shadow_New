@@ -1,0 +1,165 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Mindless Ones') == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Harold Raims"/>
+	<SetVendorNpc NpcName="Harold Raims"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Joshua Kien" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Joshua Kien" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Joshua Kien" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+
+    <If Condition="Data.HasActiveQuest('Rude Awakening') == false">
+        <TakeQuest NpcName="Shadow Priest Sarvis" QuestName="The Mindless Ones" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('Piercing the Veil') and Data.PlayerClass() == WoWClass.Warlock">
+        <TakeQuest NpcName="Venya Marthand" QuestName="Piercing the Veil" />
+    </If>
+
+    <AddHotspot X="1891.425" Y="1587.3301" Z="88.902214" Range="250" />
+    <AddHotspot X="1927.575" Y="1596.3677" Z="84.62694" Range="250" />
+    <AddHotspot X="1867.3248" Y="1533.105" Z="88.80308" Range="250" />
+    <AddHotspot X="1903.4751" Y="1496.9551" Z="89.20308" Range="250" />
+    <AddHotspot X="1957.9857" Y="1605.9768" Z="83.7948" Range="250" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Mindless Zombie"/>
+    <While Condition="Data.QuestObjectiveIsComplete('The Mindless Ones', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ClearMonsterFilter/>
+    <AddMonsterFilterName Value="Wretched Zombie"/>
+     <While Condition="Data.QuestObjectiveIsComplete('The Mindless Ones', 2) == false" >
+        <Wait Value="100" />
+    </While>
+
+    <If Condition="Data.HasActiveQuest('Piercing the Veil') and Data.PlayerClass() == WoWClass.Warlock">
+        <SetBaseSettings />
+        <AddHotspot X="2006.869140625" Y="1550.0568847656" Z="78.430068969727" Range="250" />
+        <SetEnableVendoring Value="true"/>
+        <SetVendorNpc NpcName="Harold Raims"/>
+        <SetEnableRepairing Value="true"/>
+        <SetRepairNpc NpcName="Harold Raims"/>
+        <SetTargetingMode Mode="Around Points" />
+        <ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="Whitelist" />
+        <AddMonsterFilterName Value="Rattlecage Skeleton"/>
+        <While Condition="Data.QuestObjectiveIsComplete('Piercing the Veil', 1) == false" >
+            <Wait Value="100" />
+        </While>
+    </If>
+
+   <ReturnQuest NpcName="Shadow Priest Sarvis" QuestName="The Mindless Ones" />
+    <If Condition="Data.PlayerClass() == WoWClass.Warlock and Data.HasActiveQuest('Piercing the Veil') and Data.QuestObjectiveIsComplete('Piercing the Veil', 1)">
+        <ReturnQuest NpcName="Venya Marthand" QuestName="Piercing the Veil" />
+    </If>
+</ShadowProfile>

@@ -1,0 +1,248 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Raptor Horns', 865) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="WoWMaps.Kalimdor"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="10" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Nargal Deatheye" />
+	<SetRepairNpc NpcName="Nargal Deatheye" />	
+	<!-- Local Do not sell Items -->
+
+	<!-- Restock Crossroads 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Shiny Red Apple" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Shiny Red Apple" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Shiny Red Apple" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Boorand Plainswind" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Raptor Horns', 865) == false and Data.HasCompletedQuest('Raptor Horns', 865) == false">
+		<TakeQuest NpcName="Mebok Mizzyrix" QuestId="865" QuestName="Raptor Horns" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Stolen Silver', 3281) == false and Data.HasCompletedQuest('Stolen Silver', 3281) == false">
+		<TakeQuest NpcName="Gazrog" QuestId="3281" QuestName="Stolen Silver" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Angry Scytheclaws', 905) == false and Data.HasCompletedQuest('The Angry Scytheclaws', 905) == false and Data.HasCompletedQuest('Echeyakee', 881) == true">
+		<TakeQuest NpcName="Sergra Darkthorn" QuestId="905" QuestName="The Angry Scytheclaws" DestinationMap="1" />
+	</If>
+		
+	<While Condition="Data.HasActiveQuest('Stolen Silver', 3281) == true and Data.AllQuestObjectivesAreComplete('Stolen Silver', 3281) == false">
+		<If Condition="Nav.RangeFromMeXYZ(-2023.6019287109, -3260.2177734375, 92.32600402832) &gt; 10">
+			<MoveTo X="-2023.6019287109" Y="-3260.2177734375" Z="92.32600402832" Range="7" DestinationMap="1" />
+		</If>
+		<If Condition="Nav.RangeFromMeXYZ(-2023.6019287109, -3260.2177734375, 92.32600402832) &lt; 10">
+			<InteractWithClosestGameObject GameObjectId="147557" />
+			<BotSleep Value="5500" />
+		</If>
+	</While>		
+	<While Condition="Data.HasActiveQuest('The Angry Scytheclaws', 905) == true and Data.AllQuestObjectivesAreComplete('The Angry Scytheclaws', 905) == false">
+		<If Condition="Data.GetItemCountByName('Sunscale Feather') == 0 and Data.AllQuestObjectivesAreComplete('The Angry Scytheclaws', 905) == false">
+			<!-- Objective Settings -->
+			<ClearHotspots />
+			<SetTargetingMode Mode="Around Points" />
+			<!-- Monsterfilter -->
+			<ClearMonsterFilter/>
+			<SetMonsterFilterMode Mode="Whitelist" />
+			<AddMonsterFilterName Value="Sunscale Scytheclaw" />
+            <AddMonsterFilterName Value="Ornery Plainstrider" />
+            <AddMonsterFilterName Value="Hecklefang Snarler" />		            
+			<!-- Blackspots -->
+			<!-- Hotspots -->
+			<AddHotspot X="-1550.8487548828" Y="-2676.2490234375" Z="91.669677734375" Range="150" />
+            <AddHotspot X="-1661.5462646484" Y="-2822.5588378906" Z="94.264175415039" Range="100" />
+            <AddHotspot X="-1743.7686767578" Y="-2579.0310058594" Z="92.013885498047" Range="100" />
+            <AddHotspot X="-1728.2923583984" Y="-2370.6154785156" Z="91.969779968262" Range="100" />
+            <AddHotspot X="-1566.9776611328" Y="-2230.638671875" Z="92.150352478027" Range="100" />
+            <AddHotspot X="-1446.3112792969" Y="-2166.0620117188" Z="92.405883789063" Range="100" />
+            <AddHotspot X="-1361.1287841797" Y="-1848.2576904297" Z="92.467628479004" Range="100" />
+            <AddHotspot X="-1859.3295898438" Y="-2825.2131347656" Z="93.286178588867" Range="100" />
+            <AddHotspot X="-1832.1522216797" Y="-3003.9011230469" Z="91.664100646973" Range="100" />      
+			<While Condition="Data.GetItemCountByName('Sunscale Feather') &lt; 3" >
+				<Wait Value="100" />
+			</While>
+		</If>	
+		<If Condition="Data.QuestObjectiveIsComplete('The Angry Scytheclaws', 2, 905) == false and Data.GetItemCountByName('Sunscale Feather') &gt;= 1">
+			<If Condition="Nav.RangeFromMeXYZ(-1529.9927978516, -2649.6657714844, 92.07447052002) &gt; 5 and Data.GetItemCountByName('Sunscale Feather') &gt;= 1">
+				<MoveTo X="-1529.9927978516" Y="-2649.6657714844" Z="92.07447052002" Range="3" DestinationMap="1" />
+			</If>
+			<If Condition="Nav.RangeFromMeXYZ(-1529.9927978516, -2649.6657714844, 92.07447052002) &lt; 5 and Data.GetItemCountByName('Sunscale Feather') &gt;= 1">
+				<InteractWithClosestGameObject GameObjectId="6908" />
+				<BotSleep Value="2500" />
+			</If>
+		</If>
+		<If Condition="Data.QuestObjectiveIsComplete('The Angry Scytheclaws', 3, 905) == false and Data.GetItemCountByName('Sunscale Feather') &gt;= 1">		
+			<If Condition="Nav.RangeFromMeXYZ(-1534.5318603516, -2695.1877441406, 91.115028381348) &gt; 5 and Data.GetItemCountByName('Sunscale Feather') &gt;= 1">
+				<MoveTo X="-1534.5318603516" Y="-2695.1877441406" Z="91.115028381348" Range="3" DestinationMap="1" />
+			</If>
+			<If Condition="Nav.RangeFromMeXYZ(-1534.5318603516, -2695.1877441406, 91.115028381348) &lt; 5 and Data.GetItemCountByName('Sunscale Feather') &gt;= 1">
+				<InteractWithClosestGameObject GameObjectId="6906" />
+				<BotSleep Value="2500" />
+			</If>
+		</If>
+		<If Condition="Data.QuestObjectiveIsComplete('The Angry Scytheclaws', 1, 905) == false and Data.GetItemCountByName('Sunscale Feather') &gt;= 1">			
+			<If Condition="Nav.RangeFromMeXYZ(-1504.2200927734, -2705.2739257813, 92.630928039551) &gt; 5 and Data.GetItemCountByName('Sunscale Feather') &gt;= 1">
+				<MoveTo X="-1504.2200927734" Y="-2705.2739257813" Z="92.630928039551" Range="3" DestinationMap="1" />
+			</If>
+			<If Condition="Nav.RangeFromMeXYZ(-1504.2200927734, -2705.2739257813, 92.630928039551) &lt; 5 and Data.GetItemCountByName('Sunscale Feather') &gt;= 1">
+				<InteractWithClosestGameObject GameObjectId="6907" />
+				<BotSleep Value="2500" />
+			</If>
+		</If>
+	</While>
+	<If Condition="Data.HasActiveQuest('Raptor Horns', 865) == true and Data.AllQuestObjectivesAreComplete('Raptor Horns', 865) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="Whitelist" />
+        <AddMonsterFilterName Value="Sunscale Scytheclaw" />
+        <AddMonsterFilterName Value="Ornery Plainstrider" />
+        <AddMonsterFilterName Value="Hecklefang Snarler" />	
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+        <AddHotspot X="-1550.8487548828" Y="-2676.2490234375" Z="91.669677734375" Range="150" />
+        <AddHotspot X="-1661.5462646484" Y="-2822.5588378906" Z="94.264175415039" Range="100" />
+        <AddHotspot X="-1743.7686767578" Y="-2579.0310058594" Z="92.013885498047" Range="100" />
+        <AddHotspot X="-1728.2923583984" Y="-2370.6154785156" Z="91.969779968262" Range="100" />
+        <AddHotspot X="-1566.9776611328" Y="-2230.638671875" Z="92.150352478027" Range="100" />
+        <AddHotspot X="-1446.3112792969" Y="-2166.0620117188" Z="92.405883789063" Range="100" />
+        <AddHotspot X="-1361.1287841797" Y="-1848.2576904297" Z="92.467628479004" Range="100" />
+        <AddHotspot X="-1859.3295898438" Y="-2825.2131347656" Z="93.286178588867" Range="100" />
+        <AddHotspot X="-1832.1522216797" Y="-3003.9011230469" Z="91.664100646973" Range="100" />          
+		<While Condition="Data.AllQuestObjectivesAreComplete('Raptor Horns', 865) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Stolen Silver', 3281) == true and Data.AllQuestObjectivesAreComplete('Stolen Silver', 3281) == true">
+		<ReturnQuest NpcName="Gazrog" QuestId="3281" QuestName="Stolen Silver" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Angry Scytheclaws', 905) == true and Data.AllQuestObjectivesAreComplete('The Angry Scytheclaws', 905) == true">
+        <Lua>Data.DeleteItemStackById(5165)</Lua>
+		<ReturnQuest NpcName="Sergra Darkthorn" QuestId="905" QuestName="The Angry Scytheclaws" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Raptor Horns', 865) == true and Data.AllQuestObjectivesAreComplete('Raptor Horns', 865) == true">
+		<ReturnQuest NpcName="Mebok Mizzyrix" QuestId="865" QuestName="Raptor Horns" DestinationMap="1" />
+	</If>
+</ShadowProfile>

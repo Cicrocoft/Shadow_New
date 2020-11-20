@@ -1,0 +1,219 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Arugal\'s Folly', 424) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="10" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Nadia Vernon" />
+	<SetRepairNpc NpcName="Nadia Vernon" />	
+	<!-- Local Do not sell Items -->
+		<AddDoNotSellItem ItemName="Discolored Worg Heart" />
+
+	<!-- Restock Sepulcher 14+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Priest">
+		<AddDoNotSellItem ItemName="Forest Mushroom Cap" />
+		<AddDoNotSellItem ItemName="Red-speckled Mushroom" />		
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />	
+		<AddRestockItem ItemName="Forest Mushroom Cap" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="40"/>	
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddDoNotSellItem ItemName="Forest Mushroom Cap" />
+		<AddDoNotSellItem ItemName="Red-speckled Mushroom" />		
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />	
+		<AddRestockItem ItemName="Forest Mushroom Cap" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="60"/>	
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Forest Mushroom Cap" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="40"/>
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Bates" UnderAmount="3" BuyAmount="20"/>
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Nicholas Atwood" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Abigail Sawyer" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Abigail Sawyer" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Arugal\'s Folly', 422) == false and Data.HasCompletedQuest('Arugal\'s Folly', 422) == false">
+		<TakeQuest NpcName="Dalar Dawnweaver" QuestId="422" QuestName="Arugal\'s Folly" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Return to Quinn', 430) == false and Data.HasCompletedQuest('Return to Quinn', 430) == false and Data.HasCompletedQuest('Wild Hearts', 429) == true">
+		<TakeQuest NpcName="Apothecary Renferrel" QuestId="430" QuestName="Return to Quinn" DestinationMap="0" />
+	</If>	
+	<While Condition="Data.HasActiveQuest('Arugal\'s Folly', 422) == true and Data.AllQuestObjectivesAreComplete('Arugal\'s Folly', 422) == false">
+	<If Condition="Nav.RangeFromMeXYZ(868.03607177734, 1231.708984375, 52.601692199707) &gt; 10">
+		<MoveTo X="868.03607177734" Y="1231.708984375" Z="52.601692199707" Range="10" DestinationMap="0" />
+	</If>
+	<If Condition="Nav.RangeFromMeXYZ(868.03607177734, 1231.708984375, 52.601692199707) &lt; 10">
+		<Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>	
+		<InteractWithClosestGameObject GameObjectId="1571" />
+		<BotSleep Value="5500" />
+	</If>
+	</While>
+	<If Condition="Data.HasActiveQuest('Return to Quinn', 430) == true and Data.AllQuestObjectivesAreComplete('Return to Quinn', 430) == true">
+		<ReturnQuest NpcName="Quinn Yorick" QuestId="430" QuestName="Return to Quinn" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Arugal\'s Folly', 422) == true and Data.AllQuestObjectivesAreComplete('Arugal\'s Folly', 422) == true">
+		<ReturnQuest NpcName="Dalar Dawnweaver" QuestId="422" QuestName="Arugal\'s Folly" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Arugal\'s Folly', 423) == false and Data.HasCompletedQuest('Arugal\'s Folly', 423) == false">
+		<TakeQuest NpcName="Dalar Dawnweaver" QuestId="423" QuestName="Arugal\'s Folly" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Arugal\'s Folly', 423) == true and Data.AllQuestObjectivesAreComplete('Arugal\'s Folly', 423) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Son of Arugal" />
+		<!-- Blackspots -->
+		<AddBlackspot X="774.61907958984" Y="1627.5046386719" Z="30.765331268311" Range="32" />
+		<AddBlackspot X="729.55114746094" Y="1467.1097412109" Z="62.36311340332" Range="50" />
+		<!-- Hotspots -->
+		<AddHotspot X="852.462890625" Y="1536.7828369141" Z="35.263721466064" Range="100" />
+		<AddHotspot X="815.04626464844" Y="1677.3400878906" Z="26.33935546875" Range="100" />
+		<AddHotspot X="835.67669677734" Y="1755.6185302734" Z="17.118156433105" Range="100" />
+		<AddHotspot X="944.62884521484" Y="1813.9229736328" Z="10.386102676392" Range="100" />
+		<AddHotspot X="1031.5065917969" Y="1888.6196289063" Z="8.7232418060303" Range="100" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Arugal\'s Folly', 423) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Arugal\'s Folly', 423) == true and Data.AllQuestObjectivesAreComplete('Arugal\'s Folly', 423) == true">
+		<AddBlackspot X="729.55114746094" Y="1467.1097412109" Z="62.36311340332" Range="50" />
+		<ReturnQuest NpcName="Dalar Dawnweaver" QuestId="423" QuestName="Arugal\'s Folly" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Arugal\'s Folly', 424) == false and Data.HasCompletedQuest('Arugal\'s Folly', 424) == false">
+		<TakeQuest NpcName="Dalar Dawnweaver" QuestId="424" QuestName="Arugal\'s Folly" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Arugal\'s Folly', 424) == true and Data.AllQuestObjectivesAreComplete('Arugal\'s Folly', 424) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Grimson the Pale" />	
+		<!-- Blackspots -->
+		<AddBlackspot X="402.83798217773" Y="1106.9680175781" Z="96.487609863281" Range="15" />
+		<!-- Hotspots -->
+		<AddHotspot X="409.3078918457" Y="1000.0657958984" Z="108.25430297852" Range="100" />
+	
+		<While Condition="Data.AllQuestObjectivesAreComplete('Arugal\'s Folly', 424) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Arugal\'s Folly', 424) == true and Data.AllQuestObjectivesAreComplete('Arugal\'s Folly', 424) == true">
+		<ReturnQuest NpcName="Dalar Dawnweaver" QuestId="424" QuestName="Arugal\'s Folly" DestinationMap="0" />
+	</If>
+
+</ShadowProfile>

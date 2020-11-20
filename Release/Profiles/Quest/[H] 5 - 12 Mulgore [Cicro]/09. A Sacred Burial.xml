@@ -1,0 +1,196 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A Sacred Burial', 8335) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Harant Ironbrace" />
+	<SetRepairNpc NpcName="Harant Ironbrace" />
+
+	<!-- Restock Mulgore 1-5 -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock">
+		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Kauth" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Tough Hunk of Bread" NpcName="Innkeeper Kauth" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Tough Hunk of Bread" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Tough Jerky" </Lua>
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Kauth" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Kauth" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Moorat Longstride" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Moorat Longstride" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Moorat Longstride" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('A Sacred Burial', 833) == false and Data.HasCompletedQuest('A Sacred Burial', 833) == false">
+		<TakeQuest NpcName="Lorekeeper Raintotem" QuestId="833" QuestName="A Sacred Burial" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rite of Wisdom', 773) == true and Data.AllQuestObjectivesAreComplete('Rite of Wisdom', 773) == true">
+		<ReturnQuest NpcName="Ancestral Spirit" QuestId="773" QuestName="Rite of Wisdom" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Journey into Thunder Bluff', 775) == false and Data.HasCompletedQuest('Journey into Thunder Bluff', 775) == false">
+		<TakeQuest NpcName="Ancestral Spirit" QuestId="775" QuestName="Journey into Thunder Bluff" DestinationMap="1" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('A Sacred Burial', 833) == true and Data.AllQuestObjectivesAreComplete('A Sacred Burial', 833) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Bristleback Interloper" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-1011.1147460938" Y="-1111.0843505859" Z="44.415912628174" Range="150" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('A Sacred Burial', 833) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('A Sacred Burial', 833) == true and Data.AllQuestObjectivesAreComplete('A Sacred Burial', 833) == true">
+		<ReturnQuest NpcName="Lorekeeper Raintotem" QuestId="833" QuestName="A Sacred Burial" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Preparation for Ceremony', 744) == true and Data.AllQuestObjectivesAreComplete('Preparation for Ceremony', 744) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Windfury Sorceress" />
+		<AddMonsterFilterName Value="Windfury Matriarch" />
+		<AddHotspot X="-841.12774658203" Y="-814.26861572266" Z="-3.328412771225" Range="150" />
+		<AddHotspot X="-667.93811035156" Y="-739.11358642578" Z="15.433046340942" Range="150" />
+		<AddHotspot X="-472.92208862305" Y="-623.91577148438" Z="36.793201446533" Range="150" />
+		<AddHotspot X="-521.61700439453" Y="23.270122528076" Z="13.342235565186" Range="150" />
+		<AddHotspot X="-603.17639160156" Y="91.536903381348" Z="25.31321144104" Range="150" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Preparation for Ceremony', 744) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+	<If Condition="Data.HasActiveQuest('Journey into Thunder Bluff', 775) == true">
+		<ReturnQuest NpcName="Cairne Bloodhoof" QuestId="775" QuestName="Journey into Thunder Bluff" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rites of the Earthmother', 776) == false and Data.HasCompletedQuest('Rites of the Earthmother', 776) == false">
+		<TakeQuest NpcName="Cairne Bloodhoof" QuestId="776" QuestName="Rites of the Earthmother" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Preparation for Ceremony', 744) == true and Data.AllQuestObjectivesAreComplete('Preparation for Ceremony', 744) == true">
+		<ReturnQuest NpcName="Eyahn Eagletalon" QuestId="744" QuestName="Preparation for Ceremony" DestinationMap="1" />
+	</If>		
+
+</ShadowProfile>
+
+

@@ -1,0 +1,9 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Your Place In The World') == false and UnitLevel('player') <= 1">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Your Place In The World') == false">
+        <MoveTo X="-609.693" Y="-4250.076" Z="38.956" />
+        <TakeQuest NpcName="Kaltunk" QuestName="Your Place In The World" />
+    </If>
+    <MoveTo X="-600.084" Y="-4188.32" Z="41.093" />
+    <ReturnQuest NpcName="Gornek" QuestName="Your Place In The World" />
+</ShadowProfile>

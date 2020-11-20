@@ -1,0 +1,23 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Thun\'grim Firegaze') == false and Data.PlayerClass() == WoWClass.Warrior">
+    <SetBaseSettings />
+    <AddBlackspot X="315.83" Y="-4770.5" Z="11.99" Range="1" />
+    <AddBlackspot X="331.02" Y="-4763.57" Z="12.63" Range="1" />
+    <If Condition="Data.HasActiveQuest('Thun\'grim Firegaze') == false">
+        <TakeQuest NpcName="Uzzek" QuestName="Thun\'grim Firegaze" />
+    </If>
+    <SetBaseSettings />
+    <AddBlackspot X="315.83" Y="-4770.5" Z="11.99" Range="1" />
+    <AddBlackspot X="331.02" Y="-4763.57" Z="12.63" Range="1" />
+    <!-- Safe path to the crossroads. -->
+    <MoveTo  X="263.97" Y="-3512.5" Z="27"/>
+    <MoveTo  X="119.547" Y="-3154.755" Z="91.13"/>
+    <MoveTo  X="122.85" Y="-3033.682" Z="91.677"/>
+    <MoveTo  X="89.945" Y="-2911.597" Z="95.87"/>
+    <MoveTo  X="40.607" Y="-2726.27" Z="91.667"/>
+    <MoveTo  X="-145.72" Y="-2684.934" Z="93.88"/>
+    <MoveTo  X="-163.418" Y="-2683.917" Z="92.9"/>
+    <MoveTo  X="-502.8" Y="-2788.996" Z="91.666"/>
+    <MoveTo  X="-679.78" Y="-2952.02" Z="95.75"/>
+    <MoveTo  X="-780.6" Y="-3034.77" Z="94.71"/>
+    <ReturnQuest NpcName="Thun\'grim Firegaze" QuestName="Thun\'grim Firegaze" />
+</ShadowProfile>

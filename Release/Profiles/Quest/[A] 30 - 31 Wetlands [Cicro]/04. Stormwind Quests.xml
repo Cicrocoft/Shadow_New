@@ -1,0 +1,30 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Blessed Arm', 322) == false">
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+	<SetEnableVendoring Value="true"/>
+	<SetVendorNpc NpcName="Kaita Deepforge" />
+	<SetVendorSlotsCount Value="2" />
+	<SetEnableRepairing Value="true"/>
+	<SetRepairNpc NpcName="Kaita Deepforge" />
+	<SetRepairPercent Value="35" />
+
+	<If Condition="Data.HasActiveQuest('A Noble Brew', 335) == true and Data.AllQuestObjectivesAreComplete('A Noble Brew', 335) == true">
+		<ReturnQuest NpcName="Zardeth of the Black Claw" QuestId="335" QuestName="A Noble Brew" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Noble Brew', 336) == false and Data.HasCompletedQuest('A Noble Brew', 336) == false">
+		<TakeQuest NpcName="Zardeth of the Black Claw" QuestId="336" QuestName="A Noble Brew" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Noble Brew', 336) == true and Data.AllQuestObjectivesAreComplete('A Noble Brew', 336) == true">
+		<ReturnQuest NpcName="Lord Baurles K. Wishock" QuestId="336" QuestName="A Noble Brew" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Blessed Arm', 322) == true and Data.AllQuestObjectivesAreComplete('Blessed Arm', 322) == true">
+		<ReturnQuest NpcName="Grimand Elmore" QuestId="322" QuestName="Blessed Arm" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Armed and Ready', 325) == false and Data.HasCompletedQuest('Armed and Ready', 325) == false">
+		<TakeQuest NpcName="Grimand Elmore" QuestId="325" QuestName="Armed and Ready" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Armed and Ready', 325) == true and Data.AllQuestObjectivesAreComplete('Armed and Ready', 325) == true">
+		<ReturnQuest NpcName="Sven Yorgen" QuestId="325" QuestName="Armed and Ready" DestinationMap="0" />
+	</If>
+</ShadowProfile>

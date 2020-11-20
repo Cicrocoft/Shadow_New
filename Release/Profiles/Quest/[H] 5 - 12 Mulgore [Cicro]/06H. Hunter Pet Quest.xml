@@ -1,0 +1,74 @@
+<ShadowProfile Condition="UnitLevel('player') &gt;= 10 and Data.PlayerClass() == WoWClass.Hunter and Data.MyRace() == WoWRace.Tauren">
+	
+		<Lua>settings.ShouldFeedPet = false</Lua>
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6061) == false and Data.HasCompletedQuest('Taming the Beast', 6061) == false">
+		<TakeQuest NpcName="Yaw Sharpmane" QuestId="6061" QuestName="Taming the Beast" />
+	</If>
+
+	<While Condition="Data.GetMyPet() == nil and Data.HasActiveQuest('Taming the Beast', 6061) == true">
+		<MoveTo X="-1798.5980224609" Y="-320.10784912109" Z="-9.423921585083" />
+		<UseItemOnNpc NpcId="2956" ItemId="15914" OnlyAlive="true" />
+		<Lua> BotSleep(10000) return true </Lua>
+	</While>	
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6061) == true">
+		<ReturnQuest NpcName="Yaw Sharpmane" QuestId="6061" QuestName="Taming the Beast" />
+		<Lua>PetDismiss()</Lua>
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6087) == false and Data.HasCompletedQuest('Taming the Beast', 6087) == false">
+		<Lua>PetDismiss()</Lua>
+		<TakeQuest NpcName="Yaw Sharpmane" QuestId="6087" QuestName="Taming the Beast" />
+	</If>
+
+
+
+	<While Condition="Data.HasActiveQuest('Taming the Beast', 6087) == true and Data.GetMyPet() == nil and Data.HasCompletedQuest('Taming the Beast', 6087) == false">
+		<MoveTo X="-2009.3482666016" Y="-273.99957275391" Z="-10.63304233551" />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<SetEnableProfileIgnoreCombat Value="true" />
+		<UseItemOnNpc NpcId="2959" ItemId="15915" OnlyAlive="true" />
+		<Lua> BotSleep(10000) return true </Lua>
+		<SetEnableProfileIgnoreCombat Value="false" />
+	</While>	
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6087) == true">
+		<ReturnQuest NpcName="Yaw Sharpmane" QuestId="6087" QuestName="Taming the Beast" />
+		<Lua>PetDismiss()</Lua>	
+	</If>
+
+
+	<If Condition="Data.HasActiveQuest('Taming the Beast', 6088) == false and Data.HasCompletedQuest('Taming the Beast', 6088) == false">
+		<Lua>PetDismiss()</Lua>	
+		<TakeQuest NpcName="Yaw Sharpmane" QuestId="6088" QuestName="Taming the Beast" />
+	</If>
+
+
+	<While Condition="Data.GetMyPet() == nil and Data.HasActiveQuest('Taming the Beast', 6088) == true">
+		<If Condition="Nav.RangeFromMeXYZ(-1977.7451171875, -206.16665649414,-10.606561660767) &gt; 120">
+		<MoveTo X="-1977.7451171875" Y="-206.16665649414" Z="-10.606561660767" />
+		</If>
+		<If Condition="Data.IsCasting() == false and Nav.RangeFromMeXYZ(-1977.7451171875, -206.16665649414,-10.606561660767) &lt; 120">
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<SetEnableProfileIgnoreCombat Value="true" />
+		<UseItemOnNpc NpcId="2970" ItemId="15916" OnlyAlive="true" />
+		<Wait Value="100" />
+		</If>
+		<Wait Value="100" />
+		<If Condition="Data.IsCasting() == true">
+		<BotSleep Value="100" />
+		</If>
+	</While>	
+
+ 	<If Condition="Data.HasActiveQuest('Taming the Beast', 6088) == true">
+		<SetEnableProfileIgnoreCombat Value="false" />
+		<ReturnQuest NpcName="Yaw Sharpmane" QuestId="6088" QuestName="Taming the Beast" />
+		<Lua>PetDismiss()</Lua>	
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Training the Beast', 6089) == false and Data.HasCompletedQuest('Training the Beast', 6089) == false">
+		<TakeQuest NpcName="Yaw Sharpmane" QuestId="6089" QuestName="Training the Beast" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Training the Beast', 6089) == true and Data.AllQuestObjectivesAreComplete('Training the Beast', 6089) == true">
+		<ReturnQuest NpcName="Holt Thunderhorn" QuestId="6089" QuestName="Training the Beast" />
+	</If>
+</ShadowProfile>

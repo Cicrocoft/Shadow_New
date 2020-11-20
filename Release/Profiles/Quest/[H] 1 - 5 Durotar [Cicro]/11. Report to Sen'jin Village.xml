@@ -1,0 +1,9 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Report to Sen\'jin Village') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Report to Sen\'jin Village') == false">
+        <TakeQuest NpcName="Zureetha Fargaze" QuestName="Report to Sen\'jin Village" />
+    </If>
+    <SetBaseSettings />
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+    <ReturnQuest NpcName="Master Gadrin" QuestName="Report to Sen\'jin Village" />
+</ShadowProfile>

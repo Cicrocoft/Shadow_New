@@ -1,0 +1,199 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Ambermill Investigations', 479) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="10" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Nadia Vernon" />
+	<SetRepairNpc NpcName="Nadia Vernon" />	
+	<!-- Local Do not sell Items -->
+
+	<!-- Restock Sepulcher 14+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Priest">
+		<AddDoNotSellItem ItemName="Forest Mushroom Cap" />
+		<AddDoNotSellItem ItemName="Red-speckled Mushroom" />		
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />	
+		<AddRestockItem ItemName="Forest Mushroom Cap" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="40"/>	
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddDoNotSellItem ItemName="Forest Mushroom Cap" />
+		<AddDoNotSellItem ItemName="Red-speckled Mushroom" />		
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />	
+		<AddRestockItem ItemName="Forest Mushroom Cap" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="60"/>	
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Forest Mushroom Cap" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="40"/>
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Bates" UnderAmount="3" BuyAmount="20"/>
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Nicholas Atwood" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Abigail Sawyer" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Abigail Sawyer" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Border Crossings', 477) == false and Data.HasCompletedQuest('Border Crossings', 477) == false">
+		<TakeQuest NpcName="Shadow Priest Allister" QuestId="477" QuestName="Border Crossings" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Border Crossings', 477) == true and Data.AllQuestObjectivesAreComplete('Border Crossings', 477) == true">
+		<ReturnQuestToObject QuestId="477" QuestName="Border Crossings" X="-23.927183151245" Y="1355.0394287109" Z="59.676620483398" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Maps and Runes', 478) == false and Data.HasCompletedQuest('Maps and Runes', 478) == false">
+		<TakeQuestFromObject QuestId="478" QuestName="Maps and Runes" X="-23.927183151245" Y="1355.0394287109" Z="59.676620483398" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Maps and Runes', 478) == true and Data.AllQuestObjectivesAreComplete('Maps and Runes', 478) == true">
+		<ReturnQuest NpcName="Shadow Priest Allister" QuestId="478" QuestName="Maps and Runes" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Dalar\'s Analysis', 481) == false and Data.HasCompletedQuest('Dalar\'s Analysis', 481) == false">
+		<TakeQuest NpcName="Shadow Priest Allister" QuestId="481" QuestName="Dalar\'s Analysis" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Dalar\'s Analysis', 481) == true and Data.AllQuestObjectivesAreComplete('Dalar\'s Analysis', 481) == true">
+		<ReturnQuest NpcName="Dalar Dawnweaver" QuestId="481" QuestName="Dalar\'s Analysis" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Dalaran\'s Intentions', 482) == false and Data.HasCompletedQuest('Dalaran\'s Intentions', 482) == false">
+		<TakeQuest NpcName="Dalar Dawnweaver" QuestId="482" QuestName="Dalaran\'s Intentions" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Dalaran\'s Intentions', 482) == true and Data.AllQuestObjectivesAreComplete('Dalaran\'s Intentions', 482) == true">
+		<ReturnQuest NpcName="Shadow Priest Allister" QuestId="482" QuestName="Dalaran\'s Intentions" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Ambermill Investigations', 479) == false and Data.HasCompletedQuest('Ambermill Investigations', 479) == false">
+		<TakeQuest NpcName="Shadow Priest Allister" QuestId="479" QuestName="Ambermill Investigations" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Ambermill Investigations', 479) == true and Data.AllQuestObjectivesAreComplete('Ambermill Investigations', 479) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+		<AddBlackspot X="-76.090141296387" Y="943.82952880859" Z="68.74365234375" Range="25" />
+		<AddBlackspot X="-63.456451416016" Y="961.82788085938" Z="67.441535949707" Range="25" />		
+		<AddBlackspot X="-186.38856506348" Y="916.8212890625" Z="66.706985473633" Range="25" />
+		<!-- Hotspots -->
+		<AddHotspot X="32.984004974365" Y="1113.3493652344" Z="67.595626831055" Range="100" />
+		<AddHotspot X="-31.59376335144" Y="1099.1077880859" Z="65.004043579102" Range="100" />
+		<AddHotspot X="-89.716819763184" Y="1103.0285644531" Z="65.322174072266" Range="100" />
+		<AddHotspot X="-181.1470489502" Y="1081.5286865234" Z="56.546894073486" Range="100" />
+		<AddHotspot X="-174.14643859863" Y="1015.1970825195" Z="65.467445373535" Range="100" />
+		<AddHotspot X="-108.8126449585" Y="966.84545898438" Z="67.951805114746" Range="100" />
+		<AddHotspot X="-153.16973876953" Y="925.39721679688" Z="65.633575439453" Range="100" />
+		<AddHotspot X="-211.79481506348" Y="984.66851806641" Z="70.78719329834" Range="100" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Ambermill Investigations', 479) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Ambermill Investigations', 479) == true and Data.AllQuestObjectivesAreComplete('Ambermill Investigations', 479) == true">
+		<ReturnQuest NpcName="Shadow Priest Allister" QuestId="479" QuestName="Ambermill Investigations" DestinationMap="0" />
+	</If>
+
+</ShadowProfile>

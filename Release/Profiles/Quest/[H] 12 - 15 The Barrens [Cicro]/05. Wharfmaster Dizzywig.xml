@@ -1,0 +1,16 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Wharfmaster Dizzywig', 1492) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="1"/>
+
+	<If Condition="Data.HasActiveQuest('Wharfmaster Dizzywig', 1492) == false and Data.HasCompletedQuest('Wharfmaster Dizzywig', 1492) == false">
+		<TakeQuest NpcName="Apothecary Helbrim" QuestId="1492" QuestName="Wharfmaster Dizzywig" DestinationMap="1" />
+	</If>
+    <SetRoadPriority Value="7" />
+    <NPCInteract NpcName="Bragok" Range="5" DestinationMap="WoWMaps.Kalimdor" />
+    <SetRoadPriority Value="4" />
+	<If Condition="Data.HasActiveQuest('Wharfmaster Dizzywig', 1492) == true and Data.AllQuestObjectivesAreComplete('Wharfmaster Dizzywig', 1492) == true">
+		<ReturnQuest NpcName="Wharfmaster Dizzywig" QuestId="1492" QuestName="Wharfmaster Dizzywig" DestinationMap="1" />
+	</If>
+</ShadowProfile>

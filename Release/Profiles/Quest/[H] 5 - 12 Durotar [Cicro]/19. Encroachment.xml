@@ -1,0 +1,222 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Encroachment') == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Wuark"/>
+	<SetVendorNpc NpcName="Wuark"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Jark" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jark" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jark" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+        <SetRepairNpc NpcName="Wuark"/>
+        <SetVendorNpc NpcName="Wuark"/>	
+        <ClearHotspots />
+		<AddBlackspot X="-61.560054779053" Y="-4971.7075195313" Z="21.407651901245" Range="25" />
+		<AddHotspot X="-99.10604095459" Y="-4813.3125" Z="24.604766845703" Range="150" />
+		<AddHotspot X="-17.575113296509" Y="-4927.591796875" Z="16.446315765381" Range="150" />
+		<AddHotspot X="139.45855712891" Y="-4977.4692382813" Z="11.301057815552" Range="150" />
+        <SetTargetingMode Mode="Around Points" />
+        <ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="None" />
+        <While Condition="UnitLevel('player') &lt; 10" >
+            <Wait Value="100" />
+        </While>  
+
+
+
+    <If Condition="Data.HasActiveQuest('Encroachment') == false">
+
+        <TakeQuest NpcName="Gar\'Thok" QuestName="Encroachment" />
+
+    </If>
+
+    <AddHotspot X="108.465706" Y="-4657.983" Z="32.295017" Range="250" />
+
+    <AddHotspot X="24.680054" Y="-4616.825" Z="45.905033" Range="250" />
+
+    <AddHotspot X="59.92993" Y="-4468.7754" Z="47.56873" Range="250" />
+
+    <AddHotspot X="116.329956" Y="-4479.3496" Z="39.304596" Range="250" />
+
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+
+    <SetEnableVendoring Value="true"/>
+
+    <SetVendorNpc NpcName="Wuark"/>
+
+    <SetEnableRepairing Value="true"/>
+
+    <SetRepairNpc NpcName="Wuark"/>
+
+    <SetTargetingMode Mode="Around Points" />
+
+    <ClearMonsterFilter/>
+
+    <SetMonsterFilterMode Mode="Whitelist" />
+
+    <AddMonsterFilterName Value="Razormane Quilboar"/>
+
+    <While Condition="Data.QuestObjectiveIsComplete('Encroachment', 1) == false" >
+
+        <Wait Value="100" />
+
+    </While>
+
+    <ClearMonsterFilter/>
+
+    <AddMonsterFilterName Value="Razormane Scout"/>
+
+    <While Condition="Data.QuestObjectiveIsComplete('Encroachment', 2) == false" >
+
+        <Wait Value="100" />
+
+    </While>
+
+    <ClearHotspots/>
+
+    <AddHotspot X="-10.569946" Y="-4130.375" Z="78.40439" Range="250" />
+
+    <AddHotspot X="-81.07007" Y="-4024.625" Z="63.97925" Range="250" />
+
+    <AddHotspot X="-110.900566" Y="-3982.5967" Z="59.639023" Range="250" />
+		<AddBlackspot X="-94.111839294434" Y="-4010.8579101563" Z="62.507823944092" Range="25" />
+    <AddHotspot X="-130.42004" Y="-4003.4749" Z="59.534927" Range="250" />
+
+    <ClearMonsterFilter/>
+
+    <AddMonsterFilterName Value="Razormane Dustrunner"/>
+
+    <While Condition="Data.QuestObjectiveIsComplete('Encroachment', 3) == false" >
+
+        <Wait Value="100" />
+
+    </While>
+
+    <ClearMonsterFilter/>
+
+    <AddMonsterFilterName Value="Razormane Battleguard"/>
+
+    <While Condition="Data.QuestObjectiveIsComplete('Encroachment', 4) == false" >
+
+        <Wait Value="100" />
+
+    </While>
+      <ClearMonsterFilter/>
+      <SetMonsterFilterMode Mode="None" />
+        <While Condition="UnitLevel('player') &lt; 10 or UnitXP('player') &lt;= 2600 and UnitXPMax('player') == 7600" >
+            <Wait Value="100" />
+        </While> 
+
+
+
+    <ReturnQuest NpcName="Gar\'Thok" QuestName="Encroachment" />
+
+</ShadowProfile>

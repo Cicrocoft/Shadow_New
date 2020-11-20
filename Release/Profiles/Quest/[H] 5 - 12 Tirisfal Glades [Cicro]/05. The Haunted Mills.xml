@@ -1,0 +1,193 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Speak with Sevren', 355) or not Data.HasCompletedQuest('Doom Weed') or not Data.HasCompletedQuest('The Mills Overrun') or not Data.HasCompletedQuest('The Haunted Mills') or not Data.HasCompletedQuest('Proof of Demise')">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Eliza Callen"/>
+	<SetVendorNpc NpcName="Eliza Callen"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+
+    <If Condition="not Data.HasActiveQuest(nil, 398) and Data.HasCompletedQuest(nil, 398) == false" >
+        <TakeQuestFromObject QuestName="Wanted: Maggot Eye" X="2284.8542480469" Y="289.02151489258" Z="35.182540893555" />
+    </If>
+    
+    <If Condition="not Data.HasActiveQuest('The Mills Overrun') and not Data.HasCompletedQuest('The Mills Overrun')">
+        <TakeQuest NpcName="Deathguard Dillinger" QuestName="The Mills Overrun" />
+    </If>
+
+    <If Condition="not Data.HasActiveQuest('Doom Weed') and not Data.HasCompletedQuest('Doom Weed')">
+        <TakeQuest NpcName="Junior Apothecary Holland" QuestName="Doom Weed" />
+    </If>
+
+	<If Condition="Data.HasActiveQuest('Doom Weed') == true and Data.AllQuestObjectivesAreComplete('Doom Weed') == false">
+			<ClearMonsterFilter/>
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<AllowQuestNode NodeName="Doom Weed" />
+		<ClearHotspots />
+		<AddHotspot X="2813.1655273438" Y="435.71603393555" Z="18.751384735107" Range="150" />
+		<AddHotspot X="2744.5197753906" Y="448.00665283203" Z="21.216367721558" Range="150" />
+		<AddHotspot X="2664.1520996094" Y="466.78887939453" Z="15.639089584351" Range="150" />
+		<AddHotspot X="2564.3488769531" Y="467.66073608398" Z="27.210716247559" Range="150" />
+
+		<While Condition="not Data.QuestObjectiveIsComplete('Doom Weed', 1)" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Doom Weed', 5482) == true and Data.AllQuestObjectivesAreComplete('Doom Weed', 5482) == true">
+		<ReturnQuest NpcName="Junior Apothecary Holland" QuestId="5482" QuestName="Doom Weed" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Haunted Mills') == true and Data.AllQuestObjectivesAreComplete('The Haunted Mills') == false">
+        <SetMonsterFilterMode Mode="Whitelist" />
+        <AddMonsterFilterName Value="Devlin Agamand"/>
+     <SetTargetingMode Mode="Around Points" />   
+        <ClearHotspots />
+
+        <AddHotspot X="2607.3271484375" Y="891.03723144531" Z="107.42764282227" Range="150" />
+
+
+        <While Condition="not Data.QuestObjectiveIsComplete('The Haunted Mills', 1) and Data.GetItemCountByName('Devlin\'s Remains') == 0" >
+            <Wait Value="100" />
+        </While>
+    </If>
+	<If Condition="Data.HasActiveQuest('The Mills Overrun') == true and Data.AllQuestObjectivesAreComplete('The Mills Overrun') == false">
+        <ClearMonsterFilter/>
+     <SetTargetingMode Mode="Around Points" />
+        <SetEnableMonsterLevelFilter Value="false"/>
+        <SetMonsterFilterMode Mode="Whitelist" />
+        <AddMonsterFilterName Value="Rattlecage Soldier"/>
+        <AddMonsterFilterName Value="Cracked Skull Soldier"/>
+        <ClearHotspots />
+		<AddHotspot X="2691.5520019531" Y="868.05279541016" Z="110.16326904297" Range="100" />
+		<AddBlackspot X="2633.2158203125" Y="897.74914550781" Z="112.35982513428" Range="25" />
+		<AddHotspot X="2645.3913574219" Y="931.54168701172" Z="111.13205718994" Range="100" />
+		<AddHotspot X="2626.6704101563" Y="1002.5309448242" Z="104.26393127441" Range="100" />
+		<AddHotspot X="2730.6965332031" Y="1001.0786743164" Z="112.45457458496" Range="100" />
+		<AddHotspot X="2817.9912109375" Y="985.09252929688" Z="117.07234191895" Range="100" />
+
+        <While Condition="not Data.QuestObjectiveIsComplete('The Mills Overrun', 1)" >
+            <Wait Value="100" />
+        </While>
+
+        <ClearMonsterFilter/>
+        <AddMonsterFilterName Value="Darkeye Bonecaster"/>
+
+        <While Condition="not Data.QuestObjectiveIsComplete('The Mills Overrun', 2)" >
+            <Wait Value="100" />
+        </While>
+    </If>
+
+
+
+
+	<If Condition="Data.HasActiveQuest('The Mills Overrun', 426) == true and Data.AllQuestObjectivesAreComplete('The Mills Overrun', 426) == true">
+		<ReturnQuest NpcName="Deathguard Dillinger" QuestId="426" QuestName="The Mills Overrun" DestinationMap="0" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('The Haunted Mills', 362) == true and Data.AllQuestObjectivesAreComplete('The Haunted Mills', 362) == true">
+		<ReturnQuest NpcName="Coleman Farthing" QuestId="362" QuestName="The Haunted Mills" DestinationMap="0" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Graverobbers', 358) == false and Data.HasCompletedQuest('Graverobbers', 358) == false">
+		<TakeQuest NpcName="Magistrate Sevren" QuestId="358" QuestName="Graverobbers" DestinationMap="0" />
+	</If>      
+</ShadowProfile>

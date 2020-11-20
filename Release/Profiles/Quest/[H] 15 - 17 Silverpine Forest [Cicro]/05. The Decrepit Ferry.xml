@@ -1,0 +1,224 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Report to Hadrec', 448) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="10" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Nadia Vernon" />
+	<SetRepairNpc NpcName="Nadia Vernon" />	
+	<!-- Local Do not sell Items -->
+
+	<!-- Restock Sepulcher 14+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Priest">
+		<AddDoNotSellItem ItemName="Forest Mushroom Cap" />
+		<AddDoNotSellItem ItemName="Red-speckled Mushroom" />		
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />	
+		<AddRestockItem ItemName="Forest Mushroom Cap" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="40"/>	
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddDoNotSellItem ItemName="Forest Mushroom Cap" />
+		<AddDoNotSellItem ItemName="Red-speckled Mushroom" />		
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />	
+		<AddRestockItem ItemName="Forest Mushroom Cap" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="60"/>	
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Forest Mushroom Cap" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="40"/>
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Bates" UnderAmount="3" BuyAmount="20"/>
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Nicholas Atwood" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Abigail Sawyer" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Abigail Sawyer" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('The Decrepit Ferry', 438) == false and Data.HasCompletedQuest('The Decrepit Ferry', 438) == false">
+		<TakeQuest NpcName="High Executor Hadrec" QuestId="438" QuestName="The Decrepit Ferry" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Decrepit Ferry', 438) == true and Data.AllQuestObjectivesAreComplete('The Decrepit Ferry', 438) == true">
+		<ReturnQuestToObject QuestId="438" QuestName="The Decrepit Ferry" X="688.36700439453" Y="996.33862304688" Z="34.635623931885" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rot Hide Clues', 439) == false and Data.HasCompletedQuest('Rot Hide Clues', 439) == false">
+		<TakeQuestFromObject QuestId="439" QuestName="Rot Hide Clues" X="688.36700439453" Y="996.33862304688" Z="34.635623931885" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rot Hide Clues', 439) == true and Data.AllQuestObjectivesAreComplete('Rot Hide Clues', 439) == true">
+		<ReturnQuest NpcName="High Executor Hadrec" QuestId="439" QuestName="Rot Hide Clues" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rot Hide Ichor', 443) == false and Data.HasCompletedQuest('Rot Hide Ichor', 443) == false">
+		<TakeQuest NpcName="High Executor Hadrec" QuestId="443" QuestName="Rot Hide Ichor" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Engraved Ring', 440) == false and Data.HasCompletedQuest('The Engraved Ring', 440) == false">
+		<TakeQuest NpcName="High Executor Hadrec" QuestId="440" QuestName="The Engraved Ring" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Rot Hide Ichor', 443) == true and Data.AllQuestObjectivesAreComplete('Rot Hide Ichor', 443) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="703.234375" Y="613.90234375" Z="43.874622344971" Range="200" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Rot Hide Ichor', 443) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.GetItemCountByName('A Talking Head') == 0 and Data.HasActiveQuest('Resting in Pieces', 460) == false and Data.HasCompletedQuest('Resting in Pieces', 460) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="703.234375" Y="613.90234375" Z="43.874622344971" Range="200" />		
+		<While Condition="Data.GetItemCountByName('A Talking Head') == 0" >
+			<Wait Value="100" />
+		</While>
+	</If>
+<!--	<While Condition="Data.GetItemCountByName('A Talking Head') == 1 and Data.HasActiveQuest('Resting in Pieces', 460) == false and Data.HasCompletedQuest('Resting in Pieces', 460) == false">
+		<UseItem ItemId="3317" />
+		<BotSleep Value="1000" />
+		<Lua>AcceptQuest()</Lua>
+		<BotSleep Value="1000" />
+		<Wait Value="100" />
+	</While> -->
+	<If Condition="Data.HasActiveQuest('Rot Hide Origins', 444) == true and Data.AllQuestObjectivesAreComplete('Rot Hide Origins', 444) == true">
+		<ReturnQuest NpcName="Bethor Iceshard" QuestId="444" QuestName="Rot Hide Origins" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Thule Ravenclaw', 446) == false and Data.HasCompletedQuest('Thule Ravenclaw', 446) == false">
+		<TakeQuest NpcName="Bethor Iceshard" QuestId="446" QuestName="Thule Ravenclaw" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Engraved Ring', 440) == true and Data.AllQuestObjectivesAreComplete('The Engraved Ring', 440) == true">
+		<ReturnQuest NpcName="Magistrate Sevren" QuestId="440" QuestName="The Engraved Ring" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Raleigh and the Undercity', 441) == false and Data.HasCompletedQuest('Raleigh and the Undercity', 441) == false">
+		<TakeQuest NpcName="Magistrate Sevren" QuestId="441" QuestName="Raleigh and the Undercity" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Raleigh and the Undercity', 441) == true and Data.AllQuestObjectivesAreComplete('Raleigh and the Undercity', 441) == true">
+		<ReturnQuest NpcName="Raleigh Andrean" QuestId="441" QuestName="Raleigh and the Undercity" DestinationMap="0" />
+	</If>		
+	<If Condition="Data.HasActiveQuest('A Husband's Revenge', 530) == false and Data.HasCompletedQuest('A Husband's Revenge', 530) == false">
+		<TakeQuest NpcName="Raleigh Andrean" QuestId="530" QuestName="A Husband's Revenge" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Thule Ravenclaw', 446) == true and Data.AllQuestObjectivesAreComplete('Thule Ravenclaw', 446) == true">
+		<ReturnQuest NpcName="Apothecary Renferrel" QuestId="446" QuestName="Thule Ravenclaw" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Report to Hadrec', 448) == false and Data.HasCompletedQuest('Report to Hadrec', 448) == false">
+		<TakeQuest NpcName="Apothecary Renferrel" QuestId="448" QuestName="Report to Hadrec" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Report to Hadrec', 448) == true and Data.AllQuestObjectivesAreComplete('Report to Hadrec', 448) == true">
+		<ReturnQuest NpcName="High Executor Hadrec" QuestId="448" QuestName="Report to Hadrec" DestinationMap="0" />
+	</If>	
+</ShadowProfile>

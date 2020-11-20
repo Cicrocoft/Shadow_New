@@ -1,0 +1,24 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Altered Beings') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Altered Beings') == false">
+        <TakeQuest NpcName="Tonga Runetotem" QuestName="Altered Beings" />
+    </If>
+    <SetBaseSettings />
+
+<AddHotspot X="-1214.0311279297" Y="-3075.9221191406" Z="93.329696655273" Range="150" />
+<AddHotspot X="-1341.8804931641" Y="-3062.50390625" Z="92.665489196777" Range="150" />
+<AddHotspot X="-1318.7236328125" Y="-2950.7041015625" Z="93.37215423584" Range="150" />
+<AddHotspot X="-1257.6538085938" Y="-2840.18359375" Z="93.3408203125" Range="150" />
+<AddHotspot X="-1142.3079833984" Y="-2889.5891113281" Z="95.121215820313" Range="150" />Y="-2143.3798828125" Z="78.673828125" Range="150" />   
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Uthrok"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Uthrok"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+        <While Condition="Data.QuestObjectiveIsComplete('Altered Beings', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Tonga Runetotem" QuestName="Altered Beings" />
+</ShadowProfile>

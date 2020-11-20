@@ -1,0 +1,10 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('The Prodigal Lich') ">
+    <SetBaseSettings />
+
+    <If Condition="not Data.HasActiveQuest('The Deathstalkers')">
+        <TakeQuest NpcName="Mennet Carkad" QuestName="The Deathstalkers" />
+    </If>
+
+    <ReturnQuest NpcName="Bethor Iceshard" QuestName="The Prodigal Lich" />
+
+</ShadowProfile>

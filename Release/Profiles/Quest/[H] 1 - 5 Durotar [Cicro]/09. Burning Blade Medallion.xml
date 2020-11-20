@@ -1,0 +1,165 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Thazz\'ril\'s Pick', 6394) == false and Data.PlayerClass() ~= WoWClass.Warlock">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Kzan Thornslash"/>
+	<SetVendorNpc NpcName="Duokna"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Duokna" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Duokna" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Duokna" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+	
+	
+
+    <If Condition="Data.HasActiveQuest('Burning Blade Medallion') == false and Data.HasCompletedQuest('Burning Blade Medallion') == false">
+        <TakeQuest NpcName="Zureetha Fargaze" QuestName="Burning Blade Medallion" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Thazz\'ril\'s Pick', 6394) == false and Data.HasCompletedQuest('Thazz\'ril\'s Pick', 6394) == false">
+		<TakeQuest NpcName="Foreman Thazz'ril" QuestId="6394" QuestName="Thazz\'ril\'s Pick" />
+	</If>
+		<ClearHotspots />
+	<While Condition="Data.HasActiveQuest('Thazz\'ril\'s Pick') == true and Data.AllQuestObjectivesAreComplete('Thazz\'ril\'s Pick') == false" >	
+		<If Condition="Nav.RangeFromMeXYZ(-86.998840332031, -4276.0732421875, 65.438339233398) &gt; 20">
+			<MoveTo X="-86.998840332031" Y="-4276.0732421875" Z="65.438339233398" Range="5" DestinationMap="1" />
+		</If>
+		<If Condition="Nav.RangeFromMeXYZ(-86.998840332031, -4276.0732421875, 65.438339233398) &lt; 20">
+			<Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>
+			<InteractWithClosestGameObject />
+			<BotSleep Value="2500" />
+		</If>
+	</While>	
+    <SetEnableAutoLoot Value="false" /> 
+	<ClearHotspots />
+    <AddHotspot X="-58.1846" Y="-4220.64" Z="62.3418"  Range="40" />
+    <AddBlackspot X="-72.28" Y="-4321.11" Z="64.96" Range="1" />
+    <AddBlackspot X="-248.31" Y="-4358.31" Z="62.42" Range="1" />
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Yarrog Baneshadow"/>
+
+    <While Condition="Data.AllQuestObjectivesAreComplete('Burning Blade Medallion') == false" >
+        <Wait Value="100" />
+        <If Condition="Nav.RangeFromMeXYZ(-58.1846,-4220.64,62.3418) &lt; 20 ">            
+            <SetEnableAutoLoot Value="true" />
+        </If>
+    </While>
+    <AddBlackspot X="-72.28" Y="-4321.11" Z="64.96" Range="1" />
+    <AddBlackspot X="-248.31" Y="-4358.31" Z="62.42" Range="1" />
+
+    <ReturnQuest NpcName="Zureetha Fargaze" QuestName="Burning Blade Medallion" />
+	<If Condition="Data.HasActiveQuest('Report to Sen\'jin Village', 805) == false and Data.HasCompletedQuest('Report to Sen\'jin Village', 805) == false">
+		<TakeQuest NpcName="Zureetha Fargaze" QuestId="805" QuestName="Report to Sen\'jin Village" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Thazz\'ril\'s Pick', 6394) == true and Data.AllQuestObjectivesAreComplete('Thazz\'ril\'s Pick', 6394) == true">
+		<ReturnQuest NpcName="Foreman Thazz\'ril" QuestId="6394" QuestName="Thazz\'ril\'s Pick" />
+	</If>
+
+</ShadowProfile>

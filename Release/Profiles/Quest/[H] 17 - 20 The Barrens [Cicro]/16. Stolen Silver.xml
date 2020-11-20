@@ -1,0 +1,27 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Stolen Silver') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Stolen Silver') == false">
+        <TakeQuest NpcName="Gazrog" QuestName="Stolen Silver" />
+
+    </If>
+    <SetBaseSettings />
+<SetTargetingMode Mode="Gather Only" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Stolen Silver" />
+    <SetEnableQuestNodes Value="true" />
+    <AddHotspot X="-2026.71" Y="-3258.4" Z="92.52" Range="5" />
+
+
+   
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Uthrok"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Uthrok"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+        <While Condition="Data.QuestObjectiveIsComplete('Stolen Silver', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Gazrog" QuestName="Stolen Silver" />
+</ShadowProfile>

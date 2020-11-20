@@ -1,0 +1,33 @@
+	<If Condition="Data.HasActiveQuest('Harpy Lieutenants', 875) == false and Data.HasCompletedQuest('Harpy Lieutenants', 875) == false">
+		<TakeQuest NpcName="Darsok Swiftdagger" QuestId="875" QuestName="Harpy Lieutenants" DestinationMap="1" />
+	</If>
+   	<If Condition="Data.HasActiveQuest('Harpy Lieutenants', 875) == false and Data.HasCompletedQuest('Harpy Lieutenants', 875) == false">
+		<TakeQuest NpcName="Darsok Swiftdagger" QuestId="875" QuestName="Harpy Lieutenants" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Harpy Lieutenants', 875) == true and Data.AllQuestObjectivesAreComplete('Harpy Lieutenants', 875) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Witchwing Slayer" />
+		<!-- Blackspots -->
+		<AddHotspot X="319.86782836914" Y="-1442.5789794922" Z="91.666831970215" Range="50" />
+        <AddBlackspot X="441.42514038086" Y="-1297.1105957031" Z="91.879959106445" Range="35" />
+        <AddBlackspot X="532.37322998047" Y="-1188.0161132813" Z="91.685485839844" Range="30" />
+        <AddBlackspot X="542.56158447266" Y="-1392.8713378906" Z="93.668479919434" Range="35" />
+        <AddBlackspot X="324.61688232422" Y="-1601.8948974609" Z="91.667663574219" Range="50" />
+		<AddBlackspot X="570.01385498047" Y="-1452.6402587891" Z="92.877182006836" Range="25" />
+		<AddBlackspot X="478.63702392578" Y="-1490.8806152344" Z="93.75089263916" Range="25" />        
+		<!-- Hotspots -->
+		<AddHotspot X="366.53799438477" Y="-1513.6270751953" Z="93.406051635742" Range="200" />
+		<AddHotspot X="476.48645019531" Y="-1498.0844726563" Z="93.882568359375" Range="200" />
+		<AddHotspot X="506.41787719727" Y="-1378.3497314453" Z="91.666954040527" Range="200" />	
+		<While Condition="Data.AllQuestObjectivesAreComplete('Harpy Lieutenants', 875) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Harpy Lieutenants', 875) == true and Data.AllQuestObjectivesAreComplete('Harpy Lieutenants', 875) == true">
+		<ReturnQuest NpcName="Darsok Swiftdagger" QuestId="875" QuestName="Harpy Lieutenants" DestinationMap="1" />
+	</If> 

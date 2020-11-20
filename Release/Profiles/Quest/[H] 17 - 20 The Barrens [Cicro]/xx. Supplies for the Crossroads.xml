@@ -1,0 +1,31 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Supplies for the Crossroads') == false">
+
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Supplies for the Crossroads') == false">
+        <TakeQuest NpcName="Thork" QuestName="Supplies for the Crossroads" />
+
+    </If>
+    <SetBaseSettings />
+
+<SetTargetingMode Mode="Gather Only" />
+
+    <SetEnableQuestNodes Value="true" />
+	    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Crossroads' Supply Crates" />
+    <AddHotspot X="-230.63" Y="-3309.05" Z="91.66" Range="5" />
+
+
+   
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Uthrok"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Uthrok"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+        <While Condition="Data.QuestObjectiveIsComplete('Supplies for the Crossroads', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Thork" QuestName="Supplies for the Crossroads" />
+</ShadowProfile>

@@ -1,0 +1,182 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Lost But Not Forgotten') == false or UnitLevel('player') &lt; 11">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Wuark"/>
+	<SetVendorNpc NpcName="Wuark"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Jark" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jark" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jark" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+    <If Condition="Nav.RangeFromMeXYZ(-145.72, -2684.934, 93.88) &lt; 500" > <!-- if started from the crossroads, use the path to durotar-->
+
+        <MoveTo X="-145.72" Y="-2684.934" Z="93.88"/>
+
+        <MoveTo X="40.607" Y="-2726.27" Z="91.667"/>
+
+        <MoveTo X="89.945" Y="-2911.597" Z="95.87"/>
+
+        <MoveTo X="122.85" Y="-3033.682" Z="91.677"/>
+
+        <MoveTo X="119.547" Y="-3154.755" Z="91.13"/>
+
+        <MoveTo X="263.97" Y="-3512.5" Z="27"/>
+
+    </If>
+
+    <If Condition="Data.HasActiveQuest('Lost But Not Forgotten') == false and Data.HasCompletedQuest('Lost But Not Forgotten') == false">
+
+        <TakeQuest NpcName="Misha Tor\'kren" QuestName="Lost But Not Forgotten" />
+
+    </If>
+
+    <AddHotspot X="771.98" Y="-3813.125" Z="18.663904" Range="150" />
+
+    <AddHotspot X="616.88" Y="-3802.5498" Z="18.299007" Range="150" />
+
+    <AddHotspot X="468.82996" Y="-3802.5498" Z="18.22955" Range="150" />
+
+    <AddHotspot X="398.32996" Y="-3802.5498" Z="18.207348" Range="150" />
+
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+
+    <SetEnableVendoring Value="true"/>
+
+    <SetVendorNpc NpcName="Wuark"/>
+
+    <SetEnableRepairing Value="true"/>
+
+    <SetRepairNpc NpcName="Wuark"/>
+
+    <SetTargetingMode Mode="Around Points" />
+
+    <ClearMonsterFilter/>
+
+    <SetMonsterFilterMode Mode="Whitelist" />
+
+    <AddMonsterFilterName Value="Dreadmaw Crocolisk"/>
+
+    <While Condition="Data.AllQuestObjectivesAreComplete('Lost But Not Forgotten') == false" >
+
+        <Wait Value="100" />
+
+    </While>
+    <SetTargetingMode Mode="Around Points" />	
+	<ClearAllowedQuestNodes/>
+      <ClearMonsterFilter/>
+      <SetMonsterFilterMode Mode="None" />
+        <While Condition="UnitLevel('player') &lt; 11" >
+            <Wait Value="100" />
+        </While> 
+     <If Condition="Data.HasActiveQuest('Lost But Not Forgotten') == true">
+    <ReturnQuest NpcName="Misha Tor\'kren" QuestName="Lost But Not Forgotten" />
+	</If>
+</ShadowProfile>

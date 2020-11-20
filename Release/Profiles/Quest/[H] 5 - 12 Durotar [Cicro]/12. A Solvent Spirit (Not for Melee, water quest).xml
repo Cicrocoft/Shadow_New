@@ -1,0 +1,198 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A Solvent Spirit') == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Trayexir"/>
+	<SetVendorNpc NpcName="Trayexir"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="K\'waii" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="K\'waii" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="K\'waii" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+    <If Condition="Data.HasActiveQuest('A Solvent Spirit') == false">
+
+        <TakeQuest NpcName="Master Vornal" QuestName="A Solvent Spirit" />
+
+    </If>
+	<AddHotspot X="-505.54489135742" Y="-5258.0546875" Z="-1.403838634491" Range="150" />
+	<AddHotspot X="-310.76983642578" Y="-5253.7319335938" Z="-1.4000030755997" Range="150" />
+	<AddHotspot X="-232.07829284668" Y="-5275.9174804688" Z="-1.3804008960724" Range="150" />
+	<AddHotspot X="-146.64863586426" Y="-5253.125" Z="-1.38121342659" Range="150" />
+	<AddHotspot X="-67.948204040527" Y="-5184.654296875" Z="-0.37062218785286" Range="150" />
+	<AddHotspot X="37.963779449463" Y="-5148.7607421875" Z="0.052687752991915" Range="150" />
+	<AddHotspot X="131.01496887207" Y="-5144.3999023438" Z="0.55122143030167" Range="150" />
+	<AddHotspot X="208.66036987305" Y="-5143.6884765625" Z="0.80134922266006" Range="150" />
+	<AddHotspot X="302.01400756836" Y="-5155.8911132813" Z="0.42768681049347" Range="150" />
+		<AddBlackspot X="-530.12353515625" Y="-5211.7436523438" Z="10.903032302856" Range="25" />
+    <AddHotspot X="-779.3" Y="-5112.242" Z="0.13" Range="240" />
+
+    <AddHotspot X="-897.94" Y="-5029.448" Z="1.4835" Range="240" />
+
+    <AddHotspot X="-939.453" Y="-5009.429" Z="2.736" Range="240" />
+
+    <AddHotspot X="-1036.5837" Y="-4888.816" Z="1.4643" Range="240" />
+
+    <AddHotspot X="-1109.19" Y="-4794.93" Z="5.05" Range="240" />
+
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Makrura Clacker"/>
+    <AddMonsterFilterName Value="Makrura Shellhide"/>
+	<AddMonsterFilterName Value="Pygmy Surf Crawler" />
+	<AddMonsterFilterName Value="Surf Crawler" />	
+    <While Condition="Data.QuestObjectiveIsComplete('A Solvent Spirit', 2) == false" >
+
+        <Wait Value="100" />
+
+    </While>
+
+		<AddBlackspot X="-530.12353515625" Y="-5211.7436523438" Z="10.903032302856" Range="25" />
+	<AddHotspot X="-505.54489135742" Y="-5258.0546875" Z="-1.403838634491" Range="150" />
+	<AddHotspot X="-310.76983642578" Y="-5253.7319335938" Z="-1.4000030755997" Range="150" />
+	<AddHotspot X="-232.07829284668" Y="-5275.9174804688" Z="-1.3804008960724" Range="150" />
+	<AddHotspot X="-146.64863586426" Y="-5253.125" Z="-1.38121342659" Range="150" />
+	<AddHotspot X="-67.948204040527" Y="-5184.654296875" Z="-0.37062218785286" Range="150" />
+	<AddHotspot X="37.963779449463" Y="-5148.7607421875" Z="0.052687752991915" Range="150" />
+	<AddHotspot X="131.01496887207" Y="-5144.3999023438" Z="0.55122143030167" Range="150" />
+	<AddHotspot X="208.66036987305" Y="-5143.6884765625" Z="0.80134922266006" Range="150" />
+	<AddHotspot X="302.01400756836" Y="-5155.8911132813" Z="0.42768681049347" Range="150" />
+
+    <AddHotspot X="-779.3" Y="-5112.242" Z="0.13" Range="240" />
+
+    <AddHotspot X="-897.94" Y="-5029.448" Z="1.4835" Range="240" />
+
+    <AddHotspot X="-939.453" Y="-5009.429" Z="2.736" Range="240" />
+
+    <AddHotspot X="-1036.5837" Y="-4888.816" Z="1.4643" Range="240" />
+
+    <AddHotspot X="-1109.19" Y="-4794.93" Z="5.05" Range="240" />
+
+    <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+
+    <SetTargetingMode Mode="Around Points" />
+
+    <ClearMonsterFilter/>
+
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Makrura Clacker"/>
+    <AddMonsterFilterName Value="Makrura Shellhide"/>
+
+    <While Condition="Data.QuestObjectiveIsComplete('A Solvent Spirit', 1) == false" >
+
+        <Wait Value="100" />
+
+    </While>
+
+    <ReturnQuest NpcName="Master Vornal" QuestName="A Solvent Spirit" />
+
+</ShadowProfile>

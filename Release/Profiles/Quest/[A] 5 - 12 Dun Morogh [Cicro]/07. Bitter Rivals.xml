@@ -1,0 +1,196 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Return to Marleth') == false">
+
+    <If Condition="Data.HasActiveQuest('Bitter Rivals') == false and Data.HasCompletedQuest('Bitter Rivals') == false">
+
+        <TakeQuest NpcName="Marleth Barleybrew" QuestName="Bitter Rivals" />
+
+    </If>
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Grawn Thromwyn"/>
+	<SetVendorNpc NpcName="Grawn Thromwyn"/>
+
+	<SetEnableRestockItems Value="true"/>
+
+
+    <SetTargetingMode Mode="Around Points" />
+    <ClearHotspots />
+		<AddHotspot X="-5431.7319335938" Y="-265.62265014648" Z="403.29849243164" Range="50" />
+		<AddHotspot X="-5416.9819335938" Y="-343.88171386719" Z="401.28298950195" Range="100" />
+		<AddHotspot X="-5359.6684570313" Y="-422.76486206055" Z="398.03472900391" Range="100" />
+
+    <ClearMonsterFilter/>
+	<SetMonsterFilterMode Mode="None"/>
+
+ <While Condition="UnitLevel('player') &lt; 9 or UnitXP('player') &lt;= 3000 and UnitXPMax('player') == 6500" >
+        <Wait Value="100" />
+    </While>
+
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue and select(4, GetItemInfo(GetInventoryItemLink('player', 16))) &lt; 9 and GetMoney() &gt;= 400" >
+		<NPCInteract NpcName="Grawn Thromwyn" DestinationMap="0" />	
+		<BuyItem ItemId="2494" ItemName="Stiletto" NpcId="1273" NpcName="Grawn Thromwyn" Amount="1" />	
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue and BuffSpellIsValid('Dual Wield') == true and select(4, GetItemInfo(GetInventoryItemLink('player', 17))) &lt; 9 and GetMoney() &gt;= 400" >
+		<NPCInteract NpcName="Grawn Thromwyn" DestinationMap="0" />	
+		<BuyItem ItemId="2494" ItemName="Stiletto" NpcId="1273" NpcName="Grawn Thromwyn" Amount="1" />	
+	</If>	
+
+    <ClearHotspots />
+
+	<AddDoNotSellItem ItemName="Tunder Ale" />
+
+	<SetEnableRestockItems Value="true" />
+
+	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true and Data.GetItemCountByName('Thunder Ale') == 0">
+
+		<AddRestockItem ItemName="Thunder Ale" NpcName="Innkeeper Belm" UnderAmount="0" BuyAmount="1"/>
+
+	</If>
+	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true" >
+	<MoveTo X="-5603.970703125" Y="-543.77270507813" Z="392.43057250977" />
+	</If>
+	<While Condition="Data.HasActiveQuest('Bitter Rivals') == true and Data.GetItemCountByName('Thunder Ale') == 1">
+	<NPCInteract NpcName="Jarven Thunderbrew" />
+	<BotSleep Value="2547"/>
+		<ClearRestockItems/>
+		<Lua>CompleteQuest()</Lua>
+		<BotSleep Value="1584"/>
+		<Lua>GetQuestReward()</Lua>
+		<BotSleep Value="1584"/>
+		<Lua>CompleteQuest()</Lua>
+		<BotSleep Value="1584"/>
+		<Lua>QuestRewardCompleteButton_OnClick()</Lua>
+		<BotSleep Value="6475"/>
+	</While>
+
+	<If Condition="Data.HasActiveQuest('Bitter Rivals') == true">	
+		<BotSleep Value="2145"/>
+		<ReturnQuestToObject QuestName="Bitter Rivals" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
+
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Return to Marleth') == false and Data.HasCompletedQuest('Return to Marleth') == false and Data.HasCompletedQuest('Bitter Rivals') == true">
+
+		<TakeQuestFromObject QuestName="Return to Marleth" X="-5606.2915039063" Y="-548.01116943359" Z="392.98583984375" />
+
+	</If>
+
+    <SetTargetingMode Mode="Around Points" />
+    <ClearHotspots />
+		<AddHotspot X="-5359.6684570313" Y="-422.76486206055" Z="398.03472900391" Range="100" />
+		<AddHotspot X="-5416.9819335938" Y="-343.88171386719" Z="401.28298950195" Range="100" />
+		<AddHotspot X="-5431.7319335938" Y="-265.62265014648" Z="403.29849243164" Range="50" />
+
+    <ClearMonsterFilter/>
+	<SetMonsterFilterMode Mode="None"/>
+
+ <While Condition="UnitLevel('player') &lt; 9 or UnitXP('player') &lt;= 4000 and UnitXPMax('player') == 6500" >
+        <Wait Value="100" />
+    </While>
+
+	<If Condition="Data.HasActiveQuest('Return to Marleth') == true">
+
+		<ReturnQuest NpcName="Marleth Barleybrew" QuestId="311" QuestName="Return to Marleth" />
+
+	</If>
+
+</ShadowProfile>
+
+
+

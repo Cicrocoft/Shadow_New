@@ -1,0 +1,218 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Zhevra', 845) == false or UnitLevel('player') &lt; 13 or UnitXP('player') &lt;= 5000 and UnitXPMax('player') == 11400">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="1"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="10" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Nargal Deatheye" />
+	<SetRepairNpc NpcName="Nargal Deatheye" />	
+	<!-- Local Do not sell Items -->
+
+	<!-- Restock Crossroads 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Shiny Red Apple" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Shiny Red Apple" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Shiny Red Apple" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Boorand Plainswind" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Plainstrider Menace', 844) == false and Data.HasCompletedQuest('Plainstrider Menace', 844) == false">
+		<TakeQuest NpcName="Sergra Darkthorn" QuestId="844" QuestName="Plainstrider Menace" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Plainstrider Menace', 844) == true and Data.AllQuestObjectivesAreComplete('Plainstrider Menace', 844) == false or UnitLevel('player') &lt; 13">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<SetEnableMonsterLevelFilter Value="true" />
+		<SetMonsterAboveMyLevel Value="0" />
+		<SetMonsterBelowMyLevel Value="5" />        
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Greater Plainstrider" />
+		<AddMonsterFilterName Value="Zhevra Runner" />
+		<AddMonsterFilterName Value="Savannah Huntress" />	
+        <AddMonsterFilterName Value="Sunscale Lashtail" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-621.2529296875" Y="-2773.4748535156" Z="92.774597167969" Range="150" />
+		<AddHotspot X="-461.64352416992" Y="-2819.1630859375" Z="92.415092468262" Range="150" />
+		<AddHotspot X="-313.12353515625" Y="-2774.4729003906" Z="92.189712524414" Range="150" />
+		<AddHotspot X="-231.43319702148" Y="-2590.7707519531" Z="94.793006896973" Range="150" />
+		<AddHotspot X="-317.25814819336" Y="-2361.5856933594" Z="92.221817016602" Range="150" />
+		<AddHotspot X="-544.05676269531" Y="-2459.8256835938" Z="91.667198181152" Range="150" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Plainstrider Menace', 844) == false or UnitLevel('player') &lt; 13" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Plainstrider Menace', 844) == true and Data.AllQuestObjectivesAreComplete('Plainstrider Menace', 844) == true">
+		<ReturnQuest NpcName="Sergra Darkthorn" QuestId="844" QuestName="Plainstrider Menace" DestinationMap="1" />
+	</If>
+   	<If Condition="Data.HasActiveQuest('The Zhevra', 845) == false and Data.HasCompletedQuest('The Zhevra', 845) == false">
+		<TakeQuest NpcName="Sergra Darkthorn" QuestId="845" QuestName="The Zhevra" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Zhevra', 845) == true and Data.AllQuestObjectivesAreComplete('The Zhevra', 845) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<SetEnableMonsterLevelFilter Value="true" />
+		<SetMonsterAboveMyLevel Value="1" />
+		<SetMonsterBelowMyLevel Value="5" />        
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Greater Plainstrider" />
+		<AddMonsterFilterName Value="Zhevra Runner" />
+		<AddMonsterFilterName Value="Savannah Huntress" />	
+        <AddMonsterFilterName Value="Sunscale Lashtail" />
+		<!-- Blackspots -->
+		<AddBlackspot X="-860.84252929688" Y="-2739.8684082031" Z="91.666931152344" Range="25" />
+		<!-- Hotspots -->
+		<AddHotspot X="-693.98883056641" Y="-2540.556640625" Z="93.596839904785" Range="150" />
+		<AddHotspot X="-801.62976074219" Y="-2590.5612792969" Z="91.666900634766" Range="150" />
+		<AddHotspot X="-899.01837158203" Y="-2714.642578125" Z="91.6689453125" Range="150" />
+		<AddHotspot X="-927.70593261719" Y="-2857.9816894531" Z="94.357078552246" Range="150" />
+
+		<While Condition="Data.AllQuestObjectivesAreComplete('The Zhevra', 845) == false" >
+			<Wait Value="100" />
+		</While>
+		<AddHotspot X="-621.2529296875" Y="-2773.4748535156" Z="92.774597167969" Range="150" />
+		<AddHotspot X="-461.64352416992" Y="-2819.1630859375" Z="92.415092468262" Range="150" />
+		<AddHotspot X="-313.12353515625" Y="-2774.4729003906" Z="92.189712524414" Range="150" />
+		<AddHotspot X="-231.43319702148" Y="-2590.7707519531" Z="94.793006896973" Range="150" />
+		<AddHotspot X="-317.25814819336" Y="-2361.5856933594" Z="92.221817016602" Range="150" />
+		<AddHotspot X="-544.05676269531" Y="-2459.8256835938" Z="91.667198181152" Range="150" />	
+		<While Condition="UnitLevel('player') &lt; 13 or UnitXP('player') &lt;= 5000 and UnitXPMax('player') == 11400" >
+			<Wait Value="100" />
+		</While>
+
+               
+	</If>
+	<If Condition="Data.HasActiveQuest('The Zhevra', 845) == true and Data.AllQuestObjectivesAreComplete('The Zhevra', 845) == true">
+		<ReturnQuest NpcName="Sergra Darkthorn" QuestId="845" QuestName="The Zhevra" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Prowlers of the Barrens', 903) == false and Data.HasCompletedQuest('Prowlers of the Barrens', 903) == false">
+		<TakeQuest NpcName="Sergra Darkthorn" QuestId="903" QuestName="Prowlers of the Barrens" DestinationMap="1" />
+	</If>    
+</ShadowProfile>

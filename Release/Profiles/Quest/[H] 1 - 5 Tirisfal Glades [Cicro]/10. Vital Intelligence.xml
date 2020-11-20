@@ -1,0 +1,15 @@
+<ShadowProfile Condition="not Data.HasActiveQuest('A Rogue\'s Deal') and not Data.HasCompletedQuest('A Rogue\'s Deal') and Data.HasCompletedQuest('The Red Messenger')">
+    <SetBaseSettings />
+	<If Condition="Data.HasActiveQuest('Vital Intelligence', 383) == false and Data.HasCompletedQuest('Vital Intelligence', 383) == false">
+		<TakeQuest NpcName="Executor Arren" QuestId="383" QuestName="Vital Intelligence" DestinationMap="0" />
+	</If>
+
+    <If Condition="not Data.HasActiveQuest('In Favor of Darkness') and not Data.HasCompletedQuest('In Favor of Darkness') and Data.PlayerClass() == WoWClass.Priest">
+        <TakeQuest NpcName="Dark Cleric Duesten" QuestName="In Favor of Darkness" />
+    </If>
+
+    <If Condition="not Data.HasActiveQuest('A Rogue\'s Deal') and not Data.HasCompletedQuest('A Rogue\'s Deal')">
+        <TakeQuest NpcName="Calvin Montague" QuestName="A Rogue's Deal" />
+    </If>
+
+</ShadowProfile>

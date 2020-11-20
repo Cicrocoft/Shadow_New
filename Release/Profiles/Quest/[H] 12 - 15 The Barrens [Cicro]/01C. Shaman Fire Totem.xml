@@ -1,0 +1,59 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Call of Fire', 1522) == false">
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="1"/>
+
+	<If Condition="Data.HasActiveQuest('Call of Fire', 1522) == false and Data.HasCompletedQuest('Call of Fire', 1522) == false">
+		<TakeQuest NpcName="Searn Firewarder" QuestId="1522" QuestName="Call of Fire" DestinationMap="1" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Call of Fire', 1522) == true and Data.AllQuestObjectivesAreComplete('Call of Fire', 1522) == true">
+		<ReturnQuest NpcName="Kranal Fiss" QuestId="1522" QuestName="Call of Fire" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Call of Fire', 1524) == false and Data.HasCompletedQuest('Call of Fire', 1524) == false">
+		<TakeQuest NpcName="Kranal Fiss" QuestId="1524" QuestName="Call of Fire" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Call of Fire', 1524) == true and Data.AllQuestObjectivesAreComplete('Call of Fire', 1524) == true">
+		<ReturnQuest NpcName="Telf Joolam" QuestId="1524" QuestName="Call of Fire" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Call of Fire', 1525) == false and Data.HasCompletedQuest('Call of Fire', 1525) == false">
+		<TakeQuest NpcName="Telf Joolam" QuestId="1525" QuestName="Call of Fire" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Call of Fire', 1525) == true and Data.QuestObjectiveIsComplete('Call of Fire', 1, 1525) == false and Data.PlayerClass() == WoWClass.Shaman">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<!-- Blackspots -->
+		<AddBlackspot X="-193.35580444336" Y="-3027.4104003906" Z="91.667060852051" Range="25" />
+		<AddBlackspot X="-220.83528137207" Y="-3003.3659667969" Z="91.667297363281" Range="25" />
+		<!-- Hotspots -->
+		<AddHotspot X="-77.96794128418" Y="-2787.3901367188" Z="95.259094238281" Range="100" />
+		<AddHotspot X="-175.08456420898" Y="-2910.3505859375" Z="93.494445800781" Range="100" />
+		<AddHotspot X="-109.21524047852" Y="-2982.7412109375" Z="91.666763305664" Range="100" />
+		<While Condition="Data.QuestObjectiveIsComplete('Call of Fire', 1, 1525) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>  
+
+	<If Condition="Data.HasActiveQuest('Call of Fire', 1525) == true and Data.QuestObjectiveIsComplete('Call of Fire', 2, 1525) == false and Data.PlayerClass() == WoWClass.Shaman">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<While Condition="Data.QuestObjectiveIsComplete('Call of Fire', 2, 1525) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Call of Fire', 1525) == true and Data.AllQuestObjectivesAreComplete('Call of Fire', 1525) == true">
+		<ReturnQuest NpcName="Telf Joolam" QuestId="1525" QuestName="Call of Fire" DestinationMap="1" />
+	</If>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Razormane Geomancer" />
+		<AddHotspot X="1.2500433921814" Y="-3283.5981445313" Z="91.66675567627" Range="100" />
+		<AddHotspot X="-111.44724273682" Y="-2952.9243164063" Z="91.667938232422" Range="100" />
+		<AddHotspot X="-112.5611114502" Y="-2952.8071289063" Z="91.667938232422" Range="100" />

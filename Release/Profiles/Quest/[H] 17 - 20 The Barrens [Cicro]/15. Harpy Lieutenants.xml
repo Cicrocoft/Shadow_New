@@ -1,0 +1,22 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Harpy Lieutenants') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Harpy Lieutenants') == false">
+        <TakeQuest NpcName="Darsok Swiftdagger" QuestName="Harpy Lieutenants" />
+
+    </If>
+    <SetBaseSettings />
+
+    <AddHotspot X="560" Y="-1325" Z="94" Range="150" />
+   
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Uthrok"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Uthrok"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+        <While Condition="Data.QuestObjectiveIsComplete('Harpy Lieutenants', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Darsok Swiftdagger" QuestName="Harpy Lieutenants" />
+</ShadowProfile>

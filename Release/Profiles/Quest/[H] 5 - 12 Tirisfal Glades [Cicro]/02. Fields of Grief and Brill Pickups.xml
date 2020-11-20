@@ -1,0 +1,33 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest(nil, 407)" >
+    <SetBaseSettings />
+    <If Condition="Data.HasCompletedQuest(nil, 365) and not Data.HasActiveQuest(nil, 407)">
+        <TakeQuest NpcName="Apothecary Johaan" QuestId="407" QuestName="Fields of Grief" />
+    </If>
+
+    <If Condition="not Data.HasActiveQuest('A New Plague')">
+        <TakeQuest NpcName="Apothecary Johaan" QuestName="A New Plague" />
+    </If>
+    <ReturnQuest NpcName="Innkeeper Renee" QuestName="A Rogue's Deal" />
+    <If Condition="not Data.HasActiveQuest('The Haunted Mills')">
+        <TakeQuest NpcName="Coleman Farthing" QuestName="The Haunted Mills" />
+    </If>
+
+    <If Condition="not Data.HasActiveQuest('Deaths in the Family')">
+        <TakeQuest NpcName="Coleman Farthing" QuestName="Deaths in the Family" />
+    </If>
+    
+    <If Condition="not Data.HasActiveQuest('The Chill of Death')">
+        <TakeQuest NpcName="Gretchen Dedmar" QuestName="The Chill of Death" />
+    </If>
+
+    <ReturnQuest NpcName="Executor Zygand" QuestName="Vital Intelligence" />
+    <If Condition="not Data.HasActiveQuest('At War With The Scarlet Crusade')">
+        <TakeQuest NpcName="Executor Zygand" QuestId="427" QuestName="At War With The Scarlet Crusade" />
+    </If>
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue and select(4, GetItemInfo(GetInventoryItemLink('player', 16))) &lt; 6 and GetMoney() &gt; 400" >
+		<NPCInteract NpcName="Oliver Dwor" DestinationMap="0" />	
+		<BuyItem ItemId="2494" ItemName="Stiletto" NpcId="2136" NpcName="Oliver Dwor" Amount="1" />	
+	</If>
+
+    <ReturnQuest NpcName="Captured Scarlet Zealot" QuestId="407" />
+</ShadowProfile>

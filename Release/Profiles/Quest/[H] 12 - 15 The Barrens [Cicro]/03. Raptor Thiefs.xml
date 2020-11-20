@@ -1,0 +1,191 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Raptor Thieves', 869) == false or UnitLevel('player') &lt; 14">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="1"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="10" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Nargal Deatheye" />
+	<SetRepairNpc NpcName="Nargal Deatheye" />	
+	<!-- Local Do not sell Items -->
+
+	<!-- Restock Crossroads 12+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Shiny Red Apple" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Shiny Red Apple" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Shiny Red Apple" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Boorand Plainswind" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Boorand Plainswind" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Uthrok" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Raptor Thieves', 869) == false and Data.HasCompletedQuest('Raptor Thieves', 869) == false">
+		<TakeQuest NpcName="Gazrog" QuestId="869" QuestName="Raptor Thieves" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Raptor Thieves', 869) == true and Data.AllQuestObjectivesAreComplete('Raptor Thieves', 869) == false or UnitLevel('player') &lt; 14">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-869.75860595703" Y="-2415.3115234375" Z="91.666847229004" Range="100" />
+		<AddHotspot X="-759.90417480469" Y="-2772.2502441406" Z="93.850982666016" Range="100" />
+		<AddHotspot X="-763.99066162109" Y="-2915.0539550781" Z="91.931610107422" Range="100" />
+		<AddHotspot X="-727.71734619141" Y="-3060.142578125" Z="94.289405822754" Range="100" />
+		<AddHotspot X="-664.11047363281" Y="-3027.7292480469" Z="91.911827087402" Range="100" />
+		<AddHotspot X="-150.52679443359" Y="-2242.2614746094" Z="91.667907714844" Range="50" />
+		<AddHotspot X="-487.72604370117" Y="-2478.5305175781" Z="92.929313659668" Range="50" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Raptor Thieves', 869) == false and UnitLevel('player') &lt; 14" >
+			<Wait Value="100" />
+		</While>
+		<AddHotspot X="-621.2529296875" Y="-2773.4748535156" Z="92.774597167969" Range="150" />
+		<AddHotspot X="-461.64352416992" Y="-2819.1630859375" Z="92.415092468262" Range="150" />
+		<AddHotspot X="-313.12353515625" Y="-2774.4729003906" Z="92.189712524414" Range="150" />
+		<AddHotspot X="-231.43319702148" Y="-2590.7707519531" Z="94.793006896973" Range="150" />
+		<AddHotspot X="-317.25814819336" Y="-2361.5856933594" Z="92.221817016602" Range="150" />
+		<AddHotspot X="-544.05676269531" Y="-2459.8256835938" Z="91.667198181152" Range="150" />	
+		<While Condition="UnitLevel('player') &lt; 14" >
+			<Wait Value="100" />
+		</While>
+		<ClearMonsterFilter/>
+		<AddMonsterFilterName Value="Sunscale Screecher" />
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<ClearHotspots />   
+		<AddHotspot X="-869.75860595703" Y="-2415.3115234375" Z="91.666847229004" Range="150" />
+		<AddHotspot X="-759.90417480469" Y="-2772.2502441406" Z="93.850982666016" Range="150" />
+		<AddHotspot X="-763.99066162109" Y="-2915.0539550781" Z="91.931610107422" Range="150" />
+		<AddHotspot X="-727.71734619141" Y="-3060.142578125" Z="94.289405822754" Range="150" />
+		<AddHotspot X="-664.11047363281" Y="-3027.7292480469" Z="91.911827087402" Range="150" />
+		<AddHotspot X="-150.52679443359" Y="-2242.2614746094" Z="91.667907714844" Range="150" />
+		<AddHotspot X="-487.72604370117" Y="-2478.5305175781" Z="92.929313659668" Range="150" />  
+		<While Condition="Data.AllQuestObjectivesAreComplete('Raptor Thieves', 869) == false" >
+			<Wait Value="100" />
+		</While>                   
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Raptor Thieves', 869) == true and Data.AllQuestObjectivesAreComplete('Raptor Thieves', 869) == true">
+		<ReturnQuest NpcName="Gazrog" QuestId="869" QuestName="Raptor Thieves" DestinationMap="1" />
+	</If>
+
+</ShadowProfile>

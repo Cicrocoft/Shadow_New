@@ -1,0 +1,260 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('A New Plague') == false or Data.HasCompletedQuest('The Chill of Death') == false or Data.HasCompletedQuest('Gordo\'s Task') == false or Data.HasCompletedQuest('A Putrid Task') == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Eliza Callen"/>
+	<SetVendorNpc NpcName="Eliza Callen"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Mrs. Winters" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Mrs. Winters" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Mrs. Winters" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+    <If Condition="not Data.HasActiveQuest('A Putrid Task') and Data.HasCompletedQuest('A Putrid Task') == false">
+        <TakeQuest NpcName="Deathguard Dillinger" QuestName="A Putrid Task" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('Gordo\'s Task') and Data.HasCompletedQuest('Gordo\'s Task') == false">
+        <TakeQuest NpcName="Gordo" QuestName="Gordo\'s Task" />
+    </If>
+    <If Condition="not Data.HasActiveQuest('A New Plague') and Data.HasCompletedQuest('A New Plague') == false">
+        <TakeQuest NpcName="Apothecary Johaan" QuestName="A New Plague" />
+    </If>	
+    <If Condition="not Data.HasActiveQuest('The Chill of Death') and Data.HasCompletedQuest('The Chill of Death') == false">
+        <TakeQuest NpcName="Gretchen Dedmar" QuestName="The Chill of Death" />
+    </If>	
+	<If Condition="Data.HasActiveQuest('Gordo\'s Task') == true and Data.AllQuestObjectivesAreComplete('Gordo\'s Task') == false">
+		<!-- Objective Settings -->
+        <ClearAllowedQuestNodes/>
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[175566]=0</Lua>
+		<!-- QuestObjects -->
+       <AllowQuestNode NodeName="Gloom Weed" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+        <AddHotspot X="2311.27734375" Y="614.42358398438" Z="28.793079376221" Range="250" />
+        <AddHotspot X="2261.0063476563" Y="692.28485107422" Z="33.889125823975" Range="250" />
+        <AddHotspot X="2354.8227539063" Y="850.478515625" Z="50.939708709717" Range="250" />
+        <AddHotspot X="2378.6779785156" Y="943.20190429688" Z="66.028465270996" Range="250" />
+        <AddHotspot X="2317.6962890625" Y="1010.0465087891" Z="50.003265380859" Range="250" />
+        <AddHotspot X="2175.1999511719" Y="904.27307128906" Z="42.068881988525" Range="250" />    
+		<While Condition="Data.QuestObjectiveIsComplete('Gordo\'s Task', 1) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+
+	<If Condition="Data.HasActiveQuest('A Putrid Task') == true and Data.AllQuestObjectivesAreComplete('A Putrid Task') == false">
+        <ClearAllowedQuestNodes/>
+	    <ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Rotting Dead"/>
+		<AddMonsterFilterName Value="Ravaged Corpse"/>
+        <SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<AddHotspot X="2306.3991699219" Y="633.20727539063" Z="30.217794418335" Range="100" />
+		<AddHotspot X="2319.8684082031" Y="700.9921875" Z="39.975551605225" Range="100" />
+		<AddHotspot X="2320.3674316406" Y="754.38616943359" Z="33.3571434021" Range="100" />
+		<AddHotspot X="2208.1733398438" Y="809.72039794922" Z="36.731262207031" Range="100" />
+		<AddHotspot X="2268.1040039063" Y="918.8984375" Z="50.10270690918" Range="100" />
+		<AddHotspot X="2231.5327148438" Y="996.78082275391" Z="37.68729019165" Range="100" />
+		<AddHotspot X="2104.8266601563" Y="1042.015625" Z="32.411861419678" Range="100" />
+		<AddHotspot X="2009.986328125" Y="1022.6206054688" Z="30.44633102417" Range="100" />
+		<AddHotspot X="2060.00390625" Y="920.33129882813" Z="34.101051330566" Range="100" />
+
+		<While Condition="not Data.QuestObjectiveIsComplete('A Putrid Task', 1)" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('A New Plague') == true and Data.AllQuestObjectivesAreComplete('A New Plague') == false">
+         <ClearAllowedQuestNodes/>
+        <ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Decrepit Darkhound"/>
+		<AddMonsterFilterName Value="Cursed Darkhound"/>
+	        <SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<AddHotspot X="2306.3991699219" Y="633.20727539063" Z="30.217794418335" Range="100" />
+		<AddHotspot X="2319.8684082031" Y="700.9921875" Z="39.975551605225" Range="100" />
+		<AddHotspot X="2320.3674316406" Y="754.38616943359" Z="33.3571434021" Range="100" />
+		<AddHotspot X="2208.1733398438" Y="809.72039794922" Z="36.731262207031" Range="100" />
+		<AddHotspot X="2268.1040039063" Y="918.8984375" Z="50.10270690918" Range="100" />
+		<AddHotspot X="2231.5327148438" Y="996.78082275391" Z="37.68729019165" Range="100" />
+		<AddHotspot X="2104.8266601563" Y="1042.015625" Z="32.411861419678" Range="100" />
+		<AddHotspot X="2009.986328125" Y="1022.6206054688" Z="30.44633102417" Range="100" />
+		<AddHotspot X="2060.00390625" Y="920.33129882813" Z="34.101051330566" Range="100" />
+
+		<While Condition="not Data.QuestObjectiveIsComplete('A New Plague', 1, 367)" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+	<If Condition="Data.HasActiveQuest('The Chill of Death') == true and Data.AllQuestObjectivesAreComplete('The Chill of Death') == false">
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Greater Duskbat"/>
+		<AddMonsterFilterName Value="Vampiric Duskbat"/>
+        <SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<AddHotspot X="2306.3991699219" Y="633.20727539063" Z="30.217794418335" Range="100" />
+		<AddHotspot X="2319.8684082031" Y="700.9921875" Z="39.975551605225" Range="100" />
+		<AddHotspot X="2320.3674316406" Y="754.38616943359" Z="33.3571434021" Range="100" />
+		<AddHotspot X="2208.1733398438" Y="809.72039794922" Z="36.731262207031" Range="100" />
+		<AddHotspot X="2268.1040039063" Y="918.8984375" Z="50.10270690918" Range="100" />
+		<AddHotspot X="2231.5327148438" Y="996.78082275391" Z="37.68729019165" Range="100" />
+		<AddHotspot X="2104.8266601563" Y="1042.015625" Z="32.411861419678" Range="100" />
+		<AddHotspot X="2009.986328125" Y="1022.6206054688" Z="30.44633102417" Range="100" />
+		<AddHotspot X="2060.00390625" Y="920.33129882813" Z="34.101051330566" Range="100" />
+
+		<While Condition="not Data.QuestObjectiveIsComplete('The Chill of Death', 1)" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+		<SetMonsterFilterMode Mode="None" />
+        <SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<AddHotspot X="2306.3991699219" Y="633.20727539063" Z="30.217794418335" Range="100" />
+		<AddHotspot X="2319.8684082031" Y="700.9921875" Z="39.975551605225" Range="100" />
+		<AddHotspot X="2320.3674316406" Y="754.38616943359" Z="33.3571434021" Range="100" />
+		<AddHotspot X="2208.1733398438" Y="809.72039794922" Z="36.731262207031" Range="100" />
+		<AddHotspot X="2268.1040039063" Y="918.8984375" Z="50.10270690918" Range="100" />
+		<AddHotspot X="2231.5327148438" Y="996.78082275391" Z="37.68729019165" Range="100" />
+		<AddHotspot X="2104.8266601563" Y="1042.015625" Z="32.411861419678" Range="100" />
+		<AddHotspot X="2009.986328125" Y="1022.6206054688" Z="30.44633102417" Range="100" />
+		<AddHotspot X="2060.00390625" Y="920.33129882813" Z="34.101051330566" Range="100" />
+
+		<While Condition="UnitLevel('player') &lt; 8" >
+			<Wait Value="100" />
+		</While>
+
+	<If Condition="Data.HasActiveQuest('Gordo\'s Task', 5481) == true and Data.AllQuestObjectivesAreComplete('Gordo\'s Task', 5481) == true">
+		<ReturnQuest NpcName="Junior Apothecary Holland" QuestId="5481" QuestName="Gordo\'s Task" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Doom Weed', 5482) == false and Data.HasCompletedQuest('Doom Weed', 5482) == false">
+		<TakeQuest NpcName="Junior Apothecary Holland" QuestId="5482" QuestName="Doom Weed" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Putrid Task', 404) == true and Data.AllQuestObjectivesAreComplete('A Putrid Task', 404) == true">
+		<ReturnQuest NpcName="Deathguard Dillinger" QuestId="404" QuestName="A Putrid Task" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Mills Overrun', 426) == false and Data.HasCompletedQuest('The Mills Overrun', 426) == false">
+		<TakeQuest NpcName="Deathguard Dillinger" QuestId="426" QuestName="The Mills Overrun" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A New Plague', 367) == true and Data.AllQuestObjectivesAreComplete('A New Plague', 367) == true">
+		<ReturnQuest NpcName="Apothecary Johaan" QuestId="367" QuestName="A New Plague" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A New Plague', 368) == false and Data.HasCompletedQuest('A New Plague', 368) == false">
+		<TakeQuest NpcName="Apothecary Johaan" QuestId="368" QuestName="A New Plague" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Chill of Death') == true and Data.QuestObjectiveIsComplete('The Chill of Death', 1) == true">
+		<AddRestockItem ItemName="Coarse Thread" NpcName="Abigail Shiel" UnderAmount="0" BuyAmount="1"/>
+		<ReturnQuest NpcName="Gretchen Dedmar" QuestName="The Chill of Death" />
+		<ClearRestockItems/>	
+	</If>		
+</ShadowProfile>

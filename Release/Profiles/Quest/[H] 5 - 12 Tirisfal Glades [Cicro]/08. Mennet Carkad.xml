@@ -1,0 +1,17 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Mennet Carkad') ">
+    <SetBaseSettings />
+
+    <If Condition="not Data.HasActiveQuest('Return to the Magistrate')">
+        <TakeQuest NpcName="Deathguard Linnea" QuestName="Return to the Magistrate" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Return to the Magistrate', 360) == true and Data.AllQuestObjectivesAreComplete('Return to the Magistrate', 360) == true">
+		<ReturnQuest NpcName="Magistrate Sevren" QuestId="360" QuestName="Return to the Magistrate" DestinationMap="0" />
+	</If>
+
+    <If Condition="not Data.HasActiveQuest('Rear Guard Patrol')">
+        <TakeQuest NpcName="Deathguard Linnea" QuestName="Rear Guard Patrol" />
+    </If>
+
+    <ReturnQuest NpcName="Mennet Carkad" QuestName="Mennet Carkad" />
+
+</ShadowProfile>

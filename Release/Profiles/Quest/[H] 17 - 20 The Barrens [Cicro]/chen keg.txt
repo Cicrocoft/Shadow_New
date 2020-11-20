@@ -1,0 +1,7 @@
+	<If Condition="Data.HasActiveQuest('Chen\'s Empty Keg', 819) == false and Data.HasCompletedQuest('Chen\'s Empty Keg', 819) == false">
+		<MoveTo X="517.62683105469" Y="-1219.5638427734" Z="92.673431396484" Range="7" DestinationMap="1" />
+		<If Condition="Data.GetClosestGameObject(3238) ~= nil">
+			<InteractWithClosestGameObject GameObjectId="3238" />
+			<BotSleep Value="5500" />
+		</If>
+	</If>

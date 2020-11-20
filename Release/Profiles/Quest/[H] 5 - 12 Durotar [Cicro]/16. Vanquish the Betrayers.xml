@@ -1,0 +1,258 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Break a Few Eggs', 815) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Wuark"/>
+	<SetVendorNpc NpcName="Wuark"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Jark" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jark" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Jark" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+    <If Condition="Data.HasActiveQuest('Vanquish the Betrayers') == false and Data.HasCompletedQuest('Vanquish the Betrayers') == false">
+        <TakeQuest NpcName="Gar\'Thok" QuestName="Vanquish the Betrayers" />
+    </If>
+	<If Condition="Data.HasActiveQuest('Break a Few Eggs', 815) == false and Data.HasCompletedQuest('Break a Few Eggs', 815) == false">
+		<TakeQuest NpcName="Cook Torka" QuestId="815" QuestName="Break a Few Eggs" DestinationMap="1" />
+	</If>
+    <If Condition="Data.HasActiveQuest('Vanquish the Betrayers') == true and (Data.QuestObjectiveIsComplete('Vanquish the Betrayers', 2) == false or Data.QuestObjectiveIsComplete('Vanquish the Betrayers', 1) == false)" >
+        <AddHotspot X="-17.620117" Y="-4949.9375" Z="17.569572" Range="250" />
+        <AddHotspot X="-81.07007" Y="-5076.8374" Z="17.346636" Range="250" />
+        <AddHotspot X="-176.24487" Y="-5013.3877" Z="22.040867" Range="250" />
+        <AddHotspot X="-246.745" Y="-4934.075" Z="24.418726" Range="250" />
+        <AddHotspot X="-278.4701" Y="-5124.425" Z="21.532255" Range="250" />
+        <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+		<AddBlackspot X="-242.66133117676" Y="-5112.0869140625" Z="25.244064331055" Range="25" />
+     
+	    <SetTargetingMode Mode="Around Points" />
+        <ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="Whitelist" />
+        <AddMonsterFilterName Value="Kul Tiras Sailor"/>
+        <While Condition="Data.QuestObjectiveIsComplete('Vanquish the Betrayers', 1) == false" >
+            <Wait Value="100" />
+        </While>
+        <ClearMonsterFilter/>
+        <AddMonsterFilterName Value="Kul Tiras Marine"/>
+        <While Condition="Data.QuestObjectiveIsComplete('Vanquish the Betrayers', 2) == false" >
+            <Wait Value="100" />
+        </While>
+    </If>
+	<If Condition="Data.HasActiveQuest('Break a Few Eggs', 815) == true and Data.AllQuestObjectivesAreComplete('Break a Few Eggs', 815) == false">
+		<SetRepairNpc NpcName="Trayexir"/>
+	    <SetVendorNpc NpcName="Trayexir"/>	
+    	<!-- Objective Settings -->
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[3240]=0</Lua>
+		<!-- QuestObjects -->
+       <AllowQuestNode NodeName="Taillasher Eggs" />
+		<!-- Blackspots -->
+        <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+        <AddBlackspot X="-1010.714" Y="-5147.952" Z="2.188" Range="20" />        
+		<AddBlackspot X="-242.66133117676" Y="-5112.0869140625" Z="25.244064331055" Range="25" />
+		<!-- Hotspots -->
+        <AddHotspot X="-655.64514" Y="-5547.4253" Z="4.263571" Range="100" />
+        <AddHotspot X="-708.16736" Y="-5510.57" Z="7.7532487" Range="100" />
+        <AddHotspot X="-814.27014" Y="-5314.775" Z="3.5509095" Range="100" />
+        <AddHotspot X="-951.74524" Y="-5209.0254" Z="3.9669073" Range="100" />
+        <AddHotspot X="-969.37024" Y="-5182.588" Z="1.9488904" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Break a Few Eggs', 815) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+		<ClearAllowedQuestNodes/>
+        <SetTargetingMode Mode="Around Points" />
+        <ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="Whitelist" />    
+        <AddMonsterFilterName Value="Bloodtalon Taillasher" />
+        <AddHotspot X="-655.64514" Y="-5547.4253" Z="4.263571" Range="150" />
+        <AddHotspot X="-708.16736" Y="-5510.57" Z="7.7532487" Range="150" />
+        <AddHotspot X="-814.27014" Y="-5314.775" Z="3.5509095" Range="150" />
+        <AddHotspot X="-951.74524" Y="-5209.0254" Z="3.9669073" Range="150" />
+        <AddHotspot X="-969.37024" Y="-5182.588" Z="1.9488904" Range="150" />
+		<While Condition="UnitLevel('player') &lt; 8 or UnitXP('player') &lt;= 4700 and UnitXPMax('player') == 5400" >
+			<Wait Value="100" />
+		</While>
+
+        <SetRepairNpc NpcName="Wuark"/>
+        <SetVendorNpc NpcName="Wuark"/>	
+        <ClearHotspots />
+        <AddHotspot X="-17.620117" Y="-4949.9375" Z="17.569572" Range="250" />
+        <AddHotspot X="-81.07007" Y="-5076.8374" Z="17.346636" Range="250" />
+        <AddHotspot X="-176.24487" Y="-5013.3877" Z="22.040867" Range="250" />
+        <AddHotspot X="-246.745" Y="-4934.075" Z="24.418726" Range="250" />
+        <AddHotspot X="-278.4701" Y="-5124.425" Z="21.532255" Range="250" />
+        <AddBlackspot X="-795.87" Y="4905.73" Z="19.54" Range="1" />
+        <SetTargetingMode Mode="Around Points" />
+        <ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Blacklist" />
+		<AddMonsterFilterName Value="Pygmy Surf Crawler" />
+		<AddMonsterFilterName Value="Surf Crawler" />
+		<AddMonsterFilterName Value="Makrura Clacker" />
+        <While Condition="UnitLevel('player') &lt; 9" >
+            <Wait Value="100" />
+        </While>  
+
+    <If Condition="Data.HasActiveQuest('Vanquish the Betrayers') == true and Data.QuestObjectiveIsComplete('Vanquish the Betrayers', 3) == false" >
+        <ClearHotspots/>
+		<ClearBlackspots />
+        <SetMaxZDifference Value="7"/>    
+        <AddHotspot X="-246.21" Y="-5111" Z="41.347" Range="250" />
+        <ClearMonsterFilter/>
+        <SetMonsterFilterMode Mode="Whitelist" />        
+        <AddMonsterFilterName Value="Lieutenant Benedict"/>    
+        <SetRestHPPercent Value="95"/>
+        <SetUseFoodPercent Value="95"/>
+        <While Condition="Data.AllQuestObjectivesAreComplete('Vanquish the Betrayers') == false" >
+            <Wait Value="100" />
+        </While>
+    </If>
+
+	<While Condition="Data.HasCompletedQuest('The Admiral\'s Orders', 830) == false and Data.GetItemCountByName('Benedict\'s Key') == 1 and Data.HasActiveQuest('The Admiral\'s Orders', 830) == false and Data.GetItemCountByName('Aged Envelope') == 0">
+		<If Condition="Nav.RangeFromMeXYZ(-225.40794372559, -5097.0756835938, 49.325393676758) &gt; 1">
+            <MoveTo X="-225.04066467285" Y="-5096.791015625" Z="49.325691223145" Range="1"/>
+        </If>
+		<If Condition="Nav.RangeFromMeXYZ(-225.40794372559, -5097.0756835938, 49.325393676758) &lt; 1">
+            <Lua>SetCVar("autoLootDefault", "1"); print("Autoloot On");</Lua>
+            <SetEnableAutoLoot Value="true"/>
+            <InteractWithClosestGameObject />
+            <BotSleep Value="4500" />
+			<Wait Value="100" />
+        </If>        
+	</While>
+        <SetRestHPPercent Value="70"/>
+        <SetUseFoodPercent Value="70"/>    
+	
+	<While Condition="Data.GetItemCountByName('Aged Envelope') == 1 and Data.HasActiveQuest('The Admiral\'s Orders', 830) == false and Data.HasCompletedQuest('The Admiral\'s Orders', 830) == false">
+		<UseItem ItemId="4881" />
+		<BotSleep Value="1234" />
+		<Lua>AcceptQuest()</Lua>
+		<BotSleep Value="2500" />
+		<Wait Value="100" />
+	</While>
+ 	<If Condition="Data.HasActiveQuest('Vanquish the Betrayers') == true and Data.AllQuestObjectivesAreComplete('Vanquish the Betrayers') == true">
+       <ReturnQuest NpcName="Gar\'Thok" QuestName="Vanquish the Betrayers" />
+	</If>	
+ 	<If Condition="Data.HasActiveQuest('The Admiral\'s Orders', 830) == true and Data.AllQuestObjectivesAreComplete('The Admiral\'s Orders', 830) == true">
+		<ReturnQuest NpcName="Gar\'Thok" QuestId="830" QuestName="The Admiral\'s Orders" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Admiral\'s Orders', 831) == false and Data.HasCompletedQuest('The Admiral\'s Orders', 831) == false and Data.HasCompletedQuest('The Admiral\'s Orders', 830) == true">
+		<TakeQuest NpcName="Gar\'Thok" QuestId="831" QuestName="The Admiral\'s Orders" DestinationMap="1" />
+	</If>   
+        
+	<If Condition="Data.HasActiveQuest('The Admiral\'s Orders', 831) == true and Data.AllQuestObjectivesAreComplete('The Admiral\'s Orders', 831) == true">
+		<ReturnQuest NpcName="Nazgrel" QuestId="831" QuestName="The Admiral\'s Orders" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Break a Few Eggs', 815) == true and Data.AllQuestObjectivesAreComplete('Break a Few Eggs', 815) == true">
+		<ReturnQuest NpcName="Cook Torka" QuestId="815" QuestName="Break a Few Eggs" DestinationMap="1" />
+	</If>	
+</ShadowProfile>

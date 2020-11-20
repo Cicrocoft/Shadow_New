@@ -1,0 +1,22 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Kolkar Leaders') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Kolkar Leaders') == false">
+        <TakeQuest NpcName="Regthar Deathgate" QuestName="Kolkar Leaders" />
+
+    </If>
+    <SetBaseSettings />
+    <AddHotspot X="25" Y="-1706" Z="99" Range="40" />
+
+   
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Uthrok"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Uthrok"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+        <While Condition="Data.QuestObjectiveIsComplete('Kolkar Leaders', 1) == false" >
+        <Wait Value="100" />
+    </While>
+    <ReturnQuest NpcName="Regthar Deathgate" QuestName="Kolkar Leaders" />
+</ShadowProfile>

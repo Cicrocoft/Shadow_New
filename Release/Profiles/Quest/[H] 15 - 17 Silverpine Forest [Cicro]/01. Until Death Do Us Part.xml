@@ -1,0 +1,38 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Until Death Do Us Part', 264) == false">
+
+	<ClearRestockItems/>
+	<SetEnableAutoHerb Value="false" />
+	<SetEnableAutoSkin Value="false" />
+	<SetEnableAutoMine Value="false" />
+    <SetEnableVendoring Value="false"/>
+    <SetEnableRepairing Value="false"/>
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Nadia Vernon" />
+	<SetRepairNpc NpcName="Nadia Vernon" />	
+
+
+
+	<If Condition="Data.HasActiveQuest('Until Death Do Us Part', 264) == false and Data.HasCompletedQuest('Until Death Do Us Part', 264) == false">
+		<TakeQuest NpcName="Clarice Foster" QuestId="264" QuestName="Until Death Do Us Part" DestinationMap="1" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Recipe For Death', 447) == false and Data.HasCompletedQuest('A Recipe For Death', 447) == false">
+		<TakeQuest NpcName="Apothecary Renferrel" QuestId="447" QuestName="A Recipe For Death" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('Lost Deathstalkers', 428) == false and Data.HasCompletedQuest('Lost Deathstalkers', 428) == false">
+		<TakeQuest NpcName="High Executor Hadrec" QuestId="428" QuestName="Lost Deathstalkers" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Dead Fields', 437) == false and Data.HasCompletedQuest('The Dead Fields', 437) == false">
+		<TakeQuest NpcName="High Executor Hadrec" QuestId="437" QuestName="The Dead Fields" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Border Crossings', 477) == false and Data.HasCompletedQuest('Border Crossings', 477) == false">
+		<TakeQuest NpcName="Shadow Priest Allister" QuestId="477" QuestName="Border Crossings" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Prove Your Worth', 421) == false and Data.HasCompletedQuest('Prove Your Worth', 421) == false">
+		<TakeQuest NpcName="Dalar Dawnweaver" QuestId="421" QuestName="Prove Your Worth" DestinationMap="0" />
+	</If>
+	<NPCInteract NpcName="Karos Razok" Range="5" DestinationMap="0"/>	
+	<If Condition="Data.HasActiveQuest('Until Death Do Us Part', 264) == true and Data.AllQuestObjectivesAreComplete('Until Death Do Us Part', 264) == true">
+		<ReturnQuestToObject QuestId="264" QuestName="Until Death Do Us Part" X="473.32095336914" Y="1594.3493652344" Z="126.63025665283" DestinationMap="0" />
+	</If>	
+</ShadowProfile>
+

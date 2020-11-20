@@ -1,0 +1,276 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Dead Fields', 437) == false">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Shaman -->
+	<If Condition="Data.PlayerClass() == WoWClass.Shaman">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="10" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetVendorNpc NpcName="Nadia Vernon" />
+	<SetRepairNpc NpcName="Nadia Vernon" />	
+	<!-- Local Do not sell Items -->
+		<AddDoNotSellItem ItemName="Discolored Worg Heart" />
+
+	<!-- Restock Sepulcher 14+ -->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman or Data.PlayerClass() == WoWClass.Priest">
+		<AddDoNotSellItem ItemName="Forest Mushroom Cap" />
+		<AddDoNotSellItem ItemName="Red-speckled Mushroom" />		
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />	
+		<AddRestockItem ItemName="Forest Mushroom Cap" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="40"/>	
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddDoNotSellItem ItemName="Forest Mushroom Cap" />
+		<AddDoNotSellItem ItemName="Red-speckled Mushroom" />		
+		<AddDoNotSellItem ItemName="Shiny Red Apple" />	
+		<AddRestockItem ItemName="Forest Mushroom Cap" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="60"/>	
+		<Lua>settings.ShouldFeedPet = true</Lua>
+		<Lua>settings.ShouldFeedPetFoodsStr = "Forest Mushroom Cap" </Lua>		
+	</If>	
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Shaman">
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Bates" UnderAmount="5" BuyAmount="40"/>
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddDoNotSellItem ItemName="Refreshing Spring Water" />
+		<AddRestockItem ItemName="Refreshing Spring Water" NpcName="Innkeeper Bates" UnderAmount="3" BuyAmount="20"/>
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Nicholas Atwood" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Abigail Sawyer" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Abigail Sawyer" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Prove Your Worth', 421) == false and Data.HasCompletedQuest('Prove Your Worth', 421) == false">
+		<TakeQuest NpcName="Dalar Dawnweaver" QuestId="421" QuestName="Prove Your Worth" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Dead Fields', 437) == false and Data.HasCompletedQuest('The Dead Fields', 437) == false">
+		<TakeQuest NpcName="High Executor Hadrec" QuestId="437" QuestName="The Dead Fields" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A Recipe For Death', 447) == false and Data.HasCompletedQuest('A Recipe For Death', 447) == false">
+		<TakeQuest NpcName="Apothecary Renferrel" QuestId="447" QuestName="A Recipe For Death" DestinationMap="0" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Prove Your Worth', 421) == true and Data.AllQuestObjectivesAreComplete('Prove Your Worth', 421) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+		<AddBlackspot X="709.92303466797" Y="1437.6778564453" Z="62.533462524414" Range="50" />
+		<!-- Hotspots -->
+		<AddHotspot X="918.42877197266" Y="1265.5708007813" Z="45.590827941895" Range="100" />
+		<AddHotspot X="953.24884033203" Y="1178.0675048828" Z="46.280689239502" Range="100" />
+		<AddHotspot X="1017.9116821289" Y="1126.7513427734" Z="44.46704864502" Range="100" />
+		<AddHotspot X="1087.349609375" Y="1107.8161621094" Z="39.777114868164" Range="100" />
+		<AddHotspot X="1150.5150146484" Y="1103.3812255859" Z="36.815113067627" Range="100" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Prove Your Worth', 421) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Lost Deathstalkers', 428) == true and Data.AllQuestObjectivesAreComplete('Lost Deathstalkers', 428) == true">
+		<ReturnQuest NpcName="Rane Yorick" QuestId="428" QuestName="Lost Deathstalkers" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Wild Hearts', 429) == false and Data.HasCompletedQuest('Wild Hearts', 429) == false">
+		<TakeQuest NpcName="Rane Yorick" QuestId="429" QuestName="Wild Hearts" DestinationMap="0" />
+	</If>
+
+
+	<While Condition="Data.HasActiveQuest('The Dead Fields', 437) == true and Data.QuestObjectiveIsComplete('The Dead Fields', 2, 437) == false">
+		<MoveTo X="1059.9232177734" Y="1498.1633300781" Z="33.024242401123" Range="50" DestinationMap="0" />
+		<MoveTo X="1081.7473144531" Y="1530.2131347656" Z="28.45955657959" Range="50" DestinationMap="0" />
+		<MoveTo X="1098.3251953125" Y="1568.6225585938" Z="28.256895065308" Range="50" DestinationMap="0" />
+	</While>
+	<If Condition="Data.HasActiveQuest('The Dead Fields', 437) == true and Data.QuestObjectiveIsComplete('The Dead Fields', 1, 437) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Nightlash" />		
+		<!-- Blackspots -->
+		<AddBlackspot X="709.92303466797" Y="1437.6778564453" Z="62.533462524414" Range="50" />		
+		<AddBlackspot X="983.93621826172" Y="1417.9306640625" Z="38.545948028564" Range="35" />		
+		<!-- Hotspots -->
+		<AddHotspot X="1100.4095458984" Y="1585.9058837891" Z="28.177227020264" Range="150" />		
+		<While Condition="Data.QuestObjectiveIsComplete('The Dead Fields', 1, 437) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+	<If Condition="Data.HasActiveQuest('A Recipe For Death', 447) == true and Data.AllQuestObjectivesAreComplete('A Recipe For Death', 447) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+		<AddBlackspot X="709.92303466797" Y="1437.6778564453" Z="62.533462524414" Range="50" />		
+		<AddBlackspot X="983.93621826172" Y="1417.9306640625" Z="38.545948028564" Range="35" />
+		<AddBlackspot X="1273.2147216797" Y="1268.6224365234" Z="52.794227600098" Range="35" />
+		<!-- Hotspots -->
+		<AddHotspot X="1264.6622314453" Y="1338.3977050781" Z="44.828960418701" Range="100" />
+		<AddHotspot X="1168.3084716797" Y="1342.6773681641" Z="36.836688995361" Range="100" />
+		<AddHotspot X="1072.0327148438" Y="1392.3863525391" Z="39.064861297607" Range="100" />
+		<AddHotspot X="999.53283691406" Y="1371.8409423828" Z="44.299339294434" Range="100" />
+		<AddHotspot X="946.47570800781" Y="1507.5311279297" Z="41.124114990234" Range="100" />
+		<AddHotspot X="1033.6136474609" Y="1657.7180175781" Z="25.29372215271" Range="100" />
+		<AddHotspot X="1203.1433105469" Y="1773.2954101563" Z="15.054147720337" Range="100" />
+		<AddHotspot X="1226.5096435547" Y="1935.6766357422" Z="10.843551635742" Range="100" />
+		<AddHotspot X="1308.6188964844" Y="1962.1772460938" Z="16.930347442627" Range="50" />
+		<AddHotspot X="1373.5046386719" Y="1961.6821289063" Z="13.622079849243" Range="50" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('A Recipe For Death', 447) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+	<If Condition="Data.HasActiveQuest('Wild Hearts', 429) == true and Data.AllQuestObjectivesAreComplete('Wild Hearts', 429) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="None" />
+		<!-- Blackspots -->
+		<AddBlackspot X="1165.8520507813" Y="967.27062988281" Z="33.417865753174" Range="35" />
+		<AddBlackspot X="1176.6705322266" Y="928.15789794922" Z="32.932197570801" Range="25" />
+		<AddBlackspot X="1203.6481933594" Y="899.62359619141" Z="33.324493408203" Range="35" />		
+		<!-- Hotspots -->
+		<AddHotspot X="1212.7332763672" Y="1060.0255126953" Z="37.018409729004" Range="50" />
+		<AddHotspot X="1256.0694580078" Y="970.68579101563" Z="39.669860839844" Range="100" />
+		<AddHotspot X="1315.2811279297" Y="881.00201416016" Z="42.418323516846" Range="100" />
+		<AddHotspot X="1417.8028564453" Y="954.60162353516" Z="52.475780487061" Range="100" />
+		<AddHotspot X="1451.4077148438" Y="728.92633056641" Z="44.818416595459" Range="100" />
+		<AddHotspot X="1474.3117675781" Y="548.14587402344" Z="47.21895980835" Range="100" />		
+		<While Condition="Data.AllQuestObjectivesAreComplete('Wild Hearts', 429) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>	
+	<If Condition="Data.HasActiveQuest('A Recipe For Death', 447) == true and Data.AllQuestObjectivesAreComplete('A Recipe For Death', 447) == true">
+		<NPCInteract NpcName="Michael Garrett" Range="5" DestinationMap="0" />
+		<ReturnQuest NpcName="Master Apothecary Faranell" QuestId="447" QuestName="A Recipe For Death" DestinationMap="0" />
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Prove Your Worth', 421) == true and Data.AllQuestObjectivesAreComplete('Prove Your Worth', 421) == true">
+		<ReturnQuest NpcName="Dalar Dawnweaver" QuestId="421" QuestName="Prove Your Worth" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Arugal\'s Folly', 422) == false and Data.HasCompletedQuest('Arugal\'s Folly', 422) == false">
+		<TakeQuest NpcName="Dalar Dawnweaver" QuestId="422" QuestName="Arugal\'s Folly" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Wild Hearts', 429) == true and Data.AllQuestObjectivesAreComplete('Wild Hearts', 429) == true">
+		<ReturnQuest NpcName="Apothecary Renferrel" QuestId="429" QuestName="Wild Hearts" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Return to Quinn', 430) == false and Data.HasCompletedQuest('Return to Quinn', 430) == false and Data.HasCompletedQuest('Wild Hearts', 429) == true">
+		<TakeQuest NpcName="Apothecary Renferrel" QuestId="430" QuestName="Return to Quinn" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('The Dead Fields', 437) == true and Data.AllQuestObjectivesAreComplete('The Dead Fields', 437) == true">
+		<ReturnQuest NpcName="High Executor Hadrec" QuestId="437" QuestName="The Dead Fields" DestinationMap="0" />
+	</If>	
+	<If Condition="Data.HasActiveQuest('The Decrepit Ferry', 438) == false and Data.HasCompletedQuest('The Decrepit Ferry', 438) == false">
+		<TakeQuest NpcName="High Executor Hadrec" QuestId="438" QuestName="The Decrepit Ferry" DestinationMap="0" />
+	</If>
+	</ShadowProfile>	

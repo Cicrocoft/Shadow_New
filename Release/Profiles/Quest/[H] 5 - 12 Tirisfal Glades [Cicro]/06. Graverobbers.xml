@@ -1,0 +1,116 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Graverobbers') or not Data.HasCompletedQuest('A New Plague', 368)">
+    <SetBaseSettings />
+
+	<If Condition="Data.HasActiveQuest('Graverobbers', 358) == false and Data.HasCompletedQuest('Graverobbers', 358) == false">
+		<TakeQuest NpcName="Magistrate Sevren" QuestId="358" QuestName="Graverobbers" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Wanted: Maggot Eye', 398) == false and Data.HasCompletedQuest('Wanted: Maggot Eye', 398) == false">
+		<TakeQuestFromObject QuestId="398" QuestName="Wanted: Maggot Eye" X="2283.2470703125" Y="289.78109741211" Z="35.182312011719" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Doom Weed', 5482) == false and Data.HasCompletedQuest('Doom Weed', 5482) == false">
+		<TakeQuest NpcName="Junior Apothecary Holland" QuestId="5482" QuestName="Doom Weed" DestinationMap="0" />
+	</If>
+
+<If Condition="Data.HasActiveQuest('Graverobbers', 358) == true and Data.AllQuestObjectivesAreComplete('Graverobbers') == false">
+    <SetTargetingMode Mode="Around Points" />
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="8"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rot Hide Graverobber"/>
+    <ClearHotspots />
+    <AddHotspot X="2610.3725585938" Y="449.71044921875" Z="28.736371994019" Range="150" />
+    <AddHotspot X="2616.556640625" Y="536.7470703125" Z="19.58055305481" Range="150" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('Graverobbers', 1)" >
+        <Wait Value="100" />
+    </While>
+
+    <ClearMonsterFilter/>
+    <ClearHotspots />
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="8"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rot Hide Mongrel"/>
+    <AddHotspot X="2723.2014160156" Y="374.76016235352" Z="26.269697189331" Range="150" />
+    <AddHotspot X="2718.1440429688" Y="337.02243041992" Z="29.164529800415" Range="150" />
+    <AddHotspot X="2761.4897460938" Y="332.20434570313" Z="28.569536209106" Range="150" />
+    <AddHotspot X="2809.6218261719" Y="358.56729125977" Z="23.689212799072" Range="150" />
+    <While Condition="not Data.QuestObjectiveIsComplete('Graverobbers', 2)" >
+        <Wait Value="100" />
+    </While>
+
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="8"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Rot Hide Graverobber"/>
+    <AddMonsterFilterName Value="Rot Hide Gnoll"/>
+    <AddMonsterFilterName Value="Rot Hide Mongrel"/>
+    <AddHotspot X="2610.3725585938" Y="449.71044921875" Z="28.736371994019" Range="150" />
+    <AddHotspot X="2616.556640625" Y="536.7470703125" Z="19.58055305481" Range="150" />
+    <AddHotspot X="2723.2014160156" Y="374.76016235352" Z="26.269697189331" Range="150" />
+    <AddHotspot X="2718.1440429688" Y="337.02243041992" Z="29.164529800415" Range="150" />
+    <AddHotspot X="2761.4897460938" Y="332.20434570313" Z="28.569536209106" Range="150" />
+    <AddHotspot X="2809.6218261719" Y="358.56729125977" Z="23.689212799072" Range="150" />
+    <While Condition="not Data.QuestObjectiveIsComplete('Graverobbers', 3)" >
+        <Wait Value="100" />
+    </While>
+  </If>
+
+
+
+<If Condition="Data.HasActiveQuest('A New Plague', 368) == true and Data.AllQuestObjectivesAreComplete('A New Plague', 368) == false">
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="8"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Vile Fin Puddlejumper"/>
+    <AddMonsterFilterName Value="Vile Fin Minor Oracle"/>
+    <AddMonsterFilterName Value="Vile Fin Muckdweller"/>
+    <ClearHotspots />
+    <AddHotspot X="2989.2263183594" Y="326.75946044922" Z="6.0602741241455" Range="150" />
+    <AddHotspot X="2959.6931152344" Y="268.76498413086" Z="7.4274687767029" Range="150" />
+    <AddHotspot X="2928.9658203125" Y="182.33605957031" Z="4.0402450561523" Range="150" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('A New Plague', 1, 368)" >
+        <Wait Value="100" />
+    </While>
+</If>
+
+<If Condition="Data.HasActiveQuest('Wanted: Maggot Eye', 398) == true and Data.AllQuestObjectivesAreComplete('Wanted: Maggot Eye', 398) == false">
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+    <SetEnableMonsterLevelFilter Value="true"/>
+    <SetMonsterAboveMyLevel Value="2"/>
+    <SetMonsterBelowMyLevel Value="8"/>
+    <SetMonsterFilterMode Mode="Whitelist" />
+    <AddMonsterFilterName Value="Maggot Eye"/>
+
+    <ClearHotspots />
+    <AddHotspot X="2907.47265625" Y="381.59619140625" Z="31.482646942139" Range="150" />
+
+    <While Condition="not Data.QuestObjectiveIsComplete('Wanted: Maggot Eye', 1, 398)" >
+        <Wait Value="100" />
+    </While>
+</If>
+
+
+	<If Condition="Data.HasActiveQuest('A New Plague', 368) == true and Data.AllQuestObjectivesAreComplete('A New Plague', 368) == true">
+		<ReturnQuest NpcName="Apothecary Johaan" QuestId="368" QuestName="A New Plague" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('A New Plague', 369) == false and Data.HasCompletedQuest('A New Plague', 369) == false">
+		<TakeQuest NpcName="Apothecary Johaan" QuestId="369" QuestName="A New Plague" DestinationMap="0" />
+	</If>    
+	<If Condition="Data.HasActiveQuest('Wanted: Maggot Eye', 398) == true and Data.AllQuestObjectivesAreComplete('Wanted: Maggot Eye', 398) == true">
+		<ReturnQuest NpcName="Executor Zygand" QuestId="398" QuestName="Wanted: Maggot Eye" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Graverobbers', 358) == true and Data.AllQuestObjectivesAreComplete('Graverobbers', 358) == true">
+		<ReturnQuest NpcName="Magistrate Sevren" QuestId="358" QuestName="Graverobbers" DestinationMap="0" />
+	</If>
+</ShadowProfile>

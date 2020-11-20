@@ -1,0 +1,152 @@
+<ShadowProfile Condition="not Data.HasCompletedQuest('Scavenging Deathknell')">
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<Lua>settings.DoNotSellItems = {}</Lua>
+	<SetEnableAutoHerb Value="true" />
+	<SetEnableAutoSkin Value="true" />
+	<SetEnableAutoMine Value="true" />
+	<SetEnableProfileIgnoreCombat Value="false"/>
+    <SetEnableUseFood Value="true" />
+    <SetEnableUseDrink Value="true" />
+    <SetEnableAutoDetectFood Value="true" />
+    <SetEnableAutoDetectDrink Value="true" />
+    <SetEnableVendoring Value="true"/>
+    <SetEnableRepairing Value="true"/>
+    <SetVendorSlotsCount Value="2"/>
+    <SetRepairPercent Value="40"/>
+    <SetEnableRest Value="true"/>
+    <SetEnableVendorGreens Value="true"/>
+    <SetEnableIgnoreLootAroundMobs Value="true"/>
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableAutoLoot Value="true" />
+
+
+	<!-- Rest Settings -->
+	<!-- Rogue -->	
+    <If Condition="Data.PlayerClass() == WoWClass.Rogue">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Hunter -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+	<SetRestHPPercent Value="55" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="40" />
+	<SetUseFoodPercent Value="60" />
+    </If>
+	<!-- Mage -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Mage">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warrior -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warrior">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="0" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="0" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Warlock -->
+	<If Condition="Data.PlayerClass() == WoWClass.Warlock">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="60" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Priest -->	
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Paladin -->
+	<If Condition="Data.PlayerClass() == WoWClass.Paladin">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &lt; 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="25" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="50" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Druid -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid and UnitLevel('player') &gt;= 10">
+	<SetRestHPPercent Value="65" />
+	<SetRestPWPercent Value="15" />
+	<SetRestPetHPPercent Value="0" />
+	<SetUseDrinkPercent Value="25" />
+	<SetUseFoodPercent Value="69" />
+    </If>	
+	<!-- Rest Settings End -->
+	<!-- Vendors to use -->
+	<SetRepairNpc NpcName="Harold Raims"/>
+	<SetVendorNpc NpcName="Harold Raims"/>	
+	<!-- Local Do not sell Items -->
+	<AddDoNotSellItem ItemName="Tough Jerky" />
+
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems/>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Light Shot" NpcName="Joshua Kien" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Joshua Kien" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Rough Arrow" NpcName="Joshua Kien" UnderAmount="100" BuyAmount="600"/>
+	</If>
+	<!-- End Restock -->
+
+	<If Condition="Data.HasActiveQuest('Night Web\'s Hollow', 380) == false and Data.HasCompletedQuest('Night Web\'s Hollow', 380) == false">
+		<TakeQuest NpcName="Executor Arren" QuestId="380" QuestName="Night Web\'s Hollow" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Scavenging Deathknell', 3902) == false and Data.HasCompletedQuest('Scavenging Deathknell', 3902) == false">
+		<TakeQuest NpcName="Deathguard Saltain" QuestId="3902" QuestName="Scavenging Deathknell" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Scavenging Deathknell', 3902) == true and Data.AllQuestObjectivesAreComplete('Scavenging Deathknell', 3902) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Gather Only" />
+		<SetEnableAutoHerb Value="true" />
+		<!-- QuestObjectsID -->
+		<Lua>QuestNodes[11127]=0</Lua>
+		<!-- QuestObjects -->
+        <AllowQuestNode NodeName="Equipment Boxes" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+        <AddHotspot X="1963.1849365234" Y="1600.5074462891" Z="88.178619384766" Range="50" />
+        <AddHotspot X="1961.7434082031" Y="1602.0662841797" Z="83.433670043945" Range="50" />
+        <AddHotspot X="1943.6253662109" Y="1543.2956542969" Z="90.148429870605" Range="50" />
+        <AddHotspot X="1901.6979980469" Y="1502.0938720703" Z="93.93376159668" Range="50" />
+        <AddHotspot X="1903.8328857422" Y="1501.384765625" Z="89.185180664063" Range="50" />
+        <AddHotspot X="1886.3471679688" Y="1533.7973632813" Z="88.077812194824" Range="50" />
+        <AddHotspot X="1902.7740478516" Y="1549.390625" Z="88.964317321777" Range="50" />
+        <AddHotspot X="1912.6320800781" Y="1561.2336425781" Z="86.917915344238" Range="50" />
+        <AddHotspot X="1904.0953369141" Y="1569.7651367188" Z="89.073699951172" Range="50" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Scavenging Deathknell', 3902) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>
+
+	<If Condition="Data.HasActiveQuest('Scavenging Deathknell', 3902) == true and Data.AllQuestObjectivesAreComplete('Scavenging Deathknell', 3902) == true">
+		<ReturnQuest NpcName="Deathguard Saltain" QuestId="3902" QuestName="Scavenging Deathknell" DestinationMap="0" />
+	</If>
+</ShadowProfile>

@@ -1,0 +1,63 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('The Angry Scytheclaws') == false">
+
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('The Angry Scytheclaws') == false">
+        <TakeQuest NpcName="Sergra Darkthorn" QuestName="The Angry Scytheclaws" />
+
+    </If>
+    <SetBaseSettings />
+	
+<While Condition="Data.GetItemCountByName('Sunscale Feather') < 3" >
+
+<AddHotspot X="-1891.560546875" Y="-3173.9965820313" Z="90.175476074219" Range="20" />
+<AddHotspot X="-1962.3743896484" Y="-3169.0141601563" Z="91.908874511719" Range="20" />
+<AddHotspot X="-2006.0345458984" Y="-3192.0473632813" Z="91.542304992676" Range="20" />
+<AddHotspot X="-2034.4727783203" Y="-3223.5236816406" Z="91.824989318848" Range="20" />
+<AddHotspot X="-2030.6198730469" Y="-3249.0827636719" Z="91.866279602051" Range="20" />
+</While>
+
+
+        <While Condition="Data.QuestObjectiveIsComplete('The Angry Scytheclaws', 1) == false" >
+		<MoveTo X="-1502.0270996094" Y="-2706.6047363281" Z="92.685073852539" />
+<AddHotspot X="-1502.0270996094" Y="-2706.6047363281" Z="92.685073852539" Range="10"/>
+
+<SetTargetingMode Mode="Gather Only" />
+    <SetEnableAutoHerb Value="true" />
+    <AllowQuestNode NodeName="Red Raptor Nest" />
+	<AllowQuestNode NodeName="Blue Raptor Nest" />
+	<AllowQuestNode NodeName="Yellow Raptor Nest" />
+    <SetEnableQuestNodes Value="true" />
+
+<Wait Value="100" />
+    </While>
+
+        <While Condition="Data.QuestObjectiveIsComplete('The Angry Scytheclaws', 3) == false" >
+		
+				<MoveTo X="-1533.9537353516" Y="-2693.4240722656" Z="91.220077514648" />
+
+<AddHotspot X="-1533.9537353516" Y="-2693.4240722656" Z="91.220077514648" Range="10"/>
+
+
+<Wait Value="100" />
+    </While>
+
+        <While Condition="Data.QuestObjectiveIsComplete('The Angry Scytheclaws', 2) == false" >
+		<MoveTo X="-1527.8742675781" Y="-2649.9223632813" Z="92.015060424805" />
+
+<AddHotspot X="-1527.8742675781" Y="-2649.9223632813" Z="92.015060424805" Range="10"/>
+
+<Wait Value="100" />
+    </While>
+
+
+
+
+    <SetEnableVendoring Value="true"/>
+    <SetVendorNpc NpcName="Uthrok"/>
+    <SetEnableRepairing Value="true"/>
+    <SetRepairNpc NpcName="Uthrok"/>
+    <SetTargetingMode Mode="Around Points" />
+    <ClearMonsterFilter/>
+        
+    <ReturnQuest NpcName="Sergra Darkthorn" QuestName="The Angry Scytheclaws" />
+</ShadowProfile>

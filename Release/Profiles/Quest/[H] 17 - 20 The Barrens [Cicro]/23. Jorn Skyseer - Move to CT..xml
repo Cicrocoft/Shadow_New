@@ -1,0 +1,10 @@
+<ShadowProfile Condition="Data.HasCompletedQuest('Jorn Skyseer') == false">
+    <SetBaseSettings />
+    <If Condition="Data.HasActiveQuest('Jorn Skyseer') == false">
+        <TakeQuest NpcName="Sergra Darkthorn" QuestName="Jorn Skyseer" />
+
+    </If>
+    <SetBaseSettings />
+
+    <ReturnQuest NpcName="Jorn Skyseer" QuestName="Jorn Skyseer" />
+</ShadowProfile>
