@@ -168,6 +168,7 @@
     </If>	
 		<SetTargetingMode Mode="Around Points" />	
 		<ClearHotspots />
+		<AddBlackspot X="5219.73046875" Y="165.03698730469" Z="46.519950866699" Range="25" />
 		<AddHotspot X="5331.1640625" Y="408.02490234375" Z="28.857032775879" Range="100" />
 		<AddHotspot X="5263.76953125" Y="382.45529174805" Z="29.046649932861" Range="100" />
 		<AddHotspot X="5160.3188476563" Y="395.39724731445" Z="31.232055664063" Range="100" />	
