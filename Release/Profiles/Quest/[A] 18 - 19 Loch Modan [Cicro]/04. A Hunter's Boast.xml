@@ -184,6 +184,7 @@
 		</If>
 		<If Condition="QuestFailure(257) == -1">
 			<AbandonQuest QuestId="257" />
+			<BotSleep Value="1000" />
 		</If>
 
 		<If Condition="Data.HasActiveQuest('A Hunter\'s Boast') == true and Data.AllQuestObjectivesAreComplete('A Hunter\'s Boast') == true and QuestFailure(257) ~= -1">

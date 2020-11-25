@@ -284,7 +284,7 @@
 	
 	<AddBlackspot X="4992.6118164063" Y="560.41522216797" Z="4.1801152229309" Range="40" />
      <If Condition="Data.HasActiveQuest('The Absent Minded Prospector') == true">
-        <ReturnQuest  NpcName="Prospector Remtravel" QuestId="729" QuestName="The Absent Minded Prospector" />
+        <ReturnQuest NpcName="Prospector Remtravel" QuestId="729" QuestName="The Absent Minded Prospector" DestinationMap="WoWMaps.Kalimdor" />
     </If>  
 <!-- Stupid mesh isssue	<If Condition="Data.HasActiveQuest('Beached Sea Creature', 4730) == false and Data.HasCompletedQuest('Beached Sea Creature', 4730) == false">
 		<TakeQuestFromObject QuestId="4730" QuestName="Beached Sea Creature" X="4805.439453125" Y="802.07916259766" Z="0.14742802083492" />

@@ -1,0 +1,170 @@
+<ShadowProfile>
+
+	<!-- Bot Settings -->
+	<SetBaseSettings />
+	<SetDestinationMap Value="0"/>
+	<!-- Restock Lakeshire 21+ Bread Food-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin or Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Bartender Wental" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Bartender Wental" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+		<Lua>_G.settings.ShouldFeedPet = true</Lua>
+		<Lua>_G.settings.ShouldFeedPetFoodsStr = "Freshly Baked Bread" </Lua>		
+	</If>
+	<!-- End Restock -->	
+
+
+    <SetRoadPriority Value="9" />
+	<SetVendorNpc NpcName="Morg Gnarltree" />
+	<SetRepairNpc NpcName="Morg Gnarltree" />   
+		<AddBlackspot X="-10600.06640625" Y="194.30130004883" Z="32.114559173584" Range="50" />
+		<AddBlackspot X="-10517.283203125" Y="255.35173034668" Z="32.028285980225" Range="50" />
+		<AddBlackspot X="-10527.887695313" Y="327.61685180664" Z="29.766115188599" Range="50" />
+		<AddBlackspot X="-10465.525390625" Y="340.38519287109" Z="37.130546569824" Range="50" />
+		<AddBlackspot X="-10415.193359375" Y="387.87130737305" Z="46.032833099365" Range="50" />
+		<AddBlackspot X="-10334.443359375" Y="382.42651367188" Z="59.693782806396" Range="50" />
+		<AddBlackspot X="-10324.473632813" Y="285.59146118164" Z="39.696907043457" Range="50" />
+		<AddBlackspot X="-10351.760742188" Y="212.11924743652" Z="33.654563903809" Range="50" />
+		<AddBlackspot X="-10376.751953125" Y="170.32238769531" Z="34.990985870361" Range="50" />
+		<AddBlackspot X="-10437.092773438" Y="174.0047454834" Z="35.130722045898" Range="50" />
+		<AddBlackspot X="-10490.421875" Y="188.66149902344" Z="33.898990631104" Range="50" />
+		<AddBlackspot X="-10525.666015625" Y="204.09687805176" Z="32.06534576416" Range="50" />
+		<AddBlackspot X="-10572.904296875" Y="231.7526550293" Z="30.558666229248" Range="50" />
+		<AddBlackspot X="-10613.438476563" Y="272.66101074219" Z="36.183692932129" Range="50" />
+		<AddBlackspot X="-10579.631835938" Y="334.86624145508" Z="30.371217727661" Range="50" />
+		<AddBlackspot X="-10559.412109375" Y="423.03970336914" Z="36.144481658936" Range="50" />
+		<AddBlackspot X="-10513.79296875" Y="426.96624755859" Z="37.925899505615" Range="50" />
+		<AddBlackspot X="-10562.438476563" Y="181.72073364258" Z="29.566368103027" Range="50" />
+		<AddBlackspot X="-10560.465820313" Y="140.65371704102" Z="28.629205703735" Range="50" />
+		<AddBlackspot X="-10554.458984375" Y="113.24564361572" Z="34.095245361328" Range="50" />
+		<AddBlackspot X="-10549.987304688" Y="61.97407913208" Z="39.68563079834" Range="50" />
+		<AddBlackspot X="-10526.078125" Y="20.209596633911" Z="49.325832366943" Range="50" />
+		<AddBlackspot X="-10512.815429688" Y="-16.759914398193" Z="47.174114227295" Range="50" />
+		<AddBlackspot X="-10502.853515625" Y="-54.611404418945" Z="44.85818862915" Range="50" />
+		<AddBlackspot X="-10496.327148438" Y="-88.539215087891" Z="45.920852661133" Range="50" />
+		<AddBlackspot X="-10492.096679688" Y="-129.02662658691" Z="67.442008972168" Range="50" />
+
+	<If Condition="Data.HasActiveQuest('Eight-Legged Menaces', 245) == false and Data.HasCompletedQuest('Eight-Legged Menaces', 245) == false">
+        <NPCInteract NpcName="Felicia Maline" />
+		<TakeQuest NpcName="Watcher Dodds" QuestId="245" QuestName="Eight-Legged Menaces" DestinationMap="0" />
+	</If>
+
+
+	<!-- Restock Westfall 21+ Bread Food-->
+	<SetEnableRestockItems Value="true"/>
+	<ClearRestockItems />
+	<!-- Food -->
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue or Data.PlayerClass() == WoWClass.Warrior or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin or Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Mike Miller" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Freshly Baked Bread" NpcName="Mike Miller" UnderAmount="5" BuyAmount="60"/>
+		<AddDoNotSellItem ItemName="Freshly Baked Bread" />
+		<Lua>_G.settings.ShouldFeedPet = true</Lua>
+		<Lua>_G.settings.ShouldFeedPetFoodsStr = "Freshly Baked Bread" </Lua>		
+	</If>
+	<!-- Water -->
+	<If Condition="Data.PlayerClass() == WoWClass.Druid or Data.PlayerClass() == WoWClass.Hunter or Data.PlayerClass() == WoWClass.Warlock or Data.PlayerClass() == WoWClass.Paladin">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Heather" UnderAmount="5" BuyAmount="40"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Priest">
+		<AddRestockItem ItemName="Ice Cold Milk" NpcName="Innkeeper Heather" UnderAmount="3" BuyAmount="20"/>
+		<AddDoNotSellItem ItemName="Ice Cold Milk" />
+	</If>
+	<!-- Bullets/Arrows -->
+	<If Condition="IsEquippedItemType('Gun') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Heavy Shot" NpcName="Quartermaster Lewis" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Bow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Quartermaster Lewis" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<If Condition="IsEquippedItemType('Crossbow') == true and Data.PlayerClass() == WoWClass.Hunter">
+		<AddRestockItem ItemName="Sharp Arrow" NpcName="Quartermaster Lewis" UnderAmount="100" BuyAmount="800"/>
+	</If>
+	<!-- End Restock -->
+ 	<SetVendorNpc NpcName="William MacGregor" />
+	<SetRepairNpc NpcName="William MacGregor" /> 
+     <If Condition="Data.HasActiveQuest('Wolves at Our Heels') == false and Data.HasCompletedQuest('Wolves at Our Heels') == false">
+    <SetEnablePreemptiveMonsterAttack Value="false"/>
+	<SetEnableProfileIgnoreCombat Value="true"/>        
+		<MoveTo X="-10823.908203125" Y="455.75198364258" Z="29.460517883301" Range="50" DestinationMap="0" />    
+    <SetEnablePreemptiveMonsterAttack Value="true"/>
+	<SetEnableProfileIgnoreCombat Value="false"/>            
+    <SetRoadPriority Value="4" />    
+        <TakeQuest  NpcName="Lars" QuestId="226" QuestName="Wolves at Our Heels" DestinationMap="0" />
+    </If>  
+    <SetRoadPriority Value="4" />  
+	<If Condition="Data.HasActiveQuest('Wolves at Our Heels', 226) == true and Data.AllQuestObjectivesAreComplete('Wolves at Our Heels', 226) == false">
+		<!-- Objective Settings -->
+		<SetTargetingMode Mode="Around Points" />
+		<ClearHotspots />
+		<SetEnablePreemptiveMonsterAttack Value="false" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Starving Dire Wolf" />	
+		<AddMonsterFilterName Value="Rabid Dire Wolf" />	
+		<!-- Blackspots -->
+		<AddBlackspot X="-10431.016601563" Y="178.59965515137" Z="35.795894622803" Range="50" />
+		<AddBlackspot X="-10546.802734375" Y="229.1388092041" Z="31.646213531494" Range="50" />
+		<AddBlackspot X="-10598.604492188" Y="271.34014892578" Z="33.474033355713" Range="50" />
+		<AddBlackspot X="-10373.774414063" Y="-841.85034179688" Z="43.701061248779" Range="70" />
+		<AddBlackspot X="-10381.754882813" Y="-909.92712402344" Z="46.859466552734" Range="70" />
+		<AddBlackspot X="-10432.913085938" Y="-950.57641601563" Z="44.073383331299" Range="70" />
+		<AddBlackspot X="-10381.421875" Y="-1033.849609375" Z="43.889553070068" Range="35" />
+		<AddBlackspot X="-10245.069335938" Y="-750.21337890625" Z="45.859325408936" Range="50" />
+		<!-- Hotspots -->
+		<AddHotspot X="-10285.620117188" Y="550.51800537109" Z="39.95361328125" Range="100" />
+		<AddHotspot X="-10253.77734375" Y="457.80029296875" Z="42.239433288574" Range="100" />
+		<AddHotspot X="-10184.951171875" Y="345.02420043945" Z="33.089851379395" Range="100" />
+		<AddHotspot X="-10217.998046875" Y="177.95043945313" Z="28.12866973877" Range="100" />
+		<AddHotspot X="-10189.986328125" Y="-6.8238625526428" Z="28.166042327881" Range="100" />
+		<AddHotspot X="-10139.56640625" Y="-125.65827941895" Z="29.559576034546" Range="100" />
+		<AddHotspot X="-10092.623046875" Y="-239.32929992676" Z="31.10863494873" Range="100" />
+		<AddHotspot X="-10058.741210938" Y="-341.76834106445" Z="31.206480026245" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Wolves at Our Heels', 226) == false" >
+			<Wait Value="100" />			
+		</While>		
+	</If>	
+	<If Condition="Data.HasActiveQuest('Eight-Legged Menaces', 245) == true and Data.AllQuestObjectivesAreComplete('Eight-Legged Menaces', 245) == false">
+		<!-- Objective Settings -->
+		<ClearHotspots />
+		<SetTargetingMode Mode="Around Points" />
+		<!-- Monsterfilter -->
+		<ClearMonsterFilter/>
+		<SetMonsterFilterMode Mode="Whitelist" />
+		<AddMonsterFilterName Value="Pygmy Venom Web Spider" />
+		<!-- Blackspots -->
+		<!-- Hotspots -->
+		<AddHotspot X="-10744.395507813" Y="577.67071533203" Z="28.494764328003" Range="100" />
+		<AddHotspot X="-10681.346679688" Y="573.60040283203" Z="28.289482116699" Range="100" />
+		<AddHotspot X="-10607.486328125" Y="586.94287109375" Z="27.984310150146" Range="100" />
+		<AddHotspot X="-10547.6875" Y="582.99261474609" Z="32.93953704834" Range="100" />
+		<AddHotspot X="-10285.620117188" Y="550.51800537109" Z="39.95361328125" Range="100" />
+		<AddHotspot X="-10253.77734375" Y="457.80029296875" Z="42.239433288574" Range="100" />
+		<AddHotspot X="-10184.951171875" Y="345.02420043945" Z="33.089851379395" Range="100" />
+		<While Condition="Data.AllQuestObjectivesAreComplete('Eight-Legged Menaces', 245) == false" >
+			<Wait Value="100" />
+		</While>
+	</If>    
+	<If Condition="Data.HasActiveQuest('Wolves at Our Heels', 226) == true and Data.AllQuestObjectivesAreComplete('Wolves at Our Heels', 226) == true">
+		<ReturnQuest NpcName="Lars" QuestId="226" QuestName="Wolves at Our Heels" DestinationMap="0" />
+	</If>
+	<If Condition="Data.HasActiveQuest('Eight-Legged Menaces', 245) == true and Data.AllQuestObjectivesAreComplete('Eight-Legged Menaces', 245) == true">
+      
+		<MoveTo X="-10823.908203125" Y="455.75198364258" Z="29.460517883301" Range="50" DestinationMap="0" />    
+    <SetEnablePreemptiveMonsterAttack Value="false"/>
+	<SetEnableProfileIgnoreCombat Value="true"/>           
+    <SetRoadPriority Value="4" />      
+		<ReturnQuest NpcName="Watcher Dodds" QuestId="245" QuestName="Eight-Legged Menaces" DestinationMap="0" />
+	</If>
+
+</ShadowProfile>

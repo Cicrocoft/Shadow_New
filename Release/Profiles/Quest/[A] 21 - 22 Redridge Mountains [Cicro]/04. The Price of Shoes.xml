@@ -24,6 +24,21 @@
     <If Condition="Data.HasActiveQuest('Visit the Herbalist') == false and Data.HasCompletedQuest('Visit the Herbalist') == false and Data.HasCompletedQuest('A Free Lunch') == true">
         <TakeQuest NpcName="Guard Parker" QuestId="130" QuestName="Visit the Herbalist" />
     </If>		
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue and select(4, GetItemInfo(GetInventoryItemLink('player', 16))) &lt; 25 and GetMoney() &gt;= 8000" >
+       <NPCInteract NpcName="Felicia Maline" />
+		<NPCInteract NpcName="Gavin Gnarltree" DestinationMap="0" />	
+		<BuyItem ItemId="923" ItemName="Gavin Gnarltree" NpcId="225" NpcName="Grawn Thromwyn" Amount="1" />	
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Rogue and select(4, GetItemInfo(GetInventoryItemLink('player', 17))) &lt; 25 and GetMoney() &gt;= 8000" >
+		<NPCInteract NpcName="Gavin Gnarltree" DestinationMap="0" />	
+		<BuyItem ItemId="923" ItemName="Gavin Gnarltree" NpcId="225" NpcName="Grawn Thromwyn" Amount="1" />	
+	</If>
+	<If Condition="Data.PlayerClass() == WoWClass.Hunter and select(4, GetItemInfo(GetInventoryItemLink('player', 16))) &lt; 22 and GetMoney() &gt;= 9000" >
+        <NPCInteract NpcName="Felicia Maline" />
+		<NPCInteract NpcName="Gavin Gnarltree" DestinationMap="0" />	
+		<BuyItem ItemId="926" ItemName="Gavin Gnarltree" NpcId="225" NpcName="Grawn Thromwyn" Amount="1" />	
+	</If>    
+
     <If Condition="Data.HasActiveQuest('The Price of Shoes') == true">
         <ReturnQuest NpcName="Smith Argus" QuestId="118" QuestName="The Price of Shoes" />
     </If> 
@@ -33,6 +48,11 @@
     <If Condition="Data.PlayerClass() == WoWClass.Rogue">
 	    <SetEnableRestockItems Value="true"/>
         <AddRestockItem ItemName="Thieves\' Tools" NpcName="Jasper Fel" UnderAmount="0" BuyAmount="1"/>
+	<If Condition="Data.GetMyProfessionLevel('LockPicking') == nil" >
+		<NPCInteract NpcName="Osborne the Night Man"/>
+		<Lua> return TrainSkill("Pick Lock")</Lua>
+	</If>
+
     </If>
     <If Condition="Data.HasActiveQuest('Return to Verner') == true">
         <ReturnQuest NpcName="Verner Osgood" QuestId="119" QuestName="Return to Verner" />
