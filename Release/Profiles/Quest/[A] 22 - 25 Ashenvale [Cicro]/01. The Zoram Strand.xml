@@ -220,16 +220,15 @@
     </If>	
 
 
-	<If Condition="Data.HasActiveQuest('The Ancient Statuette') == true and Data.AllQuestObjectivesAreComplete('The Ancient Statuette') == false" >
-		<SetTargetingMode Mode="Gather Only" />
-		<ClearHotspots />
-		<SetEnableAutoHerb Value="true" />
-		<AllowQuestNode NodeName="Ancient Statuette" />	
-		<AddHotspot X="3879.2795410156" Y="882.61853027344" Z="0.56595420837402" Range="40" />
-		<While Condition="Data.AllQuestObjectivesAreComplete('The Ancient Statuette') == false" >
-			<Wait Value="100" />
-		</While>
-	</If>	
+	<While Condition="Data.HasActiveQuest('The Ancient Statuette') == true and Data.AllQuestObjectivesAreComplete('The Ancient Statuette') == false" >
+		<If Condition="Nav.RangeFromMeXYZ(3877.7573242188, 882.21020507813, 0.45051088929176) &gt; 25">
+			<MoveTo X="3877.7573242188" Y="882.21020507813" Z="0.45051088929176" Range="7" DestinationMap="1" />
+		</If>
+		<If Condition="Nav.RangeFromMeXYZ(3877.7573242188, 882.21020507813, 0.45051088929176) &lt; 25">
+			<InteractWithClosestGameObject GameObjectId="17783" />
+			<BotSleep Value="2500" />
+		</If>
+	</While>	
 	<If Condition="Data.HasActiveQuest('The Zoram Strand') == true and Data.AllQuestObjectivesAreComplete('The Zoram Strand') == false and Data.PlayerClass() ~= WoWClass.Rogue" >
 		<ClearAllowedQuestNodes/>
 		<ClearHotspots />
