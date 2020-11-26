@@ -166,14 +166,15 @@
 	<If Condition="Data.HasActiveQuest('Ormer\'s Revenge', 294) == false and Data.HasCompletedQuest('Ormer\'s Revenge', 294) == false">
 		<TakeQuest NpcName="Ormer Ironbraid" QuestId="294" QuestName="Ormer\'s Revenge" />
 	</If>
-		<SetEnableIgnoreIfAgroAround Value="false" />
+
 	<If Condition="Data.HasActiveQuest('Ormer\'s Revenge', 294) == true and Data.AllQuestObjectivesAreComplete('Ormer\'s Revenge', 294) == false">
 		<!-- Objective Settings -->
 			<SetBaseSettings />
 	<SetVendorNpc NpcName="Murndan Derth" />
 	<SetRepairNpc NpcName="Murndan Derth" />
 		<SetTargetingMode Mode="Around Points" />
-
+		<SetEnableIgnoreIfAgroAround Value="false" />
+		<SetMaxZDifference Value="15" />
 		<ClearHotspots />
 		<ClearBlackspots />
 			
@@ -186,6 +187,12 @@
 		<AddBlackspot X="-3416.6657714844" Y="-2519.9558105469" Z="26.467210769653" Range="50" />
 		<AddBlackspot X="-3290.6032714844" Y="-2183.0148925781" Z="36.422168731689" Range="50" />
 		<AddBlackspot X="-3293.1372070313" Y="-2156.9799804688" Z="30.924919128418" Range="50" />
+		<AddBlackspot X="-3641.353515625" Y="-1117.1583251953" Z="-0.91309612989426" Range="25" />
+		<AddBlackspot X="-3664.0363769531" Y="-1135.1298828125" Z="-0.97469347715378" Range="25" />
+		<AddBlackspot X="-3691.2004394531" Y="-1165.2075195313" Z="-0.91311585903168" Range="25" />
+		<AddBlackspot X="-3724.8586425781" Y="-1205.2137451172" Z="-0.98553043603897" Range="25" />
+		<AddBlackspot X="-3745.6721191406" Y="-1234.1346435547" Z="-0.99493473768234" Range="25" />
+		<AddBlackspot X="-3767.3825683594" Y="-1265.0242919922" Z="-0.94344329833984" Range="25" />		
 		<!-- Hotspots -->
 		<AddHotspot X="-3612.1755371094" Y="-1257.0305175781" Z="9.370096206665" Range="150" />
 		<AddHotspot X="-3568.3615722656" Y="-1349.7880859375" Z="10.159433364868" Range="150" />
@@ -211,6 +218,7 @@
 	<If Condition="Data.HasActiveQuest('In Search of The Excavation Team', 306) == true and Data.AllQuestObjectivesAreComplete('In Search of The Excavation Team', 306) == true">
 		<ClearHotspots />
 		<SetEnableIgnoreIfAgroAround Value="true" />
+		<SetMaxZDifference Value="20" />
 		<AddBlackspot X="-3355.8095703125" Y="-1590.3544921875" Z="9.9569292068481" Range="100" />
 		<AddBlackspot X="-3383.7919921875" Y="-1509.9903564453" Z="12.763855934143" Range="100" />
 		<AddBlackspot X="-3463.7250976563" Y="-1442.0322265625" Z="9.1462001800537" Range="100" />
