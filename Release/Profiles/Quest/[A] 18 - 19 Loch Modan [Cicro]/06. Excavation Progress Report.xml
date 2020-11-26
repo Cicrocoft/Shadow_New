@@ -158,10 +158,13 @@
 	<!-- TakeQuest -->
 	<If Condition="Data.HasActiveQuest('Excavation Progress Report') == false and Data.HasCompletedQuest('Excavation Progress Report') == false">
 		<TakeQuest NpcName="Prospector Ironband" QuestId="298" QuestName="Excavation Progress Report" />
-	</If> 	
+	</If> 		
 	<If Condition="Data.HasActiveQuest('Excavation Progress Report') == true">
         <ReturnQuest NpcName="Jern Hornhelm" QuestId="298" QuestName="Excavation Progress Report" />
     </If>
+    <If Condition="Data.HasActiveQuest('Ironband\'s Excavation') == true">
+        <ReturnQuest NpcName="Magmar Fellhew" QuestId="436" QuestName="Ironband\'s Excavation" />
+    </If>		
 	<If Condition="Data.HasActiveQuest('Report to Ironforge') == false and Data.HasCompletedQuest('Report to Ironforge') == false and Data.HasCompletedQuest('Excavation Progress Report') == true">
 		<TakeQuest NpcName="Jern Hornhelm" QuestId="301" QuestName="Report to Ironforge" />
 	</If> 
