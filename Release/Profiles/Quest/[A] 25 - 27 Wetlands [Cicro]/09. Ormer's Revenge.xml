@@ -166,15 +166,17 @@
 	<If Condition="Data.HasActiveQuest('Ormer\'s Revenge', 294) == false and Data.HasCompletedQuest('Ormer\'s Revenge', 294) == false">
 		<TakeQuest NpcName="Ormer Ironbraid" QuestId="294" QuestName="Ormer\'s Revenge" />
 	</If>
+		<SetEnableIgnoreIfAgroAround Value="false" />
 	<If Condition="Data.HasActiveQuest('Ormer\'s Revenge', 294) == true and Data.AllQuestObjectivesAreComplete('Ormer\'s Revenge', 294) == false">
 		<!-- Objective Settings -->
-		<SetTargetingMode Mode="Around Points" />
-		<SetEnableIgnoreIfAgroAround Value="false" />
-		<ClearHotspots />
-		<ClearBlackspots />
 			<SetBaseSettings />
 	<SetVendorNpc NpcName="Murndan Derth" />
-	<SetRepairNpc NpcName="Murndan Derth" />			
+	<SetRepairNpc NpcName="Murndan Derth" />
+		<SetTargetingMode Mode="Around Points" />
+
+		<ClearHotspots />
+		<ClearBlackspots />
+			
 		<!-- Monsterfilter -->
 		<ClearMonsterFilter/>
 		<SetMonsterFilterMode Mode="None" />	
