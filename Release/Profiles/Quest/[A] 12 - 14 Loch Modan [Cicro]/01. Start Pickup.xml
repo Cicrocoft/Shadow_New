@@ -5,7 +5,7 @@
 		<SetEnableVendoring Value="false"/>
 		<SetEnableRepairing Value="false"/>
 		<SetEnableRestockItems Value="false"/>
-		<If Condition="GetZoneText() == 'Stormwind City'">	
+		<If Condition="GetZoneText() == 'Stormwind City' or GetZoneText() == 'Elwynn Forest'">	
 			<If Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('Swords') == nil and GetMoney() &gt; 1000" >
 				<LearnWeaponSkill NpcId="11867" NpcName="Woo Ping" SkillName="One-Handed Swords" />	
 			</If>		
@@ -16,6 +16,7 @@
 				<NPCInteract NpcName="Dungar Longdrink" />			
 			</If>	
 		<SWtoIFTram />
+		<BotSleep Value="1000" />
 		<If Condition="GetZoneText() == 'City of Ironforge'">
 			<NPCInteract NpcName="Gryth Thurden" />
 			<Wait Value="100" />
