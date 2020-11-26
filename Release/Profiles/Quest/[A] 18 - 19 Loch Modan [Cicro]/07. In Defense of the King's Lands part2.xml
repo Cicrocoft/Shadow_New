@@ -177,8 +177,6 @@
 		<AddBlackspot X="-5866.6948242188" Y="-2855.2563476563" Z="366.14541625977" Range="40" /> 
 		<ReturnQuest NpcName="Mountaineer Gravelgaw" QuestId="237" QuestName="In Defense of the King\'s Lands" />
     </If>
-	<If Condition="Data.HasActiveQuest('In Defense of the King\'s Lands', 263) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 263) == false and Data.HasCompletedQuest('In Defense of the King\'s Lands', 237) == true">	
-		<TakeQuest NpcName="Mountaineer Wallbang" QuestId="263" QuestName="In Defense of the King\'s Lands" />
-	</If>
+
 	
 </ShadowProfile>
