@@ -27,16 +27,12 @@
 	<If Condition="Data.PlayerClass() == WoWClass.Rogue and select(4, GetItemInfo(GetInventoryItemLink('player', 16))) &lt; 25 and GetMoney() &gt;= 8000" >
        <NPCInteract NpcName="Felicia Maline" />
 		<NPCInteract NpcName="Gavin Gnarltree" DestinationMap="0" />	
-		<BuyItem ItemId="923" ItemName="Gavin Gnarltree" NpcId="225" NpcName="Grawn Thromwyn" Amount="1" />	
-	</If>
-	<If Condition="Data.PlayerClass() == WoWClass.Rogue and select(4, GetItemInfo(GetInventoryItemLink('player', 17))) &lt; 25 and GetMoney() &gt;= 8000" >
-		<NPCInteract NpcName="Gavin Gnarltree" DestinationMap="0" />	
-		<BuyItem ItemId="923" ItemName="Gavin Gnarltree" NpcId="225" NpcName="Grawn Thromwyn" Amount="1" />	
+		<BuyItem ItemId="923" ItemName="Longsword" NpcId="225" NpcName="Gavin Gnarltree" Amount="1" />	
 	</If>
 	<If Condition="Data.PlayerClass() == WoWClass.Hunter and select(4, GetItemInfo(GetInventoryItemLink('player', 16))) &lt; 22 and GetMoney() &gt;= 9000" >
         <NPCInteract NpcName="Felicia Maline" />
 		<NPCInteract NpcName="Gavin Gnarltree" DestinationMap="0" />	
-		<BuyItem ItemId="926" ItemName="Gavin Gnarltree" NpcId="225" NpcName="Grawn Thromwyn" Amount="1" />	
+		<BuyItem ItemId="926" ItemName="Battle Axe" NpcId="225" NpcName="Gavin Gnarltree" Amount="1" />	
 	</If>    
 
     <If Condition="Data.HasActiveQuest('The Price of Shoes') == true">
