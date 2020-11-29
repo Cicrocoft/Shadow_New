@@ -43,7 +43,8 @@
     <SetEnablePreemptiveMonsterAttack Value="true"/>
 	<SetEnableAutoLoot Value="true" />
 	<SetEnableMonsterLevelFilter Value="true" />
-
+	<SetEnableAutoLearnSkills Value="true" />
+	
 	<!-- Rest Settings -->
 	<!-- Rogue -->	
     <If Condition="Data.PlayerClass() == WoWClass.Rogue">
