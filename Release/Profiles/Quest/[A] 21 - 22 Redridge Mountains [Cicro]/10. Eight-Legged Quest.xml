@@ -21,7 +21,7 @@
     <SetEnableIgnoreLootAroundMobs Value="true"/>
     <SetEnablePreemptiveMonsterAttack Value="true"/>
 	<SetEnableAutoLoot Value="true" />
-
+    <SetEnableAutoLearnSkills Value="true" />
 
 	<!-- Rest Settings -->
 	<!-- Rogue -->	
