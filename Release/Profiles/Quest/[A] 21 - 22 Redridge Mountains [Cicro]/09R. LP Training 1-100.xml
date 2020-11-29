@@ -1,4 +1,5 @@
 <ShadowProfile Condition="Data.PlayerClass() == WoWClass.Rogue and Data.GetMyProfessionLevel('LockPicking') ~= nil">
+<SetEnableAutoLearnSkills Value="false" />
 <If Condition="Data.GetMyProfessionLevel('LockPicking') &lt; 100">
     <SetEnableRestockItems Value="true"/>
     <AddRestockItem ItemName="Thieves\' Tools" NpcName="Jasper Fel" UnderAmount="0" BuyAmount="1"/>
@@ -25,4 +26,5 @@
 		<BotSleep Value="10000" />
 	</If>	
 </If>
+<SetEnableAutoLearnSkills Value="true" />
 </ShadowProfile>
